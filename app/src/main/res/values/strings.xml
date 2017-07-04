@@ -18,5 +18,6 @@
     <string name="password">Password</string>
     <string name="not_sign_up">No account yet?</string>
     <string name="sign_up">Sign up</string>
+    <string name="register">Register now</string>
 
 </resources>
