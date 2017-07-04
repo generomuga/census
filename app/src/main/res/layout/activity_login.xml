@@ -15,7 +15,7 @@
 
         <EditText
             android:id="@+id/userEmail"
-            android:layout_width="match_parent"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="15dp"
@@ -24,12 +24,13 @@
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:textAlignment="center"
+            android:textColorHint="@color/colorHint"
             android:background="@color/colorLoginEditText"
             android:padding="10dp"/>
 
         <EditText
             android:id="@+id/userPassword"
-            android:layout_width="match_parent"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
@@ -37,7 +38,12 @@
             android:gravity="center"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColorHint="@color/colorHint"
+            android:background="@color/colorLoginEditText"
+            android:padding="10dp"/>
+
+        
 
     </LinearLayout>
 

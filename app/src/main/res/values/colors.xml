@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorLogin">#31a354</color>
     <color name="colorLoginEditText">#ffffff</color>
+    <color name="colorHint">#A9A9A9</color>
 </resources>
