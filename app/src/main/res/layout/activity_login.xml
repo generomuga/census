@@ -44,7 +44,7 @@
             android:padding="10dp"/>
 
         <Button
-            android:id="@+id/buttonLogin"
+            android:id="@+id/buttonSignIn"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -66,6 +66,17 @@
             android:textAlignment="center"
             android:textStyle="bold"/>
 
+        <Button
+            android:id="@+id/buttonSignUp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="@string/sign_up"
+            android:background="@drawable/button_round"
+            android:padding="15dp"/>
 
     </LinearLayout>
 
