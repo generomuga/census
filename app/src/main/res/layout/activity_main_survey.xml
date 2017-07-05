@@ -27,7 +27,7 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/image_button_color"
             android:src="@mipmap/ic_assignment_white_24dp"/>
 
         <ImageButton
@@ -35,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/image_button_color"
             android:src="@mipmap/ic_card_membership_white_24dp"/>
 
     </LinearLayout>
