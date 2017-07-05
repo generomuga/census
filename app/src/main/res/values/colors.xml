@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#31a354</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#31a354</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorLogin">#31a354</color>
     <color name="colorLoginEditText">#ffffff</color>
     <color name="colorHint">#A9A9A9</color>
+    <color name="colorPressImageButton">#019334</color>
 </resources>
