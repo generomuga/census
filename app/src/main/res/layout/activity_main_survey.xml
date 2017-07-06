@@ -22,20 +22,22 @@
         android:layout_alignParentBottom="true">
 
         <ImageButton
-            android:id="@+id/imageButton1"
+            android:id="@+id/imageButtonFamily"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/image_button_color"
-            android:src="@mipmap/ic_perm_identity_white_24dp"/>
+            android:src="@mipmap/ic_perm_identity_white_24dp"
+            android:onClick="changeFragment"/>
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/imageButtonHealth"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/image_button_color"
-            android:src="@mipmap/ic_assignment_white_24dp"/>
+            android:src="@mipmap/ic_assignment_white_24dp"
+            android:onClick="changeFragment"/>
 
         <ImageButton
             android:id="@+id/imageButton3"
