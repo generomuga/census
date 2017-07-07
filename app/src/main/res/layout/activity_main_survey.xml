@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="census.com.census.MainSurveyActivity"
-    android:weightSum="9">
+    android:weightSum="9"
+    android:background="@color/colorPrimaryDark">
 
     <include android:id="@+id/toolBarSurvey" layout="@layout/app_bar_survey"/>
-
 
     <fragment
         android:name="census.com.census.FamilyFragment"

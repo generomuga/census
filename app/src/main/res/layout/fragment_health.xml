@@ -4,5 +4,4 @@
     android:layout_height="match_parent"
     tools:context="census.com.census.HealthFragment"
     android:background="@color/colorLogin">
-
 </FrameLayout>

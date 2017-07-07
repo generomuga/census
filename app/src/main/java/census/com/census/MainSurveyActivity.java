@@ -45,5 +45,5 @@ public class MainSurveyActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_survey,menu);
         return true;
     }
-    
+
 }
