@@ -14,8 +14,6 @@ public class FamilyFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_family, container, false);
-        //View myFragmentView = inflater.inflate(R.layout.activity_main_survey,container,false);
-        //return myFragmentView;
     }
 
 }

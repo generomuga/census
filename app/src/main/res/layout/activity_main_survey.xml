@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="census.com.census.MainSurveyActivity">
+    tools:context="census.com.census.MainSurveyActivity"
+    android:weightSum="9">
+
+    <include android:id="@+id/toolBarSurvey" layout="@layout/app_bar_survey"/>
+
 
     <fragment
         android:name="census.com.census.FamilyFragment"
         android:id="@+id/fragmentMain"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:background="@color/colorPrimary"
         android:orientation="horizontal"
-        android:weightSum="3"
-        android:layout_alignParentBottom="true">
+        android:weightSum="3">
 
         <ImageButton
             android:id="@+id/imageButtonFamily"
@@ -49,6 +54,6 @@
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>
 
 
