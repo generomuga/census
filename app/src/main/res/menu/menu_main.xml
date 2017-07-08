@@ -2,7 +2,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/action_navigation_drawer"
-        android:icon="@mipmap/ic_menu_white_24dp"
-        android:background="@color/colorLoginEditText"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never"/>
 </menu>
