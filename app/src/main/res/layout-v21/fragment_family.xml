@@ -210,34 +210,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="6">
-
-                <CheckBox
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Bicycle"
-                    android:textColor="@color/colorEditText"
-                    android:buttonTint="@color/colorAccent"
-                    android:layout_weight="3.5"
-                    android:layout_marginLeft="15dp"/>
-
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:entries="@array/array_year"
-                    android:backgroundTint="#000"
-                    android:popupBackground="@color/colorPrimary"
-                    android:layout_weight="4"/>
-
-            </LinearLayout>
-
-
-
-
         </LinearLayout>
 
     </ScrollView>
