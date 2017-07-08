@@ -19,6 +19,7 @@ public class MainSurveyActivity extends AppCompatActivity {
 
         toolBarSurvey = (Toolbar) findViewById(R.id.toolBarSurvey);
         setSupportActionBar(toolBarSurvey);
+        getSupportActionBar().setTitle("Survey");
     }
 
     public void changeFragment(View view){
