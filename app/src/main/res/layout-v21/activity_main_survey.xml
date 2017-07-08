@@ -1,29 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="census.com.census.MainSurveyActivity"
-    android:weightSum="9"
+    android:weightSum="4"
     android:background="@color/colorPrimaryDark">
 
-    <include android:id="@+id/toolBarSurvey" layout="@layout/app_bar_survey"/>
-
-    <fragment
-            android:name="census.com.census.FamilyFragment"
-            android:id="@+id/fragmentMain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="8"/>
+    <LinearLayout
+        android:id="@+id/linearLayoutToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true">
+        <include android:id="@+id/toolBarSurvey" layout="@layout/app_bar_survey" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/linearLayoutToolbar">
+
+        <fragment
+            android:name="census.com.census.FamilyFragment"
+            android:id="@+id/fragmentMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:background="@color/colorPrimary"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="3"
+        android:layout_alignParentBottom="true">
 
         <ImageButton
             android:id="@+id/imageButtonFamily"
@@ -53,6 +66,6 @@
 
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
 
 
