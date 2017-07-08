@@ -19,7 +19,7 @@ public class MainSurveyActivity extends AppCompatActivity {
 
         toolBarSurvey = (Toolbar) findViewById(R.id.toolBarSurvey);
         setSupportActionBar(toolBarSurvey);
-        getSupportActionBar().setTitle("Survey");
+        getSupportActionBar().setTitle("Family Information");
     }
 
     public void changeFragment(View view){
@@ -27,12 +27,20 @@ public class MainSurveyActivity extends AppCompatActivity {
 
         switch (view.getId()){
             case R.id.imageButtonFamily:
+
+                getSupportActionBar().setTitle("Family Information");
+
                 fragment = new FamilyFragment();
                 getSupportFragmentManager().beginTransaction()
                         //.replace(R.id.fragmentMain,fragment,fragment.getClass().getSimpleName()).addToBackStack(null).commit();
                         .replace(R.id.fragmentMain,fragment,null).commit();
+
+
                 break;
             case R.id.imageButtonHealth:
+
+                getSupportActionBar().setTitle("Education Information");
+
                 fragment = new HealthFragment();
                 getSupportFragmentManager().beginTransaction()
                         //.replace(R.id.fragmentMain,fragment,fragment.getClass().getSimpleName()).addToBackStack(null).commit();
