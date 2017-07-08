@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#388E3C</color>
-    <color name="colorPrimaryDark">#2E7D32</color>
+    <color name="colorPrimary">#303F9F</color>
+    <color name="colorPrimaryDark">#1A237E</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorLogin">#31a354</color>
     <color name="colorLoginEditText">#ffffff</color>
     <color name="colorHint">#A9A9A9</color>
     <color name="colorPressImageButton">#019334</color>
+    <color name="colorEditText">#212121</color>
+    <color name="colorTextView">#607D8B</color>
 </resources>

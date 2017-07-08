@@ -25,4 +25,14 @@
 
     <string name="family_information">Family Information</string>
 
+    <string-array name="array_year">
+        <item>1980</item>
+        <item>1981</item>
+        <item>1982</item>
+        <item>1983</item>
+        <item>1984</item>
+    </string-array>
+
+
+
 </resources>
