@@ -34,7 +34,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginRight="15dp"
+                android:thumbTint="@color/colorAccent"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -56,7 +57,8 @@
                 android:layout_marginBottom="5dp"
                 android:entries="@array/array_year"
                 android:backgroundTint="#000"
-                android:popupBackground="@color/colorPrimary"/>
+                android:popupBackground="@color/colorPrimary"
+                android:foregroundTint="@color/colorEditText"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -133,31 +135,107 @@
                 android:layout_marginRight="15dp"
                 android:textSize="12sp"/>
 
-            <CheckBox
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:text="Bicycle"
-                android:textColor="@color/colorEditText"
-                android:buttonTint="@color/colorEditText"/>
+                android:orientation="horizontal"
+                android:weightSum="6">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Type and number of vehicle owned"
-                android:textColor="@color/colorTextView"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:textSize="12sp"/>
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Bicycle"
+                    android:textColor="@color/colorEditText"
+                    android:buttonTint="@color/colorAccent"
+                    android:layout_weight="3.5"
+                    android:layout_marginLeft="15dp"/>
 
-            <CheckBox
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:entries="@array/array_year"
+                    android:backgroundTint="#000"
+                    android:popupBackground="@color/colorPrimary"
+                    android:layout_weight="4"/>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:text="Bicycle"
-                android:buttonTint="@color/colorEditText"/>
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Bicycle"
+                    android:textColor="@color/colorEditText"
+                    android:buttonTint="@color/colorAccent"
+                    android:layout_weight="3.5"
+                    android:layout_marginLeft="15dp"/>
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:entries="@array/array_year"
+                    android:backgroundTint="#000"
+                    android:popupBackground="@color/colorPrimary"
+                    android:layout_weight="4"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Bicycle"
+                    android:textColor="@color/colorEditText"
+                    android:buttonTint="@color/colorAccent"
+                    android:layout_weight="3.5"
+                    android:layout_marginLeft="15dp"/>
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:entries="@array/array_year"
+                    android:backgroundTint="#000"
+                    android:popupBackground="@color/colorPrimary"
+                    android:layout_weight="4"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Bicycle"
+                    android:textColor="@color/colorEditText"
+                    android:buttonTint="@color/colorAccent"
+                    android:layout_weight="3.5"
+                    android:layout_marginLeft="15dp"/>
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:entries="@array/array_year"
+                    android:backgroundTint="#000"
+                    android:popupBackground="@color/colorPrimary"
+                    android:layout_weight="4"/>
+
+            </LinearLayout>
+
+
 
 
         </LinearLayout>
