@@ -78,10 +78,11 @@
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint"
                 android:hint="Municipal,Province"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Place of origin before living in the barangay"
+                android:text="Contact number (Landline/Mobile)"
                 android:textColor="@color/colorTextView"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
@@ -97,11 +98,12 @@
                 android:layout_marginBottom="5dp"
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint"
-                android:hint="Municipal,Province"/>
+                android:hint="+63"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Place of origin before living in the barangay"
+                android:text="Internet Service Provider"
                 android:textColor="@color/colorTextView"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
@@ -109,19 +111,21 @@
                 android:layout_marginRight="15dp"
                 android:textSize="12sp"/>
 
-            <EditText
+            <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
-                android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint"
-                android:hint="Municipal,Province"/>
+                android:entries="@array/array_year"
+                android:backgroundTint="#000"
+                android:popupBackground="@color/colorPrimary"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Place of origin before living in the barangay"
+                android:text="Type and number of vehicle owned"
                 android:textColor="@color/colorTextView"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
@@ -129,19 +133,18 @@
                 android:layout_marginRight="15dp"
                 android:textSize="12sp"/>
 
-            <EditText
+            <CheckBox
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="5dp"
+                android:text="Bicycle"
                 android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint"
-                android:hint="Municipal,Province"/>
+                android:buttonTint="@color/colorEditText"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Place of origin before living in the barangay"
+                android:text="Type and number of vehicle owned"
                 android:textColor="@color/colorTextView"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
@@ -149,16 +152,12 @@
                 android:layout_marginRight="15dp"
                 android:textSize="12sp"/>
 
-            <EditText
+            <CheckBox
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="5dp"
-                android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint"
-                android:hint="Municipal,Province"/>
-
+                android:text="Bicycle"
+                android:buttonTint="@color/colorEditText"/>
 
 
         </LinearLayout>
