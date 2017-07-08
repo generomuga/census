@@ -29,13 +29,14 @@
 
     </RelativeLayout>
 
-    <fragment
+    <!--for navigation drawer-->
+    <!--<fragment
         android:layout_width="280dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:layout="@layout/fragment_navigation_drawer"
         android:name="census.com.census.NavigationDrawerFragment"
-        tools:layout="@layout/fragment_navigation_drawer"/>
+        tools:layout="@layout/fragment_navigation_drawer"/>-->
 
 </android.support.v4.widget.DrawerLayout>
 
