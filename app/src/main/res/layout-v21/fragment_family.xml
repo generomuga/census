@@ -9,57 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/elevated_rectangle"
-        android:elevation="5dp"
-        android:layout_margin="10dp">
+        android:layout_margin="5dp"
+        android:elevation="5dp">
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Number of family members"
-                android:textColor="@color/colorTextView"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:textSize="12sp"/>
-
-            <SeekBar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Year first resided in the location"
-                android:textColor="@color/colorTextView"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:textSize="12sp"/>
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:entries="@array/array_year"
-                android:backgroundTint="@color/colorPrimary"
-                android:gravity="left"/>
-
-            
-            
-        </LinearLayout>
-
+            android:layout_height="wrap_content"
+            android:text="asdasdd"
+            android:textColor="#000"/>
 
     </ScrollView>
-
 
 </FrameLayout>

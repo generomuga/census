@@ -50,8 +50,6 @@
                 android:entries="@array/array_year"
                 android:backgroundTint="@color/colorPrimary"
                 android:gravity="left"/>
-
-            
             
         </LinearLayout>
 

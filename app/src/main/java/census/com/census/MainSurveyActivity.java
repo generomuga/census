@@ -2,6 +2,7 @@ package census.com.census;
 
 
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -27,26 +28,23 @@ public class MainSurveyActivity extends AppCompatActivity {
 
         switch (view.getId()){
             case R.id.imageButtonFamily:
-
                 getSupportActionBar().setTitle("Family Information");
-
                 fragment = new FamilyFragment();
-                getSupportFragmentManager().beginTransaction()
-                        //.replace(R.id.fragmentMain,fragment,fragment.getClass().getSimpleName()).addToBackStack(null).commit();
-                        .replace(R.id.fragmentMain,fragment,null).commit();
-
-
+                switchFragment(fragment);
                 break;
+
             case R.id.imageButtonHealth:
-
                 getSupportActionBar().setTitle("Education Information");
-
                 fragment = new HealthFragment();
-                getSupportFragmentManager().beginTransaction()
-                        //.replace(R.id.fragmentMain,fragment,fragment.getClass().getSimpleName()).addToBackStack(null).commit();
-                        .replace(R.id.fragmentMain,fragment,null).commit();
+                switchFragment(fragment);
                 break;
         }
+    }
+
+    public void switchFragment(Fragment fragment){
+        getSupportFragmentManager().beginTransaction()
+                //.replace(R.id.fragmentMain,fragment,fragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                .replace(R.id.fragmentMain,fragment,null).commit();
     }
 
     @Override

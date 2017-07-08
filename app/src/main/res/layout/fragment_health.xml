@@ -3,5 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="census.com.census.HealthFragment"
-    android:background="@color/colorLogin">
+    android:background="#aaa">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/elevated_rectangle">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="fasdas"
+            android:textColor="#000"/>
+
+    </ScrollView>
+
 </FrameLayout>
