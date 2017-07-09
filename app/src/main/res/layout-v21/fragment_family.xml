@@ -112,15 +112,14 @@
                 android:textSize="12sp" />
 
             <Spinner
+                android:id="@+id/spinnerISP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="#000"
-                android:entries="@array/array_year"
-                android:popupBackground="@color/colorPrimary" />
+                android:popupBackground="@color/colorPrimary"/>
 
             <TextView
                 android:layout_width="match_parent"
