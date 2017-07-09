@@ -9,9 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 
-import java.lang.reflect.Array;
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,6 +26,11 @@ public class FamilyFragment extends Fragment {
 
     private Spinner spinnerYear;
     private Spinner spinnerISP;
+
+    private SeekBar seekBarNoFamMembers;
+
+    private TextView textViewNoFamMembers;
+
     private ArrayList years;
     private List<String> isps;
     private ArrayAdapter<String> spinnerArrayAdapter;
@@ -37,6 +45,28 @@ public class FamilyFragment extends Fragment {
         spinnerYear = (Spinner) view.findViewById(id.spinnerYear);
         spinnerISP = (Spinner) view.findViewById(id.spinnerISP);
 
+        seekBarNoFamMembers = (SeekBar) view.findViewById(id.seekBarNoFamilyMembers);
+
+        textViewNoFamMembers = (TextView) view.findViewById(id.textViewNoFamMembers);
+
+        seekBarNoFamMembers.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                textViewNoFamMembers.setText(String.valueOf(progress));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
         //get spinner values for years
         getYears();
         useArrayAdapter(years);
@@ -47,7 +77,6 @@ public class FamilyFragment extends Fragment {
         useArrayAdapter((ArrayList) isps);
         spinnerISP.setAdapter(spinnerArrayAdapter);
 
-        //return inflater.inflate(layout.fragment_family, container, false);
         return  view;
     }
 
@@ -63,7 +92,6 @@ public class FamilyFragment extends Fragment {
         for(int year = 1980;year<=currentYear;year++){
             years.add(Integer.toString(year));
         }
-
     }
 
     private void getISP(){
@@ -76,7 +104,6 @@ public class FamilyFragment extends Fragment {
                 "Destiny Cable Internet",
                 "Sky Broadband"
         ));
-
     }
 
 
