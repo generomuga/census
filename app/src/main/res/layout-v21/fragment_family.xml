@@ -158,21 +158,12 @@
                 android:orientation="horizontal"
                 android:weightSum="6">
 
-                <CheckBox
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
-                    android:layout_weight="3.5"
-                    android:buttonTint="@color/colorAccent"
-                    android:text="Bicycle"
-                    android:textColor="@color/colorEditText" />
-
                 <Spinner
+                    android:id="@+id/spinnerVehicle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="4"
                     android:backgroundTint="#000"
-                    android:entries="@array/array_year"
                     android:popupBackground="@color/colorPrimary" />
 
             </LinearLayout>

@@ -26,6 +26,7 @@ public class FamilyFragment extends Fragment {
 
     private Spinner spinnerYear;
     private Spinner spinnerISP;
+    private Spinner spinnerVehicle;
 
     private SeekBar seekBarNoFamMembers;
 
@@ -33,6 +34,10 @@ public class FamilyFragment extends Fragment {
 
     private ArrayList years;
     private List<String> isps;
+
+    private String[] vehicles;
+    private ArrayList listVehicle;
+
     private ArrayAdapter<String> spinnerArrayAdapter;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -44,11 +49,12 @@ public class FamilyFragment extends Fragment {
         View view = inflater.inflate(layout.fragment_family,container,false);
         spinnerYear = (Spinner) view.findViewById(id.spinnerYear);
         spinnerISP = (Spinner) view.findViewById(id.spinnerISP);
+        spinnerVehicle = (Spinner) view.findViewById(id.spinnerVehicle);
 
         seekBarNoFamMembers = (SeekBar) view.findViewById(id.seekBarNoFamilyMembers);
-
         textViewNoFamMembers = (TextView) view.findViewById(id.textViewNoFamMembers);
 
+        //get the seekbar value
         seekBarNoFamMembers.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -66,7 +72,6 @@ public class FamilyFragment extends Fragment {
             }
         });
 
-
         //get spinner values for years
         getYears();
         useArrayAdapter(years);
@@ -76,6 +81,9 @@ public class FamilyFragment extends Fragment {
         getISP();
         useArrayAdapter((ArrayList) isps);
         spinnerISP.setAdapter(spinnerArrayAdapter);
+
+        //get vehicle value
+        getVehicle();
 
         return  view;
     }
@@ -106,6 +114,18 @@ public class FamilyFragment extends Fragment {
         ));
     }
 
+    private void getVehicle(){
+        vehicles = new String[]{"Bus","Bike"};
+        listVehicle = new ArrayList<>();
+        for(int i=0;i<vehicles.length;i++){
+            VehicleVO vehicleVO = new VehicleVO();
+            vehicleVO.setVehicle(vehicles[i]);
+            vehicleVO.setSelected(false);
+            listVehicle.add(vehicles);
+        }
+        //VehicleAdapter vehicleAdapter = new VehicleAdapter(getActivity(),0,listVehicle);
+        //spinnerVehicle.setAdapter(vehicleAdapter);
+    }
 
 
 
