@@ -12,128 +12,126 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/elevated_rectangle"
             android:layout_margin="5dp"
+            android:background="@drawable/elevated_rectangle"
             android:elevation="5dp"
             android:orientation="vertical">
 
             <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Number of family members"
-            android:textColor="@color/colorTextView"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:textSize="12sp"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Number of family members"
+                android:textColor="@color/colorTextView"
+                android:textSize="12sp" />
 
             <SeekBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:thumbTint="@color/colorAccent"/>
+                android:layout_marginTop="5dp"
+                android:thumbTint="@color/colorAccent" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
                 android:text="Year first resided in the location"
                 android:textColor="@color/colorTextView"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
 
             <Spinner
+                android:id="@+id/spinnerYear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
-                android:entries="@array/array_year"
-                android:backgroundTint="#000"
-                android:popupBackground="@color/colorPrimary"
-                android:foregroundTint="@color/colorEditText"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Place of origin before living in the barangay"
-                android:textColor="@color/colorTextView"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:textSize="12sp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="5dp"
-                android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint"
-                android:hint="Municipal,Province"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Contact number (Landline/Mobile)"
-                android:textColor="@color/colorTextView"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:textSize="12sp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="5dp"
-                android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint"
-                android:hint="+63"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Internet Service Provider"
-                android:textColor="@color/colorTextView"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:textSize="12sp"/>
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
-                android:entries="@array/array_year"
-                android:backgroundTint="#000"
                 android:popupBackground="@color/colorPrimary"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Type and number of vehicle owned"
-                android:textColor="@color/colorTextView"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:textSize="12sp"/>
+                android:layout_marginTop="10dp"
+                android:text="Place of origin before living in the barangay"
+                android:textColor="@color/colorTextView"
+                android:textSize="12sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="Municipal,Province"
+                android:textColor="@color/colorEditText"
+                android:textColorHint="@color/colorHint" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Contact number (Landline/Mobile)"
+                android:textColor="@color/colorTextView"
+                android:textSize="12sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="+63"
+                android:textColor="@color/colorEditText"
+                android:textColorHint="@color/colorHint" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Internet Service Provider"
+                android:textColor="@color/colorTextView"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#000"
+                android:entries="@array/array_year"
+                android:popupBackground="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Type and number of vehicle owned"
+                android:textColor="@color/colorTextView"
+                android:textSize="12sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -144,71 +142,22 @@
                 <CheckBox
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Bicycle"
-                    android:textColor="@color/colorEditText"
-                    android:buttonTint="@color/colorAccent"
+                    android:layout_marginLeft="15dp"
                     android:layout_weight="3.5"
-                    android:layout_marginLeft="15dp"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Bicycle"
+                    android:textColor="@color/colorEditText" />
 
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:entries="@array/array_year"
+                    android:layout_weight="4"
                     android:backgroundTint="#000"
-                    android:popupBackground="@color/colorPrimary"
-                    android:layout_weight="4"/>
+                    android:entries="@array/array_year"
+                    android:popupBackground="@color/colorPrimary" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="6">
-
-                <CheckBox
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Bicycle"
-                    android:textColor="@color/colorEditText"
-                    android:buttonTint="@color/colorAccent"
-                    android:layout_weight="3.5"
-                    android:layout_marginLeft="15dp"/>
-
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:entries="@array/array_year"
-                    android:backgroundTint="#000"
-                    android:popupBackground="@color/colorPrimary"
-                    android:layout_weight="4"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="6">
-
-                <CheckBox
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Bicycle"
-                    android:textColor="@color/colorEditText"
-                    android:buttonTint="@color/colorAccent"
-                    android:layout_weight="3.5"
-                    android:layout_marginLeft="15dp"/>
-
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:entries="@array/array_year"
-                    android:backgroundTint="#000"
-                    android:popupBackground="@color/colorPrimary"
-                    android:layout_weight="4"/>
-
-            </LinearLayout>
 
         </LinearLayout>
 
