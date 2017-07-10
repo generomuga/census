@@ -33,14 +33,20 @@ public class MainSurveyActivity extends AppCompatActivity {
                 break;
 
             case R.id.imageButtonFamily:
-                getSupportActionBar().setTitle("Family Information");
+                getSupportActionBar().setTitle("Family");
                 fragment = new FamilyFragment();
                 switchFragment(fragment);
                 break;
 
             case R.id.imageButtonHealth:
-                getSupportActionBar().setTitle("Education Information");
+                getSupportActionBar().setTitle("Health");
                 fragment = new HealthFragment();
+                switchFragment(fragment);
+                break;
+
+            case R.id.imageButtonEnvironment:
+                getSupportActionBar().setTitle("Environment");
+                fragment = new EnvironmentFragment();
                 switchFragment(fragment);
                 break;
         }
