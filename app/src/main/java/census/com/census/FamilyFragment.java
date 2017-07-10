@@ -82,9 +82,6 @@ public class FamilyFragment extends Fragment {
         useArrayAdapter((ArrayList) isps);
         spinnerISP.setAdapter(spinnerArrayAdapter);
 
-        //get vehicle value
-        getVehicle();
-
         return  view;
     }
 
@@ -114,18 +111,7 @@ public class FamilyFragment extends Fragment {
         ));
     }
 
-    private void getVehicle(){
-        vehicles = new String[]{"Bus","Bike"};
-        listVehicle = new ArrayList<>();
-        for(int i=0;i<vehicles.length;i++){
-            VehicleVO vehicleVO = new VehicleVO();
-            vehicleVO.setVehicle(vehicles[i]);
-            vehicleVO.setSelected(false);
-            listVehicle.add(vehicles);
-        }
-        //VehicleAdapter vehicleAdapter = new VehicleAdapter(getActivity(),0,listVehicle);
-        //spinnerVehicle.setAdapter(vehicleAdapter);
-    }
+
 
 
 
