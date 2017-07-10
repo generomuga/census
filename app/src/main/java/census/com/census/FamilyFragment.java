@@ -26,7 +26,6 @@ public class FamilyFragment extends Fragment {
 
     private Spinner spinnerYear;
     private Spinner spinnerISP;
-    private Spinner spinnerVehicle;
 
     private SeekBar seekBarNoFamMembers;
 
@@ -34,9 +33,6 @@ public class FamilyFragment extends Fragment {
 
     private ArrayList years;
     private List<String> isps;
-
-    private String[] vehicles;
-    private ArrayList listVehicle;
 
     private ArrayAdapter<String> spinnerArrayAdapter;
 
@@ -49,7 +45,6 @@ public class FamilyFragment extends Fragment {
         View view = inflater.inflate(layout.fragment_family,container,false);
         spinnerYear = (Spinner) view.findViewById(id.spinnerYear);
         spinnerISP = (Spinner) view.findViewById(id.spinnerISP);
-        spinnerVehicle = (Spinner) view.findViewById(id.spinnerVehicle);
 
         seekBarNoFamMembers = (SeekBar) view.findViewById(id.seekBarNoFamilyMembers);
         textViewNoFamMembers = (TextView) view.findViewById(id.textViewNoFamMembers);
@@ -110,10 +105,5 @@ public class FamilyFragment extends Fragment {
                 "Sky Broadband"
         ));
     }
-
-
-
-
-
 
 }

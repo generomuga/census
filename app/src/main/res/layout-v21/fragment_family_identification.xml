@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="census.com.census.FamilyFragment"
+    tools:context="census.com.census.FamilyIdentificationFragment"
     android:background="@color/colorLoginEditText">
 
     <ScrollView
@@ -17,46 +17,6 @@
             android:elevation="5dp"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="5dp"
-                android:weightSum="3">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Number of family members"
-                    android:textColor="@color/colorTextView"
-                    android:textSize="12sp"
-                    android:layout_weight="1"/>
-
-                <TextView
-                    android:id="@+id/textViewNoFamMembers"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:textSize="12sp"
-                    android:textColor="@color/colorEditText"
-                    android:text="0"/>
-
-            </LinearLayout>
-
-            <SeekBar
-                android:id="@+id/seekBarNoFamilyMembers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:thumbTint="@color/colorAccent"
-                android:max="20" />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,38 +24,19 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="10dp"
-                android:text="Year first resided in the location"
-                android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:id="@+id/spinnerYear"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:popupBackground="@color/colorPrimary"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:text="Place of origin before living in the barangay"
+                android:layout_weight="1"
+                android:text="First name"
                 android:textColor="@color/colorTextView"
                 android:textSize="12sp" />
 
             <EditText
+                android:id="@+id/editTextFname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:hint="Municipal,Province"
+                android:hint="Juan"
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint" />
 
@@ -106,17 +47,19 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="10dp"
-                android:text="Contact number (Landline/Mobile)"
+                android:layout_weight="1"
+                android:text="Middle name"
                 android:textColor="@color/colorTextView"
                 android:textSize="12sp" />
 
             <EditText
+                android:id="@+id/editTextMname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:hint="+63"
+                android:hint="Amorsolo"
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint" />
 
@@ -127,19 +70,21 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="10dp"
-                android:text="Internet Service Provider"
+                android:layout_weight="1"
+                android:text="Last name"
                 android:textColor="@color/colorTextView"
                 android:textSize="12sp" />
 
-            <Spinner
-                android:id="@+id/spinnerISP"
+            <EditText
+                android:id="@+id/editTextLname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:popupBackground="@color/colorPrimary"/>
+                android:hint="Dela Cruz"
+                android:textColor="@color/colorEditText"
+                android:textColorHint="@color/colorHint" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -148,21 +93,68 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="10dp"
-                android:text="Type and number of vehicle owned"
+                android:layout_weight="1"
+                android:text="Address"
                 android:textColor="@color/colorTextView"
                 android:textSize="12sp" />
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/editTextHouseNo"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="6">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="House no"
+                android:textColor="@color/colorEditText"
+                android:textColorHint="@color/colorHint" />
 
-            </LinearLayout>
+            <EditText
+                android:id="@+id/editTextStreetNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="Street No"
+                android:textColor="@color/colorEditText"
+                android:textColorHint="@color/colorHint" />
 
+            <EditText
+                android:id="@+id/editTextBrgy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="Barangay"
+                android:textColor="@color/colorEditText"
+                android:textColorHint="@color/colorHint" />
+
+            <EditText
+                android:id="@+id/editTextMunicipality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="Municipality"
+                android:textColor="@color/colorEditText"
+                android:textColorHint="@color/colorHint" />
+
+            <EditText
+                android:id="@+id/editTextProvince"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="Province"
+                android:textColor="@color/colorEditText"
+                android:textColorHint="@color/colorHint" />
 
         </LinearLayout>
 
-    </ScrollView>
 
+    </ScrollView>
 </FrameLayout>

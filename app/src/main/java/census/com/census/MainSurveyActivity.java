@@ -25,8 +25,13 @@ public class MainSurveyActivity extends AppCompatActivity {
 
     public void changeFragment(View view){
         Fragment fragment;
-
         switch (view.getId()){
+            case R.id.imageButtonFamilyId:
+                getSupportActionBar().setTitle("Family Identification");
+                fragment = new FamilyIdentificationFragment();
+                switchFragment(fragment);
+                break;
+
             case R.id.imageButtonFamily:
                 getSupportActionBar().setTitle("Family Information");
                 fragment = new FamilyFragment();
