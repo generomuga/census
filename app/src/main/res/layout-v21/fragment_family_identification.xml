@@ -153,8 +153,81 @@
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint" />
 
-        </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Household condition"
+                android:textColor="@color/colorTextView"
+                android:textSize="12sp"
+                android:layout_weight="1"/>
 
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RadioButton
+                    android:id="@+id/radioButtonResident"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Resident"
+                    android:buttonTint="@color/colorAccent"/>
+
+                <RadioButton
+                    android:id="@+id/radioButtonNonResident"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Non-resident"
+                    android:buttonTint="@color/colorAccent"/>
+            </RadioGroup>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RadioButton
+                    android:id="@+id/radioButtonOwner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Owner (main family)"
+                    android:buttonTint="@color/colorAccent"/>
+
+                <RadioButton
+                    android:id="@+id/radioButtonExtended"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Extended"
+                    android:buttonTint="@color/colorAccent"/>
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Family status"
+                android:textColor="@color/colorTextView"
+                android:textSize="12sp"
+                android:layout_weight="1"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RadioButton
+                    android:id="@+id/radioButtonActive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Active"
+                    android:buttonTint="@color/colorAccent"/>
+
+                <RadioButton
+                    android:id="@+id/radioButtonInactive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Inactive"
+                    android:buttonTint="@color/colorAccent"/>
+            </RadioGroup>
+
+        </LinearLayout>
 
     </ScrollView>
 </FrameLayout>
