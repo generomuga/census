@@ -2,7 +2,9 @@ package census.com.census;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +15,13 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.w3c.dom.Text;
+
 
 public class FamilyIdentificationFragment extends Fragment {
 
-    private DatabaseReference dbSurvey;
     private View view;
-    private EditText editTextFName;
+    public EditText editTextFName;
     private EditText editTextMName;
     private EditText editTextLName;
     private EditText editTextHouseNo;
@@ -42,9 +45,6 @@ public class FamilyIdentificationFragment extends Fragment {
         //init views
         initViews();
 
-        //firebase connection
-        initFirebase();
-
         return view;
     }
 
@@ -65,8 +65,9 @@ public class FamilyIdentificationFragment extends Fragment {
         radioButtonInactive = (RadioButton) view.findViewById(R.id.radioButtonInactive);
     }
 
-    private void initFirebase(){
-        dbSurvey = FirebaseDatabase.getInstance().getReference("survey");
+    public void getSamp(){
+
     }
+
 
 }
