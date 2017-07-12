@@ -10,9 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import java.util.Objects;
 
-public class MainSurveyActivity extends AppCompatActivity implements FamilyIdentificationFragment.onSaveDataListener {
+public class MainSurveyActivity extends AppCompatActivity {
 
     private Toolbar toolBarSurvey;
     String tag;
@@ -117,10 +116,5 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
                 Toast.makeText(this, "Hello", Toast.LENGTH_LONG).show();
             }
         }
-    }
-
-    @Override
-    public void saveData(String s) {
-        Toast.makeText(this,s,Toast.LENGTH_SHORT).show();
     }
 }
