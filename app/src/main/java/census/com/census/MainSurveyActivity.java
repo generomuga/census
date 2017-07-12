@@ -18,13 +18,6 @@ public class MainSurveyActivity extends AppCompatActivity {
     String tag;
     Fragment fragment;
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        tag = "FamilyIdentification";
-        fragment = new FamilyIdentificationFragment();
-        switchFragment(fragment,tag);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +27,15 @@ public class MainSurveyActivity extends AppCompatActivity {
         toolBarSurvey = (Toolbar) findViewById(R.id.toolBarSurvey);
         setSupportActionBar(toolBarSurvey);
         getSupportActionBar().setTitle("Family Information");
+
+        //checks for save instance state
+        if(savedInstanceState == null){
+            tag = "FamilyIdentification";
+            fragment = new FamilyIdentificationFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragmentMain,fragment,tag).commit();
+        }
+
     }
 
     public void changeFragment(View view){
@@ -43,7 +45,6 @@ public class MainSurveyActivity extends AppCompatActivity {
                 getSupportActionBar().setTitle("Family Identification");
                 fragment = new FamilyIdentificationFragment();
                 switchFragment(fragment,tag);
-                Toast.makeText(this,tag,Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.imageButtonFamily:
@@ -88,12 +89,10 @@ public class MainSurveyActivity extends AppCompatActivity {
                 checkActiveFragment(tag);
                 break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     private void checkActiveFragment(String tag){
-        //Toast.makeText(this,tag,Toast.LENGTH_SHORT).show();
         Fragment fragment =  getSupportFragmentManager().findFragmentByTag(tag);
 
         if (fragment != null) {
