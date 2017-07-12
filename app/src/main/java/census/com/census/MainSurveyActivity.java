@@ -17,7 +17,6 @@ public class MainSurveyActivity extends AppCompatActivity {
     String tag;
     Fragment fragment;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +34,6 @@ public class MainSurveyActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragmentMain,fragment,tag).commit();
         }
-
     }
 
     public void changeFragment(View view){
@@ -87,7 +85,6 @@ public class MainSurveyActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_save:
                 checkActiveFragment(tag);
-                Toast.makeText(this,FamilyIdentificationFragment.editTextFName.getText().toString(),Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -116,5 +113,9 @@ public class MainSurveyActivity extends AppCompatActivity {
                 Toast.makeText(this, "Hello", Toast.LENGTH_LONG).show();
             }
         }
+    }
+
+    private void saveObjectFamilyIdentification(){
+
     }
 }
