@@ -1,6 +1,8 @@
 package census.com.census;
 
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -21,7 +23,7 @@ import org.w3c.dom.Text;
 public class FamilyIdentificationFragment extends Fragment {
 
     private View view;
-    public EditText editTextFName;
+    public static EditText editTextFName;
     private EditText editTextMName;
     private EditText editTextLName;
     private EditText editTextHouseNo;
@@ -36,6 +38,22 @@ public class FamilyIdentificationFragment extends Fragment {
     private RadioButton radioButtonActive;
     private RadioButton radioButtonInactive;
 
+    //onSaveDataListener saveDataListener;
+
+    public interface onSaveDataListener{
+        void saveData(String s);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        /*try{
+            saveDataListener = (onSaveDataListener) context;
+        }catch (ClassCastException e){
+            throw new ClassCastException(context.toString());
+        }*/
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -44,6 +62,7 @@ public class FamilyIdentificationFragment extends Fragment {
 
         //init views
         initViews();
+        //saveDataListener.saveData(editTextFName.getText().toString());
 
         return view;
     }
@@ -63,10 +82,6 @@ public class FamilyIdentificationFragment extends Fragment {
         radioButtonExtended = (RadioButton) view.findViewById(R.id.radioButtonExtended);
         radioButtonActive = (RadioButton) view.findViewById(R.id.radioButtonActive);
         radioButtonInactive = (RadioButton) view.findViewById(R.id.radioButtonInactive);
-    }
-
-    public void getSamp(){
-
     }
 
 

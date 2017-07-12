@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import java.util.Objects;
 
-public class MainSurveyActivity extends AppCompatActivity {
+public class MainSurveyActivity extends AppCompatActivity implements FamilyIdentificationFragment.onSaveDataListener {
 
     private Toolbar toolBarSurvey;
     String tag;
@@ -24,6 +24,7 @@ public class MainSurveyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_survey);
 
+        //to add toolbar in the activity
         toolBarSurvey = (Toolbar) findViewById(R.id.toolBarSurvey);
         setSupportActionBar(toolBarSurvey);
         getSupportActionBar().setTitle("Family Information");
@@ -87,6 +88,7 @@ public class MainSurveyActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_save:
                 checkActiveFragment(tag);
+                Toast.makeText(this,FamilyIdentificationFragment.editTextFName.getText().toString(),Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -117,4 +119,8 @@ public class MainSurveyActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void saveData(String s) {
+        Toast.makeText(this,s,Toast.LENGTH_SHORT).show();
+    }
 }
