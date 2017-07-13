@@ -191,7 +191,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Owner (main family)"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:checked="true"/>
 
                 <RadioButton
                     android:id="@+id/radioButtonExtended"
@@ -219,7 +220,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Active"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:checked="true"/>
 
                 <RadioButton
                     android:id="@+id/radioButtonInactive"

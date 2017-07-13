@@ -183,11 +183,26 @@ public class MainSurveyActivity extends AppCompatActivity {
             FamilyIdentificationFragment.editTextProvince.setError(errorMsg);
         }
 
-        int selectedId = FamilyIdentificationFragment.radioGroupResidency.getCheckedRadioButtonId();
-        Toast.makeText(this, Integer.toString(selectedId),Toast.LENGTH_SHORT).show();
+        if(FamilyIdentificationFragment.radioButtonResident.isChecked()) {
+            familyIdentification.setResidency(1);
+        }
+        else {
+            familyIdentification.setResidency(0);
+        }
 
-        //familyIdentification.setResidency();
-        //familyIdentification.setOwnership();
-        //familyIdentification.setFamilyStatus();
+        if(FamilyIdentificationFragment.radioButtonOwner.isChecked()){
+            familyIdentification.setOwnership(1);
+        }
+        else{
+            familyIdentification.setOwnership(0);
+        }
+
+        if(FamilyIdentificationFragment.radioButtonActive.isChecked()){
+            familyIdentification.setFamilyStatus(1);
+        }
+        else{
+            familyIdentification.setFamilyStatus(0);
+        }
+
     }
 }

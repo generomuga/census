@@ -1,14 +1,12 @@
 package census.com.census;
 
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 public class FamilyIdentificationFragment extends Fragment {
 
@@ -21,7 +19,6 @@ public class FamilyIdentificationFragment extends Fragment {
     public static EditText editTextBarangay;
     public static EditText editTextMunicipality;
     public static EditText editTextProvince;
-    public static RadioGroup radioGroupResidency;
     public static RadioButton radioButtonResident;
     public static RadioButton radioButtonNonResident;
     public static RadioButton radioButtonOwner;
@@ -48,7 +45,6 @@ public class FamilyIdentificationFragment extends Fragment {
         editTextBarangay = (EditText) view.findViewById(R.id.editTextBrgy);
         editTextMunicipality = (EditText) view.findViewById(R.id.editTextMunicipality);
         editTextProvince = (EditText) view.findViewById(R.id.editTextProvince);
-        radioGroupResidency = (RadioGroup) view.findViewById(R.id.radioGroupResidency);
         radioButtonResident = (RadioButton) view.findViewById(R.id.radioButtonResident);
         radioButtonNonResident = (RadioButton) view.findViewById(R.id.radioButtonNonResident);
         radioButtonOwner = (RadioButton) view.findViewById(R.id.radioButtonOwner);
