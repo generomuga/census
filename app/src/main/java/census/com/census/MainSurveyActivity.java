@@ -2,13 +2,19 @@ package census.com.census;
 
 
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 
 public class MainSurveyActivity extends AppCompatActivity {
@@ -97,7 +103,8 @@ public class MainSurveyActivity extends AppCompatActivity {
             if (fragment.isVisible()) {
                 switch (tag){
                     case "FamilyIdentification":
-                        Toast.makeText(this,"FamilyIdentification",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(this,"FamilyIdentification",Toast.LENGTH_SHORT).show();
+                        saveObjectFamilyIdentification();
                         break;
                     case "Family":
                         Toast.makeText(this,"Family",Toast.LENGTH_SHORT).show();
@@ -116,6 +123,71 @@ public class MainSurveyActivity extends AppCompatActivity {
     }
 
     private void saveObjectFamilyIdentification(){
+        FamilyIdentification familyIdentification = new FamilyIdentification();
 
+        String errorMsg = "This field is required!";
+
+        if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextFName.getText().toString().trim())){
+            familyIdentification.setfName(FamilyIdentificationFragment.editTextFName.getText().toString().trim());
+        }
+        else{
+            FamilyIdentificationFragment.editTextFName.setError(errorMsg);
+        }
+
+        if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextMName.getText().toString().trim())) {
+            familyIdentification.setmName(FamilyIdentificationFragment.editTextMName.getText().toString().trim());
+        }
+        else{
+            FamilyIdentificationFragment.editTextMName.setError(errorMsg);
+        }
+
+        if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextLName.getText().toString().trim())) {
+            familyIdentification.setlName(FamilyIdentificationFragment.editTextLName.getText().toString().trim());
+        }
+        else{
+            FamilyIdentificationFragment.editTextLName.setError(errorMsg);
+        }
+
+        if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim())){
+            familyIdentification.setHouseNp(FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim());
+        }
+        else{
+            FamilyIdentificationFragment.editTextHouseNo.setError(errorMsg);
+        }
+
+        if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim())){
+            familyIdentification.setStreetNo(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim());
+        }
+        else{
+            FamilyIdentificationFragment.editTextHouseNo.setError(errorMsg);
+        }
+
+        if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextBarangay.getText().toString().trim())){
+            familyIdentification.setBarangay(FamilyIdentificationFragment.editTextBarangay.getText().toString().trim());
+        }
+        else{
+            FamilyIdentificationFragment.editTextBarangay.setError(errorMsg);
+        }
+
+        if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextMunicipality.getText().toString().trim())) {
+            familyIdentification.setMunicipality(FamilyIdentificationFragment.editTextMunicipality.getText().toString().trim());
+        }
+        else{
+            FamilyIdentificationFragment.editTextMunicipality.setError(errorMsg);
+        }
+
+        if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextProvince.getText().toString().trim())) {
+            familyIdentification.setProvince(FamilyIdentificationFragment.editTextProvince.getText().toString().trim());
+        }
+        else{
+            FamilyIdentificationFragment.editTextProvince.setError(errorMsg);
+        }
+
+        int selectedId = FamilyIdentificationFragment.radioGroupResidency.getCheckedRadioButtonId();
+        Toast.makeText(this, Integer.toString(selectedId),Toast.LENGTH_SHORT).show();
+
+        //familyIdentification.setResidency();
+        //familyIdentification.setOwnership();
+        //familyIdentification.setFamilyStatus();
     }
 }

@@ -162,6 +162,7 @@
                 android:layout_weight="1"/>
 
             <RadioGroup
+                android:id="@+id/radioGroupResidency"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -170,7 +171,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Resident"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:checked="true"/>
 
                 <RadioButton
                     android:id="@+id/radioButtonNonResident"

@@ -15,66 +15,102 @@ public class FamilyIdentification {
     private int ownership;
     private int familyStatus;
 
-    public FamilyIdentification(String id, String fName, String mName, String lName, String houseNp, String streetNo, String barangay, String municipality, String province, int residency, int ownership, int familyStatus) {
-        this.id = id;
-        this.fName = fName;
-        this.mName = mName;
-        this.lName = lName;
-        this.houseNp = houseNp;
-        this.streetNo = streetNo;
-        this.barangay = barangay;
-        this.municipality = municipality;
-        this.province = province;
-        this.residency = residency;
-        this.ownership = ownership;
-        this.familyStatus = familyStatus;
+    public FamilyIdentification() {
     }
 
     public String getId() {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getfName() {
         return fName;
+    }
+
+    public void setfName(String fName) {
+        this.fName = fName;
     }
 
     public String getmName() {
         return mName;
     }
 
+    public void setmName(String mName) {
+        this.mName = mName;
+    }
+
     public String getlName() {
         return lName;
+    }
+
+    public void setlName(String lName) {
+        this.lName = lName;
     }
 
     public String getHouseNp() {
         return houseNp;
     }
 
+    public void setHouseNp(String houseNp) {
+        this.houseNp = houseNp;
+    }
+
     public String getStreetNo() {
         return streetNo;
+    }
+
+    public void setStreetNo(String streetNo) {
+        this.streetNo = streetNo;
     }
 
     public String getBarangay() {
         return barangay;
     }
 
+    public void setBarangay(String barangay) {
+        this.barangay = barangay;
+    }
+
     public String getMunicipality() {
         return municipality;
+    }
+
+    public void setMunicipality(String municipality) {
+        this.municipality = municipality;
     }
 
     public String getProvince() {
         return province;
     }
 
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
     public int getResidency() {
         return residency;
+    }
+
+    public void setResidency(int residency) {
+        this.residency = residency;
     }
 
     public int getOwnership() {
         return ownership;
     }
 
+    public void setOwnership(int ownership) {
+        this.ownership = ownership;
+    }
+
     public int getFamilyStatus() {
         return familyStatus;
+    }
+
+    public void setFamilyStatus(int familyStatus) {
+        this.familyStatus = familyStatus;
     }
 }
