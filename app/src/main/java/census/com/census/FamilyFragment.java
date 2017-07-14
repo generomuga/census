@@ -24,12 +24,11 @@ import static census.com.census.R.*;
 
 public class FamilyFragment extends Fragment {
 
-    private Spinner spinnerYear;
-    private Spinner spinnerISP;
-
-    private SeekBar seekBarNoFamMembers;
-
-    private TextView textViewNoFamMembers;
+    private View view;
+    public static Spinner spinnerYear;
+    public static Spinner spinnerISP;
+    public static SeekBar seekBarNoFamMembers;
+    private static TextView textViewNoFamMembers;
 
     private ArrayList years;
     private List<String> isps;
@@ -38,16 +37,11 @@ public class FamilyFragment extends Fragment {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        view = inflater.inflate(layout.fragment_family,container,false);
 
-        //get reference of widgets from XML layout
-        View view = inflater.inflate(layout.fragment_family,container,false);
-        spinnerYear = (Spinner) view.findViewById(id.spinnerYear);
-        spinnerISP = (Spinner) view.findViewById(id.spinnerISP);
-
-        seekBarNoFamMembers = (SeekBar) view.findViewById(id.seekBarNoFamilyMembers);
-        textViewNoFamMembers = (TextView) view.findViewById(id.textViewNoFamMembers);
+        //init views
+        initViews();
 
         //get the seekbar value
         seekBarNoFamMembers.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -78,6 +72,14 @@ public class FamilyFragment extends Fragment {
         spinnerISP.setAdapter(spinnerArrayAdapter);
 
         return  view;
+    }
+
+    private void initViews(){
+        spinnerYear = (Spinner) view.findViewById(id.spinnerYear);
+        spinnerISP = (Spinner) view.findViewById(id.spinnerISP);
+
+        seekBarNoFamMembers = (SeekBar) view.findViewById(id.seekBarNoFamilyMembers);
+        textViewNoFamMembers = (TextView) view.findViewById(id.textViewNoFamMembers);
     }
 
     private void useArrayAdapter(ArrayList arrayList){
