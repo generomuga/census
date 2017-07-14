@@ -574,10 +574,7 @@
                     android:layout_marginRight="15dp"
                     android:hint="Van"
                     android:textColorHint="@color/colorTextView" />
-
             </LinearLayout>
-
-
 
         </LinearLayout>
 
