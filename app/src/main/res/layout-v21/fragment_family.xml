@@ -174,8 +174,60 @@
                    android:layout_height="wrap_content"
                    android:layout_weight="1"
                    android:layout_marginRight="15dp"
-                   android:hint="No. of bicycle"/>
+                   android:hint="No. of bicycle"
+                   android:textColorHint="@color/colorTextView"/>
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <CheckBox
+                    android:id="@+id/checkboxBoat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Boat"
+                    android:textColor="@color/colorEditText"/>
+
+                <EditText
+                    android:id="@+id/textViewBoat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginRight="15dp"
+                    android:hint="No. of boat"
+                    android:textColorHint="@color/colorTextView"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <CheckBox
+                    android:id="@+id/checkboxBus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Bus"
+                    android:textColor="@color/colorEditText"/>
+
+                <EditText
+                    android:id="@+id/textViewBus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginRight="15dp"
+                    android:hint="No. of bus"
+                    android:textColorHint="@color/colorTextView"/>
             </LinearLayout>
 
 
