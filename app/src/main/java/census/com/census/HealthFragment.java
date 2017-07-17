@@ -21,7 +21,7 @@ public class HealthFragment extends Fragment {
     public static RadioButton radioButtonIodizeNo;
     public static RadioButton radioButtonFamilyYes;
     public static RadioButton radioButtonFamilyNo;
-
+    public static RadioButton radioButtonFamilyNa;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,6 +38,14 @@ public class HealthFragment extends Fragment {
         radioButtonEatYes = (RadioButton) view.findViewById(R.id.radioButtonEatYes);
         radioButtonEatNo = (RadioButton) view.findViewById(R.id.radioButtonEatNo);
         radioButtonHerbalYes = (RadioButton) view.findViewById(R.id.radioButtonHerbalYes);
+        radioButtonHerbalNo = (RadioButton) view.findViewById(R.id.radioButtonHerbalNo);
+        radioButtonVegYes = (RadioButton) view.findViewById(R.id.radioButtonVegYes);
+        radioButtonVegNo = (RadioButton) view.findViewById(R.id.radioButtonVegNo);
+        radioButtonIodizeYes = (RadioButton) view.findViewById(R.id.radioButtonIodizeYes);
+        radioButtonIodizeNo = (RadioButton) view.findViewById(R.id.radioButtonIodizeNo);
+        radioButtonFamilyYes = (RadioButton) view.findViewById(R.id.radioButtonFamilyYes);
+        radioButtonFamilyNo = (RadioButton) view.findViewById(R.id.radioButtonFamilyNo);
+        radioButtonFamilyNa = (RadioButton) view.findViewById(R.id.radioButtonFamilyNa);
     }
 
 }

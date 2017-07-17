@@ -27,7 +27,6 @@ import static census.com.census.R.*;
 public class FamilyFragment extends Fragment {
 
     private View view;
-
     public static CheckBox checkBoxBicycle;
     public static CheckBox checkBoxBoat;
     public static CheckBox checkBoxBus;
@@ -44,19 +43,14 @@ public class FamilyFragment extends Fragment {
     public static CheckBox checkBoxTricycle;
     public static CheckBox checkBoxTruck;
     public static CheckBox checkBoxVan;
-
     public static EditText editTextOrigin;
     public static EditText editTextContactNo;
-
     public static Spinner spinnerYear;
     public static Spinner spinnerISP;
     public static SeekBar seekBarNoFamMembers;
-
     private static TextView textViewNoFamMembers;
-
     private ArrayList years;
     private List<String> isps;
-
     private ArrayAdapter<String> spinnerArrayAdapter;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -89,7 +83,6 @@ public class FamilyFragment extends Fragment {
 
         spinnerYear = (Spinner) view.findViewById(id.spinnerYear);
         spinnerISP = (Spinner) view.findViewById(id.spinnerISP);
-
         checkBoxBicycle = (CheckBox) view.findViewById(id.checkboxBicycle);
         checkBoxBoat = (CheckBox) view.findViewById(id.checkboxBoat);
         checkBoxBus = (CheckBox) view.findViewById(id.checkboxBus);
@@ -106,7 +99,6 @@ public class FamilyFragment extends Fragment {
         checkBoxTricycle = (CheckBox) view.findViewById(id.checkboxTricycle);
         checkBoxTruck = (CheckBox) view.findViewById(id.checkboxTruck);
         checkBoxVan = (CheckBox) view.findViewById(id.checkboxVan);
-
         seekBarNoFamMembers = (SeekBar) view.findViewById(id.seekBarNoFamilyMembers);
         textViewNoFamMembers = (TextView) view.findViewById(id.textViewNoFamMembers);
     }
