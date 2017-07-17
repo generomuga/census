@@ -14,6 +14,7 @@ public class MainSurveyActivity extends AppCompatActivity {
 
     private Toolbar toolBarSurvey;
     String tag;
+    String errorMsg = "This field is required!";
     Fragment fragment;
 
     @Override
@@ -118,8 +119,6 @@ public class MainSurveyActivity extends AppCompatActivity {
     private void saveObjectFamilyIdentification(){
         FamilyIdentification familyIdentification = new FamilyIdentification();
 
-        String errorMsg = "This field is required!";
-
         if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextFName.getText().toString().trim())){
             familyIdentification.setfName(FamilyIdentificationFragment.editTextFName.getText().toString().trim());
         }
@@ -196,5 +195,72 @@ public class MainSurveyActivity extends AppCompatActivity {
         else{
             familyIdentification.setFamilyStatus(0);
         }
+    }
+
+    private void saveObjectFamily(){
+        Family family = new Family();
+
+        /*private int noFamilyMembers;
+        private int yearResided;
+        private String placeOrigin;
+        private String contactNo;
+        private String isp;
+        private int selectBicycle;
+        private int noBicycle;
+        private int selectBoat;
+        private int noBoat;
+        private int selectBus;
+        private int noBus;
+        private int selectCar;
+        private int noCar;
+        private int selectJeepney;
+        private int noJeepney;
+        private int selectMotorboat;
+        private int noMotorboat;
+        private int selectMotorcycle;
+        private int noMotorCycle;
+        private int selectOwnerJeep;
+        private int noOwnerJeep;
+        private int selectPedicab;
+        private int noPedicab;
+        private int selectPickup;
+        private int noPickup;
+        private int selectPumpBoat;
+        private int noPumpBoat;
+        private int selectRaft;
+        private int noRaft;
+        private int selectSuv;
+        private int noSuv;
+        private int selectTricycle;
+        private int noTricycle;
+        private int selectTruck;
+        private int noTruck;
+        private int selectVan;
+        private int noVan;*/
+
+
+        if(FamilyFragment.seekBarNoFamMembers.getProgress() !=0 ){
+            family.setNoFamilyMembers(FamilyFragment.seekBarNoFamMembers.getProgress());
+        }
+        else{
+            //show error
+        }
+
+        if(!TextUtils.isEmpty(FamilyFragment.editTextOrigin.getText().toString().trim())){
+            family.setPlaceOrigin(FamilyFragment.editTextOrigin.getText().toString().trim());
+        }
+        else{
+            FamilyFragment.editTextOrigin.setError(errorMsg);
+        }
+
+        if(!TextUtils.isEmpty(FamilyFragment.editTextContactNo.getText().toString().trim())){
+            family.setContactNo(FamilyFragment.editTextContactNo.getText().toString().trim());
+        }
+        else{
+            FamilyFragment.editTextContactNo.setError(errorMsg);
+        }
+
+        family.setIsp(FamilyFragment.spinnerISP.getSelectedItem().toString());
+        
     }
 }
