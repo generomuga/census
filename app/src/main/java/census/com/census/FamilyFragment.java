@@ -67,7 +67,7 @@ public class FamilyFragment extends Fragment {
         //init views
         initViews();
 
-        //get the seekbar value
+        //get the seek bar value
         getFamilyNoSeekBarVal();
 
         //get spinner values for years
