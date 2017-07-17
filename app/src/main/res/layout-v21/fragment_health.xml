@@ -23,6 +23,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
                 android:text="Do you eat complete meals everyday?"
                 android:textColor="@color/colorTextView"
                 android:textSize="12sp"
@@ -31,23 +33,29 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
                 android:orientation="vertical">
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Yes"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"/>
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="No"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"/>
             </RadioGroup>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
                 android:text="Do you plant herbal plants?"
                 android:textColor="@color/colorTextView"
                 android:textSize="12sp"
@@ -56,23 +64,29 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
                 android:orientation="vertical">
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Yes"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"/>
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="No"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"/>
             </RadioGroup>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
                 android:text="Do you have vegetable garden?"
                 android:textColor="@color/colorTextView"
                 android:textSize="12sp"
@@ -81,23 +95,29 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
                 android:orientation="vertical">
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Yes"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"/>
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="No"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"/>
             </RadioGroup>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
                 android:text="Do you use iodized salt?"
                 android:textColor="@color/colorTextView"
                 android:textSize="12sp"
@@ -106,23 +126,29 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
                 android:orientation="vertical">
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Yes"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"/>
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="No"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"/>
             </RadioGroup>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
                 android:text="Do you practice family planning?"
                 android:textColor="@color/colorTextView"
                 android:textSize="12sp"
@@ -131,24 +157,29 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
                 android:orientation="vertical">
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Yes"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"/>
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="No"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"/>
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Not applicable"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"/>
             </RadioGroup>
 
         </LinearLayout>

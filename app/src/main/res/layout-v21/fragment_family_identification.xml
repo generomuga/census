@@ -156,6 +156,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:text="Household condition"
                 android:textColor="@color/colorTextView"
                 android:textSize="12sp"
@@ -165,6 +167,8 @@
                 android:id="@+id/radioGroupResidency"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:orientation="vertical">
                 <RadioButton
                     android:id="@+id/radioButtonResident"
@@ -172,6 +176,7 @@
                     android:layout_height="wrap_content"
                     android:text="Resident"
                     android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"
                     android:checked="true"/>
 
                 <RadioButton
@@ -179,12 +184,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Non-resident"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"/>
             </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Ownership"
+                android:textColor="@color/colorTextView"
+                android:textSize="12sp"
+                android:layout_weight="1"/>
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:orientation="vertical">
                 <RadioButton
                     android:id="@+id/radioButtonOwner"
@@ -192,6 +210,7 @@
                     android:layout_height="wrap_content"
                     android:text="Owner (main family)"
                     android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"
                     android:checked="true"/>
 
                 <RadioButton
@@ -199,13 +218,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Extended"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"/>
             </RadioGroup>
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:text="Family status"
                 android:textColor="@color/colorTextView"
                 android:textSize="12sp"
@@ -214,6 +236,8 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:orientation="vertical">
                 <RadioButton
                     android:id="@+id/radioButtonActive"
@@ -221,6 +245,7 @@
                     android:layout_height="wrap_content"
                     android:text="Active"
                     android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"
                     android:checked="true"/>
 
                 <RadioButton
@@ -228,7 +253,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Inactive"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:textColor="@color/colorEditText"/>
             </RadioGroup>
 
         </LinearLayout>
