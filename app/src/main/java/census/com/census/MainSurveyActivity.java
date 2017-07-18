@@ -266,12 +266,15 @@ public class MainSurveyActivity extends AppCompatActivity {
 
         if(FamilyFragment.checkBoxBicycle.isChecked()){
             family.setSelectBicycle(1);
-            //check if integer
-            if(TextUtils.isDigitsOnly(FamilyFragment.editTextBicycleNo.getText().toString().trim())) {
-                family.setNoBicycle(Integer.parseInt(FamilyFragment.editTextBicycleNo.getText().toString().trim()));
+            if(!TextUtils.isEmpty(FamilyFragment.editTextBicycleNo.getText().toString().trim())) {
+                if (TextUtils.isDigitsOnly(FamilyFragment.editTextBicycleNo.getText().toString().trim())) {
+                    family.setNoBicycle(Integer.parseInt(FamilyFragment.editTextBicycleNo.getText().toString().trim()));
+                } else {
+                    FamilyFragment.editTextBicycleNo.setError(errorMsgNum);
+                }
             }
             else {
-                FamilyFragment.editTextBicycleNo.setError(errorMsgNum);
+                FamilyFragment.editTextBicycleNo.setError(errorMsgReq);
             }
         }
         else{

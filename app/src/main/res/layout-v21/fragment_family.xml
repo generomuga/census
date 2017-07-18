@@ -176,8 +176,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:hint="No. of bicycle"
-                    android:textColorHint="@color/colorTextView" />
+                    android:hint="Quantity"
+                    android:textColorHint="@color/colorTextView"
+                    android:textColor="@color/colorEditText"/>
             </LinearLayout>
 
             <LinearLayout
