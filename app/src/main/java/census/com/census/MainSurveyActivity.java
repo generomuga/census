@@ -280,5 +280,58 @@ public class MainSurveyActivity extends AppCompatActivity {
         else{
             family.setSelectBicycle(0);
         }
+
+        if(FamilyFragment.checkBoxBoat.isChecked()){
+            family.setSelectBoat(1);
+            if(!TextUtils.isEmpty(FamilyFragment.editTextBoatNo.getText().toString().trim())) {
+                if (TextUtils.isDigitsOnly(FamilyFragment.editTextBoatNo.getText().toString().trim())) {
+                    family.setNoBoat(Integer.parseInt(FamilyFragment.editTextBoatNo.getText().toString().trim()));
+                } else {
+                    FamilyFragment.editTextBoatNo.setError(errorMsgNum);
+                }
+            }
+            else {
+                FamilyFragment.editTextBoatNo.setError(errorMsgReq);
+            }
+        }
+        else{
+            family.setSelectBoat(0);
+        }
+
+        if(FamilyFragment.checkBoxBus.isChecked()){
+            family.setSelectBus(1);
+            if(!TextUtils.isEmpty(FamilyFragment.editTextBusNo.getText().toString().trim())) {
+                if (TextUtils.isDigitsOnly(FamilyFragment.editTextBusNo.getText().toString().trim())) {
+                    family.setNoBus(Integer.parseInt(FamilyFragment.editTextBusNo.getText().toString().trim()));
+                } else {
+                    FamilyFragment.editTextBusNo.setError(errorMsgNum);
+                }
+            }
+            else {
+                FamilyFragment.editTextBusNo.setError(errorMsgReq);
+            }
+        }
+        else{
+            family.setSelectBus(0);
+        }
+
+        if(FamilyFragment.checkBoxCar.isChecked()){
+            family.setSelectCar(1);
+            if(!TextUtils.isEmpty(FamilyFragment.editTextCarNo.getText().toString().trim())) {
+                if (TextUtils.isDigitsOnly(FamilyFragment.editTextCarNo.getText().toString().trim())) {
+                    family.setNoCar(Integer.parseInt(FamilyFragment.editTextCarNo.getText().toString().trim()));
+                } else {
+                    FamilyFragment.editTextCarNo.setError(errorMsgNum);
+                }
+            }
+            else {
+                FamilyFragment.editTextCarNo.setError(errorMsgReq);
+            }
+        }
+        else{
+            family.setSelectCar(0);
+        }
+
+
     }
 }
