@@ -451,5 +451,39 @@ public class MainSurveyActivity extends AppCompatActivity {
             family.setSelectPumpBoat(0);
         }
 
+        if(FamilyFragment.checkBoxRaft.isChecked()){
+            family.setSelectRaft(1);
+            if(!TextUtils.isEmpty(FamilyFragment.editTextRaftNo.getText().toString().trim())) {
+                if (TextUtils.isDigitsOnly(FamilyFragment.editTextRaftNo.getText().toString().trim())) {
+                    family.setNoRaft(Integer.parseInt(FamilyFragment.editTextRaftNo.getText().toString().trim()));
+                } else {
+                    FamilyFragment.editTextRaftNo.setError(errorMsgNum);
+                }
+            }
+            else {
+                FamilyFragment.editTextRaftNo.setError(errorMsgReq);
+            }
+        }
+        else{
+            family.setSelectRaft(0);
+        }
+
+        if(FamilyFragment.checkBoxSuv.isChecked()){
+            family.setSelectSuv(1);
+            if(!TextUtils.isEmpty(FamilyFragment.editTextSuvNo.getText().toString().trim())) {
+                if (TextUtils.isDigitsOnly(FamilyFragment.editTextSuvNo.getText().toString().trim())) {
+                    family.setNoSuv(Integer.parseInt(FamilyFragment.editTextSuvNo.getText().toString().trim()));
+                } else {
+                    FamilyFragment.editTextSuvNo.setError(errorMsgNum);
+                }
+            }
+            else {
+                FamilyFragment.editTextSuvNo.setError(errorMsgReq);
+            }
+        }
+        else{
+            family.setSelectSuv(0);
+        }
+
     }
 }

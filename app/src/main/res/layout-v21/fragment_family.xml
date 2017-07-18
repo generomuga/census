@@ -284,7 +284,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:hint="No. of jeepny"
+                    android:hint="Quantity"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -471,13 +471,14 @@
                     android:textColor="@color/colorEditText" />
 
                 <EditText
-                    android:id="@+id/textViewRaft"
+                    android:id="@+id/editTextRaftNo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:hint="No. of raft"
-                    android:textColorHint="@color/colorTextView" />
+                    android:hint="Quantity"
+                    android:textColorHint="@color/colorTextView"
+                    android:textColor="@color/colorEditText"/>
 
             </LinearLayout>
 
@@ -498,13 +499,14 @@
                     android:textColor="@color/colorEditText" />
 
                 <EditText
-                    android:id="@+id/textViewSuv"
+                    android:id="@+id/editTextSuvNo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:hint="No. of SUV"
-                    android:textColorHint="@color/colorTextView" />
+                    android:hint="Quantity"
+                    android:textColorHint="@color/colorTextView"
+                    android:textColor="@color/colorEditText"/>
 
             </LinearLayout>
 
