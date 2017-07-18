@@ -45,6 +45,7 @@ public class FamilyFragment extends Fragment {
     public static CheckBox checkBoxVan;
     public static EditText editTextOrigin;
     public static EditText editTextContactNo;
+    public static EditText editTextBicycleNo;
     public static Spinner spinnerYear;
     public static Spinner spinnerISP;
     public static SeekBar seekBarNoFamMembers;
@@ -99,6 +100,7 @@ public class FamilyFragment extends Fragment {
         checkBoxTricycle = (CheckBox) view.findViewById(id.checkboxTricycle);
         checkBoxTruck = (CheckBox) view.findViewById(id.checkboxTruck);
         checkBoxVan = (CheckBox) view.findViewById(id.checkboxVan);
+        editTextBicycleNo = (EditText) view.findViewById(id.editTextBicycleNo);
         seekBarNoFamMembers = (SeekBar) view.findViewById(id.seekBarNoFamilyMembers);
         textViewNoFamMembers = (TextView) view.findViewById(id.textViewNoFamMembers);
     }

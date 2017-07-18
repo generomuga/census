@@ -14,7 +14,8 @@ public class MainSurveyActivity extends AppCompatActivity {
 
     private Toolbar toolBarSurvey;
     String tag;
-    String errorMsg = "This field is required!";
+    String errorMsgReq = "This field is required!";
+    String errorMsgNum = "Not a number";
     Fragment fragment;
 
     @Override
@@ -102,6 +103,7 @@ public class MainSurveyActivity extends AppCompatActivity {
                         break;
                     case "Family":
                         Toast.makeText(this,"Family",Toast.LENGTH_SHORT).show();
+                        saveObjectFamily();
                         break;
                     case "Health":
                         Toast.makeText(this,"Health",Toast.LENGTH_SHORT).show();
@@ -123,56 +125,56 @@ public class MainSurveyActivity extends AppCompatActivity {
             familyIdentification.setfName(FamilyIdentificationFragment.editTextFName.getText().toString().trim());
         }
         else{
-            FamilyIdentificationFragment.editTextFName.setError(errorMsg);
+            FamilyIdentificationFragment.editTextFName.setError(errorMsgReq);
         }
 
         if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextMName.getText().toString().trim())) {
             familyIdentification.setmName(FamilyIdentificationFragment.editTextMName.getText().toString().trim());
         }
         else{
-            FamilyIdentificationFragment.editTextMName.setError(errorMsg);
+            FamilyIdentificationFragment.editTextMName.setError(errorMsgReq);
         }
 
         if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextLName.getText().toString().trim())) {
             familyIdentification.setlName(FamilyIdentificationFragment.editTextLName.getText().toString().trim());
         }
         else{
-            FamilyIdentificationFragment.editTextLName.setError(errorMsg);
+            FamilyIdentificationFragment.editTextLName.setError(errorMsgReq);
         }
 
         if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim())){
             familyIdentification.setHouseNp(FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim());
         }
         else{
-            FamilyIdentificationFragment.editTextHouseNo.setError(errorMsg);
+            FamilyIdentificationFragment.editTextHouseNo.setError(errorMsgReq);
         }
 
         if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim())){
             familyIdentification.setStreetNo(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim());
         }
         else{
-            FamilyIdentificationFragment.editTextHouseNo.setError(errorMsg);
+            FamilyIdentificationFragment.editTextHouseNo.setError(errorMsgReq);
         }
 
         if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextBarangay.getText().toString().trim())){
             familyIdentification.setBarangay(FamilyIdentificationFragment.editTextBarangay.getText().toString().trim());
         }
         else{
-            FamilyIdentificationFragment.editTextBarangay.setError(errorMsg);
+            FamilyIdentificationFragment.editTextBarangay.setError(errorMsgReq);
         }
 
         if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextMunicipality.getText().toString().trim())) {
             familyIdentification.setMunicipality(FamilyIdentificationFragment.editTextMunicipality.getText().toString().trim());
         }
         else{
-            FamilyIdentificationFragment.editTextMunicipality.setError(errorMsg);
+            FamilyIdentificationFragment.editTextMunicipality.setError(errorMsgReq);
         }
 
         if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextProvince.getText().toString().trim())) {
             familyIdentification.setProvince(FamilyIdentificationFragment.editTextProvince.getText().toString().trim());
         }
         else{
-            FamilyIdentificationFragment.editTextProvince.setError(errorMsg);
+            FamilyIdentificationFragment.editTextProvince.setError(errorMsgReq);
         }
 
         if(FamilyIdentificationFragment.radioButtonResident.isChecked()) {
@@ -250,17 +252,30 @@ public class MainSurveyActivity extends AppCompatActivity {
             family.setPlaceOrigin(FamilyFragment.editTextOrigin.getText().toString().trim());
         }
         else{
-            FamilyFragment.editTextOrigin.setError(errorMsg);
+            FamilyFragment.editTextOrigin.setError(errorMsgReq);
         }
 
         if(!TextUtils.isEmpty(FamilyFragment.editTextContactNo.getText().toString().trim())){
             family.setContactNo(FamilyFragment.editTextContactNo.getText().toString().trim());
         }
         else{
-            FamilyFragment.editTextContactNo.setError(errorMsg);
+            FamilyFragment.editTextContactNo.setError(errorMsgReq);
         }
 
         family.setIsp(FamilyFragment.spinnerISP.getSelectedItem().toString());
-        
+
+        if(FamilyFragment.checkBoxBicycle.isChecked()){
+            family.setSelectBicycle(1);
+            //check if integer
+            if(TextUtils.isDigitsOnly(FamilyFragment.editTextBicycleNo.getText().toString().trim())) {
+                family.setNoBicycle(Integer.parseInt(FamilyFragment.editTextBicycleNo.getText().toString().trim()));
+            }
+            else {
+                FamilyFragment.editTextBicycleNo.setError(errorMsgNum);
+            }
+        }
+        else{
+            family.setSelectBicycle(0);
+        }
     }
 }

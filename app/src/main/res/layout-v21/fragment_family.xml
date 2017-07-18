@@ -171,7 +171,7 @@
                     android:textColor="@color/colorEditText" />
 
                 <EditText
-                    android:id="@+id/textViewBicycle"
+                    android:id="@+id/editTextBicycleNo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
