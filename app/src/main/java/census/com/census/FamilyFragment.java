@@ -49,6 +49,13 @@ public class FamilyFragment extends Fragment {
     public static EditText editTextBoatNo;
     public static EditText editTextBusNo;
     public static EditText editTextCarNo;
+    public static EditText editTextJeepNo;
+    public static EditText editTextMotorBoatNo;
+    public static EditText editTextMotorcycleNo;
+    public static EditText editTextOwnerNo;
+    public static EditText editTextPedicabNo;
+    public static EditText editTextPickupNo;
+    public static EditText editTextPumpBoatNo;
     public static Spinner spinnerYear;
     public static Spinner spinnerISP;
     public static SeekBar seekBarNoFamMembers;
@@ -91,7 +98,7 @@ public class FamilyFragment extends Fragment {
         checkBoxBoat = (CheckBox) view.findViewById(id.checkboxBoat);
         checkBoxBus = (CheckBox) view.findViewById(id.checkboxBus);
         checkBoxCar = (CheckBox) view.findViewById(id.checkboxCar);
-        checkBoxJeep = (CheckBox) view.findViewById(id.checkboxJeepney);
+        checkBoxJeep = (CheckBox) view.findViewById(id.checkboxJeep);
         checkBoxMotorBoat = (CheckBox) view.findViewById(id.checkboxMotorBoat);
         checkBoxMotorcycle = (CheckBox) view.findViewById(id.checkboxMotorcycle);
         checkBoxOwner = (CheckBox) view.findViewById(id.checkboxOwner);
@@ -107,6 +114,13 @@ public class FamilyFragment extends Fragment {
         editTextBoatNo = (EditText) view.findViewById(id.editTextBoatNo);
         editTextBusNo = (EditText) view.findViewById(id.editTextBusNo);
         editTextCarNo = (EditText) view.findViewById(id.editTextCarNo);
+        editTextJeepNo = (EditText) view.findViewById(id.editTextJeepNo);
+        editTextMotorBoatNo = (EditText) view.findViewById(id.editTextMotorBoatNo);
+        editTextMotorcycleNo = (EditText) view.findViewById(id.editTextMotorcycleNo);
+        editTextOwnerNo = (EditText) view.findViewById(id.editTextOwnerNo);
+        editTextPedicabNo = (EditText) view.findViewById(id.editTextPedicabNo);
+        editTextPickupNo = (EditText) view.findViewById(id.editTextPickupNo);
+        editTextPumpBoatNo = (EditText) view.findViewById(id.editTextPumpBoatNo);
         seekBarNoFamMembers = (SeekBar) view.findViewById(id.seekBarNoFamilyMembers);
         textViewNoFamMembers = (TextView) view.findViewById(id.textViewNoFamMembers);
     }

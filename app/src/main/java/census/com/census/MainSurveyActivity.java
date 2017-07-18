@@ -332,6 +332,124 @@ public class MainSurveyActivity extends AppCompatActivity {
             family.setSelectCar(0);
         }
 
+        if(FamilyFragment.checkBoxJeep.isChecked()){
+            family.setSelectJeep(1);
+            if(!TextUtils.isEmpty(FamilyFragment.editTextJeepNo.getText().toString().trim())) {
+                if (TextUtils.isDigitsOnly(FamilyFragment.editTextJeepNo.getText().toString().trim())) {
+                    family.setNoJeep(Integer.parseInt(FamilyFragment.editTextJeepNo.getText().toString().trim()));
+                } else {
+                    FamilyFragment.editTextJeepNo.setError(errorMsgNum);
+                }
+            }
+            else {
+                FamilyFragment.editTextJeepNo.setError(errorMsgReq);
+            }
+        }
+        else{
+            family.setSelectJeep(0);
+        }
+
+        if(FamilyFragment.checkBoxMotorBoat.isChecked()){
+            family.setSelectMotorboat(1);
+            if(!TextUtils.isEmpty(FamilyFragment.editTextMotorBoatNo.getText().toString().trim())) {
+                if (TextUtils.isDigitsOnly(FamilyFragment.editTextMotorBoatNo.getText().toString().trim())) {
+                    family.setNoMotorboat(Integer.parseInt(FamilyFragment.editTextMotorBoatNo.getText().toString().trim()));
+                } else {
+                    FamilyFragment.editTextMotorBoatNo.setError(errorMsgNum);
+                }
+            }
+            else {
+                FamilyFragment.editTextMotorBoatNo.setError(errorMsgReq);
+            }
+        }
+        else{
+            family.setSelectMotorboat(0);
+        }
+
+        if(FamilyFragment.checkBoxMotorcycle.isChecked()){
+            family.setSelectMotorcycle(1);
+            if(!TextUtils.isEmpty(FamilyFragment.editTextMotorcycleNo.getText().toString().trim())) {
+                if (TextUtils.isDigitsOnly(FamilyFragment.editTextMotorcycleNo.getText().toString().trim())) {
+                    family.setNoMotorCycle(Integer.parseInt(FamilyFragment.editTextMotorcycleNo.getText().toString().trim()));
+                } else {
+                    FamilyFragment.editTextMotorcycleNo.setError(errorMsgNum);
+                }
+            }
+            else {
+                FamilyFragment.editTextMotorcycleNo.setError(errorMsgReq);
+            }
+        }
+        else{
+            family.setSelectMotorcycle(0);
+        }
+
+        if(FamilyFragment.checkBoxOwner.isChecked()){
+            family.setSelectOwnerJeep(1);
+            if(!TextUtils.isEmpty(FamilyFragment.editTextOwnerNo.getText().toString().trim())) {
+                if (TextUtils.isDigitsOnly(FamilyFragment.editTextOwnerNo.getText().toString().trim())) {
+                    family.setNoOwnerJeep(Integer.parseInt(FamilyFragment.editTextOwnerNo.getText().toString().trim()));
+                } else {
+                    FamilyFragment.editTextOwnerNo.setError(errorMsgNum);
+                }
+            }
+            else {
+                FamilyFragment.editTextOwnerNo.setError(errorMsgReq);
+            }
+        }
+        else{
+            family.setSelectOwnerJeep(0);
+        }
+
+        if(FamilyFragment.checkBoxPedicab.isChecked()){
+            family.setSelectPedicab(1);
+            if(!TextUtils.isEmpty(FamilyFragment.editTextPedicabNo.getText().toString().trim())) {
+                if (TextUtils.isDigitsOnly(FamilyFragment.editTextPedicabNo.getText().toString().trim())) {
+                    family.setNoPedicab(Integer.parseInt(FamilyFragment.editTextPedicabNo.getText().toString().trim()));
+                } else {
+                    FamilyFragment.editTextPedicabNo.setError(errorMsgNum);
+                }
+            }
+            else {
+                FamilyFragment.editTextPedicabNo.setError(errorMsgReq);
+            }
+        }
+        else{
+            family.setSelectPedicab(0);
+        }
+
+        if(FamilyFragment.checkBoxPickup.isChecked()){
+            family.setSelectPickup(1);
+            if(!TextUtils.isEmpty(FamilyFragment.editTextPickupNo.getText().toString().trim())) {
+                if (TextUtils.isDigitsOnly(FamilyFragment.editTextPickupNo.getText().toString().trim())) {
+                    family.setNoPickup(Integer.parseInt(FamilyFragment.editTextPickupNo.getText().toString().trim()));
+                } else {
+                    FamilyFragment.editTextPickupNo.setError(errorMsgNum);
+                }
+            }
+            else {
+                FamilyFragment.editTextPickupNo.setError(errorMsgReq);
+            }
+        }
+        else{
+            family.setSelectPickup(0);
+        }
+
+        if(FamilyFragment.checkBoxPumpBoat.isChecked()){
+            family.setSelectPumpBoat(1);
+            if(!TextUtils.isEmpty(FamilyFragment.editTextPumpBoatNo.getText().toString().trim())) {
+                if (TextUtils.isDigitsOnly(FamilyFragment.editTextPumpBoatNo.getText().toString().trim())) {
+                    family.setNoPumpBoat(Integer.parseInt(FamilyFragment.editTextPumpBoatNo.getText().toString().trim()));
+                } else {
+                    FamilyFragment.editTextPumpBoatNo.setError(errorMsgNum);
+                }
+            }
+            else {
+                FamilyFragment.editTextPumpBoatNo.setError(errorMsgReq);
+            }
+        }
+        else{
+            family.setSelectPumpBoat(0);
+        }
 
     }
 }

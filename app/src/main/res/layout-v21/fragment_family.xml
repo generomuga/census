@@ -269,7 +269,7 @@
                 android:weightSum="2">
 
                 <CheckBox
-                    android:id="@+id/checkboxJeepney"
+                    android:id="@+id/checkboxJeep"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -279,7 +279,7 @@
                     android:textColor="@color/colorEditText" />
 
                 <EditText
-                    android:id="@+id/textViewJeepney"
+                    android:id="@+id/editTextJeepNo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
@@ -306,13 +306,14 @@
                     android:textColor="@color/colorEditText" />
 
                 <EditText
-                    android:id="@+id/textViewMotorBoat"
+                    android:id="@+id/editTextMotorBoatNo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:hint="No. of motorboat"
-                    android:textColorHint="@color/colorTextView" />
+                    android:hint="Quantity"
+                    android:textColorHint="@color/colorTextView"
+                    android:textColor="@color/colorEditText"/>
             </LinearLayout>
 
             <LinearLayout
@@ -332,13 +333,14 @@
                     android:textColor="@color/colorEditText" />
 
                 <EditText
-                    android:id="@+id/textViewMotorcycle"
+                    android:id="@+id/editTextMotorcycleNo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:hint="No. of motorcycle"
-                    android:textColorHint="@color/colorTextView" />
+                    android:hint="Quantity"
+                    android:textColorHint="@color/colorTextView"
+                    android:textColor="@color/colorEditText"/>
             </LinearLayout>
 
             <LinearLayout
@@ -358,13 +360,14 @@
                     android:textColor="@color/colorEditText" />
 
                 <EditText
-                    android:id="@+id/textViewOwner"
+                    android:id="@+id/editTextOwnerNo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:hint="No. of owner jeep"
-                    android:textColorHint="@color/colorTextView" />
+                    android:hint="Quantity"
+                    android:textColorHint="@color/colorTextView"
+                    android:textColor="@color/colorEditText"/>
 
             </LinearLayout>
 
@@ -385,13 +388,14 @@
                     android:textColor="@color/colorEditText" />
 
                 <EditText
-                    android:id="@+id/textViewPedicab"
+                    android:id="@+id/editTextPedicabNo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:hint="No. of pedicab"
-                    android:textColorHint="@color/colorTextView" />
+                    android:hint="Quantity"
+                    android:textColorHint="@color/colorTextView"
+                    android:textColor="@color/colorEditText"/>
 
             </LinearLayout>
 
@@ -412,13 +416,14 @@
                     android:textColor="@color/colorEditText" />
 
                 <EditText
-                    android:id="@+id/textViewPickup"
+                    android:id="@+id/editTextPickupNo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:hint="No. of pickup"
-                    android:textColorHint="@color/colorTextView" />
+                    android:hint="Quantity"
+                    android:textColorHint="@color/colorTextView"
+                    android:textColor="@color/colorEditText"/>
 
             </LinearLayout>
 
@@ -439,13 +444,14 @@
                     android:textColor="@color/colorEditText" />
 
                 <EditText
-                    android:id="@+id/textViewPumpBoat"
+                    android:id="@+id/editTextPumpBoatNo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:hint="No. of pump boat"
-                    android:textColorHint="@color/colorTextView" />
+                    android:hint="Quantity"
+                    android:textColorHint="@color/colorTextView"
+                    android:textColor="@color/colorEditText"/>
             </LinearLayout>
 
             <LinearLayout

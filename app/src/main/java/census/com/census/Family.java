@@ -17,7 +17,7 @@ public class Family {
     private int selectCar;
     private int noCar;
     private int selectJeepney;
-    private int noJeepney;
+    private int noJeep;
     private int selectMotorboat;
     private int noMotorboat;
     private int selectMotorcycle;
@@ -157,16 +157,16 @@ public class Family {
         return selectJeepney;
     }
 
-    public void setSelectJeepney(int selectJeepney) {
+    public void setSelectJeep(int selectJeepney) {
         this.selectJeepney = selectJeepney;
     }
 
-    public int getNoJeepney() {
-        return noJeepney;
+    public int getNoJeep() {
+        return noJeep;
     }
 
-    public void setNoJeepney(int noJeepney) {
-        this.noJeepney = noJeepney;
+    public void setNoJeep(int noJeep) {
+        this.noJeep = noJeep;
     }
 
     public int getSelectMotorboat() {
