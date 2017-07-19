@@ -202,45 +202,6 @@ public class MainSurveyActivity extends AppCompatActivity {
     private void saveObjectFamily(){
         Family family = new Family();
 
-        /*private int noFamilyMembers;
-        private int yearResided;
-        private String placeOrigin;
-        private String contactNo;
-        private String isp;
-        private int selectBicycle;
-        private int noBicycle;
-        private int selectBoat;
-        private int noBoat;
-        private int selectBus;
-        private int noBus;
-        private int selectCar;
-        private int noCar;
-        private int selectJeepney;
-        private int noJeepney;
-        private int selectMotorboat;
-        private int noMotorboat;
-        private int selectMotorcycle;
-        private int noMotorCycle;
-        private int selectOwnerJeep;
-        private int noOwnerJeep;
-        private int selectPedicab;
-        private int noPedicab;
-        private int selectPickup;
-        private int noPickup;
-        private int selectPumpBoat;
-        private int noPumpBoat;
-        private int selectRaft;
-        private int noRaft;
-        private int selectSuv;
-        private int noSuv;
-        private int selectTricycle;
-        private int noTricycle;
-        private int selectTruck;
-        private int noTruck;
-        private int selectVan;
-        private int noVan;*/
-
-
         if(FamilyFragment.seekBarNoFamMembers.getProgress() !=0 ){
             family.setNoFamilyMembers(FamilyFragment.seekBarNoFamMembers.getProgress());
         }
