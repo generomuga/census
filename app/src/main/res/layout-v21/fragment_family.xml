@@ -527,13 +527,14 @@
                     android:textColor="@color/colorEditText" />
 
                 <EditText
-                    android:id="@+id/textViewTricycle"
+                    android:id="@+id/editTextTricycleNo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:hint="No. of tricycle"
-                    android:textColorHint="@color/colorTextView" />
+                    android:hint="Quantity"
+                    android:textColorHint="@color/colorTextView"
+                    android:textColor="@color/colorEditText"/>
 
             </LinearLayout>
 
@@ -554,13 +555,14 @@
                     android:textColor="@color/colorEditText" />
 
                 <EditText
-                    android:id="@+id/textViewTruck"
+                    android:id="@+id/editTextTruckNo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:hint="No. of truck"
-                    android:textColorHint="@color/colorTextView" />
+                    android:hint="Quantity"
+                    android:textColorHint="@color/colorTextView"
+                    android:textColor="@color/colorEditText"/>
 
             </LinearLayout>
 
@@ -581,13 +583,14 @@
                     android:textColor="@color/colorEditText" />
 
                 <EditText
-                    android:id="@+id/textViewVan"
+                    android:id="@+id/editTextVanNo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:hint="Van"
-                    android:textColorHint="@color/colorTextView" />
+                    android:hint="Quantity"
+                    android:textColorHint="@color/colorTextView"
+                    android:textColor="@color/colorEditText"/>
             </LinearLayout>
 
         </LinearLayout>

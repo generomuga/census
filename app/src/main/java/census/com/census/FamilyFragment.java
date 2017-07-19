@@ -58,6 +58,9 @@ public class FamilyFragment extends Fragment {
     public static EditText editTextPumpBoatNo;
     public static EditText editTextRaftNo;
     public static EditText editTextSuvNo;
+    public static EditText editTextTricycleNo;
+    public static EditText editTextTruckNo;
+    public static EditText editTextVanNo;
     public static Spinner spinnerYear;
     public static Spinner spinnerISP;
     public static SeekBar seekBarNoFamMembers;
@@ -125,6 +128,9 @@ public class FamilyFragment extends Fragment {
         editTextPumpBoatNo = (EditText) view.findViewById(id.editTextPumpBoatNo);
         editTextRaftNo = (EditText) view.findViewById(id.editTextRaftNo);
         editTextSuvNo = (EditText) view.findViewById(id.editTextSuvNo);
+        editTextTricycleNo = (EditText) view.findViewById(id.editTextTricycleNo);
+        editTextTruckNo = (EditText) view.findViewById(id.editTextTruckNo);
+        editTextVanNo = (EditText) view.findViewById(id.editTextVanNo);
         seekBarNoFamMembers = (SeekBar) view.findViewById(id.seekBarNoFamilyMembers);
         textViewNoFamMembers = (TextView) view.findViewById(id.textViewNoFamMembers);
     }

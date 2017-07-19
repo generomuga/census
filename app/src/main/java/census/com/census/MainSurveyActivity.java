@@ -485,5 +485,56 @@ public class MainSurveyActivity extends AppCompatActivity {
             family.setSelectSuv(0);
         }
 
+        if(FamilyFragment.checkBoxTricycle.isChecked()){
+            family.setSelectTricycle(1);
+            if(!TextUtils.isEmpty(FamilyFragment.editTextTricycleNo.getText().toString().trim())) {
+                if (TextUtils.isDigitsOnly(FamilyFragment.editTextTricycleNo.getText().toString().trim())) {
+                    family.setNoTricycle(Integer.parseInt(FamilyFragment.editTextTricycleNo.getText().toString().trim()));
+                } else {
+                    FamilyFragment.editTextTricycleNo.setError(errorMsgNum);
+                }
+            }
+            else {
+                FamilyFragment.editTextTricycleNo.setError(errorMsgReq);
+            }
+        }
+        else{
+            family.setSelectTricycle(0);
+        }
+
+        if(FamilyFragment.checkBoxTruck.isChecked()){
+            family.setSelectTruck(1);
+            if(!TextUtils.isEmpty(FamilyFragment.editTextTruckNo.getText().toString().trim())) {
+                if (TextUtils.isDigitsOnly(FamilyFragment.editTextTruckNo.getText().toString().trim())) {
+                    family.setNoTruck(Integer.parseInt(FamilyFragment.editTextTruckNo.getText().toString().trim()));
+                } else {
+                    FamilyFragment.editTextTruckNo.setError(errorMsgNum);
+                }
+            }
+            else {
+                FamilyFragment.editTextTruckNo.setError(errorMsgReq);
+            }
+        }
+        else{
+            family.setSelectTruck(0);
+        }
+
+        if(FamilyFragment.checkBoxVan.isChecked()){
+            family.setSelectVan(1);
+            if(!TextUtils.isEmpty(FamilyFragment.editTextVanNo.getText().toString().trim())) {
+                if (TextUtils.isDigitsOnly(FamilyFragment.editTextVanNo.getText().toString().trim())) {
+                    family.setNoVan(Integer.parseInt(FamilyFragment.editTextVanNo.getText().toString().trim()));
+                } else {
+                    FamilyFragment.editTextVanNo.setError(errorMsgNum);
+                }
+            }
+            else {
+                FamilyFragment.editTextVanNo.setError(errorMsgReq);
+            }
+        }
+        else{
+            family.setSelectVan(0);
+        }
+
     }
 }
