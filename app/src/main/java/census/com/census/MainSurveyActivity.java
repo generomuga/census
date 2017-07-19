@@ -496,6 +496,5 @@ public class MainSurveyActivity extends AppCompatActivity {
         else{
             family.setSelectVan(0);
         }
-
     }
 }
