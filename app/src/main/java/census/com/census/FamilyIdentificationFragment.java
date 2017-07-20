@@ -42,9 +42,9 @@ public class FamilyIdentificationFragment extends Fragment {
         editTextLName = (EditText) view.findViewById(R.id.editTextLname);
         editTextHouseNo = (EditText) view.findViewById(R.id.editTextHouseNo);
         editTextStreetNo = (EditText) view.findViewById(R.id.editTextStreetNo);
-        editTextBarangay = (EditText) view.findViewById(R.id.editTextBrgy);
-        editTextMunicipality = (EditText) view.findViewById(R.id.editTextMunicipality);
-        editTextProvince = (EditText) view.findViewById(R.id.editTextProvince);
+        //editTextBarangay = (EditText) view.findViewById(R.id.editTextBrgy);
+        //editTextMunicipality = (EditText) view.findViewById(R.id.editTextMunicipality);
+        //editTextProvince = (EditText) view.findViewById(R.id.editTextProvince);
         radioButtonResident = (RadioButton) view.findViewById(R.id.radioButtonResident);
         radioButtonNonResident = (RadioButton) view.findViewById(R.id.radioButtonNonResident);
         radioButtonOwner = (RadioButton) view.findViewById(R.id.radioButtonOwner);

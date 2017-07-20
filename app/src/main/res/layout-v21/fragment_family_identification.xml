@@ -86,7 +86,7 @@
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint" />
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -96,7 +96,105 @@
                 android:layout_weight="1"
                 android:text="Address"
                 android:textColor="@color/colorTextView"
+                android:textSize="12sp" />-->
+
+            <!--<EditText
+                android:id="@+id/editTextBrgy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="Barangay"
+                android:textColor="@color/colorEditText"
+                android:textColorHint="@color/colorHint" />
+
+            <EditText
+                android:id="@+id/editTextMunicipality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="Municipality"
+                android:textColor="@color/colorEditText"
+                android:textColorHint="@color/colorHint" />-->
+
+            <!--<EditText
+                android:id="@+id/editTextProvince"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="Province"
+                android:textColor="@color/colorEditText"
+                android:textColorHint="@color/colorHint" />-->
+
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="Region"
+            android:textColor="@color/colorTextView"
+            android:textSize="12sp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="Province"
+                android:textColor="@color/colorTextView"
                 android:textSize="12sp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="Municipality"
+            android:textColor="@color/colorTextView"
+            android:textSize="12sp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="Barangay"
+                android:textColor="@color/colorTextView"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <EditText
                 android:id="@+id/editTextHouseNo"
@@ -120,48 +218,15 @@
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint" />
 
-            <EditText
-                android:id="@+id/editTextBrgy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:hint="Barangay"
-                android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />
-
-            <EditText
-                android:id="@+id/editTextMunicipality"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:hint="Municipality"
-                android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />
-
-            <EditText
-                android:id="@+id/editTextProvince"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:hint="Province"
-                android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
+                android:layout_weight="1"
                 android:text="Household condition"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp"
-                android:layout_weight="1"/>
+                android:textSize="12sp" />
 
             <RadioGroup
                 android:id="@+id/radioGroupResidency"
@@ -170,22 +235,23 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:orientation="vertical">
+
                 <RadioButton
                     android:id="@+id/radioButtonResident"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Resident"
                     android:buttonTint="@color/colorAccent"
-                    android:textColor="@color/colorEditText"
-                    android:checked="true"/>
+                    android:checked="true"
+                    android:text="Resident"
+                    android:textColor="@color/colorEditText" />
 
                 <RadioButton
                     android:id="@+id/radioButtonNonResident"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Non-resident"
                     android:buttonTint="@color/colorAccent"
-                    android:textColor="@color/colorEditText"/>
+                    android:text="Non-resident"
+                    android:textColor="@color/colorEditText" />
             </RadioGroup>
 
             <TextView
@@ -193,10 +259,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
+                android:layout_weight="1"
                 android:text="Ownership"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp"
-                android:layout_weight="1"/>
+                android:textSize="12sp" />
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -204,22 +270,23 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:orientation="vertical">
+
                 <RadioButton
                     android:id="@+id/radioButtonOwner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Owner (main family)"
                     android:buttonTint="@color/colorAccent"
-                    android:textColor="@color/colorEditText"
-                    android:checked="true"/>
+                    android:checked="true"
+                    android:text="Owner (main family)"
+                    android:textColor="@color/colorEditText" />
 
                 <RadioButton
                     android:id="@+id/radioButtonExtended"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Extended"
                     android:buttonTint="@color/colorAccent"
-                    android:textColor="@color/colorEditText"/>
+                    android:text="Extended"
+                    android:textColor="@color/colorEditText" />
             </RadioGroup>
 
 
@@ -228,34 +295,35 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
+                android:layout_weight="1"
                 android:text="Family status"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp"
-                android:layout_weight="1"/>
+                android:textSize="12sp" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginBottom="20dp"
                 android:orientation="vertical">
+
                 <RadioButton
                     android:id="@+id/radioButtonActive"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Active"
                     android:buttonTint="@color/colorAccent"
-                    android:textColor="@color/colorEditText"
-                    android:checked="true"/>
+                    android:checked="true"
+                    android:text="Active"
+                    android:textColor="@color/colorEditText" />
 
                 <RadioButton
                     android:id="@+id/radioButtonInactive"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Inactive"
                     android:buttonTint="@color/colorAccent"
-                    android:textColor="@color/colorEditText"/>
+                    android:text="Inactive"
+                    android:textColor="@color/colorEditText" />
             </RadioGroup>
 
         </LinearLayout>
