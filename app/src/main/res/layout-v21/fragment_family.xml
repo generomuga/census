@@ -177,8 +177,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
-                    android:textColorHint="@color/colorTextView"
-                    android:textColor="@color/colorEditText"/>
+                    android:textColor="@color/colorEditText"
+                    android:textColorHint="@color/colorTextView" />
             </LinearLayout>
 
             <LinearLayout
@@ -204,8 +204,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
-                    android:textColorHint="@color/colorTextView"
-                    android:textColor="@color/colorEditText"/>
+                    android:textColor="@color/colorEditText"
+                    android:textColorHint="@color/colorTextView" />
             </LinearLayout>
 
             <LinearLayout
@@ -231,8 +231,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
-                    android:textColorHint="@color/colorTextView"
-                    android:textColor="@color/colorEditText"/>
+                    android:textColor="@color/colorEditText"
+                    android:textColorHint="@color/colorTextView" />
             </LinearLayout>
 
             <LinearLayout
@@ -258,8 +258,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
-                    android:textColorHint="@color/colorTextView"
-                    android:textColor="@color/colorEditText"/>
+                    android:textColor="@color/colorEditText"
+                    android:textColorHint="@color/colorTextView" />
             </LinearLayout>
 
             <LinearLayout
@@ -312,8 +312,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
-                    android:textColorHint="@color/colorTextView"
-                    android:textColor="@color/colorEditText"/>
+                    android:textColor="@color/colorEditText"
+                    android:textColorHint="@color/colorTextView" />
             </LinearLayout>
 
             <LinearLayout
@@ -339,8 +339,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
-                    android:textColorHint="@color/colorTextView"
-                    android:textColor="@color/colorEditText"/>
+                    android:textColor="@color/colorEditText"
+                    android:textColorHint="@color/colorTextView" />
             </LinearLayout>
 
             <LinearLayout
@@ -366,8 +366,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
-                    android:textColorHint="@color/colorTextView"
-                    android:textColor="@color/colorEditText"/>
+                    android:textColor="@color/colorEditText"
+                    android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
 
@@ -394,8 +394,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
-                    android:textColorHint="@color/colorTextView"
-                    android:textColor="@color/colorEditText"/>
+                    android:textColor="@color/colorEditText"
+                    android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
 
@@ -422,8 +422,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
-                    android:textColorHint="@color/colorTextView"
-                    android:textColor="@color/colorEditText"/>
+                    android:textColor="@color/colorEditText"
+                    android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
 
@@ -450,8 +450,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
-                    android:textColorHint="@color/colorTextView"
-                    android:textColor="@color/colorEditText"/>
+                    android:textColor="@color/colorEditText"
+                    android:textColorHint="@color/colorTextView" />
             </LinearLayout>
 
             <LinearLayout
@@ -477,8 +477,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
-                    android:textColorHint="@color/colorTextView"
-                    android:textColor="@color/colorEditText"/>
+                    android:textColor="@color/colorEditText"
+                    android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
 
@@ -505,8 +505,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
-                    android:textColorHint="@color/colorTextView"
-                    android:textColor="@color/colorEditText"/>
+                    android:textColor="@color/colorEditText"
+                    android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
 
@@ -533,8 +533,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
-                    android:textColorHint="@color/colorTextView"
-                    android:textColor="@color/colorEditText"/>
+                    android:textColor="@color/colorEditText"
+                    android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
 
@@ -561,8 +561,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
-                    android:textColorHint="@color/colorTextView"
-                    android:textColor="@color/colorEditText"/>
+                    android:textColor="@color/colorEditText"
+                    android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
 
@@ -589,8 +589,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
-                    android:textColorHint="@color/colorTextView"
-                    android:textColor="@color/colorEditText"/>
+                    android:textColor="@color/colorEditText"
+                    android:textColorHint="@color/colorTextView" />
             </LinearLayout>
 
         </LinearLayout>

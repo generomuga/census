@@ -66,12 +66,12 @@ public class FamilyFragment extends Fragment {
     public static SeekBar seekBarNoFamMembers;
     private static TextView textViewNoFamMembers;
     private ArrayList years;
-    private List<String> isps;
+    private ArrayList isps;
     private ArrayAdapter<String> spinnerArrayAdapter;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(layout.fragment_family,container,false);
 
         //init views
