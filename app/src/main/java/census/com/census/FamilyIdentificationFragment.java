@@ -54,8 +54,6 @@ public class FamilyIdentificationFragment extends Fragment {
         spinnerRegionEvent();
 
         //select provinces
-
-
         return view;
     }
 

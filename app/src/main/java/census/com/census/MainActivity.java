@@ -1,12 +1,20 @@
 package census.com.census;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Toast;
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,8 +39,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,MainSurveyActivity.class));
             }
         });
+
+        selectSample();
     }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        connectDB();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -40,5 +56,49 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    private void connectDB(){
+        DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
+        try {
+            databaseHelper.createDatabase();
+        }
+        catch (IOException e) {
+            throw new Error("Unable to create database");
+        }
+
+        try{
+            databaseHelper.openDataBase();
+        }
+        catch (SQLException sqle){
+            throw sqle;
+        }
+
+        Toast.makeText(MainActivity.this,"Sucess", Toast.LENGTH_SHORT).show();
+    }
+
+    private void selectSample() {
+
+        try {
+            SQLiteDatabase dbLocation = this.openOrCreateDatabase("locations", Context.MODE_PRIVATE, null);
+
+            //dbLocation.execSQL("CREATE TABLE IF NOT EXISTS locations (id INT,regions VARCHAR,province VARCHAR, municipality VARCHAR)");
+            //dbLocation.execSQL("INSERT INTO locations (id,regions,province,municipality) VALUES (1,'IV','Laguna', 'Calauan')");
+
+            Cursor c = dbLocation.rawQuery("SELECT * FROM locations", null);
+
+            int regionsIndex = c.getColumnIndex("region");
+            int provinceIndex = c.getColumnIndex("province");
+            int municipality = c.getColumnIndex("municipality");
+
+            c.moveToFirst();
+            while (c != null) {
+                Log.i("region", c.getString(regionsIndex));
+                //Toast.makeText(this,c.getString(regionsIndex),Toast.LENGTH_SHORT).show();
+                c.moveToNext();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
