@@ -202,6 +202,139 @@
                     android:textColor="@color/colorEditText" />
             </RadioGroup>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="If yes, what methods of family planning:"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Basal body temperature"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/colorEditText"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Cervical mucus"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/colorEditText"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Lactation amenorrhea method"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/colorEditText"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Rhythm"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/colorEditText"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Standard Days Method"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/colorEditText"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Sympho"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/colorEditText"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Withdrawal"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/colorEditText"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Condom"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/colorEditText"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Depo injection"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/colorEditText"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="IUD"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/colorEditText"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Tubal ligation"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/colorEditText"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Pills"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/colorEditText"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Vasectomy"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/colorEditText"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Others"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/colorEditText"/>
+
         </LinearLayout>
 
     </ScrollView>
