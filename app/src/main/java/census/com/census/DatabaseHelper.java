@@ -5,8 +5,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,22 +27,18 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         boolean dbExist = checkDatabase();
 
         if(dbExist){
-            Toast.makeText(context,"Database exists",Toast.LENGTH_SHORT).show();
         }
-        else{
+        else {
             this.getReadableDatabase();
 
             try{
                 copyDatabase();
-                Toast.makeText(context,"Copy database",Toast.LENGTH_SHORT).show();
             }
             catch (IOException e) {
-                Toast.makeText(context,"Error copy database",Toast.LENGTH_SHORT).show();
                 throw new Error("Error copying database");
             }
         }
     }
-
 
     private boolean checkDatabase(){
         SQLiteDatabase checkDB = null;
@@ -66,13 +60,11 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         InputStream inputDb = context.getAssets().open(DB_NAME+".db");
 
         String outDbName = DB_PATH + DB_NAME;
-
         OutputStream outputDB = new FileOutputStream(outDbName);
-        //OutputStream outputDB = new FileOutputStream(DB_NAME);
-
 
         byte[] buffer = new byte[1024];
         int length;
+
         while ((length = inputDb.read(buffer))>0){
             outputDB.write(buffer, 0, length);
         }
@@ -97,19 +89,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        /*if(newVersion > oldVersion){
-            try{
-                copyDatabase();
-            }
-            catch (IOException e){
-                e.printStackTrace();
-            }
-        }*/
-
     }
 }

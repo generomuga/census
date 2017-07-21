@@ -1,7 +1,11 @@
 package census.com.census;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +44,8 @@ public class FamilyIdentificationFragment extends Fragment {
     private ArrayList region4AProvince;
     private ArrayAdapter spinnerArrayAdapter;
 
+    private ArrayList listRegion;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_family_identification, container, false);
@@ -47,13 +53,15 @@ public class FamilyIdentificationFragment extends Fragment {
         //init views
         initViews();
 
-        useArrayAdapter(Locations.regions);
-        spinnerRegions.setAdapter(spinnerArrayAdapter);
+
+        //queryRegion();
+        //useArrayAdapter(Locations.regions);
+        //useArrayAdapter(listRegion);
+        //spinnerRegions.setAdapter(spinnerArrayAdapter);
 
         //select region
-        spinnerRegionEvent();
+        //spinnerRegionEvent();
 
-        //select provinces
         return view;
     }
 
@@ -128,5 +136,12 @@ public class FamilyIdentificationFragment extends Fragment {
 
         }
     }
+
+    /*private void queryRegion(){
+        DbUtils dbUtils = new DbUtils(this.getActivity());
+        listRegion = dbUtils.getStringList("SELECT distinct(region) FROM locations","region");
+
+        //Log.i("list",listRegion.get(0).toString());
+    }*/
 
 }

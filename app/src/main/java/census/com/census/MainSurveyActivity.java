@@ -1,14 +1,20 @@
 package census.com.census;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainSurveyActivity extends AppCompatActivity {
 
@@ -28,6 +34,16 @@ public class MainSurveyActivity extends AppCompatActivity {
         setSupportActionBar(toolBarSurvey);
         getSupportActionBar().setTitle("Family Information");
 
+        //database connection
+        createDbConnection();
+
+        //sample query
+        //selectSample();
+        queryRegion();
+
+        //query region
+        //queryRegion();
+
         //checks for save instance state
         if(savedInstanceState == null){
             tag = "FamilyIdentification";
@@ -35,7 +51,67 @@ public class MainSurveyActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragmentMain,fragment,tag).commit();
         }
+
     }
+
+    private void createDbConnection(){
+        DbUtils dbUtils = new DbUtils(this);
+        dbUtils.createDbConnection();
+    }
+
+    private void selectSample() {
+        try {
+            SQLiteDatabase dbLocation = this.openOrCreateDatabase("locations", Context.MODE_PRIVATE, null);
+            Toast.makeText(this,"Select module open database",Toast.LENGTH_SHORT).show();
+
+            //dbLocation.execSQL("CREATE TABLE IF NOT EXISTS locations (id INT,regions VARCHAR,province VARCHAR, municipality VARCHAR)");
+            //dbLocation.execSQL("INSERT INTO locations (id,regions,province,municipality) VALUES (1,'IV','Laguna', 'Calauan')");
+
+            Cursor c = dbLocation.rawQuery("SELECT distinct(region) FROM locations", null);
+
+            int regionsIndex = c.getColumnIndex("region");
+            //int provinceIndex = c.getColumnIndex("province");
+            //int municipality = c.getColumnIndex("municipality");
+
+            c.moveToFirst();
+            while (c != null) {
+                Log.i("region", c.getString(regionsIndex));
+                //Toast.makeText(this,c.getString(regionsIndex),Toast.LENGTH_SHORT).show();
+                c.moveToNext();
+            }
+
+            dbLocation.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void queryRegion(){
+        try {
+            //listRegion.clear();
+
+            SQLiteDatabase dbLocation = this.openOrCreateDatabase("locations", Context.MODE_PRIVATE, null);
+            String query = "SELECT distinct(region) FROM locations";
+
+            Cursor c = dbLocation.rawQuery(query,null);
+
+            int toQueryIndex = c.getColumnIndex("region");
+
+            c.moveToFirst();
+            while(c!=null){
+                Log.i("region",c.getString(toQueryIndex));
+                //listRegion.add(c.getString(toQueryIndex));
+                c.moveToNext();
+            }
+
+            //dbLocation.close();
+        }
+        catch (Exception e){
+            Log.i("error",e.toString());
+        }
+    }
+
 
     public void changeFragment(View view){
         switch (view.getId()){

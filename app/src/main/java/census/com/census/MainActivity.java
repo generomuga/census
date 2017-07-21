@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        connectDB();
-        selectSample();
+        //connectDB();
+        //selectSample();
         //DbUtils.getDatabase(this);
 
     }
@@ -62,50 +62,19 @@ public class MainActivity extends AppCompatActivity {
         DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
         try {
             databaseHelper.createDatabase();
-            Toast.makeText(MainActivity.this,"Database connected!", Toast.LENGTH_SHORT).show();
         }
         catch (IOException e) {
-            Toast.makeText(MainActivity.this,"Unable to create database", Toast.LENGTH_SHORT).show();
             throw new Error("Unable to create database");
         }
 
         try{
             databaseHelper.openDataBase();
-            Toast.makeText(MainActivity.this,"Open database", Toast.LENGTH_SHORT).show();
         }
         catch (SQLException sqle){
-            Toast.makeText(MainActivity.this,"Unable to open database", Toast.LENGTH_SHORT).show();
             throw sqle;
         }
 
-
     }
 
-    private void selectSample() {
-
-        try {
-            SQLiteDatabase dbLocation = this.openOrCreateDatabase("locations", Context.MODE_PRIVATE, null);
-            Toast.makeText(this,"Select module open database",Toast.LENGTH_SHORT).show();
-
-            //dbLocation.execSQL("CREATE TABLE IF NOT EXISTS locations (id INT,regions VARCHAR,province VARCHAR, municipality VARCHAR)");
-            //dbLocation.execSQL("INSERT INTO locations (id,regions,province,municipality) VALUES (1,'IV','Laguna', 'Calauan')");
-
-            Cursor c = dbLocation.rawQuery("SELECT * FROM locations", null);
-
-            int regionsIndex = c.getColumnIndex("region");
-            int provinceIndex = c.getColumnIndex("province");
-            int municipality = c.getColumnIndex("municipality");
-
-            c.moveToFirst();
-            while (c != null) {
-                Log.i("region", c.getString(regionsIndex));
-                //Toast.makeText(this,c.getString(regionsIndex),Toast.LENGTH_SHORT).show();
-                c.moveToNext();
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
 }
