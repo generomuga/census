@@ -5,6 +5,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -28,14 +29,17 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         boolean dbExist = checkDatabase();
 
         if(dbExist){
+            Toast.makeText(context,"Database exists",Toast.LENGTH_SHORT).show();
         }
         else{
             this.getReadableDatabase();
 
             try{
                 copyDatabase();
+                Toast.makeText(context,"Copy database",Toast.LENGTH_SHORT).show();
             }
             catch (IOException e) {
+                Toast.makeText(context,"Error copy database",Toast.LENGTH_SHORT).show();
                 throw new Error("Error copying database");
             }
         }
@@ -59,11 +63,13 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
     private void copyDatabase() throws IOException {
-        InputStream inputDb = context.getAssets().open(DB_NAME);
+        InputStream inputDb = context.getAssets().open(DB_NAME+".db");
 
         String outDbName = DB_PATH + DB_NAME;
 
         OutputStream outputDB = new FileOutputStream(outDbName);
+        //OutputStream outputDB = new FileOutputStream(DB_NAME);
+
 
         byte[] buffer = new byte[1024];
         int length;
@@ -96,14 +102,14 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if(newVersion > oldVersion){
+        /*if(newVersion > oldVersion){
             try{
                 copyDatabase();
             }
             catch (IOException e){
                 e.printStackTrace();
             }
-        }
+        }*/
 
     }
 }

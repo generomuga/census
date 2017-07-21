@@ -9,14 +9,14 @@ public class DbUtils {
 
     public static void getDatabase(Context context){
         try{
-            SQLiteDatabase dbLocation = context.openOrCreateDatabase("Locations",Context.MODE_PRIVATE, null);
+            SQLiteDatabase dbLocation = context.openOrCreateDatabase("Location",Context.MODE_PRIVATE, null);
 
-            dbLocation.execSQL("CREATE TABLE IF NOT EXISTS locations (id INT,regions VARCHAR,province VARCHAR, municipality VARCHAR)");
-            dbLocation.execSQL("INSERT INTO locations (id,regions,province,municipality) VALUES (1,'IV','Laguna', 'Calauan')");
+            dbLocation.execSQL("CREATE TABLE IF NOT EXISTS location (id INT,region VARCHAR,province VARCHAR, municipality VARCHAR)");
+            dbLocation.execSQL("INSERT INTO location (id,region,province,municipality) VALUES (1,'IV','Laguna', 'Calauan')");
 
-            Cursor c = dbLocation.rawQuery("SELECT * from locations",null);
+            Cursor c = dbLocation.rawQuery("SELECT * from location",null);
 
-            int regionsIndex = c.getColumnIndex("regions");
+            int regionsIndex = c.getColumnIndex("region");
             int provinceIndex = c.getColumnIndex("province");
             int municipality = c.getColumnIndex("municipality");
 

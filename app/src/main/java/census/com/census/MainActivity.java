@@ -3,6 +3,7 @@ package census.com.census;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.FloatingActionButton;
@@ -40,14 +41,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        connectDB();
         selectSample();
-    }
+        //DbUtils.getDatabase(this);
 
+    }
 
     @Override
     protected void onStart() {
         super.onStart();
-        connectDB();
     }
 
     @Override
@@ -60,25 +62,30 @@ public class MainActivity extends AppCompatActivity {
         DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
         try {
             databaseHelper.createDatabase();
+            Toast.makeText(MainActivity.this,"Database connected!", Toast.LENGTH_SHORT).show();
         }
         catch (IOException e) {
+            Toast.makeText(MainActivity.this,"Unable to create database", Toast.LENGTH_SHORT).show();
             throw new Error("Unable to create database");
         }
 
         try{
             databaseHelper.openDataBase();
+            Toast.makeText(MainActivity.this,"Open database", Toast.LENGTH_SHORT).show();
         }
         catch (SQLException sqle){
+            Toast.makeText(MainActivity.this,"Unable to open database", Toast.LENGTH_SHORT).show();
             throw sqle;
         }
 
-        Toast.makeText(MainActivity.this,"Sucess", Toast.LENGTH_SHORT).show();
+
     }
 
     private void selectSample() {
 
         try {
             SQLiteDatabase dbLocation = this.openOrCreateDatabase("locations", Context.MODE_PRIVATE, null);
+            Toast.makeText(this,"Select module open database",Toast.LENGTH_SHORT).show();
 
             //dbLocation.execSQL("CREATE TABLE IF NOT EXISTS locations (id INT,regions VARCHAR,province VARCHAR, municipality VARCHAR)");
             //dbLocation.execSQL("INSERT INTO locations (id,regions,province,municipality) VALUES (1,'IV','Laguna', 'Calauan')");
