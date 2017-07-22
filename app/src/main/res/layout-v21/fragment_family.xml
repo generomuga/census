@@ -89,7 +89,7 @@
                 android:textColor="@color/colorTextView"
                 android:textSize="12sp" />
 
-            <EditText
+            <!--<EditText
                 android:id="@+id/editTextOrigin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,7 +98,87 @@
                 android:layout_marginRight="15dp"
                 android:hint="Municipal,Province"
                 android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />
+                android:textColorHint="@color/colorHint" />-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="Region"
+                android:textColor="@color/colorTextView"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spinnerRegions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:popupBackground="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="Province"
+                android:textColor="@color/colorTextView"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spinnerProvince"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:popupBackground="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="Municipality"
+                android:textColor="@color/colorTextView"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spinnerMunicipal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:popupBackground="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="Barangay"
+                android:textColor="@color/colorTextView"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spinnerBarangay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:popupBackground="@color/colorPrimary"/>
 
             <TextView
                 android:layout_width="match_parent"

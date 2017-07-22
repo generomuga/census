@@ -60,6 +60,7 @@ public class FamilyIdentificationFragment extends Fragment {
     private Spinner spinnerMunicipal;
     private Spinner spinnerBarangay;
 
+    private DbUtils dbUtils;
 
     private ArrayAdapter spinnerArrayAdapter;
 
@@ -106,7 +107,8 @@ public class FamilyIdentificationFragment extends Fragment {
     private void loadRegions(){
         ArrayList listRegion;
         String query = "SELECT DISTINCT(region) FROM locations";
-        listRegion = queryLocation(query,"region");
+        dbUtils = new DbUtils(getActivity());
+        listRegion = dbUtils.queryLocation(query,"region");
 
         if(!listRegion.isEmpty()) {
             useArrayAdapter(listRegion);
@@ -134,7 +136,8 @@ public class FamilyIdentificationFragment extends Fragment {
     private void getProvinces(String region){
         String query = "SELECT province FROM locations where region='"+region+"'";
         ArrayList listProvince;
-        listProvince = queryLocation(query,"province");
+        dbUtils = new DbUtils(getActivity());
+        listProvince = dbUtils.queryLocation(query,"province");
         if(!listProvince.isEmpty()) {
             useArrayAdapter(listProvince);
             spinnerProvinces.setAdapter(spinnerArrayAdapter);
@@ -161,7 +164,8 @@ public class FamilyIdentificationFragment extends Fragment {
     private void getMunicipal(String province){
         String query = "SELECT municipality FROM locations where province='"+province+"'";
         ArrayList listMunicipal;
-        listMunicipal = queryLocation(query,"municipality");
+        dbUtils = new DbUtils(getActivity());
+        listMunicipal = dbUtils.queryLocation(query,"municipality");
         if(!listMunicipal.isEmpty()) {
             useArrayAdapter(listMunicipal);
             spinnerMunicipal.setAdapter(spinnerArrayAdapter);
@@ -188,7 +192,8 @@ public class FamilyIdentificationFragment extends Fragment {
     private void getBarangay(String municipal){
         String query = "SELECT barangay FROM locations where municipality='"+municipal+"'";
         ArrayList listBarangay;
-        listBarangay = queryLocation(query,"barangay");
+        dbUtils = new DbUtils(getActivity());
+        listBarangay = dbUtils.queryLocation(query,"barangay");
         if(!listBarangay.isEmpty()) {
             useArrayAdapter(listBarangay);
             spinnerBarangay.setAdapter(spinnerArrayAdapter);
@@ -198,36 +203,9 @@ public class FamilyIdentificationFragment extends Fragment {
         }
     }
 
-
-
     private void useArrayAdapter(ArrayList arrayList){
         spinnerArrayAdapter = new ArrayAdapter<String>(getActivity(),R.layout.spinner_item,arrayList);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-    }
-
-    public ArrayList queryLocation(String query,String toQuery){
-        ArrayList listResult = new ArrayList<>();
-
-        try {
-            SQLiteDatabase dbLocation = getActivity().openOrCreateDatabase("locations", Context.MODE_PRIVATE, null);
-
-            Cursor c = dbLocation.rawQuery(query,null);
-
-            int toQueryIndex = c.getColumnIndex(toQuery);
-
-            c.moveToFirst();
-            while(c!=null){
-                Log.i("region",c.getString(toQueryIndex));
-                listResult.add(c.getString(toQueryIndex));
-                c.moveToNext();
-            }
-
-            //dbLocation.close();
-        }
-        catch (Exception e){
-            Log.i("error",e.toString());
-        }
-        return listResult;
     }
 
 }

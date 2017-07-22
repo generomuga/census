@@ -5,9 +5,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -63,11 +65,19 @@ public class FamilyFragment extends Fragment {
     public static EditText editTextVanNo;
     public static Spinner spinnerYear;
     public static Spinner spinnerISP;
+
+    private Spinner spinnerRegion;
+    private Spinner spinnerProvince;
+    private Spinner spinnerMunicipal;
+    private Spinner spinnerBarangay;
+
     public static SeekBar seekBarNoFamMembers;
     private static TextView textViewNoFamMembers;
     private ArrayList years;
     private ArrayList isps;
     private ArrayAdapter<String> spinnerArrayAdapter;
+
+    private DbUtils dbUtils;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -90,15 +100,35 @@ public class FamilyFragment extends Fragment {
         useArrayAdapter((ArrayList) isps);
         spinnerISP.setAdapter(spinnerArrayAdapter);
 
+        //load regions
+        loadRegions();
+
+        //load province
+        spinnerRegionEvent();
+
+        //load municipality
+        spinnerProvinceEvent();
+
+        //load barangay
+        spinnerMunicipalEvent();
+
         return  view;
     }
 
     private void initViews(){
-        editTextOrigin = (EditText) view.findViewById(id.editTextOrigin);
+        //editTextOrigin = (EditText) view.findViewById(id.editTextOrigin);
+
         editTextContactNo = (EditText) view.findViewById(id.editTextContactNo);
 
         spinnerYear = (Spinner) view.findViewById(id.spinnerYear);
         spinnerISP = (Spinner) view.findViewById(id.spinnerISP);
+
+        spinnerRegion = (Spinner) view.findViewById(id.spinnerRegions);
+        spinnerProvince = (Spinner) view.findViewById(id.spinnerProvince);
+        spinnerMunicipal = (Spinner) view.findViewById(id.spinnerMunicipal);
+        spinnerBarangay = (Spinner) view.findViewById(id.spinnerBarangay);
+
+
         checkBoxBicycle = (CheckBox) view.findViewById(id.checkboxBicycle);
         checkBoxBoat = (CheckBox) view.findViewById(id.checkboxBoat);
         checkBoxBus = (CheckBox) view.findViewById(id.checkboxBus);
@@ -133,6 +163,110 @@ public class FamilyFragment extends Fragment {
         editTextVanNo = (EditText) view.findViewById(id.editTextVanNo);
         seekBarNoFamMembers = (SeekBar) view.findViewById(id.seekBarNoFamilyMembers);
         textViewNoFamMembers = (TextView) view.findViewById(id.textViewNoFamMembers);
+    }
+
+    private void loadRegions(){
+        ArrayList listRegion;
+        String query = "SELECT DISTINCT(region) FROM locations";
+        //DbUtils dbUtils = new DbUtils(getActivity());
+        dbUtils = new DbUtils(getActivity());
+
+        listRegion = dbUtils.queryLocation(query,"region");
+
+        if(!listRegion.isEmpty()) {
+            useArrayAdapter(listRegion);
+            spinnerRegion.setAdapter(spinnerArrayAdapter);
+        }
+        else{
+            Log.i("regions:","empty");
+        }
+    }
+
+    private void spinnerRegionEvent(){
+        spinnerRegion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                getProvinces(spinnerRegion.getSelectedItem().toString().trim());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //do nothing
+            }
+        });
+    }
+
+    private void getProvinces(String region){
+        ArrayList listProvince;
+        String query = "SELECT province FROM locations where region='"+region+"'";
+        //DbUtils dbUtils = new DbUtils(getActivity());
+        dbUtils = new DbUtils(getActivity());
+        listProvince = dbUtils.queryLocation(query,"province");
+        if(!listProvince.isEmpty()) {
+            useArrayAdapter(listProvince);
+            spinnerProvince.setAdapter(spinnerArrayAdapter);
+        }
+        else{
+            Log.i("provinces:","empty");
+        }
+    }
+
+    private void spinnerProvinceEvent(){
+        spinnerProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                getMunicipal(spinnerProvince.getSelectedItem().toString().trim());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //do nothing
+            }
+        });
+    }
+
+    private void getMunicipal(String province){
+        ArrayList listMunicipal;
+        String query = "SELECT municipality FROM locations where province='"+province+"'";
+        //DbUtils dbUtils = new DbUtils(getActivity());
+        dbUtils = new DbUtils(getActivity());
+        listMunicipal = dbUtils.queryLocation(query,"municipality");
+        if(!listMunicipal.isEmpty()) {
+            useArrayAdapter(listMunicipal);
+            spinnerMunicipal.setAdapter(spinnerArrayAdapter);
+        }
+        else{
+            Log.i("municipals:","empty");
+        }
+    }
+
+    private void spinnerMunicipalEvent(){
+        spinnerMunicipal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                getBarangay(spinnerMunicipal.getSelectedItem().toString().trim());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //do nothing
+            }
+        });
+    }
+
+    private void getBarangay(String municipal){
+        ArrayList listBarangay;
+        String query = "SELECT barangay FROM locations where municipality='"+municipal+"'";
+        //DbUtils dbUtils = new DbUtils(getActivity());
+        dbUtils = new DbUtils(getActivity());
+        listBarangay = dbUtils.queryLocation(query,"barangay");
+        if(!listBarangay.isEmpty()) {
+            useArrayAdapter(listBarangay);
+            spinnerBarangay.setAdapter(spinnerArrayAdapter);
+        }
+        else{
+            Log.i("barangays:","empty");
+        }
     }
 
     private void useArrayAdapter(ArrayList arrayList){
@@ -179,7 +313,5 @@ public class FamilyFragment extends Fragment {
             }
         });
     }
-
-
 
 }
