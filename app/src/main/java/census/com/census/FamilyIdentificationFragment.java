@@ -44,8 +44,6 @@ public class FamilyIdentificationFragment extends Fragment {
     private ArrayList region4AProvince;
     private ArrayAdapter spinnerArrayAdapter;
 
-    private ArrayList listRegion;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_family_identification, container, false);
@@ -53,9 +51,11 @@ public class FamilyIdentificationFragment extends Fragment {
         //init views
         initViews();
 
-        //createDbConnection();
-        queryRegion();
-        //useArrayAdapter(Locations.regions);
+        //to load regions from sqlite
+        ArrayList listRegion;
+        String query = "SELECT DISTINCT(region) FROM locations";
+        listRegion = queryLocation(query,"region");
+
         if(!listRegion.isEmpty()) {
             useArrayAdapter(listRegion);
             spinnerRegions.setAdapter(spinnerArrayAdapter);
@@ -65,7 +65,8 @@ public class FamilyIdentificationFragment extends Fragment {
         }
 
         //select region
-        //spinnerRegionEvent();
+        spinnerRegionEvent();
+        //spinnerProvinceEvent();
 
         return view;
     }
@@ -90,7 +91,7 @@ public class FamilyIdentificationFragment extends Fragment {
     }
 
     private void useArrayAdapter(ArrayList arrayList){
-        spinnerArrayAdapter = new ArrayAdapter<String>(this.getActivity(),R.layout.spinner_item,arrayList);
+        spinnerArrayAdapter = new ArrayAdapter<String>(getActivity(),R.layout.spinner_item,arrayList);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
     }
 
@@ -98,7 +99,19 @@ public class FamilyIdentificationFragment extends Fragment {
         spinnerRegions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                checkSelectedRegion(position);
+                Toast.makeText(getActivity(),spinnerRegions.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
+
+                String query = "SELECT province FROM locations where region='"+spinnerRegions.getSelectedItem().toString()+"'";
+
+                ArrayList listProvince;
+                listProvince = queryLocation(query,"province");
+                if(!listProvince.isEmpty()) {
+                    useArrayAdapter(listProvince);
+                    spinnerProvinces.setAdapter(spinnerArrayAdapter);
+                }
+                else{
+                    Log.i("List region","empty");
+                }
             }
 
             @Override
@@ -108,41 +121,34 @@ public class FamilyIdentificationFragment extends Fragment {
         });
     }
 
-    private void spinnerProvinceEvent(){
-        spinnerProvinces.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                checkSelectedRegion(position);
+
+    public ArrayList queryLocation(String query,String toQuery){
+        ArrayList listResult = new ArrayList<>();
+        try {
+            SQLiteDatabase dbLocation = getActivity().openOrCreateDatabase("locations", Context.MODE_PRIVATE, null);
+            //String query = "SELECT distinct(region) FROM locations";
+
+            Cursor c = dbLocation.rawQuery(query,null);
+
+            int toQueryIndex = c.getColumnIndex(toQuery);
+
+            c.moveToFirst();
+            while(c!=null){
+                Log.i("region",c.getString(toQueryIndex));
+                listResult.add(c.getString(toQueryIndex));
+                c.moveToNext();
             }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
 
-            }
-        });
-    }
-
-
-    private void checkSelectedRegion(Integer region){
-        switch(region){
-            case 3:
-                useArrayAdapter(Locations.region4Provinces);
-                spinnerProvinces.setAdapter(spinnerArrayAdapter);
-                break;
-            case 4:
-                break;
+            dbLocation.close();
         }
-
-    }
-
-    private void checkSelectedProvince(Integer region, Integer province){
-        switch(region){
-            case 3:
-
+        catch (Exception e){
+            Log.i("error",e.toString());
         }
+        return listResult;
     }
 
-    private void createDbConnection(){
+    /*private void createDbConnection(){
         DbUtils dbUtils = new DbUtils(getActivity());
         dbUtils.createDbConnection();
     }
@@ -162,7 +168,7 @@ public class FamilyIdentificationFragment extends Fragment {
             c.moveToFirst();
             while(c!=null){
                 Log.i("region",c.getString(toQueryIndex));
-                listRegion.add(c.getString(toQueryIndex));
+                listRegion.add("REGION "+c.getString(toQueryIndex));
                 c.moveToNext();
             }
 
@@ -172,6 +178,7 @@ public class FamilyIdentificationFragment extends Fragment {
             Log.i("error",e.toString());
         }
     }
+    */
 
 
 }
