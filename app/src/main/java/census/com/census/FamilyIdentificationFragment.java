@@ -23,7 +23,7 @@ import java.util.Arrays;
 public class FamilyIdentificationFragment extends Fragment {
 
     private View view;
-    public static EditText editTextFName;
+    /*public static EditText editTextFName;
     public static EditText editTextMName;
     public static EditText editTextLName;
     public static EditText editTextHouseNo;
@@ -40,6 +40,27 @@ public class FamilyIdentificationFragment extends Fragment {
     public static Spinner spinnerRegions;
     public static Spinner spinnerProvinces;
     public static Spinner spinnerMunicipal;
+    public static Spinner spinnerBarangay;*/
+    private EditText editTextFName;
+    private EditText editTextMName;
+    private EditText editTextLName;
+    private EditText editTextHouseNo;
+    private EditText editTextStreetNo;
+    private EditText editTextBarangay;
+    private EditText editTextMunicipality;
+    private EditText editTextProvince;
+    private RadioButton radioButtonResident;
+    private RadioButton radioButtonNonResident;
+    private RadioButton radioButtonOwner;
+    private RadioButton radioButtonExtended;
+    private RadioButton radioButtonActive;
+    private RadioButton radioButtonInactive;
+    private Spinner spinnerRegions;
+    private Spinner spinnerProvinces;
+    private Spinner spinnerMunicipal;
+    private Spinner spinnerBarangay;
+
+
     private ArrayAdapter spinnerArrayAdapter;
 
     @Override
@@ -51,6 +72,15 @@ public class FamilyIdentificationFragment extends Fragment {
 
         //to load regions from sql
         loadRegions();
+
+        //select region
+        spinnerRegionEvent();
+
+        //select province
+        spinnerProvinceEvent();
+
+        //select municipal
+        spinnerMunicipalEvent();
 
         return view;
     }
@@ -70,6 +100,7 @@ public class FamilyIdentificationFragment extends Fragment {
         spinnerRegions = (Spinner) view.findViewById(R.id.spinnerRegions);
         spinnerProvinces = (Spinner) view.findViewById(R.id.spinnerProvince);
         spinnerMunicipal = (Spinner) view.findViewById(R.id.spinnerMunicipal);
+        spinnerBarangay = (Spinner) view.findViewById(R.id.spinnerBarangay);
     }
 
     private void loadRegions(){
@@ -84,13 +115,6 @@ public class FamilyIdentificationFragment extends Fragment {
         else{
             Log.i("regions:","empty");
         }
-
-        //select region
-        spinnerRegionEvent();
-
-        //select province
-        spinnerProvinceEvent();
-
     }
 
     private void spinnerRegionEvent(){
@@ -124,7 +148,6 @@ public class FamilyIdentificationFragment extends Fragment {
         spinnerProvinces.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(),spinnerProvinces.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
                 getMunicipal(spinnerProvinces.getSelectedItem().toString().trim());
             }
 
@@ -148,6 +171,35 @@ public class FamilyIdentificationFragment extends Fragment {
         }
     }
 
+    private void spinnerMunicipalEvent(){
+        spinnerMunicipal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                getBarangay(spinnerMunicipal.getSelectedItem().toString().trim());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //do nothing
+            }
+        });
+    }
+
+    private void getBarangay(String municipal){
+        String query = "SELECT barangay FROM locations where municipality='"+municipal+"'";
+        ArrayList listBarangay;
+        listBarangay = queryLocation(query,"barangay");
+        if(!listBarangay.isEmpty()) {
+            useArrayAdapter(listBarangay);
+            spinnerBarangay.setAdapter(spinnerArrayAdapter);
+        }
+        else{
+            Log.i("barangays:","empty");
+        }
+    }
+
+
+
     private void useArrayAdapter(ArrayList arrayList){
         spinnerArrayAdapter = new ArrayAdapter<String>(getActivity(),R.layout.spinner_item,arrayList);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
@@ -170,7 +222,7 @@ public class FamilyIdentificationFragment extends Fragment {
                 c.moveToNext();
             }
 
-            dbLocation.close();
+            //dbLocation.close();
         }
         catch (Exception e){
             Log.i("error",e.toString());

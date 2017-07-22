@@ -34,16 +34,6 @@ public class MainSurveyActivity extends AppCompatActivity {
         setSupportActionBar(toolBarSurvey);
         getSupportActionBar().setTitle("Family Information");
 
-        //database connection
-        //createDbConnection();
-
-        //sample query
-        //selectSample();
-        //queryRegion();
-
-        //query region
-        //queryRegion();
-
         //checks for save instance state
         if(savedInstanceState == null){
             tag = "FamilyIdentification";
@@ -173,10 +163,10 @@ public class MainSurveyActivity extends AppCompatActivity {
             if (fragment.isVisible()) {
                 switch (tag){
                     case "FamilyIdentification":
-                        saveObjectFamilyIdentification();
+                        //saveObjectFamilyIdentification();
                         break;
                     case "Family":
-                        saveObjectFamily();
+                        //saveObjectFamily();
                         break;
                     case "Health":
                         Toast.makeText(this,"Health",Toast.LENGTH_SHORT).show();
@@ -191,7 +181,7 @@ public class MainSurveyActivity extends AppCompatActivity {
         }
     }
 
-    private void saveObjectFamilyIdentification(){
+    /*private void saveObjectFamilyIdentification(){
         FamilyIdentification familyIdentification = new FamilyIdentification();
 
         if(!TextUtils.isEmpty(FamilyIdentificationFragment.editTextFName.getText().toString().trim())){
@@ -270,9 +260,9 @@ public class MainSurveyActivity extends AppCompatActivity {
         else{
             familyIdentification.setFamilyStatus(0);
         }
-    }
+    }*/
 
-    private void saveObjectFamily(){
+    /*private void saveObjectFamily(){
         Family family = new Family();
 
         if(FamilyFragment.seekBarNoFamMembers.getProgress() !=0 ){
@@ -569,5 +559,5 @@ public class MainSurveyActivity extends AppCompatActivity {
         else{
             family.setSelectVan(0);
         }
-    }
+    }*/
 }
