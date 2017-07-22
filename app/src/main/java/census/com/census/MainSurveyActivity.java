@@ -21,7 +21,7 @@ public class MainSurveyActivity extends AppCompatActivity {
     private Toolbar toolBarSurvey;
     String tag;
     String errorMsgReq = "This field is required!";
-    String errorMsgNum = "Not a number";
+    String errorMsgNum = "Not a number!";
     Fragment fragment;
 
     @Override
@@ -35,11 +35,11 @@ public class MainSurveyActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Family Information");
 
         //database connection
-        createDbConnection();
+        //createDbConnection();
 
         //sample query
         //selectSample();
-        queryRegion();
+        //queryRegion();
 
         //query region
         //queryRegion();
@@ -112,7 +112,6 @@ public class MainSurveyActivity extends AppCompatActivity {
         }
     }
 
-
     public void changeFragment(View view){
         switch (view.getId()){
             case R.id.imageButtonFamilyId:
@@ -174,11 +173,9 @@ public class MainSurveyActivity extends AppCompatActivity {
             if (fragment.isVisible()) {
                 switch (tag){
                     case "FamilyIdentification":
-                        //Toast.makeText(this,"FamilyIdentification",Toast.LENGTH_SHORT).show();
                         saveObjectFamilyIdentification();
                         break;
                     case "Family":
-                        Toast.makeText(this,"Family",Toast.LENGTH_SHORT).show();
                         saveObjectFamily();
                         break;
                     case "Health":

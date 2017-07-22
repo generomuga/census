@@ -53,11 +53,16 @@ public class FamilyIdentificationFragment extends Fragment {
         //init views
         initViews();
 
-
-        //queryRegion();
+        //createDbConnection();
+        queryRegion();
         //useArrayAdapter(Locations.regions);
-        //useArrayAdapter(listRegion);
-        //spinnerRegions.setAdapter(spinnerArrayAdapter);
+        if(!listRegion.isEmpty()) {
+            useArrayAdapter(listRegion);
+            spinnerRegions.setAdapter(spinnerArrayAdapter);
+        }
+        else{
+            Log.i("List region","empty");
+        }
 
         //select region
         //spinnerRegionEvent();
@@ -137,11 +142,36 @@ public class FamilyIdentificationFragment extends Fragment {
         }
     }
 
-    /*private void queryRegion(){
-        DbUtils dbUtils = new DbUtils(this.getActivity());
-        listRegion = dbUtils.getStringList("SELECT distinct(region) FROM locations","region");
+    private void createDbConnection(){
+        DbUtils dbUtils = new DbUtils(getActivity());
+        dbUtils.createDbConnection();
+    }
 
-        //Log.i("list",listRegion.get(0).toString());
-    }*/
+    public void queryRegion(){
+        try {
+
+            listRegion = new ArrayList<>();
+
+            SQLiteDatabase dbLocation = getActivity().openOrCreateDatabase("locations", Context.MODE_PRIVATE, null);
+            String query = "SELECT distinct(region) FROM locations";
+
+            Cursor c = dbLocation.rawQuery(query,null);
+
+            int toQueryIndex = c.getColumnIndex("region");
+
+            c.moveToFirst();
+            while(c!=null){
+                Log.i("region",c.getString(toQueryIndex));
+                listRegion.add(c.getString(toQueryIndex));
+                c.moveToNext();
+            }
+
+            dbLocation.close();
+        }
+        catch (Exception e){
+            Log.i("error",e.toString());
+        }
+    }
+
 
 }
