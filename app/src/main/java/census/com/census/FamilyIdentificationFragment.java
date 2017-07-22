@@ -39,6 +39,7 @@ public class FamilyIdentificationFragment extends Fragment {
     public static RadioButton radioButtonInactive;
     public static Spinner spinnerRegions;
     public static Spinner spinnerProvinces;
+    public static Spinner spinnerMunicipal;
     private ArrayAdapter spinnerArrayAdapter;
 
     @Override
@@ -68,6 +69,7 @@ public class FamilyIdentificationFragment extends Fragment {
         radioButtonInactive = (RadioButton) view.findViewById(R.id.radioButtonInactive);
         spinnerRegions = (Spinner) view.findViewById(R.id.spinnerRegions);
         spinnerProvinces = (Spinner) view.findViewById(R.id.spinnerProvince);
+        spinnerMunicipal = (Spinner) view.findViewById(R.id.spinnerMunicipal);
     }
 
     private void loadRegions(){
@@ -85,6 +87,10 @@ public class FamilyIdentificationFragment extends Fragment {
 
         //select region
         spinnerRegionEvent();
+
+        //select province
+        spinnerProvinceEvent();
+
     }
 
     private void spinnerRegionEvent(){
@@ -111,6 +117,34 @@ public class FamilyIdentificationFragment extends Fragment {
         }
         else{
             Log.i("provinces:","empty");
+        }
+    }
+
+    private void spinnerProvinceEvent(){
+        spinnerProvinces.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getActivity(),spinnerProvinces.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
+                getMunicipal(spinnerProvinces.getSelectedItem().toString().trim());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //do nothing
+            }
+        });
+    }
+
+    private void getMunicipal(String province){
+        String query = "SELECT municipality FROM locations where province='"+province+"'";
+        ArrayList listMunicipal;
+        listMunicipal = queryLocation(query,"municipality");
+        if(!listMunicipal.isEmpty()) {
+            useArrayAdapter(listMunicipal);
+            spinnerMunicipal.setAdapter(spinnerArrayAdapter);
+        }
+        else{
+            Log.i("municipals:","empty");
         }
     }
 
