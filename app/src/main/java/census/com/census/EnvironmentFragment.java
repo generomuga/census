@@ -3,6 +3,7 @@ package census.com.census;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.AsyncLayoutInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ public class EnvironmentFragment extends Fragment {
     private Spinner spinnerCooking;
     private Spinner spinnerGarbage;
     private Spinner spinnerLocation;
+    private Spinner spinnerEcological;
 
     private ArrayList listToilet;
     private ArrayList listWater;
@@ -39,6 +41,14 @@ public class EnvironmentFragment extends Fragment {
     private ArrayList listLot;
     private ArrayList listStructure;
     private ArrayList listExternal;
+    private ArrayList listRoof;
+    private ArrayList listFloor;
+    private ArrayList listLightning;
+    private ArrayList listCooking;
+    private ArrayList listGarbage;
+    private ArrayList listLocation;
+    private ArrayList listEcological;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -76,6 +86,34 @@ public class EnvironmentFragment extends Fragment {
         useArrayAdapter(listExternal);
         spinnerExternal.setAdapter(spinnerArrayAdapter);
 
+        getRoof();
+        useArrayAdapter(listRoof);
+        spinnerRoof.setAdapter(spinnerArrayAdapter);
+
+        getFloor();
+        useArrayAdapter(listFloor);
+        spinnerFloor.setAdapter(spinnerArrayAdapter);
+
+        getLightning();
+        useArrayAdapter(listLightning);
+        spinnerLightning.setAdapter(spinnerArrayAdapter);
+
+        getCooking();
+        useArrayAdapter(listCooking);
+        spinnerCooking.setAdapter(spinnerArrayAdapter);
+
+        getGarbage();
+        useArrayAdapter(listGarbage);
+        spinnerGarbage.setAdapter(spinnerArrayAdapter);
+
+        getLocation();
+        useArrayAdapter(listLocation);
+        spinnerLocation.setAdapter(spinnerArrayAdapter);
+
+        getEcological();
+        useArrayAdapter(listEcological);
+        spinnerEcological.setAdapter(spinnerArrayAdapter);
+
         return view;
     }
 
@@ -93,6 +131,7 @@ public class EnvironmentFragment extends Fragment {
         spinnerCooking = (Spinner) view.findViewById(R.id.spinnerCooking);
         spinnerGarbage = (Spinner) view.findViewById(R.id.spinnerGarbage);
         spinnerLocation = (Spinner) view.findViewById(R.id.spinnerLocation);
+        spinnerEcological = (Spinner) view.findViewById(R.id.spinnerEcological);
     }
 
     private void useArrayAdapter(ArrayList arrayList){
@@ -175,6 +214,82 @@ public class EnvironmentFragment extends Fragment {
                 "Makeshift/Salvaged improvised",
                 "Wood",
                 "No walls/not reported"
+        ));
+    }
+
+    private void getRoof(){
+        listRoof = new ArrayList<>(Arrays.asList(
+                "Bamboo/Sawali,Cogon,Nipa",
+                "Galvanized iron",
+                "Makeshift/Salvaged improvised",
+                "Mixed materials"
+        ));
+    }
+
+    private void getFloor(){
+        listFloor = new ArrayList<>(Arrays.asList(
+                "Bamboo",
+                "Cement",
+                "Cemented with linoleum",
+                "Cemented with tiles",
+                "Woods",
+                "Soil",
+                "Soil with linoleum"
+        ));
+    }
+
+    private void getLightning(){
+        listLightning = new ArrayList<>(Arrays.asList(
+                "Battery",
+                "Candle",
+                "Solar power",
+                "Kerosene",
+                "Generator",
+                "Electricity"
+        ));
+    }
+
+    private void getCooking(){
+        listCooking = new ArrayList<>(Arrays.asList(
+                "Charcoal",
+                "Electricity",
+                "Kerosene",
+                "LPG",
+                "Wood",
+                "Biogas"
+        ));
+    }
+
+    private void getGarbage(){
+        listGarbage = new ArrayList<>(Arrays.asList(
+                "Burned",
+                "Collected",
+                "Composting",
+                "Open pit",
+                "River",
+                "Thrown anywhere",
+                "Waste segregation"
+        ));
+    }
+
+    private void getLocation(){
+        listLocation = new ArrayList<>(Arrays.asList(
+                "Irrigation canal",
+                "Lakeshore",
+                "Railroad",
+                "Riverbank",
+                "Seashore",
+                "Hill",
+                "Mountain",
+                "Rice field"
+        ));
+    }
+
+    private void getEcological(){
+        listEcological = new ArrayList<>(Arrays.asList(
+                "Coastal",
+                "Lowland",
+                "Upland"
         ));
     }
 
