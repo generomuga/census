@@ -56,7 +56,7 @@ public class DbUtils {
                 c.moveToNext();
             }
 
-            //dbLocation.close();
+            dbLocation.close();
         }
         catch (Exception e){
             Log.i("error",e.toString());

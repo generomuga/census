@@ -29,10 +29,11 @@
 
 
             <Spinner
+                android:id="@+id/spinnerToilet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginRight="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -45,25 +46,27 @@
 
 
             <Spinner
+                android:id="@+id/spinnerWater"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginRight="15dp" />
 
             <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="10dp"
-            android:text="Source of electricity"
-            android:textColor="@color/colorTextView" />
-
-            <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Source of electricity"
+                android:textColor="@color/colorTextView" />
+
+            <Spinner
+                android:id="@+id/spinnerElectricity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -75,10 +78,11 @@
                 android:textColor="@color/colorTextView" />
 
             <Spinner
+                android:id="@+id/spinnerHouse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginRight="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -90,10 +94,11 @@
                 android:textColor="@color/colorTextView" />
 
             <Spinner
+                android:id="@+id/spinnerLot"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginRight="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -105,10 +110,11 @@
                 android:textColor="@color/colorTextView" />
 
             <Spinner
+                android:id="@+id/spinnerStructure"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginRight="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -120,10 +126,11 @@
                 android:textColor="@color/colorTextView" />
 
             <Spinner
+                android:id="@+id/spinnerExternal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginRight="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -135,10 +142,11 @@
                 android:textColor="@color/colorTextView" />
 
             <Spinner
+                android:id="@+id/spinnerRoof"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginRight="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -150,10 +158,11 @@
                 android:textColor="@color/colorTextView" />
 
             <Spinner
+                android:id="@+id/spinnerFloor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginRight="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -165,10 +174,11 @@
                 android:textColor="@color/colorTextView" />
 
             <Spinner
+                android:id="@+id/spinnerLightning"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginRight="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -180,10 +190,11 @@
                 android:textColor="@color/colorTextView" />
 
             <Spinner
+                android:id="@+id/spinnerCooking"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginRight="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -195,10 +206,11 @@
                 android:textColor="@color/colorTextView" />
 
             <Spinner
+                android:id="@+id/spinnerGarbage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginRight="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -210,11 +222,11 @@
                 android:textColor="@color/colorTextView" />
 
             <Spinner
+                android:id="@+id/spinnerLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
-
+                android:layout_marginRight="15dp" />
 
         </LinearLayout>
 

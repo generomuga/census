@@ -45,7 +45,6 @@ public class FamilyFragment extends Fragment {
     public static CheckBox checkBoxTricycle;
     public static CheckBox checkBoxTruck;
     public static CheckBox checkBoxVan;
-    public static EditText editTextOrigin;
     public static EditText editTextContactNo;
     public static EditText editTextBicycleNo;
     public static EditText editTextBoatNo;
