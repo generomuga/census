@@ -205,7 +205,7 @@ public class FamilyIdentificationFragment extends Fragment {
     }
 
     private void useArrayAdapter(ArrayList arrayList){
-        spinnerArrayAdapter = new ArrayAdapter<String>(getActivity(),R.layout.spinner_item,arrayList);
+        spinnerArrayAdapter = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, arrayList);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
     }
 
