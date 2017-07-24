@@ -38,6 +38,7 @@ public class EnvironmentFragment extends Fragment {
     private ArrayList listHouse;
     private ArrayList listLot;
     private ArrayList listStructure;
+    private ArrayList listExternal;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -71,6 +72,9 @@ public class EnvironmentFragment extends Fragment {
         useArrayAdapter(listStructure);
         spinnerStructure.setAdapter(spinnerArrayAdapter);
 
+        getExternal();
+        useArrayAdapter(listExternal);
+        spinnerExternal.setAdapter(spinnerArrayAdapter);
 
         return view;
     }
@@ -158,6 +162,19 @@ public class EnvironmentFragment extends Fragment {
                 "Extension",
                 "Institutional residence",
                 "Single house"
+        ));
+    }
+
+    private void getExternal(){
+        listExternal = new ArrayList<>(Arrays.asList(
+                "Glass",
+                "Bamboo, Sawali, Cogon, Nipa",
+                "Concrete/Brick/Stone",
+                "Galvanized Iron/Aluminum",
+                "Half-concrete/Brick/Stone/Half wood",
+                "Makeshift/Salvaged improvised",
+                "Wood",
+                "No walls/not reported"
         ));
     }
 
