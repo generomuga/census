@@ -37,6 +37,7 @@ public class EnvironmentFragment extends Fragment {
     private ArrayList listElectricity;
     private ArrayList listHouse;
     private ArrayList listLot;
+    private ArrayList listStructure;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,6 +66,11 @@ public class EnvironmentFragment extends Fragment {
         getLot();
         useArrayAdapter(listLot);
         spinnerLot.setAdapter(spinnerArrayAdapter);
+
+        getStructure();
+        useArrayAdapter(listStructure);
+        spinnerStructure.setAdapter(spinnerArrayAdapter);
+
 
         return view;
     }
@@ -142,6 +148,16 @@ public class EnvironmentFragment extends Fragment {
                 "Family owned",
                 "Government owned",
                 "PNR lot"
+        ));
+    }
+
+    private void getStructure(){
+        listStructure = new ArrayList<>(Arrays.asList(
+                "Duplex",
+                "Commercial/Industrial",
+                "Extension",
+                "Institutional residence",
+                "Single house"
         ));
     }
 
