@@ -65,6 +65,29 @@ public class FamilyIdentificationFragment extends Fragment {
 
     private ArrayAdapter spinnerArrayAdapter;
 
+    private OnFragmentInteractionListener mListener;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        /*try{
+            mListener = (OnFragmentInteractionListener) activity;
+        }
+        catch (ClassCastException e){
+            throw new ClassCastException(activity.toString());
+        }*/
+        //mListener = (OnFragmentInteractionListener) activity;
+
+    }
+
+    public interface OnFragmentInteractionListener{
+        void onFragmentInteraction(String uri);
+    }
+
+    public void onFragmentInteraction(String uri){
+        Toast.makeText(getActivity(),uri,Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_family_identification, container, false);
@@ -83,6 +106,11 @@ public class FamilyIdentificationFragment extends Fragment {
 
         //select municipal
         spinnerMunicipalEvent();
+
+        mListener = (OnFragmentInteractionListener) getActivity();
+        mListener.onFragmentInteraction("Gene");
+
+        //mListener.onFragmentInteraction("Gne");
 
         return view;
     }

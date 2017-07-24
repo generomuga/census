@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainSurveyActivity extends AppCompatActivity {
+public class MainSurveyActivity extends AppCompatActivity implements FamilyIdentificationFragment.OnFragmentInteractionListener {
 
     private Toolbar toolBarSurvey;
     String tag;
@@ -179,6 +179,11 @@ public class MainSurveyActivity extends AppCompatActivity {
                 Toast.makeText(this, "Hello", Toast.LENGTH_LONG).show();
             }
         }
+    }
+
+    @Override
+    public void onFragmentInteraction(String uri) {
+        Toast.makeText(this,uri.toString(),Toast.LENGTH_SHORT).show();
     }
 
 
