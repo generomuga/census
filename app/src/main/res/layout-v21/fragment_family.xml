@@ -673,6 +673,15 @@
                     android:textColorHint="@color/colorTextView" />
             </LinearLayout>
 
+            <Button
+                android:id="@+id/buttonSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:text="Save"
+                android:background="@drawable/button_round"/>
+
         </LinearLayout>
 
     </ScrollView>

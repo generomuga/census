@@ -2,6 +2,7 @@ package census.com.census;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -61,11 +63,15 @@ public class FamilyIdentificationFragment extends Fragment {
     private Spinner spinnerMunicipal;
     private Spinner spinnerBarangay;
 
+    private Button buttonSave;
+
     private DbUtils dbUtils;
 
     private ArrayAdapter spinnerArrayAdapter;
 
     private OnFragmentInteractionListener mListener;
+
+    private SharedPreferences sharedPreferences;
 
     @Override
     public void onAttach(Activity activity) {
@@ -78,10 +84,15 @@ public class FamilyIdentificationFragment extends Fragment {
             throw new ClassCastException(activity.toString());
         }
         //mListener = (OnFragmentInteractionListener) activity;
-
         //mListener = (OnFragmentInteractionListener) getActivity();
         //mListener.onFragmentInteraction("Gene");
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        onLoadData();
     }
 
     public interface OnFragmentInteractionListener{
@@ -99,6 +110,9 @@ public class FamilyIdentificationFragment extends Fragment {
         //init views
         initViews();
 
+        //load data from shared preferences
+        //onLoadData();
+
         //to load regions from sql
         loadRegions();
 
@@ -111,9 +125,11 @@ public class FamilyIdentificationFragment extends Fragment {
         //select municipal
         spinnerMunicipalEvent();
 
+        //shared preferences
+        //sampleSP();
 
 
-        //mListener.onFragmentInteraction("Gne");
+        //onSaveData();
 
         return view;
     }
@@ -134,6 +150,9 @@ public class FamilyIdentificationFragment extends Fragment {
         spinnerProvinces = (Spinner) view.findViewById(R.id.spinnerProvince);
         spinnerMunicipal = (Spinner) view.findViewById(R.id.spinnerMunicipal);
         spinnerBarangay = (Spinner) view.findViewById(R.id.spinnerBarangay);
+
+        buttonSave = (Button) view.findViewById(R.id.buttonSave);
+
     }
 
     private void loadRegions(){
@@ -238,6 +257,73 @@ public class FamilyIdentificationFragment extends Fragment {
     private void useArrayAdapter(ArrayList arrayList){
         spinnerArrayAdapter = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, arrayList);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+    }
+
+    private void onSaveData(){
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSaveReference();
+            }
+        });
+    }
+
+    private void onLoadData(){
+        sharedPreferences = getActivity().getSharedPreferences("census.com.census",Context.MODE_PRIVATE);
+        //sharedPreferences.edit().remove("fname").apply();
+        //sharedPreferences.edit().putString("fname","Gene Romuga").apply();
+
+        //String fname = sharedPreferences.getString("fname","");
+
+        editTextFName.setText(sharedPreferences.getString("fname",""));
+        editTextMName.setText(sharedPreferences.getString("mname",""));
+        editTextLName.setText(sharedPreferences.getString("lname",""));
+        editTextHouseNo.setText(sharedPreferences.getString("houseno",""));
+        editTextStreetNo.setText(sharedPreferences.getString("streetno",""));
+        /*editTextBarangay.setText(sharedPreferences.getString("barangay",""));
+        /*editTextMunicipality.setText(sharedPreferences.getString("municipality",""));
+        editTextMunicipality.setText(sharedPreferences.getString("province",""));*/
+
+        //sharedPreferences.edit().putString("province",editTextMunicipality.getText().toString());
+    }
+
+    private void onSaveReference(){
+        sharedPreferences.edit().putString("fname",editTextFName.getText().toString().trim()).apply();
+        sharedPreferences.edit().putString("mname",editTextMName.getText().toString()).apply();
+        sharedPreferences.edit().putString("lname",editTextLName.getText().toString()).apply();
+        sharedPreferences.edit().putString("houseno",editTextHouseNo.getText().toString()).apply();
+        sharedPreferences.edit().putString("streetno",editTextStreetNo.getText().toString()).apply();
+        /*sharedPreferences.edit().putString("barangay",editTextBarangay.getText().toString());
+        sharedPreferences.edit().putString("municipality",editTextMunicipality.getText().toString());
+        sharedPreferences.edit().putString("province",editTextMunicipality.getText().toString());
+        */
+        //String fname = sharedPreferences.getString("fname","");
+        //Log.i("fname",fname);
+        /*private EditText editTextFName;
+        private EditText editTextMName;
+        private EditText editTextLName;
+        private EditText editTextHouseNo;
+        private EditText editTextStreetNo;
+        private EditText editTextBarangay;
+        private EditText editTextMunicipality;
+        private EditText editTextProvince;
+        private RadioButton radioButtonResident;
+        private RadioButton radioButtonNonResident;
+        private RadioButton radioButtonOwner;
+        private RadioButton radioButtonExtended;
+        private RadioButton radioButtonActive;
+        private RadioButton radioButtonInactive;
+        private Spinner spinnerRegions;
+        private Spinner spinnerProvinces;
+        private Spinner spinnerMunicipal;
+        private Spinner spinnerBarangay;*/
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        onSaveReference();
     }
 
 }

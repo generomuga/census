@@ -2,6 +2,7 @@ package census.com.census;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.SQLException;
@@ -45,12 +46,17 @@ public class MainActivity extends AppCompatActivity {
         //selectSample();
         //DbUtils.getDatabase(this);
 
+        //onClearSharedReference();
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
+        onClearSharedReference();
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -77,4 +83,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    private void onClearSharedReference(){
+        SharedPreferences sharedPreferences = this.getSharedPreferences("census.com.census",MODE_PRIVATE);
+        sharedPreferences.edit().clear().apply();
+    }
 }
