@@ -1,6 +1,7 @@
 package census.com.census;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.Fragment;
@@ -24,6 +25,8 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
     String errorMsgNum = "Not a number!";
     Fragment fragment;
 
+    private SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +44,6 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragmentMain,fragment,tag).commit();
         }
-
     }
 
     private void createDbConnection(){
@@ -151,6 +153,7 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
         switch (item.getItemId()) {
             case R.id.action_save:
                 checkActiveFragment(tag);
+                onLoadSharedReference();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -185,7 +188,6 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
     public void onFragmentInteraction(String uri) {
         Toast.makeText(this,uri.toString(),Toast.LENGTH_SHORT).show();
     }
-
 
     /*private void saveObjectFamilyIdentification(){
         FamilyIdentification familyIdentification = new FamilyIdentification();
@@ -566,4 +568,10 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
             family.setSelectVan(0);
         }
     }*/
+
+    private void onLoadSharedReference(){
+        sharedPreferences = this.getSharedPreferences("census.com.census",MODE_PRIVATE);
+        Toast.makeText(this,sharedPreferences.getString("fname","").toString(),Toast.LENGTH_SHORT).show();
+    }
+
 }

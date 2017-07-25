@@ -23,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbarMain;
     private FloatingActionButton fabAdd;
 
+    private SharedPreferences sharedPreferences;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         //DbUtils.getDatabase(this);
 
         //onClearSharedReference();
-
     }
 
     @Override
@@ -79,12 +81,10 @@ public class MainActivity extends AppCompatActivity {
         catch (SQLException sqle){
             throw sqle;
         }
-
     }
 
-
     private void onClearSharedReference(){
-        SharedPreferences sharedPreferences = this.getSharedPreferences("census.com.census",MODE_PRIVATE);
+        sharedPreferences = this.getSharedPreferences("census.com.census",MODE_PRIVATE);
         sharedPreferences.edit().clear().apply();
     }
 }
