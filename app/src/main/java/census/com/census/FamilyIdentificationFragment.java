@@ -70,13 +70,17 @@ public class FamilyIdentificationFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        /*try{
+        try{
             mListener = (OnFragmentInteractionListener) activity;
+            mListener.onFragmentInteraction("Gene");
         }
         catch (ClassCastException e){
             throw new ClassCastException(activity.toString());
-        }*/
+        }
         //mListener = (OnFragmentInteractionListener) activity;
+
+        //mListener = (OnFragmentInteractionListener) getActivity();
+        //mListener.onFragmentInteraction("Gene");
 
     }
 
@@ -107,8 +111,7 @@ public class FamilyIdentificationFragment extends Fragment {
         //select municipal
         spinnerMunicipalEvent();
 
-        mListener = (OnFragmentInteractionListener) getActivity();
-        mListener.onFragmentInteraction("Gene");
+
 
         //mListener.onFragmentInteraction("Gne");
 
