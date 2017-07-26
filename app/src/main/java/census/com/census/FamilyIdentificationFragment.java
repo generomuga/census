@@ -94,13 +94,13 @@ public class FamilyIdentificationFragment extends Fragment {
         onLoadRegions();
 
         //select region
-        spinnerRegionEvent();
+        onSpinnerRegionEvent();
 
         //select province
-        spinnerProvinceEvent();
+        onSpinnerProvinceEvent();
 
         //select municipal
-        spinnerMunicipalEvent();
+        onSpinnerMunicipalEvent();
 
         return view;
     }
@@ -150,7 +150,7 @@ public class FamilyIdentificationFragment extends Fragment {
         }
     }
 
-    private void spinnerRegionEvent(){
+    private void onSpinnerRegionEvent(){
         spinnerRegions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -178,7 +178,7 @@ public class FamilyIdentificationFragment extends Fragment {
         }
     }
 
-    private void spinnerProvinceEvent(){
+    private void onSpinnerProvinceEvent(){
         spinnerProvinces.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -206,7 +206,7 @@ public class FamilyIdentificationFragment extends Fragment {
         }
     }
 
-    private void spinnerMunicipalEvent(){
+    private void onSpinnerMunicipalEvent(){
         spinnerMunicipal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -248,7 +248,7 @@ public class FamilyIdentificationFragment extends Fragment {
         editTextHouseNo.setText(sharedPreferences.getString("houseno",""));
         editTextStreetNo.setText(sharedPreferences.getString("streetno",""));
         spinnerRegions.setSelection(sharedPreferences.getInt("region",0));
-        spinnerProvinces.setSelection(sharedPreferences.getInt("province",0));
+        editTextHouseNo.setText(sharedPreferences.getString("houseno",""));
 
     }
 
@@ -259,14 +259,11 @@ public class FamilyIdentificationFragment extends Fragment {
         sharedPreferences.edit().putString("houseno",editTextHouseNo.getText().toString()).apply();
         sharedPreferences.edit().putString("streetno",editTextStreetNo.getText().toString()).apply();
         sharedPreferences.edit().putInt("region",spinnerRegions.getSelectedItemPosition()).apply();
-        sharedPreferences.edit().putInt("province",spinnerProvinces.getSelectedItemPosition()).apply();
 
-        Log.i("province_index",Integer.toString(spinnerProvinces.getSelectedItemPosition()));
+        sharedPreferences.edit().putString("houseno",editTextHouseNo.getText().toString().trim()).apply();
 
-        /*private EditText editTextFName;
-        private EditText editTextMName;
-        private EditText editTextLName;
-        private EditText editTextHouseNo;
+
+        /*private EditText editTextHouseNo;
         private EditText editTextStreetNo;
         private EditText editTextBarangay;
         private EditText editTextMunicipality;
