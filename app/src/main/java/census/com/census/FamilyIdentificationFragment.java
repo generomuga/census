@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -46,12 +47,15 @@ public class FamilyIdentificationFragment extends Fragment {
     private EditText editTextHouseNo;
     private EditText editTextStreetNo;
 
+    private RadioGroup radioGroupResidency;
+
     private RadioButton radioButtonResident;
     private RadioButton radioButtonNonResident;
     private RadioButton radioButtonOwner;
     private RadioButton radioButtonExtended;
     private RadioButton radioButtonActive;
     private RadioButton radioButtonInactive;
+
 
     private Spinner spinnerRegions;
     private Spinner spinnerProvinces;
@@ -133,6 +137,8 @@ public class FamilyIdentificationFragment extends Fragment {
         spinnerProvinces = (Spinner) view.findViewById(R.id.spinnerProvince);
         spinnerMunicipal = (Spinner) view.findViewById(R.id.spinnerMunicipal);
         spinnerBarangay = (Spinner) view.findViewById(R.id.spinnerBarangay);
+
+        radioGroupResidency = (RadioGroup) view.findViewById(R.id.radioGroupResidency);
     }
 
     private void onLoadRegions(){
@@ -249,7 +255,9 @@ public class FamilyIdentificationFragment extends Fragment {
         editTextStreetNo.setText(sharedPreferences.getString("streetno",""));
         spinnerRegions.setSelection(sharedPreferences.getInt("region",0));
         editTextHouseNo.setText(sharedPreferences.getString("houseno",""));
+        editTextStreetNo.setText(sharedPreferences.getString("streetno",""));
 
+        //radioGroupResidency.check(sharedPreferences.getInt("rd1",0));
     }
 
     private void onSaveReference(){
@@ -259,9 +267,11 @@ public class FamilyIdentificationFragment extends Fragment {
         sharedPreferences.edit().putString("houseno",editTextHouseNo.getText().toString()).apply();
         sharedPreferences.edit().putString("streetno",editTextStreetNo.getText().toString()).apply();
         sharedPreferences.edit().putInt("region",spinnerRegions.getSelectedItemPosition()).apply();
-
         sharedPreferences.edit().putString("houseno",editTextHouseNo.getText().toString().trim()).apply();
+        sharedPreferences.edit().putString("streetno",editTextStreetNo.getText().toString().trim()).apply();
 
+        sharedPreferences.edit().putInt("rd1",radioGroupResidency.getCheckedRadioButtonId()).apply();
+        Log.i("rd1",Integer.toString(radioGroupResidency.getCheckedRadioButtonId()));
 
         /*private EditText editTextHouseNo;
         private EditText editTextStreetNo;
@@ -278,9 +288,7 @@ public class FamilyIdentificationFragment extends Fragment {
         private Spinner spinnerProvinces;
         private Spinner spinnerMunicipal;
         private Spinner spinnerBarangay;*/
-
     }
-
 
     public interface OnFragmentInteractionListener{
         void onFragmentInteraction(String uri);
