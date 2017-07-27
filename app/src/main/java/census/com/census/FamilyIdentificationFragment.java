@@ -20,58 +20,29 @@ import java.util.ArrayList;
 
 public class FamilyIdentificationFragment extends Fragment {
 
-    /*public static EditText editTextFName;
-    public static EditText editTextMName;
-    public static EditText editTextLName;
-    public static EditText editTextHouseNo;
-    public static EditText editTextStreetNo;
-    public static EditText editTextBarangay;
-    public static EditText editTextMunicipality;
-    public static EditText editTextProvince;
-    public static RadioButton radioButtonResident;
-    public static RadioButton radioButtonNonResident;
-    public static RadioButton radioButtonOwner;
-    public static RadioButton radioButtonExtended;
-    public static RadioButton radioButtonActive;
-    public static RadioButton radioButtonInactive;
-    public static Spinner spinnerRegions;
-    public static Spinner spinnerProvinces;
-    public static Spinner spinnerMunicipal;
-    public static Spinner spinnerBarangay;*/
-
     private View view;
-
     private EditText editTextFName;
     private EditText editTextMName;
     private EditText editTextLName;
     private EditText editTextHouseNo;
     private EditText editTextStreetNo;
-
     private RadioGroup radioGroupResidency;
     private RadioGroup radioGroupOwnership;
     private RadioGroup radioGroupStatus;
-
     private RadioButton radioButtonResident;
     private RadioButton radioButtonNonResident;
     private RadioButton radioButtonOwner;
     private RadioButton radioButtonExtended;
     private RadioButton radioButtonActive;
     private RadioButton radioButtonInactive;
-
-
     private Spinner spinnerRegions;
     private Spinner spinnerProvinces;
     private Spinner spinnerMunicipal;
     private Spinner spinnerBarangay;
-
     private DbUtils dbUtils;
-
     private ArrayAdapter spinnerArrayAdapter;
-
     private OnFragmentInteractionListener mListener;
-
     private SharedPreferences sharedPreferences;
-
 
     @Override
     public void onAttach(Activity activity) {
@@ -83,11 +54,7 @@ public class FamilyIdentificationFragment extends Fragment {
         catch (ClassCastException e){
             throw new ClassCastException(activity.toString());
         }
-        //mListener = (OnFragmentInteractionListener) activity;
-        //mListener = (OnFragmentInteractionListener) getActivity();
-        //mListener.onFragmentInteraction("Gene");
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -139,7 +106,6 @@ public class FamilyIdentificationFragment extends Fragment {
         spinnerProvinces = (Spinner) view.findViewById(R.id.spinnerProvince);
         spinnerMunicipal = (Spinner) view.findViewById(R.id.spinnerMunicipal);
         spinnerBarangay = (Spinner) view.findViewById(R.id.spinnerBarangay);
-
         radioGroupResidency = (RadioGroup) view.findViewById(R.id.radioGroupResidency);
         radioGroupOwnership = (RadioGroup) view.findViewById(R.id.radioGroupOwnership);
         radioGroupStatus = (RadioGroup) view.findViewById(R.id.radioGroupStatus);
@@ -260,11 +226,9 @@ public class FamilyIdentificationFragment extends Fragment {
         spinnerRegions.setSelection(sharedPreferences.getInt("region",0));
         editTextHouseNo.setText(sharedPreferences.getString("houseno",""));
         editTextStreetNo.setText(sharedPreferences.getString("streetno",""));
-
         radioGroupResidency.check(sharedPreferences.getInt("residency",2131624151));
         radioGroupOwnership.check(sharedPreferences.getInt("ownership",2131624154));
         radioGroupStatus.check(sharedPreferences.getInt("status", 2131624157));
-
     }
 
     private void onSaveReference(){
@@ -280,24 +244,6 @@ public class FamilyIdentificationFragment extends Fragment {
         sharedPreferences.edit().putInt("residency",radioGroupResidency.getCheckedRadioButtonId()).apply();
         sharedPreferences.edit().putInt("ownership",radioGroupOwnership.getCheckedRadioButtonId()).apply();
         sharedPreferences.edit().putInt("status",radioGroupStatus.getCheckedRadioButtonId()).apply();
-
-        Log.i("rd3",Integer.toString(radioGroupStatus.getCheckedRadioButtonId()));
-
-        /*private EditText editTextHouseNo;
-        private EditText editTextStreetNo;
-        private EditText editTextBarangay;
-        private EditText editTextMunicipality;
-        private EditText editTextProvince;
-        private RadioButton radioButtonResident;
-        private RadioButton radioButtonNonResident;
-        private RadioButton radioButtonOwner;
-        private RadioButton radioButtonExtended;
-        private RadioButton radioButtonActive;
-        private RadioButton radioButtonInactive;
-        private Spinner spinnerRegions;
-        private Spinner spinnerProvinces;
-        private Spinner spinnerMunicipal;
-        private Spinner spinnerBarangay;*/
     }
 
     public interface OnFragmentInteractionListener{
