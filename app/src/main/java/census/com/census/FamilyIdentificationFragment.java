@@ -48,6 +48,8 @@ public class FamilyIdentificationFragment extends Fragment {
     private EditText editTextStreetNo;
 
     private RadioGroup radioGroupResidency;
+    private RadioGroup radioGroupOwnership;
+    private RadioGroup radioGroupStatus;
 
     private RadioButton radioButtonResident;
     private RadioButton radioButtonNonResident;
@@ -139,6 +141,8 @@ public class FamilyIdentificationFragment extends Fragment {
         spinnerBarangay = (Spinner) view.findViewById(R.id.spinnerBarangay);
 
         radioGroupResidency = (RadioGroup) view.findViewById(R.id.radioGroupResidency);
+        radioGroupOwnership = (RadioGroup) view.findViewById(R.id.radioGroupOwnership);
+        radioGroupStatus = (RadioGroup) view.findViewById(R.id.radioGroupStatus);
     }
 
     private void onLoadRegions(){
@@ -257,7 +261,10 @@ public class FamilyIdentificationFragment extends Fragment {
         editTextHouseNo.setText(sharedPreferences.getString("houseno",""));
         editTextStreetNo.setText(sharedPreferences.getString("streetno",""));
 
-        //radioGroupResidency.check(sharedPreferences.getInt("rd1",0));
+        radioGroupResidency.check(sharedPreferences.getInt("residency",2131624151));
+        radioGroupOwnership.check(sharedPreferences.getInt("ownership",2131624154));
+        radioGroupStatus.check(sharedPreferences.getInt("status", 2131624157));
+
     }
 
     private void onSaveReference(){
@@ -270,8 +277,11 @@ public class FamilyIdentificationFragment extends Fragment {
         sharedPreferences.edit().putString("houseno",editTextHouseNo.getText().toString().trim()).apply();
         sharedPreferences.edit().putString("streetno",editTextStreetNo.getText().toString().trim()).apply();
 
-        sharedPreferences.edit().putInt("rd1",radioGroupResidency.getCheckedRadioButtonId()).apply();
-        Log.i("rd1",Integer.toString(radioGroupResidency.getCheckedRadioButtonId()));
+        sharedPreferences.edit().putInt("residency",radioGroupResidency.getCheckedRadioButtonId()).apply();
+        sharedPreferences.edit().putInt("ownership",radioGroupOwnership.getCheckedRadioButtonId()).apply();
+        sharedPreferences.edit().putInt("status",radioGroupStatus.getCheckedRadioButtonId()).apply();
+
+        Log.i("rd3",Integer.toString(radioGroupStatus.getCheckedRadioButtonId()));
 
         /*private EditText editTextHouseNo;
         private EditText editTextStreetNo;
