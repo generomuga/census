@@ -10,12 +10,12 @@
 
     <style name="TextLabel" parent="TextAppearance.AppCompat">
         <!-- Hint color and label color in FALSE state -->
-        <item name="android:textColorHint">@color/colorPrimaryDark</item>
-        <item name="android:textSize">15sp</item>
+        <item name="android:textColorHint">@color/colorTextView</item>
+        <item name="android:textSize">14sp</item>
         <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
         <item name="colorAccent">@color/colorEditText</item>
         <item name="colorControlNormal">@color/colorTextView</item>
-        <item name="colorControlActivated">@color/colorPrimary</item>
+        <item name="colorControlActivated">@color/colorTextView</item>-->
     </style>
 
 </resources>

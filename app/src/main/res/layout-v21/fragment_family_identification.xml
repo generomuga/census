@@ -17,11 +17,10 @@
             android:elevation="5dp"
             android:orientation="vertical">
 
-
             <android.support.design.widget.TextInputLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
                 android:layout_marginTop="10dp"
@@ -40,7 +39,7 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
                 android:theme="@style/TextLabel">
@@ -57,7 +56,7 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
                 android:theme="@style/TextLabel">
@@ -222,7 +221,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:text="Region"
