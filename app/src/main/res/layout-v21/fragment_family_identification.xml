@@ -17,7 +17,61 @@
             android:elevation="5dp"
             android:orientation="vertical">
 
-            <TextView
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:layout_marginTop="10dp"
+                android:theme="@style/TextLabel">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editTextFname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="First name"
+                    android:textColor="@color/colorEditText"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:theme="@style/TextLabel">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editTextMname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Middle name"
+                    android:textColor="@color/colorEditText"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:theme="@style/TextLabel">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editTextLname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Last name"
+                    android:textColor="@color/colorEditText"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -55,9 +109,9 @@
                 android:id="@+id/editTextMname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:hint="Amorsolo"
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint" />
@@ -65,10 +119,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:layout_weight="1"
                 android:text="Last name"
                 android:textColor="@color/colorTextView"
@@ -78,12 +131,12 @@
                 android:id="@+id/editTextLname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:hint="Dela Cruz"
                 android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />
+                android:textColorHint="@color/colorHint" />-->
 
             <!--<TextView
                 android:layout_width="match_parent"
@@ -133,10 +186,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:layout_weight="1"
                 android:text="Region"
                 android:textColor="@color/colorTextView"
@@ -146,17 +198,17 @@
                 android:id="@+id/spinnerRegions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:popupBackground="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:layout_weight="1"
                 android:text="Province"
                 android:textColor="@color/colorTextView"
@@ -173,10 +225,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:layout_weight="1"
                 android:text="Municipality"
                 android:textColor="@color/colorTextView"
@@ -186,17 +237,17 @@
                 android:id="@+id/spinnerMunicipal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:popupBackground="@color/colorPrimary"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:layout_weight="1"
                 android:text="Barangay"
                 android:textColor="@color/colorTextView"
@@ -206,17 +257,18 @@
                 android:id="@+id/spinnerBarangay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:popupBackground="@color/colorPrimary"/>
 
             <EditText
                 android:id="@+id/editTextHouseNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:hint="House no"
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint" />
@@ -225,9 +277,9 @@
                 android:id="@+id/editTextStreetNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:hint="Street No"
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint" />
@@ -235,8 +287,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:layout_weight="1"
                 android:text="Household condition"
                 android:textColor="@color/colorTextView"
@@ -246,8 +299,9 @@
                 android:id="@+id/radioGroupResidency"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:orientation="vertical">
 
                 <RadioButton
@@ -271,8 +325,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:layout_weight="1"
                 android:text="Ownership"
                 android:textColor="@color/colorTextView"
@@ -282,8 +337,9 @@
                 android:id="@+id/radioGroupOwnership"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:orientation="vertical">
 
                 <RadioButton
@@ -308,8 +364,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:layout_weight="1"
                 android:text="Family status"
                 android:textColor="@color/colorTextView"
@@ -319,9 +376,9 @@
                 android:id="@+id/radioGroupStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:orientation="vertical">
 
                 <RadioButton
@@ -341,6 +398,18 @@
                     android:text="Inactive"
                     android:textColor="@color/colorEditText" />
             </RadioGroup>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:theme="@style/TextLabel">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Username" />
+
+            </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
 

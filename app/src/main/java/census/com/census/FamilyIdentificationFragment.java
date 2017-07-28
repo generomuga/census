@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,9 +22,9 @@ import java.util.ArrayList;
 public class FamilyIdentificationFragment extends Fragment {
 
     private View view;
-    private EditText editTextFName;
-    private EditText editTextMName;
-    private EditText editTextLName;
+    private TextInputEditText editTextFName;
+    private TextInputEditText editTextMName;
+    private TextInputEditText editTextLName;
     private EditText editTextHouseNo;
     private EditText editTextStreetNo;
     private RadioGroup radioGroupResidency;
@@ -43,6 +44,7 @@ public class FamilyIdentificationFragment extends Fragment {
     private ArrayAdapter spinnerArrayAdapter;
     private OnFragmentInteractionListener mListener;
     private SharedPreferences sharedPreferences;
+
 
     @Override
     public void onAttach(Activity activity) {
@@ -91,9 +93,9 @@ public class FamilyIdentificationFragment extends Fragment {
     }
 
     private void onInitViews(){
-        editTextFName = (EditText) view.findViewById(R.id.editTextFname);
-        editTextMName = (EditText) view.findViewById(R.id.editTextMname);
-        editTextLName = (EditText) view.findViewById(R.id.editTextLname);
+        editTextFName = (TextInputEditText) view.findViewById(R.id.editTextFname);
+        editTextMName = (TextInputEditText) view.findViewById(R.id.editTextMname);
+        editTextLName = (TextInputEditText) view.findViewById(R.id.editTextLname);
         editTextHouseNo = (EditText) view.findViewById(R.id.editTextHouseNo);
         editTextStreetNo = (EditText) view.findViewById(R.id.editTextStreetNo);
         radioButtonResident = (RadioButton) view.findViewById(R.id.radioButtonResident);
