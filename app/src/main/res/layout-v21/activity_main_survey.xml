@@ -49,7 +49,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/image_button_color"
-            android:src="@mipmap/ic_perm_identity_white_24dp"
+            android:src="@mipmap/ic_info_white_24dp"
             android:onClick="changeFragment"/>
 
         <ImageButton

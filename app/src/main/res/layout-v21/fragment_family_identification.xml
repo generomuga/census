@@ -221,8 +221,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_weight="1"
                 android:text="Region"
                 android:textColor="@color/colorTextView"
@@ -233,16 +233,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:popupBackground="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_weight="1"
                 android:text="Province"
                 android:textColor="@color/colorTextView"
@@ -254,14 +254,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
+                android:layout_marginBottom="8dp"
                 android:popupBackground="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_weight="1"
                 android:text="Municipality"
                 android:textColor="@color/colorTextView"
@@ -272,16 +273,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:popupBackground="@color/colorPrimary"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_weight="1"
                 android:text="Barangay"
                 android:textColor="@color/colorTextView"
@@ -292,8 +293,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:popupBackground="@color/colorPrimary"/>
 
             <!--<EditText
@@ -324,8 +325,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_weight="1"
                 android:text="Household condition"
                 android:textColor="@color/colorTextView"
@@ -336,8 +337,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:orientation="vertical">
 
                 <RadioButton
@@ -362,8 +363,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_weight="1"
                 android:text="Ownership"
                 android:textColor="@color/colorTextView"
@@ -374,8 +375,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:orientation="vertical">
 
                 <RadioButton
@@ -401,8 +402,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_weight="1"
                 android:text="Family status"
                 android:textColor="@color/colorTextView"
@@ -413,8 +414,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:orientation="vertical">
 
                 <RadioButton
