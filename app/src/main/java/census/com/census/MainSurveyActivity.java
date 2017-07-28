@@ -35,7 +35,7 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
         //to add toolbar in the activity
         toolBarSurvey = (Toolbar) findViewById(R.id.toolBarSurvey);
         setSupportActionBar(toolBarSurvey);
-        getSupportActionBar().setTitle("Family Information");
+        getSupportActionBar().setTitle("Identification");
 
         //checks for save instance state
         if(savedInstanceState == null){
@@ -46,69 +46,11 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
         }
     }
 
-    private void createDbConnection(){
-        DbUtils dbUtils = new DbUtils(this);
-        dbUtils.createDbConnection();
-    }
-
-    private void selectSample() {
-        try {
-            SQLiteDatabase dbLocation = this.openOrCreateDatabase("locations", Context.MODE_PRIVATE, null);
-            Toast.makeText(this,"Select module open database",Toast.LENGTH_SHORT).show();
-
-            //dbLocation.execSQL("CREATE TABLE IF NOT EXISTS locations (id INT,regions VARCHAR,province VARCHAR, municipality VARCHAR)");
-            //dbLocation.execSQL("INSERT INTO locations (id,regions,province,municipality) VALUES (1,'IV','Laguna', 'Calauan')");
-
-            Cursor c = dbLocation.rawQuery("SELECT distinct(region) FROM locations", null);
-
-            int regionsIndex = c.getColumnIndex("region");
-            //int provinceIndex = c.getColumnIndex("province");
-            //int municipality = c.getColumnIndex("municipality");
-
-            c.moveToFirst();
-            while (c != null) {
-                Log.i("region", c.getString(regionsIndex));
-                //Toast.makeText(this,c.getString(regionsIndex),Toast.LENGTH_SHORT).show();
-                c.moveToNext();
-            }
-
-            dbLocation.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void queryRegion(){
-        try {
-            //listRegion.clear();
-
-            SQLiteDatabase dbLocation = this.openOrCreateDatabase("locations", Context.MODE_PRIVATE, null);
-            String query = "SELECT distinct(region) FROM locations";
-
-            Cursor c = dbLocation.rawQuery(query,null);
-
-            int toQueryIndex = c.getColumnIndex("region");
-
-            c.moveToFirst();
-            while(c!=null){
-                Log.i("region",c.getString(toQueryIndex));
-                //listRegion.add(c.getString(toQueryIndex));
-                c.moveToNext();
-            }
-
-            //dbLocation.close();
-        }
-        catch (Exception e){
-            Log.i("error",e.toString());
-        }
-    }
-
     public void changeFragment(View view){
         switch (view.getId()){
             case R.id.imageButtonFamilyId:
                 tag = "FamilyIdentification";
-                getSupportActionBar().setTitle("Family Identification");
+                getSupportActionBar().setTitle("Identification");
                 fragment = new FamilyIdentificationFragment();
                 switchFragment(fragment,tag);
                 break;
