@@ -25,8 +25,8 @@ public class FamilyIdentificationFragment extends Fragment {
     private TextInputEditText editTextFName;
     private TextInputEditText editTextMName;
     private TextInputEditText editTextLName;
-    private EditText editTextHouseNo;
-    private EditText editTextStreetNo;
+    private TextInputEditText editTextHouseNo;
+    private TextInputEditText editTextStreetNo;
     private RadioGroup radioGroupResidency;
     private RadioGroup radioGroupOwnership;
     private RadioGroup radioGroupStatus;
@@ -96,8 +96,8 @@ public class FamilyIdentificationFragment extends Fragment {
         editTextFName = (TextInputEditText) view.findViewById(R.id.editTextFname);
         editTextMName = (TextInputEditText) view.findViewById(R.id.editTextMname);
         editTextLName = (TextInputEditText) view.findViewById(R.id.editTextLname);
-        editTextHouseNo = (EditText) view.findViewById(R.id.editTextHouseNo);
-        editTextStreetNo = (EditText) view.findViewById(R.id.editTextStreetNo);
+        editTextHouseNo = (TextInputEditText) view.findViewById(R.id.editTextHouseNo);
+        editTextStreetNo = (TextInputEditText) view.findViewById(R.id.editTextStreetNo);
         radioButtonResident = (RadioButton) view.findViewById(R.id.radioButtonResident);
         radioButtonNonResident = (RadioButton) view.findViewById(R.id.radioButtonNonResident);
         radioButtonOwner = (RadioButton) view.findViewById(R.id.radioButtonOwner);

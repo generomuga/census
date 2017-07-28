@@ -183,12 +183,47 @@
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint" />-->
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:theme="@style/TextLabel">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editTextStreetNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Street no"
+                    android:textColor="@color/colorEditText"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:theme="@style/TextLabel">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editTextHouseNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="House no"
+                    android:textColor="@color/colorEditText"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:text="Region"
                 android:textColor="@color/colorTextView"
@@ -262,7 +297,7 @@
                 android:layout_marginRight="11dp"
                 android:popupBackground="@color/colorPrimary"/>
 
-            <EditText
+            <!--<EditText
                 android:id="@+id/editTextHouseNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -282,7 +317,9 @@
                 android:layout_marginRight="11dp"
                 android:hint="Street No"
                 android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />
+                android:textColorHint="@color/colorHint" />-->
+
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -398,18 +435,6 @@
                     android:text="Inactive"
                     android:textColor="@color/colorEditText" />
             </RadioGroup>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:theme="@style/TextLabel">
-
-                <android.support.design.widget.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Username" />
-
-            </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
 
