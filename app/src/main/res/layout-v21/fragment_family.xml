@@ -180,7 +180,7 @@
                 android:layout_marginRight="15dp"
                 android:popupBackground="@color/colorPrimary"/>
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -200,7 +200,26 @@
                 android:layout_marginRight="15dp"
                 android:hint="+63"
                 android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />
+                android:textColorHint="@color/colorHint" />-->
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:theme="@style/TextLabel">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editTextContactNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Contact no"
+                    android:textColor="@color/colorEditText"/>
+
+            </android.support.design.widget.TextInputLayout>
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -672,15 +691,6 @@
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
             </LinearLayout>
-
-            <Button
-                android:id="@+id/buttonSave"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:text="Save"
-                android:background="@drawable/button_round"/>
 
         </LinearLayout>
 

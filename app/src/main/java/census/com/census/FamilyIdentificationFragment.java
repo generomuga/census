@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -255,5 +254,6 @@ public class FamilyIdentificationFragment extends Fragment {
     public void onFragmentInteraction(String uri){
         Toast.makeText(getActivity(),uri,Toast.LENGTH_SHORT).show();
     }
+
 
 }

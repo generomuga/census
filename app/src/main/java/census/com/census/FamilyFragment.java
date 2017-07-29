@@ -4,6 +4,7 @@ import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -45,7 +46,7 @@ public class FamilyFragment extends Fragment {
     public static CheckBox checkBoxTricycle;
     public static CheckBox checkBoxTruck;
     public static CheckBox checkBoxVan;
-    public static EditText editTextContactNo;
+    public static TextInputEditText editTextContactNo;
     public static EditText editTextBicycleNo;
     public static EditText editTextBoatNo;
     public static EditText editTextBusNo;
@@ -117,7 +118,7 @@ public class FamilyFragment extends Fragment {
     private void initViews(){
         //editTextOrigin = (EditText) view.findViewById(id.editTextOrigin);
 
-        editTextContactNo = (EditText) view.findViewById(id.editTextContactNo);
+        editTextContactNo = (TextInputEditText) view.findViewById(id.editTextContactNo);
 
         spinnerYear = (Spinner) view.findViewById(id.spinnerYear);
         spinnerISP = (Spinner) view.findViewById(id.spinnerISP);
