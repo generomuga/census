@@ -26,6 +26,7 @@
             android:textAlignment="center"
             android:textColorHint="@color/colorHint"
             android:background="@color/colorLoginEditText"
+            android:textColor="@color/colorEditText"
             android:padding="10dp"/>
 
         <EditText
@@ -41,6 +42,7 @@
             android:textAlignment="center"
             android:textColorHint="@color/colorHint"
             android:background="@color/colorLoginEditText"
+            android:textColor="@color/colorEditText"
             android:padding="10dp"/>
 
         <Button

@@ -21,9 +21,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:layout_marginTop="8dp"
                 android:orientation="horizontal"
                 android:weightSum="3">
 
@@ -51,9 +51,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:max="20"
                 android:thumbTint="@color/colorAccent" />
 
@@ -61,9 +60,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:text="Year first resided in the location"
                 android:textColor="@color/colorTextView"
                 android:textSize="12sp" />
@@ -73,18 +71,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:popupBackground="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:text="Place of origin before living in the barangay"
                 android:textColor="@color/colorTextView"
                 android:textSize="12sp" />
@@ -202,7 +198,7 @@
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint" />-->
 
-            <android.support.design.widget.TextInputLayout
+            <!--<android.support.design.widget.TextInputLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:layout_marginTop="8dp"
@@ -218,7 +214,7 @@
                     android:hint="Contact no"
                     android:textColor="@color/colorEditText"/>
 
-            </android.support.design.widget.TextInputLayout>
+            </android.support.design.widget.TextInputLayout>-->
 
 
             <TextView
