@@ -2,12 +2,14 @@ package census.com.census;
 
 import android.text.TextUtils;
 
-public class LoginPresenterImpl implements LoginPresenter {
+public class LoginPresenterImpl implements LoginPresenter,LoginModel.OnLoginListener{
 
     LoginView loginView;
+    LoginModel loginModel;
 
     public LoginPresenterImpl(LoginView loginView) {
         this.loginView = loginView;
+        this.loginModel = new LoginModelImpl();
     }
 
     @Override
@@ -22,6 +24,16 @@ public class LoginPresenterImpl implements LoginPresenter {
             return;
         }
 
+        loginModel.login(username,password,this);
+    }
+
+    @Override
+    public void onSuccess() {
         loginView.onSuccess();
+    }
+
+    @Override
+    public void onErrorPassword(String message) {
+        loginView.setErrorPassword("Wrong password!");
     }
 }

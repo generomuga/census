@@ -15,7 +15,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private EditText editTextPassword;
     private Button btnSignIn;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
