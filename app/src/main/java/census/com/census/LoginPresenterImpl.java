@@ -19,12 +19,21 @@ public class LoginPresenterImpl implements LoginPresenter,LoginModel.OnLoginList
             return;
         }
 
+        if(!isEmail(username)){
+            loginView.setErrorUsername("Invalid email");
+            return;
+        }
+
         if(TextUtils.isEmpty(password)){
             loginView.setErrorPassword("This is required");
             return;
         }
 
         loginModel.login(username,password,this);
+    }
+
+    private boolean isEmail(String username){
+        return username.contains("@");
     }
 
     @Override

@@ -9,10 +9,9 @@ import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
-    LoginPresenter loginPresenterListener;
-
-    private EditText editTextEmail;
-    private EditText editTextPassword;
+    private LoginPresenter loginPresenterListener;
+    private EditText mEmail;
+    private EditText mPassword;
     private Button btnSignIn;
 
     @Override
@@ -20,9 +19,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-        editTextEmail = (EditText) findViewById(R.id.userEmail);
-        editTextPassword = (EditText) findViewById(R.id.userPassword);
+        mEmail = (EditText) findViewById(R.id.userEmail);
+        mPassword = (EditText) findViewById(R.id.userPassword);
 
         btnSignIn = (Button) findViewById(R.id.buttonSignIn);
         btnSignIn.setOnClickListener(new View.OnClickListener() {
@@ -33,21 +31,20 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         });
 
         loginPresenterListener = new LoginPresenterImpl(this);
-
     }
 
     private void attemptLogin(){
-        loginPresenterListener.checkCredentials(editTextEmail.getText().toString().trim(),editTextPassword.getText().toString().trim());
+        loginPresenterListener.checkCredentials(mEmail.getText().toString().trim(),mPassword.getText().toString().trim());
     }
 
     @Override
     public void setErrorUsername(String message) {
-        editTextEmail.setError(message);
+        mEmail.setError(message);
     }
 
     @Override
     public void setErrorPassword(String message) {
-        editTextPassword.setError(message);
+        mPassword.setError(message);
     }
 
     @Override
