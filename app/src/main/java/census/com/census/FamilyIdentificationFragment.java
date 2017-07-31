@@ -28,12 +28,12 @@ public class FamilyIdentificationFragment extends Fragment {
     private RadioGroup radioGroupResidency;
     private RadioGroup radioGroupOwnership;
     private RadioGroup radioGroupStatus;
-    private RadioButton radioButtonResident;
+    /*private RadioButton radioButtonResident;
     private RadioButton radioButtonNonResident;
     private RadioButton radioButtonOwner;
     private RadioButton radioButtonExtended;
     private RadioButton radioButtonActive;
-    private RadioButton radioButtonInactive;
+    private RadioButton radioButtonInactive;*/
     private Spinner spinnerRegions;
     private Spinner spinnerProvinces;
     private Spinner spinnerMunicipal;
