@@ -17,6 +17,15 @@
             android:elevation="5dp"
             android:orientation="vertical">
 
+            <!--<Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Auto-saved"
+                android:textColor="@color/colorTextView"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />-->
+
             <android.support.design.widget.TextInputLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
@@ -453,16 +462,15 @@
                     android:textColor="@color/colorEditText" />
             </RadioGroup>
 
-            <Button
+            <!--<Button
                 android:id="@+id/buttonSave"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/button_round"
-                android:text="Save"/>
-
+                android:text="Save"/>-->
         </LinearLayout>
 
     </ScrollView>

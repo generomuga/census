@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -38,6 +39,9 @@ public class FamilyIdentificationFragment extends Fragment {
     private Spinner spinnerProvinces;
     private Spinner spinnerMunicipal;
     private Spinner spinnerBarangay;
+
+    private Button buttonSave;
+
     private DbUtils dbUtils;
     private ArrayAdapter spinnerArrayAdapter;
     private OnFragmentInteractionListener mListener;
@@ -82,6 +86,9 @@ public class FamilyIdentificationFragment extends Fragment {
         //select municipal
         onSpinnerMunicipalEvent();
 
+        //save value
+        //onClickSave();
+
         return view;
     }
 
@@ -89,12 +96,6 @@ public class FamilyIdentificationFragment extends Fragment {
     public void onResume() {
         super.onResume();
         onLoadData();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        onSaveReference();
     }
 
     private void onInitViews(){
@@ -113,6 +114,8 @@ public class FamilyIdentificationFragment extends Fragment {
         spinnerProvinces = (Spinner) view.findViewById(R.id.spinnerProvince);
         spinnerMunicipal = (Spinner) view.findViewById(R.id.spinnerMunicipal);
         spinnerBarangay = (Spinner) view.findViewById(R.id.spinnerBarangay);
+
+
         radioGroupResidency = (RadioGroup) view.findViewById(R.id.radioGroupResidency);
         radioGroupOwnership = (RadioGroup) view.findViewById(R.id.radioGroupOwnership);
         radioGroupStatus = (RadioGroup) view.findViewById(R.id.radioGroupStatus);
@@ -199,6 +202,15 @@ public class FamilyIdentificationFragment extends Fragment {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 //do nothing
+            }
+        });
+    }
+
+    private void onClickSave(){
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSaveReference();
             }
         });
     }
