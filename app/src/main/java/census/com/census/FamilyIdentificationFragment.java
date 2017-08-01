@@ -44,6 +44,12 @@ public class FamilyIdentificationFragment extends Fragment {
     private SharedPreferences sharedPreferences;
 
 
+    FamilyIdentificationPresenter familyIdentificationPresenterListener;
+
+    public interface OnFragmentInteractionListener{
+        void onFragmentInteraction(String uri);
+    }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -54,6 +60,7 @@ public class FamilyIdentificationFragment extends Fragment {
         catch (ClassCastException e){
             throw new ClassCastException(activity.toString());
         }
+
     }
 
     @Override
@@ -96,12 +103,12 @@ public class FamilyIdentificationFragment extends Fragment {
         editTextLName = (TextInputEditText) view.findViewById(R.id.editTextLname);
         editTextHouseNo = (TextInputEditText) view.findViewById(R.id.editTextHouseNo);
         editTextStreetNo = (TextInputEditText) view.findViewById(R.id.editTextStreetNo);
-        radioButtonResident = (RadioButton) view.findViewById(R.id.radioButtonResident);
+        /*radioButtonResident = (RadioButton) view.findViewById(R.id.radioButtonResident);
         radioButtonNonResident = (RadioButton) view.findViewById(R.id.radioButtonNonResident);
         radioButtonOwner = (RadioButton) view.findViewById(R.id.radioButtonOwner);
         radioButtonExtended = (RadioButton) view.findViewById(R.id.radioButtonExtended);
         radioButtonActive = (RadioButton) view.findViewById(R.id.radioButtonActive);
-        radioButtonInactive = (RadioButton) view.findViewById(R.id.radioButtonInactive);
+        radioButtonInactive = (RadioButton) view.findViewById(R.id.radioButtonInactive);*/
         spinnerRegions = (Spinner) view.findViewById(R.id.spinnerRegions);
         spinnerProvinces = (Spinner) view.findViewById(R.id.spinnerProvince);
         spinnerMunicipal = (Spinner) view.findViewById(R.id.spinnerMunicipal);
@@ -246,13 +253,12 @@ public class FamilyIdentificationFragment extends Fragment {
         sharedPreferences.edit().putInt("status",radioGroupStatus.getCheckedRadioButtonId()).apply();
     }
 
-    public interface OnFragmentInteractionListener{
-        void onFragmentInteraction(String uri);
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
     }
 
-    /*public void onFragmentInteraction(String uri){
-        Toast.makeText(getActivity(),uri,Toast.LENGTH_SHORT).show();
-    }*/
 
 
 }

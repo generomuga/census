@@ -126,10 +126,6 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
         }
     }
 
-    @Override
-    public void onFragmentInteraction(String uri) {
-        Toast.makeText(this,uri.toString(),Toast.LENGTH_SHORT).show();
-    }
 
     /*private void saveObjectFamilyIdentification(){
         FamilyIdentification familyIdentification = new FamilyIdentification();
@@ -513,7 +509,12 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
 
     private void onLoadSharedReference(){
         sharedPreferences = this.getSharedPreferences("census.com.census",MODE_PRIVATE);
-        Toast.makeText(this,sharedPreferences.getString("fname","").toString(),Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this,sharedPreferences.getString("fname","").toString(),Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onFragmentInteraction(String uri) {
+        Toast.makeText(this,uri.toString(),Toast.LENGTH_SHORT).show();
     }
 
 }
