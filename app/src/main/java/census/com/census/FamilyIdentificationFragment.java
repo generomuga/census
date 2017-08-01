@@ -48,23 +48,10 @@ public class FamilyIdentificationFragment extends Fragment {
     private SharedPreferences sharedPreferences;
 
 
-    FamilyIdentificationPresenter familyIdentificationPresenterListener;
+    //FamilyIdentificationPresenter familyIdentificationPresenterListener;
 
     public interface OnFragmentInteractionListener{
-        void onFragmentInteraction(String uri);
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try{
-            mListener = (OnFragmentInteractionListener) activity;
-            mListener.onFragmentInteraction("Gene");
-        }
-        catch (ClassCastException e){
-            throw new ClassCastException(activity.toString());
-        }
-
+        void onFragmentInteraction(String fname,String mName, String lName,String houseNo, String streetNo, String barangay, String municipality, String province, int residency, int ownership, int familyStatus);
     }
 
     @Override
@@ -86,8 +73,8 @@ public class FamilyIdentificationFragment extends Fragment {
         //select municipal
         onSpinnerMunicipalEvent();
 
-        //save value
-        //onClickSave();
+        //load fragment listener
+        onLoadFragmentListener();
 
         return view;
     }
@@ -96,6 +83,22 @@ public class FamilyIdentificationFragment extends Fragment {
     public void onResume() {
         super.onResume();
         onLoadData();
+    }
+
+    private void onLoadFragmentListener(){
+        try{
+            onLoadData();
+            mListener = (OnFragmentInteractionListener) getActivity();
+            mListener.onFragmentInteraction(
+                        sharedPreferences.getString("fname",""),sharedPreferences.getString("mname",""),sharedPreferences.getString("lname",""),
+                        sharedPreferences.getString("houseno",""),sharedPreferences.getString("streetno",""),sharedPreferences.getString("barangay",""),
+                        sharedPreferences.getString("municipality",""),sharedPreferences.getString("province",""),sharedPreferences.getInt("residency",2131624151),
+                        sharedPreferences.getInt("ownership",2131624154),sharedPreferences.getInt("status", 2131624157)
+            );
+        }
+        catch (ClassCastException e){
+            throw new ClassCastException(this.toString());
+        }
     }
 
     private void onInitViews(){
@@ -242,7 +245,11 @@ public class FamilyIdentificationFragment extends Fragment {
         editTextLName.setText(sharedPreferences.getString("lname",""));
         editTextHouseNo.setText(sharedPreferences.getString("houseno",""));
         editTextStreetNo.setText(sharedPreferences.getString("streetno",""));
+
+        //spinnerBarangay.setSelection(sharedPreferences.getInt("barangay",0));
+
         spinnerRegions.setSelection(sharedPreferences.getInt("region",0));
+
         editTextHouseNo.setText(sharedPreferences.getString("houseno",""));
         editTextStreetNo.setText(sharedPreferences.getString("streetno",""));
         radioGroupResidency.check(sharedPreferences.getInt("residency",2131624151));
@@ -260,6 +267,8 @@ public class FamilyIdentificationFragment extends Fragment {
         sharedPreferences.edit().putString("houseno",editTextHouseNo.getText().toString().trim()).apply();
         sharedPreferences.edit().putString("streetno",editTextStreetNo.getText().toString().trim()).apply();
 
+        sharedPreferences.edit().putString("barangay",spinnerBarangay.getSelectedItem().toString()).apply();
+
         sharedPreferences.edit().putInt("residency",radioGroupResidency.getCheckedRadioButtonId()).apply();
         sharedPreferences.edit().putInt("ownership",radioGroupOwnership.getCheckedRadioButtonId()).apply();
         sharedPreferences.edit().putInt("status",radioGroupStatus.getCheckedRadioButtonId()).apply();
@@ -269,6 +278,7 @@ public class FamilyIdentificationFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+        onSaveReference();
     }
 
 

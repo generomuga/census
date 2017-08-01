@@ -512,9 +512,9 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
         //Toast.makeText(this,sharedPreferences.getString("fname","").toString(),Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onFragmentInteraction(String uri) {
-        Toast.makeText(this,uri.toString(),Toast.LENGTH_SHORT).show();
-    }
 
+    @Override
+    public void onFragmentInteraction(String fname, String mName, String lName, String houseNo, String streetNo, String barangay, String municipality, String province, int residency, int ownership, int familyStatus) {
+        Toast.makeText(this,barangay,Toast.LENGTH_SHORT).show();
+    }
 }
