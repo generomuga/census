@@ -22,7 +22,7 @@ public class FamilyIdentificationFragment extends Fragment {
 
     private View view;
     public static TextInputEditText editTextFName;
-    private TextInputEditText editTextMName;
+    public static TextInputEditText editTextMName;
     private TextInputEditText editTextLName;
     private TextInputEditText editTextHouseNo;
     private TextInputEditText editTextStreetNo;
@@ -273,13 +273,10 @@ public class FamilyIdentificationFragment extends Fragment {
         sharedPreferences.edit().putInt("status",radioGroupStatus.getCheckedRadioButtonId()).apply();
     }
 
-
     @Override
     public void onDetach() {
         super.onDetach();
         onSaveReference();
     }
-
-
 
 }
