@@ -46,6 +46,17 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        onClearSharedReference();
+    }
+
+    private void onClearSharedReference(){
+        sharedPreferences = this.getSharedPreferences("census.com.census",MODE_PRIVATE);
+        sharedPreferences.edit().clear().apply();
+    }
+
     public void changeFragment(View view){
         switch (view.getId()){
             case R.id.imageButtonFamilyId:
@@ -95,7 +106,6 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
         switch (item.getItemId()) {
             case R.id.action_save:
                 checkActiveFragment(tag);
-                onLoadSharedReference();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -506,11 +516,6 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
             family.setSelectVan(0);
         }
     }*/
-
-    private void onLoadSharedReference(){
-        sharedPreferences = this.getSharedPreferences("census.com.census",MODE_PRIVATE);
-        //Toast.makeText(this,sharedPreferences.getString("fname","").toString(),Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     public void onFragmentInteraction(String fname, String mName, String lName, String houseNo, String streetNo, String barangay, String municipality, String province, String region, int residency, int ownership, int familyStatus) {
