@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class FamilyIdentificationFragment extends Fragment {
 
     private View view;
-    private TextInputEditText editTextFName;
+    public static TextInputEditText editTextFName;
     private TextInputEditText editTextMName;
     private TextInputEditText editTextLName;
     private TextInputEditText editTextHouseNo;

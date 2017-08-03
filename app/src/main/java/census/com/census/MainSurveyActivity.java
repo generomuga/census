@@ -32,6 +32,8 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_survey);
 
+        sharedPreferences = this.getSharedPreferences("census.com.census",MODE_PRIVATE);
+
         //to add toolbar in the activity
         toolBarSurvey = (Toolbar) findViewById(R.id.toolBarSurvey);
         setSupportActionBar(toolBarSurvey);
@@ -53,7 +55,7 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
     }
 
     private void onClearSharedReference(){
-        sharedPreferences = this.getSharedPreferences("census.com.census",MODE_PRIVATE);
+        //sharedPreferences = this.getSharedPreferences("census.com.census",MODE_PRIVATE);
         sharedPreferences.edit().clear().apply();
     }
 
@@ -106,6 +108,8 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
         switch (item.getItemId()) {
             case R.id.action_save:
                 checkActiveFragment(tag);
+                //onSaveFamilyIdentification();
+                Toast.makeText(this,FamilyIdentificationFragment.editTextFName.getText().toString(),Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -119,6 +123,7 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
                 switch (tag){
                     case "FamilyIdentification":
                         //saveObjectFamilyIdentification();
+
                         break;
                     case "Family":
                         //saveObjectFamily();
@@ -216,7 +221,7 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
         else{
             familyIdentification.setFamilyStatus(0);
         }
-    }*/
+    }
 
     /*private void saveObjectFamily(){
         Family family = new Family();
@@ -517,8 +522,17 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
         }
     }*/
 
+
+
     @Override
     public void onFragmentInteraction(String fname, String mName, String lName, String houseNo, String streetNo, String barangay, String municipality, String province, String region, int residency, int ownership, int familyStatus) {
         Toast.makeText(this,region,Toast.LENGTH_SHORT).show();
+
+        //saveObjectFamilyIdentification();
+
+    }
+
+    private void onSaveFamilyIdentification(){
+        Toast.makeText(this,sharedPreferences.getString("fname",""),Toast.LENGTH_SHORT).show();
     }
 }
