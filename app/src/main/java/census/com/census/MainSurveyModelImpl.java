@@ -16,12 +16,14 @@ public class MainSurveyModelImpl implements MainSurveyModel {
     }
 
     @Override
-    public void sendFirebase(String fname) {
+    public void sendFirebase(String fname,String mName) {
         FamilyIdentification familyIdentification = new FamilyIdentification();
         familyIdentification.setfName(fname);
+        familyIdentification.setmName(mName);
 
         DatabaseReference mFamilyIdentification = mDatabase.child("familyIdentification");
         mFamilyIdentification.push().setValue(familyIdentification);
+
 
         //mDatabase = FirebaseDatabase.getInstance().getReference("family_identification");
         //mDatabase.setValue(familyIdentification);

@@ -140,7 +140,8 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
 
     private void sendData(){
         Toast.makeText(this,FamilyIdentificationFragment.editTextFName.getText().toString().trim(),Toast.LENGTH_SHORT).show();
-        mainSurveyPresenter.checkInput(FamilyIdentificationFragment.editTextFName.getText().toString().trim());
+        mainSurveyPresenter.checkInput(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
+                                        FamilyIdentificationFragment.editTextMName.getText().toString().trim());
     }
 
     @Override

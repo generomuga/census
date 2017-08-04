@@ -13,12 +13,18 @@ public class MainSurveyPresenterImpl implements MainSurveyPresenter, MainSurveyM
     }
 
     @Override
-    public void checkInput(String fname) {
-        if(TextUtils.isEmpty(fname)){
+    public void checkInput(String fName,String mName) {
+        if(TextUtils.isEmpty(fName)){
             mainSurveyView.onError();
             return;
         }
-        mainSurveyModel.sendFirebase(fname);
+
+        if(TextUtils.isEmpty(mName)){
+            mainSurveyView.onError();
+            return;
+        }
+
+        mainSurveyModel.sendFirebase(fName, mName);
     }
 
     @Override

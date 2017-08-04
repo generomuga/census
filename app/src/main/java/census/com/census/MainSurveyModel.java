@@ -6,6 +6,6 @@ public interface MainSurveyModel {
         void onSuccess();
     }
 
-    void sendFirebase(String fname);
+    void sendFirebase(String fName,String mName);
 
 }
