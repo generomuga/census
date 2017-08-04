@@ -23,22 +23,22 @@ public class FamilyIdentificationFragment extends Fragment {
     private View view;
     public static TextInputEditText editTextFName;
     public static TextInputEditText editTextMName;
-    private TextInputEditText editTextLName;
-    private TextInputEditText editTextHouseNo;
-    private TextInputEditText editTextStreetNo;
-    private RadioGroup radioGroupResidency;
-    private RadioGroup radioGroupOwnership;
-    private RadioGroup radioGroupStatus;
+    public static TextInputEditText editTextLName;
+    public static TextInputEditText editTextHouseNo;
+    public static TextInputEditText editTextStreetNo;
+    public static RadioGroup radioGroupResidency;
+    public static RadioGroup radioGroupOwnership;
+    public static RadioGroup radioGroupStatus;
     /*private RadioButton radioButtonResident;
     private RadioButton radioButtonNonResident;
     private RadioButton radioButtonOwner;
     private RadioButton radioButtonExtended;
     private RadioButton radioButtonActive;
     private RadioButton radioButtonInactive;*/
-    private Spinner spinnerRegions;
-    private Spinner spinnerProvinces;
-    private Spinner spinnerMunicipal;
-    private Spinner spinnerBarangay;
+    public static Spinner spinnerRegions;
+    public static Spinner spinnerProvinces;
+    public static Spinner spinnerMunicipal;
+    public static Spinner spinnerBarangay;
 
     private Button buttonSave;
 
