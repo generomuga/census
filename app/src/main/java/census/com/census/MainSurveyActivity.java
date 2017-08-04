@@ -1,28 +1,19 @@
 package census.com.census;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 public class MainSurveyActivity extends AppCompatActivity implements FamilyIdentificationFragment.OnFragmentInteractionListener {
 
     private Toolbar toolBarSurvey;
     String tag;
-    String errorMsgReq = "This field is required!";
-    String errorMsgNum = "Not a number!";
     Fragment fragment;
 
     private SharedPreferences sharedPreferences;
@@ -140,7 +131,7 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
             }
         }
     }
-    
+
 
     @Override
     public void onFragmentInteraction(String fname, String mName, String lName, String houseNo, String streetNo, String barangay, String municipality, String province, String region, int residency, int ownership, int familyStatus) {
@@ -149,7 +140,4 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
 
     }
 
-    private void onSaveFamilyIdentification(){
-        Toast.makeText(this,sharedPreferences.getString("fname",""),Toast.LENGTH_SHORT).show();
-    }
 }
