@@ -6,27 +6,35 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainSurveyModelImpl implements MainSurveyModel {
 
-    //OnFamilyIdentificationModel listener;
 
+    private String key;
     DatabaseReference mDatabase;
 
     public MainSurveyModelImpl() {
-        //this.listener = listener;
         mDatabase = FirebaseDatabase.getInstance().getReference("data");
     }
 
     @Override
-    public void sendFirebase(String fname,String mName) {
+    public void sendFamilyIdentification(String fname,String mName) {
         FamilyIdentification familyIdentification = new FamilyIdentification();
         familyIdentification.setfName(fname);
         familyIdentification.setmName(mName);
 
         DatabaseReference mFamilyIdentification = mDatabase.child("familyIdentification");
         mFamilyIdentification.push().setValue(familyIdentification);
-
+        key = mFamilyIdentification.getKey();
 
         //mDatabase = FirebaseDatabase.getInstance().getReference("family_identification");
         //mDatabase.setValue(familyIdentification);
 
+    }
+
+    @Override
+    public void sendFamily(String contactNo) {
+        Family family = new Family();
+        family.setContactNo(contactNo);
+
+        DatabaseReference mFamily = mDatabase.child("family");
+        mFamily.setValue(family);
     }
 }

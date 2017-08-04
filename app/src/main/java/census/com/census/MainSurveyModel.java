@@ -2,6 +2,6 @@ package census.com.census;
 
 public interface MainSurveyModel {
 
-    void sendFirebase(String fName,String mName);
-
+    void sendFamilyIdentification(String fName,String mName);
+    void sendFamily(String contactNo);
 }

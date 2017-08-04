@@ -106,8 +106,8 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
                 //checkActiveFragment(tag);
                 //onSaveFamilyIdentification();
                 //Toast.makeText(this,FamilyIdentificationFragment.editTextFName.getText().toString(),Toast.LENGTH_SHORT).show();
-                sendData();
-                //mainSurveyPresenter = new MainSurveyPresenterImpl((MainSurveyView) this);
+                sendFamilyIdentification();
+                sendFamily();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -138,11 +138,15 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
         }
     }
 
-    private void sendData(){
-        Toast.makeText(this,FamilyIdentificationFragment.editTextFName.getText().toString().trim(),Toast.LENGTH_SHORT).show();
-        mainSurveyPresenter.checkInput(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
+    private void sendFamilyIdentification(){
+        mainSurveyPresenter.checkFamilyIdentification(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
                                         FamilyIdentificationFragment.editTextMName.getText().toString().trim());
     }
+
+    private void sendFamily(){
+        mainSurveyPresenter.checkFamily(FamilyFragment.spinnerISP.getSelectedItem().toString());
+    }
+
 
     @Override
     public void onError() {

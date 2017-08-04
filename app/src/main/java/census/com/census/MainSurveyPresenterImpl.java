@@ -13,7 +13,7 @@ public class MainSurveyPresenterImpl implements MainSurveyPresenter{
     }
 
     @Override
-    public void checkInput(String fName,String mName) {
+    public void checkFamilyIdentification(String fName,String mName) {
         if(TextUtils.isEmpty(fName)){
             mainSurveyView.onError();
             return;
@@ -24,7 +24,15 @@ public class MainSurveyPresenterImpl implements MainSurveyPresenter{
             return;
         }
 
-        mainSurveyModel.sendFirebase(fName, mName);
+        mainSurveyModel.sendFamilyIdentification(fName, mName);
+    }
+
+    @Override
+    public void checkFamily(String contactNo) {
+        if(TextUtils.isEmpty(contactNo)){
+            return;
+        }
+        mainSurveyModel.sendFamily(contactNo);
     }
 
 }
