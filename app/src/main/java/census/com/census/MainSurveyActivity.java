@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainSurveyActivity extends AppCompatActivity implements FamilyIdentificationFragment.OnFragmentInteractionListener {
+public class MainSurveyActivity extends AppCompatActivity {
 
     private Toolbar toolBarSurvey;
     String tag;
@@ -133,11 +133,5 @@ public class MainSurveyActivity extends AppCompatActivity implements FamilyIdent
     }
 
 
-    @Override
-    public void onFragmentInteraction(String fname, String mName, String lName, String houseNo, String streetNo, String barangay, String municipality, String province, String region, int residency, int ownership, int familyStatus) {
-        Toast.makeText(this,region,Toast.LENGTH_SHORT).show();
-        //saveObjectFamilyIdentification();
-
-    }
 
 }
