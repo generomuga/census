@@ -44,12 +44,8 @@ public class FamilyIdentificationFragment extends Fragment {
 
     private DbUtils dbUtils;
     private ArrayAdapter spinnerArrayAdapter;
-    private OnFragmentInteractionListener mListener;
     private SharedPreferences sharedPreferences;
 
-    public interface OnFragmentInteractionListener{
-        void onFragmentInteraction(String fname,String mName, String lName,String houseNo, String streetNo, String barangay, String municipality, String province, String region, int residency, int ownership, int familyStatus);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -70,9 +66,6 @@ public class FamilyIdentificationFragment extends Fragment {
         //select municipal
         onSpinnerMunicipalEvent();
 
-        //load fragment listener
-        onLoadFragmentListener();
-
         return view;
     }
 
@@ -80,22 +73,6 @@ public class FamilyIdentificationFragment extends Fragment {
     public void onResume() {
         super.onResume();
         onLoadData();
-    }
-
-    private void onLoadFragmentListener(){
-        try{
-            onLoadData();
-            mListener = (OnFragmentInteractionListener) getActivity();
-            mListener.onFragmentInteraction(
-                        sharedPreferences.getString("fname",""),sharedPreferences.getString("mname",""),sharedPreferences.getString("lname",""),
-                        sharedPreferences.getString("houseno",""),sharedPreferences.getString("streetno",""),sharedPreferences.getString("barangay",""),
-                        sharedPreferences.getString("municipality",""),sharedPreferences.getString("province",""),sharedPreferences.getString("regionv",""),sharedPreferences.getInt("residency",2131624151),
-                        sharedPreferences.getInt("ownership",2131624154),sharedPreferences.getInt("status", 2131624157)
-            );
-        }
-        catch (ClassCastException e){
-            throw new ClassCastException(this.toString());
-        }
     }
 
     private void onInitViews(){

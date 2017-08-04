@@ -10,13 +10,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainSurveyActivity extends AppCompatActivity {
+public class MainSurveyActivity extends AppCompatActivity implements MainSurveyView {
 
     private Toolbar toolBarSurvey;
     String tag;
     Fragment fragment;
 
     private SharedPreferences sharedPreferences;
+
+    MainSurveyPresenter mainSurveyPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,9 @@ public class MainSurveyActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragmentMain,fragment,tag).commit();
         }
+
+        //implement listener
+        mainSurveyPresenter = new MainSurveyPresenterImpl(this);
     }
 
     @Override
@@ -98,9 +103,11 @@ public class MainSurveyActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_save:
-                checkActiveFragment(tag);
+                //checkActiveFragment(tag);
                 //onSaveFamilyIdentification();
-                Toast.makeText(this,FamilyIdentificationFragment.editTextFName.getText().toString(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this,FamilyIdentificationFragment.editTextFName.getText().toString(),Toast.LENGTH_SHORT).show();
+                sendData();
+                //mainSurveyPresenter = new MainSurveyPresenterImpl((MainSurveyView) this);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -114,7 +121,6 @@ public class MainSurveyActivity extends AppCompatActivity {
                 switch (tag){
                     case "FamilyIdentification":
                         //saveObjectFamilyIdentification();
-
                         break;
                     case "Family":
                         //saveObjectFamily();
@@ -132,6 +138,18 @@ public class MainSurveyActivity extends AppCompatActivity {
         }
     }
 
+    private void sendData(){
+        Toast.makeText(this,FamilyIdentificationFragment.editTextFName.getText().toString().trim(),Toast.LENGTH_SHORT).show();
+        mainSurveyPresenter.checkInput(FamilyIdentificationFragment.editTextFName.getText().toString().trim());
+    }
 
+    @Override
+    public void onError() {
 
+    }
+
+    @Override
+    public void onSuccess() {
+
+    }
 }
