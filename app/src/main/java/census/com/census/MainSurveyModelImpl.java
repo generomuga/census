@@ -6,8 +6,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainSurveyModelImpl implements MainSurveyModel {
 
+    String key;
 
-    private String key;
     DatabaseReference mDatabase;
 
     public MainSurveyModelImpl() {
@@ -21,20 +21,17 @@ public class MainSurveyModelImpl implements MainSurveyModel {
         familyIdentification.setmName(mName);
 
         DatabaseReference mFamilyIdentification = mDatabase.child("familyIdentification");
-        mFamilyIdentification.push().setValue(familyIdentification);
-        key = mFamilyIdentification.getKey();
-
-        //mDatabase = FirebaseDatabase.getInstance().getReference("family_identification");
-        //mDatabase.setValue(familyIdentification);
-
+        key = mDatabase.push().getKey();
+        mFamilyIdentification.child(key).setValue(familyIdentification);
     }
 
     @Override
-    public void sendFamily(String contactNo) {
+    public void sendFamily(String isp) {
         Family family = new Family();
-        family.setContactNo(contactNo);
+        family.setIsp(isp);
 
         DatabaseReference mFamily = mDatabase.child("family");
-        mFamily.setValue(family);
+        //key = mDatabase.push().getKey();
+        mFamily.child(key).setValue(family);
     }
 }

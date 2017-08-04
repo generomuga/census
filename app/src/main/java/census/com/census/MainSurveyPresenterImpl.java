@@ -28,11 +28,12 @@ public class MainSurveyPresenterImpl implements MainSurveyPresenter{
     }
 
     @Override
-    public void checkFamily(String contactNo) {
-        if(TextUtils.isEmpty(contactNo)){
+    public void checkFamily(String isp) {
+        if(TextUtils.isEmpty(isp)){
+            mainSurveyView.onError();
             return;
         }
-        mainSurveyModel.sendFamily(contactNo);
+        mainSurveyModel.sendFamily(isp);
     }
 
 }

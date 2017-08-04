@@ -144,7 +144,8 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
     }
 
     private void sendFamily(){
-        mainSurveyPresenter.checkFamily(FamilyFragment.spinnerISP.getSelectedItem().toString());
+        //String a = FamilyFragment.spinne
+        mainSurveyPresenter.checkFamily("PLDT");
     }
 
 
