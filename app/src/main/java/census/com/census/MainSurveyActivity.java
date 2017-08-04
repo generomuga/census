@@ -150,12 +150,8 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
 
 
     @Override
-    public void onError() {
+    public void onError(String message) {
 
     }
 
-    @Override
-    public void onSuccess() {
-
-    }
 }

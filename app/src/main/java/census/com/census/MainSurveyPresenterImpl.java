@@ -15,12 +15,12 @@ public class MainSurveyPresenterImpl implements MainSurveyPresenter{
     @Override
     public void checkFamilyIdentification(String fName,String mName) {
         if(TextUtils.isEmpty(fName)){
-            mainSurveyView.onError();
+            mainSurveyView.onError("This field is required!");
             return;
         }
 
         if(TextUtils.isEmpty(mName)){
-            mainSurveyView.onError();
+            mainSurveyView.onError("This field is required!");
             return;
         }
 
@@ -30,7 +30,7 @@ public class MainSurveyPresenterImpl implements MainSurveyPresenter{
     @Override
     public void checkFamily(String isp) {
         if(TextUtils.isEmpty(isp)){
-            mainSurveyView.onError();
+            mainSurveyView.onError("This field is required!");
             return;
         }
         mainSurveyModel.sendFamily(isp);
