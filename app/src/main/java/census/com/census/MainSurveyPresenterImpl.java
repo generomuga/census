@@ -2,14 +2,14 @@ package census.com.census;
 
 import android.text.TextUtils;
 
-public class MainSurveyPresenterImpl implements MainSurveyPresenter, MainSurveyModel.OnFamilyIdentificationModel{
+public class MainSurveyPresenterImpl implements MainSurveyPresenter{
 
     MainSurveyView mainSurveyView;
     MainSurveyModel mainSurveyModel;
 
     public MainSurveyPresenterImpl(MainSurveyView mainSurveyView) {
         this.mainSurveyView = mainSurveyView;
-        mainSurveyModel = new MainSurveyModelImpl(this);
+        mainSurveyModel = new MainSurveyModelImpl();
     }
 
     @Override
@@ -25,11 +25,6 @@ public class MainSurveyPresenterImpl implements MainSurveyPresenter, MainSurveyM
         }
 
         mainSurveyModel.sendFirebase(fName, mName);
-    }
-
-    @Override
-    public void onSuccess() {
-
     }
 
 }

@@ -6,12 +6,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainSurveyModelImpl implements MainSurveyModel {
 
-    OnFamilyIdentificationModel listener;
+    //OnFamilyIdentificationModel listener;
 
     DatabaseReference mDatabase;
 
-    public MainSurveyModelImpl(OnFamilyIdentificationModel listener) {
-        this.listener = listener;
+    public MainSurveyModelImpl() {
+        //this.listener = listener;
         mDatabase = FirebaseDatabase.getInstance().getReference("data");
     }
 
