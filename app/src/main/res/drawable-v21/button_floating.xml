@@ -4,18 +4,18 @@
         <layer-list>
             <item>
                 <shape android:shape="oval">
-                    <solid android:color="#08000000"/>
+                    <solid android:color="@color/colorPrimary"/>
                     <padding
-                        android:bottom="3px"
-                        android:left="3px"
-                        android:right="3px"
-                        android:top="3px"
+                        android:bottom="5px"
+                        android:left="5px"
+                        android:right="5px"
+                        android:top="5px"
                         />
                 </shape>
             </item>
-            <item>
+            <!--<item>
                 <shape android:shape="oval">
-                    <solid android:color="#09000000"/>
+                    <solid android:color="@color/colorPrimary"/>
                     <padding
                         android:bottom="2px"
                         android:left="2px"
@@ -26,7 +26,7 @@
             </item>
             <item>
                 <shape android:shape="oval">
-                    <solid android:color="#10000000"/>
+                    <solid android:color="@color/colorPrimary"/>
                     <padding
                         android:bottom="2px"
                         android:left="2px"
@@ -37,7 +37,7 @@
             </item>
             <item>
                 <shape android:shape="oval">
-                    <solid android:color="#11000000"/>
+                    <solid android:color="@color/colorPrimary"/>
                     <padding
                         android:bottom="1px"
                         android:left="1px"
@@ -48,7 +48,7 @@
             </item>
             <item>
                 <shape android:shape="oval">
-                    <solid android:color="#12000000"/>
+                    <solid android:color="@color/colorPrimary"/>
                     <padding
                         android:bottom="1px"
                         android:left="1px"
@@ -59,7 +59,7 @@
             </item>
             <item>
                 <shape android:shape="oval">
-                    <solid android:color="#13000000"/>
+                    <solid android:color="@color/colorPrimary"/>
                     <padding
                         android:bottom="1px"
                         android:left="1px"
@@ -70,7 +70,7 @@
             </item>
             <item>
                 <shape android:shape="oval">
-                    <solid android:color="#14000000"/>
+                    <solid android:color="@color/colorPrimary"/>
                     <padding
                         android:bottom="1px"
                         android:left="1px"
@@ -81,7 +81,7 @@
             </item>
             <item>
                 <shape android:shape="oval">
-                    <solid android:color="#15000000"/>
+                    <solid android:color="@color/colorPrimary"/>
                     <padding
                         android:bottom="1px"
                         android:left="1px"
@@ -89,7 +89,7 @@
                         android:top="1px"
                         />
                 </shape>
-            </item>
+            </item>-->
 
         </layer-list>
     </item>

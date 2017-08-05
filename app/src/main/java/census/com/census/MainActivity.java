@@ -15,10 +15,10 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbarMain;
-    private FloatingActionButton fabAdd;
+    //Nougat version
+    //private FloatingActionButton fabAdd;
 
     private SharedPreferences sharedPreferences;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +30,16 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbarMain);
         getSupportActionBar().setTitle("Main");
 
-        //floating action button
+        /* floating action button (Nougat version)
         fabAdd = (FloatingActionButton) findViewById(R.id.fabAddSurvey);
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,MainSurveyActivity.class));
             }
-        });
+        });*/
+
+
 
         //connectDB();
         //selectSample();

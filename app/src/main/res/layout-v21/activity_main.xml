@@ -3,11 +3,9 @@
 <android.support.v4.widget.DrawerLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,7 +15,23 @@
 
         <include android:id="@+id/toolBarMain" layout="@layout/app_bar_main" />
 
-        <android.support.design.widget.FloatingActionButton
+
+        <!--Lollipop version-->
+        <ImageButton
+            android:id="@+id/fab"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:elevation="1dp"
+            android:background="@drawable/button_floating"
+            android:src="@mipmap/ic_add_white_24dp"/>
+
+        <!--Nougat version-->
+        <!--<android.support.design.widget.FloatingActionButton
             android:id="@+id/fabAddSurvey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,8 +41,7 @@
             app:layout_anchorGravity="bottom|right|end"
             android:backgroundTint="@color/colorPrimary"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            />
+            android:layout_alignParentRight="true"/>-->
 
     </RelativeLayout>
 

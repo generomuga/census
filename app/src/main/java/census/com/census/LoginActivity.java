@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
@@ -27,6 +28,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             @Override
             public void onClick(View v) {
                 attemptLogin();
+                //startActivity(new Intent(LoginActivity.this,MainActivity.class));
             }
         });
 
@@ -50,5 +52,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @Override
     public void onSuccess() {
         startActivity(new Intent(LoginActivity.this,MainActivity.class));
+        //Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show();
     }
 }
