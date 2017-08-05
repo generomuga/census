@@ -7,6 +7,6 @@ public interface SignUpModel {
         void onSuccess();
     }
 
-    void register(String email);
+    void register(String email,String password);
 
 }
