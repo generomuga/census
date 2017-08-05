@@ -60,15 +60,15 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
             case R.id.imageButtonFamilyId:
                 tag = "FamilyIdentification";
                 getSupportActionBar().setTitle("Identification");
-                //fragment = new FamilyIdentificationFragment();
-                //switchFragment(fragment,tag);
+                fragment = new FamilyIdentificationFragment();
+                switchFragment(fragment,tag);
                 break;
 
             case R.id.imageButtonFamily:
                 tag = "Family";
                 getSupportActionBar().setTitle("Family");
-                //fragment = new FamilyFragment();
-                //switchFragment(fragment,"Family");
+                fragment = new FamilyFragment();
+                switchFragment(fragment,"Family");
                 break;
 
             case R.id.imageButtonHealth:
@@ -107,7 +107,7 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
                 //onSaveFamilyIdentification();
                 //Toast.makeText(this,FamilyIdentificationFragment.editTextFName.getText().toString(),Toast.LENGTH_SHORT).show();
                 sendFamilyIdentification();
-                sendFamily();
+                //sendFamily();
                 break;
         }
         return super.onOptionsItemSelected(item);

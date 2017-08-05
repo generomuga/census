@@ -46,7 +46,7 @@ public class FamilyFragment extends Fragment {
     public static CheckBox checkBoxTricycle;
     public static CheckBox checkBoxTruck;
     public static CheckBox checkBoxVan;
-    public static TextInputEditText editTextContactNo;
+    //public static TextInputEditText editTextContactNo;
     public static EditText editTextBicycleNo;
     public static EditText editTextBoatNo;
     public static EditText editTextBusNo;
@@ -88,29 +88,29 @@ public class FamilyFragment extends Fragment {
         initViews();
 
         //get the seek bar value
-        getFamilyNoSeekBarVal();
+        //getFamilyNoSeekBarVal();
 
         //get spinner values for years
-        getYears();
-        useArrayAdapter(years);
-        spinnerYear.setAdapter(spinnerArrayAdapter);
+        //getYears();
+        //useArrayAdapter(years);
+        //spinnerYear.setAdapter(spinnerArrayAdapter);
 
         //get spinner values for isp
-        getISP();
-        useArrayAdapter((ArrayList) isps);
-        spinnerISP.setAdapter(spinnerArrayAdapter);
+        //getISP();
+        //useArrayAdapter((ArrayList) isps);
+        //spinnerISP.setAdapter(spinnerArrayAdapter);
 
         //load regions
-        loadRegions();
+        //loadRegions();
 
         //load province
-        spinnerRegionEvent();
+        //spinnerRegionEvent();
 
         //load municipality
-        spinnerProvinceEvent();
+        //spinnerProvinceEvent();
 
         //load barangay
-        spinnerMunicipalEvent();
+        //spinnerMunicipalEvent();
 
         return  view;
     }
