@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbarMain);
         getSupportActionBar().setTitle("Main");
 
+
         /* floating action button (Nougat version)
         fabAdd = (FloatingActionButton) findViewById(R.id.fabAddSurvey);
         fabAdd.setOnClickListener(new View.OnClickListener() {

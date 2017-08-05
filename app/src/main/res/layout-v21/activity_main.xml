@@ -15,7 +15,6 @@
 
         <include android:id="@+id/toolBarMain" layout="@layout/app_bar_main" />
 
-
         <!--Lollipop version-->
         <ImageButton
             android:id="@+id/fab"
