@@ -163,7 +163,7 @@
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint" />
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -173,7 +173,7 @@
                 android:layout_weight="1"
                 android:text="Address"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
+                android:textSize="12sp" />-->
 
             <!--<EditText
                 android:id="@+id/editTextBrgy"

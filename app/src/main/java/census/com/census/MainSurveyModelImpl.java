@@ -15,13 +15,21 @@ public class MainSurveyModelImpl implements MainSurveyModel {
     }
 
     @Override
-    public void sendFamilyIdentification(String fname,String mName) {
+    public void sendFamilyIdentification(String fname,String mName, String lName, String region, String province, String municipality, String barangay) {
+
+        key = mDatabase.push().getKey();
+
         FamilyIdentification familyIdentification = new FamilyIdentification();
+        familyIdentification.setId(key);
         familyIdentification.setfName(fname);
         familyIdentification.setmName(mName);
+        familyIdentification.setlName(lName);
+        familyIdentification.setRegion(region);
+        familyIdentification.setProvince(province);
+        familyIdentification.setMunicipality(municipality);
+        familyIdentification.setBarangay(barangay);
 
         DatabaseReference mFamilyIdentification = mDatabase.child("familyIdentification");
-        key = mDatabase.push().getKey();
         mFamilyIdentification.child(key).setValue(familyIdentification);
     }
 

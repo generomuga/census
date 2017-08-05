@@ -139,8 +139,15 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
     }
 
     private void sendFamilyIdentification(){
+
         mainSurveyPresenter.checkFamilyIdentification(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
-                                        FamilyIdentificationFragment.editTextMName.getText().toString().trim());
+                                        FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
+                                        FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
+                                        FamilyIdentificationFragment.spinnerRegions.getSelectedItem().toString().trim(),
+                                        FamilyIdentificationFragment.spinnerProvinces.getSelectedItem().toString().trim(),
+                                        FamilyIdentificationFragment.spinnerMunicipal.getSelectedItem().toString().trim(),
+                                        FamilyIdentificationFragment.spinnerBarangay.getSelectedItem().toString().trim()
+                             );
     }
 
     private void sendFamily(){

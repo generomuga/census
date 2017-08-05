@@ -45,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         try{
             String dbPath = DB_PATH + DB_NAME;
-            checkDB = SQLiteDatabase.openDatabase(dbPath,null,SQLiteDatabase.OPEN_READONLY);
+            checkDB = SQLiteDatabase.openDatabase(dbPath,null,SQLiteDatabase.OPEN_READWRITE);
         }
         catch(SQLiteException e){
 

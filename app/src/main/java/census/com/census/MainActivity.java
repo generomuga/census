@@ -82,14 +82,14 @@ public class MainActivity extends AppCompatActivity {
             databaseHelper.createDatabase();
         }
         catch (IOException e) {
-            throw new Error("Unable to create database");
+            Log.e("Error:","Unable to connect database");
         }
 
         try{
             databaseHelper.openDataBase();
         }
         catch (SQLException sqle){
-            throw sqle;
+            Log.e("Error:",sqle.toString());
         }
     }
 

@@ -11,6 +11,7 @@ public class FamilyIdentification {
     private String barangay;
     private String municipality;
     private String province;
+    private String region;
     private int residency;
     private int ownership;
     private int familyStatus;
@@ -88,6 +89,14 @@ public class FamilyIdentification {
 
     public void setProvince(String province) {
         this.province = province;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
     }
 
     public int getResidency() {
