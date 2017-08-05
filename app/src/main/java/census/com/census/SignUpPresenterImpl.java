@@ -23,8 +23,7 @@ public class SignUpPresenterImpl implements SignUpPresenter, SignUpModel.OnSignU
             return;
         }
 
-        signUpModelListener.register(email,"gene");
-
+        signUpModelListener.register(email,"gene123123123");
         signUpModelListener = new SignUpModelImpl(this);
     }
 

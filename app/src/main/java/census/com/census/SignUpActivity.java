@@ -33,8 +33,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView{
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //attemptRegister();
-                register();
+                attemptRegister();
             }
         });
 
@@ -56,17 +55,4 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView{
 
     }
 
-
-    private void register(){
-
-        mAuth.createUserWithEmailAndPassword(mEmail.getText().toString().toString(),"geasdasd").addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (!task.isSuccessful()) {
-                    Log.e("firebase","faield");
-                }
-            }
-
-        });
-    }
 }
