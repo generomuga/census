@@ -4,13 +4,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.SQLException;
 import android.os.Build;
+import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -28,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //connect to sqlite database
+        connectDB();
+
         //for toolbar init
         toolbarMain = (Toolbar) findViewById(R.id.toolBarMain);
         setSupportActionBar(toolbarMain);
@@ -42,23 +48,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
 
+
         mFab = (ImageButton) findViewById(R.id.fab);
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Log.i("success","asd");
                 startActivity(new Intent(MainActivity.this,MainSurveyActivity.class));
             }
         });
 
-        connectDB();
 
+       // Toast.makeText(this,"gene", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        onClearSharedReference();
+        //onClearSharedReference();
     }
 
 
