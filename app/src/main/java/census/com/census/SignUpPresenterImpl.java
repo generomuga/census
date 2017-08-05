@@ -11,9 +11,23 @@ public class SignUpPresenterImpl implements SignUpPresenter, SignUpModel.OnSignU
         signUpModelListener = new SignUpModelImpl(this);
     }
 
+
     @Override
     public void checkEmail(String email) {
+        if(email.isEmpty()){
+            signUpView.setErrorEmail("This field is required!");
+            return;
+        }
+        if(!validateEmail(email)){
+            signUpView.setErrorEmail("Invalid email!");
+            return;
+        }
 
+        signUpModelListener = new SignUpModelImpl(this);
+    }
+
+    private boolean validateEmail(String email){
+        return email.contains("@");
     }
 
     @Override
