@@ -6,4 +6,42 @@
     android:orientation="vertical"
     tools:context="census.com.census.SignUpActivity">
 
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:background="@color/colorPrimary"
+       android:orientation="vertical"
+       android:gravity="center">
+
+       <EditText
+           android:id="@+id/userEmail"
+           android:layout_width="280dp"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:layout_marginLeft="15dp"
+           android:layout_marginRight="15dp"
+           android:layout_marginTop="10dp"
+           android:layout_marginBottom="10dp"
+           android:hint="@string/email"
+           android:inputType="textEmailAddress"
+           android:textAlignment="center"
+           android:textColorHint="@color/colorHint"
+           android:background="@color/colorLoginEditText"
+           android:textColor="@color/colorEditText"
+           android:padding="10dp"/>
+
+       <Button
+           android:id="@+id/buttonRegister"
+           android:layout_width="250dp"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="15dp"
+           android:layout_marginRight="15dp"
+           android:layout_marginTop="10dp"
+           android:gravity="center"
+           android:text="@string/register"
+           android:background="@drawable/button_round"
+           android:padding="15dp"/>
+
+   </LinearLayout>
+    
 </LinearLayout>
