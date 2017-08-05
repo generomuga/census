@@ -31,7 +31,8 @@
         <activity
             android:name=".MainSurveyActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".SignUpActivity" />
+        <activity android:name=".SignUpActivity"
+                android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
 </manifest>

@@ -14,6 +14,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private EditText mEmail;
     private EditText mPassword;
     private Button btnSignIn;
+    private Button mSignup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,15 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                 //startActivity(new Intent(LoginActivity.this,MainActivity.class));
             }
         });
+
+        mSignup = (Button) findViewById(R.id.buttonRegister);
+        mSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this,SignUpActivity.class));
+            }
+        });
+
 
         loginPresenterListener = new LoginPresenterImpl(this);
     }
