@@ -22,10 +22,11 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/linearLayoutToolbar"
         android:layout_above="@+id/linearLayoutFragmentNavigator"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
 
         <fragment
-            android:name="census.com.census.FamilyIdentificationFragment"
+            android:name="census.com.census.Fragment1"
             android:id="@+id/fragmentMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

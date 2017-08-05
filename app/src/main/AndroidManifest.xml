@@ -32,7 +32,6 @@
             android:name=".MainSurveyActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".Main2Activity"></activity>
     </application>
 
 </manifest>

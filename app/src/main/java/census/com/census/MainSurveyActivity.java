@@ -74,15 +74,15 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
             case R.id.imageButtonHealth:
                 tag = "Health";
                 getSupportActionBar().setTitle("Health");
-                fragment = new HealthFragment();
-                switchFragment(fragment,"Health");
+                //fragment = new HealthFragment();
+                //switchFragment(fragment,"Health");
                 break;
 
             case R.id.imageButtonEnvironment:
                 tag = "Environment";
                 getSupportActionBar().setTitle("Environment");
-                fragment = new EnvironmentFragment();
-                switchFragment(fragment,"Environment");
+                //fragment = new EnvironmentFragment();
+                //switchFragment(fragment,"Environment");
                 break;
         }
     }

@@ -118,7 +118,7 @@ public class FamilyFragment extends Fragment {
     private void initViews(){
         //editTextOrigin = (EditText) view.findViewById(id.editTextOrigin);
 
-        editTextContactNo = (TextInputEditText) view.findViewById(id.editTextContactNo);
+        //editTextContactNo = (TextInputEditText) view.findViewById(id.editTextContactNo);
 
         spinnerYear = (Spinner) view.findViewById(id.spinnerYear);
         spinnerISP = (Spinner) view.findViewById(id.spinnerISP);

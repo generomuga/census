@@ -26,7 +26,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp" />-->
 
-            <android.support.design.widget.TextInputLayout
+            <!--<android.support.design.widget.TextInputLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="5dp"
@@ -94,9 +94,9 @@
                     android:hint="Contact no"
                     android:textColor="@color/colorEditText"/>
 
-            </android.support.design.widget.TextInputLayout>
+            </android.support.design.widget.TextInputLayout>-->
 
-            <!--<TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -161,9 +161,9 @@
                 android:layout_marginRight="11dp"
                 android:hint="Dela Cruz"
                 android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />-->
+                android:textColorHint="@color/colorHint" />
 
-            <!--<TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -173,7 +173,7 @@
                 android:layout_weight="1"
                 android:text="Address"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp" />-->
+                android:textSize="12sp" />
 
             <!--<EditText
                 android:id="@+id/editTextBrgy"
@@ -208,7 +208,7 @@
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint" />-->
 
-            <android.support.design.widget.TextInputLayout
+            <!--<android.support.design.widget.TextInputLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="8dp"
@@ -240,7 +240,7 @@
                     android:hint="House no"
                     android:textColor="@color/colorEditText"/>
 
-            </android.support.design.widget.TextInputLayout>
+            </android.support.design.widget.TextInputLayout>-->
 
 
             <TextView
@@ -281,7 +281,9 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="8dp"
-                android:popupBackground="@color/colorPrimary" />
+                android:backgroundTint="@color/colorPrimary"
+                android:popupBackground="@color/colorPrimary"
+                android:foregroundTint="@color/colorPrimary"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -323,7 +325,7 @@
                 android:layout_marginRight="15dp"
                 android:popupBackground="@color/colorPrimary"/>
 
-            <!--<EditText
+            <EditText
                 android:id="@+id/editTextHouseNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -343,7 +345,7 @@
                 android:layout_marginRight="11dp"
                 android:hint="Street No"
                 android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />-->
+                android:textColorHint="@color/colorHint" />
 
 
 

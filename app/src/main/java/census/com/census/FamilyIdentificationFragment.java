@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -21,11 +22,11 @@ import java.util.ArrayList;
 public class FamilyIdentificationFragment extends Fragment {
 
     private View view;
-    public static TextInputEditText editTextFName;
-    public static TextInputEditText editTextMName;
-    public static TextInputEditText editTextLName;
-    public static TextInputEditText editTextHouseNo;
-    public static TextInputEditText editTextStreetNo;
+    public static EditText editTextFName;
+    public static EditText editTextMName;
+    public static EditText editTextLName;
+    public static EditText editTextHouseNo;
+    public static EditText editTextStreetNo;
     public static RadioGroup radioGroupResidency;
     public static RadioGroup radioGroupOwnership;
     public static RadioGroup radioGroupStatus;
@@ -72,15 +73,15 @@ public class FamilyIdentificationFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        onLoadData();
+        //onLoadData();
     }
 
     private void onInitViews(){
-        editTextFName = (TextInputEditText) view.findViewById(R.id.editTextFname);
-        editTextMName = (TextInputEditText) view.findViewById(R.id.editTextMname);
-        editTextLName = (TextInputEditText) view.findViewById(R.id.editTextLname);
-        editTextHouseNo = (TextInputEditText) view.findViewById(R.id.editTextHouseNo);
-        editTextStreetNo = (TextInputEditText) view.findViewById(R.id.editTextStreetNo);
+        editTextFName = (EditText) view.findViewById(R.id.editTextFname);
+        editTextMName = (EditText) view.findViewById(R.id.editTextMname);
+        editTextLName = (EditText) view.findViewById(R.id.editTextLname);
+        editTextHouseNo = (EditText) view.findViewById(R.id.editTextHouseNo);
+        editTextStreetNo = (EditText) view.findViewById(R.id.editTextStreetNo);
         /*radioButtonResident = (RadioButton) view.findViewById(R.id.radioButtonResident);
         radioButtonNonResident = (RadioButton) view.findViewById(R.id.radioButtonNonResident);
         radioButtonOwner = (RadioButton) view.findViewById(R.id.radioButtonOwner);
@@ -253,7 +254,7 @@ public class FamilyIdentificationFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        onSaveReference();
+        //onSaveReference();
     }
 
 }
