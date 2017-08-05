@@ -140,13 +140,20 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
 
     private void sendFamilyIdentification(){
 
+        int residency = 0;
+        int ownership = 0;
+        int status = 0;
+
         mainSurveyPresenter.checkFamilyIdentification(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
                                         FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
                                         FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
                                         FamilyIdentificationFragment.spinnerRegions.getSelectedItem().toString().trim(),
                                         FamilyIdentificationFragment.spinnerProvinces.getSelectedItem().toString().trim(),
                                         FamilyIdentificationFragment.spinnerMunicipal.getSelectedItem().toString().trim(),
-                                        FamilyIdentificationFragment.spinnerBarangay.getSelectedItem().toString().trim()
+                                        FamilyIdentificationFragment.spinnerBarangay.getSelectedItem().toString().trim(),
+                                        FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim(),
+                                        FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim(),
+                                        residency,ownership,status
                              );
     }
 

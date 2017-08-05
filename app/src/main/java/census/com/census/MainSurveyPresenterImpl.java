@@ -13,7 +13,8 @@ public class MainSurveyPresenterImpl implements MainSurveyPresenter{
     }
 
     @Override
-    public void checkFamilyIdentification(String fName,String mName,String lName,String region,String province,String municipality,String barangay) {
+    public void checkFamilyIdentification(String fName,String mName,String lName,String region,String province,
+                                          String municipality,String barangay,String houseNo,String streetNo,int residency,int ownership, int status) {
         if(TextUtils.isEmpty(fName)){
             mainSurveyView.onError("This field is required!");
             return;
@@ -41,7 +42,15 @@ public class MainSurveyPresenterImpl implements MainSurveyPresenter{
             return;
         }
 
-        mainSurveyModel.sendFamilyIdentification(fName, mName, lName, region, province, municipality, barangay);
+        if(houseNo.isEmpty()){
+            return;
+        }
+
+        if(streetNo.isEmpty()){
+            return;
+        }
+
+        mainSurveyModel.sendFamilyIdentification(fName, mName, lName, region, province, municipality, barangay, houseNo, streetNo,residency,ownership, status);
     }
 
     @Override
