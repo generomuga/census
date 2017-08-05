@@ -1,6 +1,10 @@
 package census.com.census;
 
 
+import android.util.Log;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -36,7 +40,18 @@ public class MainSurveyModelImpl implements MainSurveyModel {
         familyIdentification.setFamilyStatus(status);
 
         DatabaseReference mFamilyIdentification = mDatabase.child("familyIdentification");
-        mFamilyIdentification.child(key).setValue(familyIdentification);
+        mFamilyIdentification.child(key).setValue(familyIdentification, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if(databaseError != null){
+                    Log.e("firebase:",databaseError.getMessage().toString());
+                }
+                else{
+                    Log.i("firebase:","save");
+                }
+            }
+        });
+
     }
 
     @Override
