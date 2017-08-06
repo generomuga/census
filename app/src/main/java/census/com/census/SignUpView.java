@@ -7,4 +7,8 @@ public interface SignUpView {
     void showProgress(boolean show);
 
     void onSuccess(String message);
+
+    void setErrorFname(String message);
+    void setErrorMname(String message);
+    void setErrorLname(String message);
 }

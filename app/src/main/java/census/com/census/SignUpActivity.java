@@ -18,14 +18,22 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpView{
 
+
+    private EditText mFname;
+    private EditText mMname;
+    private EditText mLname;
+
     private EditText mEmail;
+    private EditText mEmailConfirm;
+
+
     private Button mRegister;
     private ProgressDialog mProgress;
     private View mForm;
-
 
 
     SignUpPresenter signUpPresenterListener;
@@ -39,7 +47,13 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView{
 
         mAuth = FirebaseAuth.getInstance();
 
+        mFname = (EditText) findViewById(R.id.editTextFname);
+        mMname = (EditText) findViewById(R.id.editTextMname);
+        mLname = (EditText) findViewById(R.id.editTextLname);
+
         mEmail = (EditText) findViewById(R.id.userEmail);
+        mEmailConfirm = (EditText) findViewById(R.id.userEmailConfirm);
+
         mRegister = (Button) findViewById(R.id.buttonRegister);
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +74,15 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView{
         mProgress.setMessage("Registering account...");
         mProgress.setCancelable(false);
         mProgress.show();
-        signUpPresenterListener.checkEmail(mEmail.getText().toString().trim());
+
+        if(signUpPresenterListener.checkFname(mFname.getText().toString())) {
+            if(signUpPresenterListener.checkMname(mMname.getText().toString())) {
+                if(signUpPresenterListener.checkLname(mLname.getText().toString())) {
+                    signUpPresenterListener.checkEmail(mEmail.getText().toString().trim(), mEmailConfirm.getText().toString());
+                }
+            }
+        }
+
     }
 
     @Override
@@ -101,5 +123,24 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView{
         //startActivity(new Intent(SignUpActivity.this,LoginActivity.class));
         Toast.makeText(this,message,Toast.LENGTH_LONG).show();
     }
+
+    @Override
+    public void setErrorFname(String message) {
+        mProgress.dismiss();
+        mFname.setError(message);
+    }
+
+    @Override
+    public void setErrorMname(String message) {
+        mProgress.dismiss();
+        mMname.setError(message);
+    }
+
+    @Override
+    public void setErrorLname(String message) {
+        mProgress.dismiss();
+        mLname.setError(message);
+    }
+
 
 }

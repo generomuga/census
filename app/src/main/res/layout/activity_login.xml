@@ -80,6 +80,18 @@
             android:background="@drawable/button_round"
             android:padding="15dp"/>
 
+        <Button
+            android:id="@+id/buttonForgot"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Forgot password"
+            android:background="@drawable/button_round"
+            android:padding="15dp"/>
+
 
     </LinearLayout>
 

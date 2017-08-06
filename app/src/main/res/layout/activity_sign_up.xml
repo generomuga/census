@@ -14,6 +14,56 @@
        android:orientation="vertical"
        android:gravity="center">
 
+
+       <EditText
+           android:id="@+id/editTextFname"
+           android:layout_width="280dp"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:layout_marginLeft="15dp"
+           android:layout_marginRight="15dp"
+           android:layout_marginTop="10dp"
+           android:layout_marginBottom="10dp"
+           android:hint="First name"
+           android:inputType="textEmailAddress"
+           android:textAlignment="center"
+           android:textColorHint="@color/colorHint"
+           android:background="@color/colorLoginEditText"
+           android:textColor="@color/colorEditText"
+           android:padding="10dp"/>
+
+       <EditText
+           android:id="@+id/editTextMname"
+           android:layout_width="280dp"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:layout_marginLeft="15dp"
+           android:layout_marginRight="15dp"
+           android:layout_marginBottom="10dp"
+           android:hint="Middle name"
+           android:inputType="textEmailAddress"
+           android:textAlignment="center"
+           android:textColorHint="@color/colorHint"
+           android:background="@color/colorLoginEditText"
+           android:textColor="@color/colorEditText"
+           android:padding="10dp"/>
+
+       <EditText
+           android:id="@+id/editTextLname"
+           android:layout_width="280dp"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:layout_marginLeft="15dp"
+           android:layout_marginRight="15dp"
+           android:layout_marginBottom="10dp"
+           android:hint="Last name"
+           android:inputType="textEmailAddress"
+           android:textAlignment="center"
+           android:textColorHint="@color/colorHint"
+           android:background="@color/colorLoginEditText"
+           android:textColor="@color/colorEditText"
+           android:padding="10dp"/>
+
        <EditText
            android:id="@+id/userEmail"
            android:layout_width="280dp"
@@ -21,7 +71,6 @@
            android:layout_gravity="center"
            android:layout_marginLeft="15dp"
            android:layout_marginRight="15dp"
-           android:layout_marginTop="10dp"
            android:layout_marginBottom="10dp"
            android:hint="@string/email"
            android:inputType="textEmailAddress"
@@ -30,6 +79,23 @@
            android:background="@color/colorLoginEditText"
            android:textColor="@color/colorEditText"
            android:padding="10dp"/>
+
+       <EditText
+           android:id="@+id/userEmailConfirm"
+           android:layout_width="280dp"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:layout_marginLeft="15dp"
+           android:layout_marginRight="15dp"
+           android:layout_marginBottom="10dp"
+           android:hint="Confirm email"
+           android:inputType="textEmailAddress"
+           android:textAlignment="center"
+           android:textColorHint="@color/colorHint"
+           android:background="@color/colorLoginEditText"
+           android:textColor="@color/colorEditText"
+           android:padding="10dp"/>
+
 
        <Button
            android:id="@+id/buttonRegister"

@@ -11,7 +11,7 @@ public class SignUpPresenterImpl implements SignUpPresenter, SignUpModel.OnSignU
     }
 
     @Override
-    public void checkEmail(String email) {
+    public void checkEmail(String email,String confirmEmail) {
 
         if(email.isEmpty()){
             signUpView.setErrorEmail("This field is required!");
@@ -22,10 +22,48 @@ public class SignUpPresenterImpl implements SignUpPresenter, SignUpModel.OnSignU
             return;
         }
 
+        if(!email.equals(confirmEmail)){
+            signUpView.setErrorEmail("Email is not the same!");
+            return;
+        }
+
         //signUpView.showProgress(true);
 
         signUpModelListener.register(email,"gene123123123");
-        signUpModelListener = new SignUpModelImpl(this);
+        //signUpModelListener = new SignUpModelImpl(this);
+    }
+
+    @Override
+    public boolean checkFname(String fname) {
+        if(fname.isEmpty()){
+            signUpView.setErrorFname("This field is required!");
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    @Override
+    public boolean checkMname(String mname) {
+        if(mname.isEmpty()){
+            signUpView.setErrorMname("This field is required!");
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    @Override
+    public boolean checkLname(String lname) {
+        if(lname.isEmpty()){
+            signUpView.setErrorMname("This field is required!");
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
     private boolean validateEmail(String email){
