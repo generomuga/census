@@ -11,9 +11,9 @@ public class SignUpPresenterImpl implements SignUpPresenter, SignUpModel.OnSignU
         signUpModelListener = new SignUpModelImpl(this);
     }
 
-
     @Override
     public void checkEmail(String email) {
+
         if(email.isEmpty()){
             signUpView.setErrorEmail("This field is required!");
             return;
@@ -22,6 +22,8 @@ public class SignUpPresenterImpl implements SignUpPresenter, SignUpModel.OnSignU
             signUpView.setErrorEmail("Invalid email!");
             return;
         }
+
+        //signUpView.showProgress(true);
 
         signUpModelListener.register(email,"gene123123123");
         signUpModelListener = new SignUpModelImpl(this);
@@ -33,11 +35,13 @@ public class SignUpPresenterImpl implements SignUpPresenter, SignUpModel.OnSignU
 
     @Override
     public void onErrorRegister(String message) {
-
+        //signUpView.showProgress(false);
+        signUpView.setErrorEmail(message);
     }
 
     @Override
-    public void onSuccess() {
-
+    public void onSuccess(String message) {
+        //signUpView.showProgress(false);
+        signUpView.onSuccess(message);
     }
 }

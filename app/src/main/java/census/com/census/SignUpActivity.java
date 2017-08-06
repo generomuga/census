@@ -1,5 +1,7 @@
 package census.com.census;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -17,6 +21,9 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView{
 
     private EditText mEmail;
     private Button mRegister;
+    private ProgressBar mProgress;
+    private View mForm;
+
     SignUpPresenter signUpPresenterListener;
 
     FirebaseAuth mAuth;
@@ -37,6 +44,10 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView{
             }
         });
 
+        mForm = findViewById(R.id.signUpForm);
+
+        mProgress = new ProgressBar(this);
+
         signUpPresenterListener = new SignUpPresenterImpl(this);
 
     }
@@ -51,8 +62,33 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView{
     }
 
     @Override
-    public void onSuccess() {
+    public void showProgress(final boolean show) {
+        int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
+        mForm.setVisibility(show ? View.GONE : View.VISIBLE);
+        mForm.animate().setDuration(shortAnimTime).alpha(
+                show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                mForm.setVisibility(show ? View.GONE : View.VISIBLE);
+            }
+        });
+
+        mProgress.setVisibility(show ? View.VISIBLE : View.GONE);
+        mProgress.animate().setDuration(shortAnimTime).alpha(
+                show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                mProgress.setVisibility(show ? View.VISIBLE : View.GONE);
+            }
+        });
+    }
+
+    @Override
+    public void onSuccess(String message) {
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show();
     }
 
 }

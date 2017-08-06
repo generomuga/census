@@ -1,7 +1,6 @@
 package census.com.census;
 
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -29,6 +28,7 @@ public class SignUpModelImpl implements SignUpModel{
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(!task.isSuccessful()){
                     Log.e("Register error",task.getException().getMessage().toString());
+                    listener.onErrorRegister(task.getException().getMessage().toString());
                 }
                 else{
                     mAuth.sendPasswordResetEmail(email)
@@ -39,7 +39,7 @@ public class SignUpModelImpl implements SignUpModel{
                                         Log.e("Reset error",task.getException().getMessage().toString());
                                     }
                                     else{
-                                        //
+                                        listener.onSuccess("Please verify your account!");
                                     }
                                 }
                             });
