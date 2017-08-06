@@ -15,14 +15,21 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
 
     private Toolbar toolbarMain;
     private ImageButton mFab;
     //Nougat version
     //private FloatingActionButton fabAdd;
+
+
 
     private SharedPreferences sharedPreferences;
 
@@ -30,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mAuth = FirebaseAuth.getInstance();
 
         //connect to sqlite database
         connectDB();
@@ -66,6 +75,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if(currentUser == null){
+            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+        }
+        else {
+            Toast.makeText(this, currentUser.toString(), Toast.LENGTH_SHORT).show();
+        }
         //onClearSharedReference();
     }
 
