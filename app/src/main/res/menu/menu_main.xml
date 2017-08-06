@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_red"
+        android:id="@+id/menu_settings"
         android:icon="@mipmap/ic_launcher"
         android:orderInCategory="1"
         app:showAsAction="never"
         android:title="Settings"/>
 
     <item
-        android:id="@+id/menu_green"
+        android:id="@+id/menu_logout"
         android:orderInCategory="2"
         app:showAsAction="never"
         android:title="Logout"/>
