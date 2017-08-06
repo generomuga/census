@@ -39,7 +39,7 @@ public class SignUpModelImpl implements SignUpModel{
                                         Log.e("Reset error",task.getException().getMessage().toString());
                                     }
                                     else{
-                                        listener.onSuccess("Please verify your account!");
+                                        listener.onSuccess("Please verify your account to your email!");
                                     }
                                 }
                             });

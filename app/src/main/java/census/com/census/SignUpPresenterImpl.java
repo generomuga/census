@@ -2,7 +2,6 @@ package census.com.census;
 
 public class SignUpPresenterImpl implements SignUpPresenter, SignUpModel.OnSignUpListener {
 
-
     SignUpView signUpView;
     SignUpModel signUpModelListener;
 

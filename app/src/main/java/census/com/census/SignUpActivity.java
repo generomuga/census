@@ -2,6 +2,8 @@ package census.com.census;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,8 +23,10 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView{
 
     private EditText mEmail;
     private Button mRegister;
-    private ProgressBar mProgress;
+    private ProgressDialog mProgress;
     private View mForm;
+
+
 
     SignUpPresenter signUpPresenterListener;
 
@@ -46,26 +50,30 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView{
 
         mForm = findViewById(R.id.signUpForm);
 
-        mProgress = new ProgressBar(this);
+        mProgress = new ProgressDialog(this);
 
         signUpPresenterListener = new SignUpPresenterImpl(this);
 
     }
 
     private void attemptRegister(){
+        mProgress.setMessage("Registering account...");
+        mProgress.setCancelable(false);
+        mProgress.show();
         signUpPresenterListener.checkEmail(mEmail.getText().toString().trim());
     }
 
     @Override
     public void setErrorEmail(String message) {
+        mProgress.dismiss();
         mEmail.setError(message);
     }
 
     @Override
     public void showProgress(final boolean show) {
-        int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+        //int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
-        mForm.setVisibility(show ? View.GONE : View.VISIBLE);
+        /*mForm.setVisibility(show ? View.GONE : View.VISIBLE);
         mForm.animate().setDuration(shortAnimTime).alpha(
                 show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
 
@@ -83,11 +91,14 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView{
             public void onAnimationEnd(Animator animation) {
                 mProgress.setVisibility(show ? View.VISIBLE : View.GONE);
             }
-        });
+        });*/
+
     }
 
     @Override
     public void onSuccess(String message) {
+        mProgress.dismiss();
+        //startActivity(new Intent(SignUpActivity.this,LoginActivity.class));
         Toast.makeText(this,message,Toast.LENGTH_LONG).show();
     }
 

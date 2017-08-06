@@ -43,13 +43,6 @@
            android:background="@drawable/button_round"
            android:padding="15dp"/>
 
-       <ProgressBar
-           android:id="@+id/progressBar"
-           style="?android:attr/progressBarStyleLarge"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:visibility="gone"/>
-
    </LinearLayout>
     
 </LinearLayout>
