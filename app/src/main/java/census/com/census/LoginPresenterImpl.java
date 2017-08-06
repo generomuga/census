@@ -9,7 +9,7 @@ public class LoginPresenterImpl implements LoginPresenter,LoginModel.OnLoginList
 
     public LoginPresenterImpl(LoginView loginView) {
         this.loginView = loginView;
-        this.loginModel = new LoginModelImpl();
+        this.loginModel = new LoginModelImpl(this);
     }
 
     @Override
@@ -43,6 +43,6 @@ public class LoginPresenterImpl implements LoginPresenter,LoginModel.OnLoginList
 
     @Override
     public void onErrorPassword(String message) {
-        loginView.setErrorPassword("Wrong password!");
+        loginView.setErrorPassword(message);
     }
 }

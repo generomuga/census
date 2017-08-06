@@ -1,5 +1,6 @@
 package census.com.census;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private EditText mPassword;
     private Button btnSignIn;
     private Button mSignup;
+
+    private ProgressDialog mProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,25 +45,33 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         });
 
 
+        mProgress = new ProgressDialog(this);
+
         loginPresenterListener = new LoginPresenterImpl(this);
     }
 
     private void attemptLogin(){
+        mProgress.setMessage("Logging in...");
+        mProgress.setCancelable(false);
+        mProgress.show();
         loginPresenterListener.checkCredentials(mEmail.getText().toString().trim(),mPassword.getText().toString().trim());
     }
 
     @Override
     public void setErrorUsername(String message) {
+        mProgress.dismiss();
         mEmail.setError(message);
     }
 
     @Override
     public void setErrorPassword(String message) {
+        mProgress.dismiss();
         mPassword.setError(message);
     }
 
     @Override
     public void onSuccess() {
+        mProgress.dismiss();
         startActivity(new Intent(LoginActivity.this,MainActivity.class));
         //Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show();
     }
