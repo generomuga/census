@@ -58,7 +58,7 @@ public class SignUpPresenterImpl implements SignUpPresenter, SignUpModel.OnSignU
     @Override
     public boolean checkLname(String lname) {
         if(lname.isEmpty()){
-            signUpView.setErrorMname("This field is required!");
+            signUpView.setErrorLname("This field is required!");
             return false;
         }
         else{
