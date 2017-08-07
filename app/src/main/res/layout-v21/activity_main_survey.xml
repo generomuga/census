@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="census.com.census.MainSurveyActivity"
+    tools:context="census.com.census.activity.MainSurveyActivity"
     android:weightSum="4"
     android:background="@color/colorPrimaryDark">
 

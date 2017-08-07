@@ -1,7 +1,9 @@
-package census.com.census;
+package census.com.census.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import census.com.census.R;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 

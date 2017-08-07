@@ -1,4 +1,4 @@
-package census.com.census;
+package census.com.census.activity;
 
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import census.com.census.R;
+import census.com.census.SignUpPresenterImpl;
 import census.com.census.presenter.SignUpPresenter;
 import census.com.census.views.SignUpView;
 

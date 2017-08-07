@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
             <!--
@@ -43,12 +43,12 @@
             -->
         </activity>
         <activity
-            android:name=".MainSurveyActivity"
+            android:name=".activity.MainSurveyActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".activity.SignUpActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".ForgotPasswordActivity"></activity>
+        <activity android:name=".activity.ForgotPasswordActivity"></activity>
     </application>
 
 </manifest>

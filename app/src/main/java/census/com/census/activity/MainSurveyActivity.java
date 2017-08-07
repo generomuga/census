@@ -1,4 +1,4 @@
-package census.com.census;
+package census.com.census.activity;
 
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
@@ -10,6 +10,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import census.com.census.FamilyFragment;
+import census.com.census.FamilyIdentificationFragment;
+import census.com.census.MainSurveyPresenterImpl;
+import census.com.census.R;
 import census.com.census.presenter.MainSurveyPresenter;
 import census.com.census.views.MainSurveyView;
 
