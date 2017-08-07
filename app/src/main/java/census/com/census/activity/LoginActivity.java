@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import census.com.census.presenter.ForgotPasswordPresenter;
 import census.com.census.presenter_impl.LoginPresenterImpl;
 import census.com.census.R;
 import census.com.census.presenter.LoginPresenter;
@@ -20,6 +21,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private EditText mPassword;
     private Button btnSignIn;
     private Button mSignup;
+    private Button mForgot;
 
     private ProgressDialog mProgress;
 
@@ -30,6 +32,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
         mEmail = (EditText) findViewById(R.id.userEmail);
         mPassword = (EditText) findViewById(R.id.userPassword);
+
+
 
         btnSignIn = (Button) findViewById(R.id.buttonSignIn);
         btnSignIn.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +52,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             }
         });
 
+        mForgot = (Button) findViewById(R.id.buttonForgot);
+        mForgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
+            }
+        });
 
         mProgress = new ProgressDialog(this);
 
