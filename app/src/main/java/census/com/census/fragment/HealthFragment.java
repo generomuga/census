@@ -1,4 +1,4 @@
-package census.com.census;
+package census.com.census.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
+
+import census.com.census.R;
 
 public class HealthFragment extends Fragment {
 

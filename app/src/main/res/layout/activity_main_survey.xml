@@ -11,7 +11,7 @@
     <include android:id="@+id/toolBarSurvey" layout="@layout/app_bar_survey"/>
 
     <fragment
-            android:name="census.com.census.FamilyFragment"
+            android:name="census.com.census.fragment.FamilyFragment"
             android:id="@+id/fragmentMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

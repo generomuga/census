@@ -1,4 +1,4 @@
-package census.com.census;
+package census.com.census.fragment;
 
 
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import census.com.census.R;
 
 
 public class EnvironmentFragment extends Fragment {

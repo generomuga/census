@@ -1,4 +1,4 @@
-package census.com.census;
+package census.com.census.fragment;
 
 import android.icu.util.Calendar;
 import android.os.Build;
@@ -23,6 +23,9 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import census.com.census.DbUtils;
+import census.com.census.R;
 
 import static census.com.census.R.*;
 
@@ -270,7 +273,7 @@ public class FamilyFragment extends Fragment {
     }
 
     private void useArrayAdapter(ArrayList arrayList){
-        spinnerArrayAdapter = new ArrayAdapter<String>(this.getActivity(),R.layout.spinner_item,arrayList);
+        spinnerArrayAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.spinner_item,arrayList);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
     }
 

@@ -1,4 +1,4 @@
-package census.com.census;
+package census.com.census.fragment;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,6 +18,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import java.util.ArrayList;
+
+import census.com.census.DbUtils;
+import census.com.census.R;
 
 public class FamilyIdentificationFragment extends Fragment {
 
