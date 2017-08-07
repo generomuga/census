@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import census.com.census.presenter.SignUpPresenter;
 import census.com.census.views.SignUpView;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpView {

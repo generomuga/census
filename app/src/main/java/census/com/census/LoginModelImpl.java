@@ -7,7 +7,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginModelImpl implements LoginModel{
+import census.com.census.model.LoginModel;
+
+public class LoginModelImpl implements LoginModel {
 
 
     OnLoginListener listener;

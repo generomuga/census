@@ -1,5 +1,7 @@
 package census.com.census;
 
+import census.com.census.model.SignUpModel;
+import census.com.census.presenter.SignUpPresenter;
 import census.com.census.views.SignUpView;
 
 public class SignUpPresenterImpl implements SignUpPresenter, SignUpModel.OnSignUpListener {

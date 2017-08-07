@@ -2,9 +2,11 @@ package census.com.census;
 
 import android.text.TextUtils;
 
+import census.com.census.model.MainSurveyModel;
+import census.com.census.presenter.MainSurveyPresenter;
 import census.com.census.views.MainSurveyView;
 
-public class MainSurveyPresenterImpl implements MainSurveyPresenter{
+public class MainSurveyPresenterImpl implements MainSurveyPresenter {
 
     MainSurveyView mainSurveyView;
     MainSurveyModel mainSurveyModel;

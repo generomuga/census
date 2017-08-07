@@ -1,4 +1,4 @@
-package census.com.census;
+package census.com.census.presenter;
 
 public interface MainSurveyPresenter {
    void checkFamilyIdentification(String fname,String mname,String lName, String region, String province,

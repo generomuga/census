@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import census.com.census.presenter.LoginPresenter;
 import census.com.census.views.LoginView;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {

@@ -9,7 +9,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class SignUpModelImpl implements SignUpModel{
+import census.com.census.model.SignUpModel;
+
+public class SignUpModelImpl implements SignUpModel {
 
     OnSignUpListener listener;
     private FirebaseAuth mAuth;
