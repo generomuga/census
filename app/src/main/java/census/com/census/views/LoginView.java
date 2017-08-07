@@ -1,4 +1,4 @@
-package census.com.census;
+package census.com.census.views;
 
 public interface LoginView {
     void setErrorUsername(String message);

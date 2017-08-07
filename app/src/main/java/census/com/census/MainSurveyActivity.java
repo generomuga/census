@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import census.com.census.views.MainSurveyView;
+
 public class MainSurveyActivity extends AppCompatActivity implements MainSurveyView {
 
     private Toolbar toolBarSurvey;

@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import census.com.census.views.LoginView;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 

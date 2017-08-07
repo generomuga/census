@@ -2,6 +2,8 @@ package census.com.census;
 
 import android.text.TextUtils;
 
+import census.com.census.views.LoginView;
+
 public class LoginPresenterImpl implements LoginPresenter,LoginModel.OnLoginListener{
 
     LoginView loginView;
