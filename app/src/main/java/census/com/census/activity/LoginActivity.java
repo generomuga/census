@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import census.com.census.LoginPresenterImpl;
+import census.com.census.presenter_impl.LoginPresenterImpl;
 import census.com.census.R;
 import census.com.census.presenter.LoginPresenter;
 import census.com.census.view.LoginView;

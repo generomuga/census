@@ -1,4 +1,4 @@
-package census.com.census;
+package census.com.census.presenter_impl;
 
 import android.text.TextUtils;
 

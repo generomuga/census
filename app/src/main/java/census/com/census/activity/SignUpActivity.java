@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 
 import census.com.census.R;
-import census.com.census.SignUpPresenterImpl;
+import census.com.census.presenter_impl.SignUpPresenterImpl;
 import census.com.census.presenter.SignUpPresenter;
 import census.com.census.view.SignUpView;
 
