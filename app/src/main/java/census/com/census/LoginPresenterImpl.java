@@ -3,8 +3,9 @@ package census.com.census;
 import android.text.TextUtils;
 
 import census.com.census.model.LoginModel;
+import census.com.census.model_impl.LoginModelImpl;
 import census.com.census.presenter.LoginPresenter;
-import census.com.census.views.LoginView;
+import census.com.census.view.LoginView;
 
 public class LoginPresenterImpl implements LoginPresenter,LoginModel.OnLoginListener{
 

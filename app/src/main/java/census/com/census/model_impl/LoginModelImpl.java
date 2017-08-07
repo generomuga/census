@@ -1,4 +1,4 @@
-package census.com.census;
+package census.com.census.model_impl;
 
 import android.support.annotation.NonNull;
 

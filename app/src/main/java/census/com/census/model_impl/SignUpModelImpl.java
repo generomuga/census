@@ -1,4 +1,4 @@
-package census.com.census;
+package census.com.census.model_impl;
 
 
 import android.support.annotation.NonNull;
@@ -19,7 +19,6 @@ public class SignUpModelImpl implements SignUpModel {
 
     public SignUpModelImpl(OnSignUpListener listener) {
         this.listener = listener;
-
         mAuth = FirebaseAuth.getInstance();
     }
 

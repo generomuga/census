@@ -11,7 +11,7 @@ import android.widget.EditText;
 import census.com.census.LoginPresenterImpl;
 import census.com.census.R;
 import census.com.census.presenter.LoginPresenter;
-import census.com.census.views.LoginView;
+import census.com.census.view.LoginView;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 

@@ -3,8 +3,9 @@ package census.com.census;
 import android.text.TextUtils;
 
 import census.com.census.model.MainSurveyModel;
+import census.com.census.model_impl.MainSurveyModelImpl;
 import census.com.census.presenter.MainSurveyPresenter;
-import census.com.census.views.MainSurveyView;
+import census.com.census.view.MainSurveyView;
 
 public class MainSurveyPresenterImpl implements MainSurveyPresenter {
 

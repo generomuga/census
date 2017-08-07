@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     //private FloatingActionButton fabAdd;
 
 
-
     private SharedPreferences sharedPreferences;
 
     @Override

@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import census.com.census.R;
 import census.com.census.SignUpPresenterImpl;
 import census.com.census.presenter.SignUpPresenter;
-import census.com.census.views.SignUpView;
+import census.com.census.view.SignUpView;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
