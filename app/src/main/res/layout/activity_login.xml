@@ -13,13 +13,13 @@
         android:orientation="vertical"
         android:background="@color/colorPrimary">
 
-        <EditText
+        <!--<EditText
             android:id="@+id/userEmail"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginTop="10dp"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
@@ -27,14 +27,29 @@
             android:textColorHint="@color/colorHint"
             android:background="@color/colorLoginEditText"
             android:textColor="@color/colorEditText"
-            android:padding="10dp"/>
+            android:padding="10dp"/>-->
 
         <EditText
+            android:id="@+id/userEmail"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:textAlignment="center"
+            android:textColorHint="@color/colorHint"
+            android:textColor="#fff"
+            android:padding="10dp"/>
+
+        <!--<EditText
             android:id="@+id/userPassword"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginTop="15dp"
             android:gravity="center"
             android:hint="@string/password"
@@ -43,19 +58,34 @@
             android:textColorHint="@color/colorHint"
             android:background="@color/colorLoginEditText"
             android:textColor="@color/colorEditText"
+            android:padding="10dp"/>-->
+
+        <EditText
+            android:id="@+id/userPassword"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textAlignment="center"
+            android:textColorHint="@color/colorHint"
+            android:textColor="#fff"
             android:padding="10dp"/>
 
         <Button
             android:id="@+id/buttonSignIn"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginTop="15dp"
             android:gravity="center"
             android:text="@string/action_sign_in_short"
             android:background="@drawable/button_round"
-            android:padding="15dp"/>
+            android:padding="8dp"/>
         
         <TextView
             android:id="@+id/textViewNotSignUp"
@@ -72,25 +102,25 @@
             android:id="@+id/buttonRegister"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="@string/register"
             android:background="@drawable/button_round"
-            android:padding="15dp"/>
+            android:padding="8dp"/>
 
         <Button
             android:id="@+id/buttonForgot"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Forgot password"
             android:background="@drawable/button_round"
-            android:padding="15dp"/>
+            android:padding="8dp"/>
 
 
     </LinearLayout>
