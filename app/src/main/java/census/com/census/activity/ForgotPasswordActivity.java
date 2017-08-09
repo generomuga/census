@@ -1,12 +1,10 @@
 package census.com.census.activity;
 
-import android.renderscript.Script;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import census.com.census.R;
 import census.com.census.presenter.ForgotPasswordPresenter;
 import census.com.census.presenter_impl.ForgotPasswordPresenterImpl;

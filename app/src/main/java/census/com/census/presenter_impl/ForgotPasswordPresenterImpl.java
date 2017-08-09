@@ -16,7 +16,15 @@ public class ForgotPasswordPresenterImpl implements ForgotPasswordPresenter{
             forgotPasswordView.setErrorEmail("This field is required!");
             return;
         }
+
+        if(!isEmail(email)){
+            forgotPasswordView.setErrorEmail("Invalid email!");
+            return;
+        }
     }
 
+    private boolean isEmail(String email){
+        return email.contains("@");
+    }
 
 }
