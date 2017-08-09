@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
 
-
         mFab = (ImageButton) findViewById(R.id.fab);
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override

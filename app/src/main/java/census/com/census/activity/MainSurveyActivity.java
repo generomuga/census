@@ -14,14 +14,17 @@ import census.com.census.FamilyIdentification;
 import census.com.census.fragment.FamilyFragment;
 import census.com.census.fragment.FamilyIdentificationFragment;
 import census.com.census.presenter.FragmentPresenter;
+import census.com.census.presenter.SurveyPresenter;
 import census.com.census.presenter_impl.FragmentPresenterImpl;
 import census.com.census.presenter_impl.MainSurveyPresenterImpl;
 import census.com.census.R;
 import census.com.census.presenter.MainSurveyPresenter;
+import census.com.census.presenter_impl.SurveyPresenterImpl;
 import census.com.census.view.FragmentView;
 import census.com.census.view.MainSurveyView;
+import census.com.census.view.SurveyView;
 
-public class MainSurveyActivity extends AppCompatActivity implements MainSurveyView{
+public class MainSurveyActivity extends AppCompatActivity implements SurveyView.OnFamilyIdentification{
 
     private Toolbar toolBarSurvey;
     String tag;
@@ -30,6 +33,9 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
     private SharedPreferences sharedPreferences;
 
     MainSurveyPresenter mainSurveyPresenter;
+
+    SurveyPresenter.OnFamilyIdentification familyIdentificationListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +58,9 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
         }
 
         //implement listener
-        mainSurveyPresenter = new MainSurveyPresenterImpl(this);
+       // mainSurveyPresenter = new MainSurveyPresenterImpl(this);
 
+        familyIdentificationListener = new SurveyPresenterImpl(this);
     }
 
     @Override
@@ -158,7 +165,11 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
 
         //if(FamilyIdentificationFragment.editTextFName.getText().toString().trim().isEmpty())
 
-        mainSurveyPresenter.checkFamilyIdentification(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
+
+        familyIdentificationListener.checkFname(FamilyIdentificationFragment.editTextFName.getText().toString().trim());
+        familyIdentificationListener.checkMname(FamilyIdentificationFragment.editTextMName.getText().toString().trim());
+
+        /*mainSurveyPresenter.checkFamilyIdentification(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
                 FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
                 FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
                 FamilyIdentificationFragment.spinnerRegions.getSelectedItem().toString().trim(),
@@ -168,20 +179,23 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
                 FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim(),
                 FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim(),
                 residency, ownership, status
-        );
+        );*/
 
     }
 
     private void sendFamily(){
         //String a = FamilyFragment.spinne
-        mainSurveyPresenter.checkFamily("PLDT");
+        //mainSurveyPresenter.checkFamily("PLDT");
     }
 
 
     @Override
-    public void onError(String message) {
-
+    public void setErrorFname(String message) {
+        FamilyIdentificationFragment.editTextFName.setError(message);
     }
 
-
+    @Override
+    public void setErrorMname(String message) {
+        FamilyIdentificationFragment.editTextMName.setError(message);
+    }
 }
