@@ -10,14 +10,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import census.com.census.FamilyIdentification;
 import census.com.census.fragment.FamilyFragment;
 import census.com.census.fragment.FamilyIdentificationFragment;
+import census.com.census.presenter.FragmentPresenter;
+import census.com.census.presenter_impl.FragmentPresenterImpl;
 import census.com.census.presenter_impl.MainSurveyPresenterImpl;
 import census.com.census.R;
 import census.com.census.presenter.MainSurveyPresenter;
+import census.com.census.view.FragmentView;
 import census.com.census.view.MainSurveyView;
 
-public class MainSurveyActivity extends AppCompatActivity implements MainSurveyView {
+public class MainSurveyActivity extends AppCompatActivity implements MainSurveyView{
 
     private Toolbar toolBarSurvey;
     String tag;
@@ -49,6 +53,7 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
 
         //implement listener
         mainSurveyPresenter = new MainSurveyPresenterImpl(this);
+
     }
 
     @Override
@@ -151,17 +156,20 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
         int ownership = 0;
         int status = 0;
 
+        //if(FamilyIdentificationFragment.editTextFName.getText().toString().trim().isEmpty())
+
         mainSurveyPresenter.checkFamilyIdentification(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
-                                        FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
-                                        FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
-                                        FamilyIdentificationFragment.spinnerRegions.getSelectedItem().toString().trim(),
-                                        FamilyIdentificationFragment.spinnerProvinces.getSelectedItem().toString().trim(),
-                                        FamilyIdentificationFragment.spinnerMunicipal.getSelectedItem().toString().trim(),
-                                        FamilyIdentificationFragment.spinnerBarangay.getSelectedItem().toString().trim(),
-                                        FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim(),
-                                        FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim(),
-                                        residency,ownership,status
-                             );
+                FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
+                FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
+                FamilyIdentificationFragment.spinnerRegions.getSelectedItem().toString().trim(),
+                FamilyIdentificationFragment.spinnerProvinces.getSelectedItem().toString().trim(),
+                FamilyIdentificationFragment.spinnerMunicipal.getSelectedItem().toString().trim(),
+                FamilyIdentificationFragment.spinnerBarangay.getSelectedItem().toString().trim(),
+                FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim(),
+                FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim(),
+                residency, ownership, status
+        );
+
     }
 
     private void sendFamily(){
@@ -174,5 +182,6 @@ public class MainSurveyActivity extends AppCompatActivity implements MainSurveyV
     public void onError(String message) {
 
     }
+
 
 }

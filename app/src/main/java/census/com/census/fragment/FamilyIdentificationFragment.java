@@ -18,8 +18,9 @@ import java.util.ArrayList;
 
 import census.com.census.DbUtils;
 import census.com.census.R;
+import census.com.census.view.FragmentView;
 
-public class FamilyIdentificationFragment extends Fragment {
+public class FamilyIdentificationFragment extends Fragment implements FragmentView{
 
     private View view;
     public static EditText editTextFName;
@@ -73,7 +74,7 @@ public class FamilyIdentificationFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        //onLoadData();
+        onLoadData();
     }
 
     private void onInitViews(){
@@ -254,7 +255,11 @@ public class FamilyIdentificationFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        //onSaveReference();
+        onSaveReference();
     }
 
+    @Override
+    public void setErrorFname(String message) {
+        editTextFName.setError(message);
+    }
 }

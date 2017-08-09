@@ -11,7 +11,6 @@ public class ForgotPasswordPresenterImpl implements ForgotPasswordPresenter, For
     ForgotPasswordView forgotPasswordView;
     ForgotPasswordModel forgotPasswordModelListener;
 
-
     public ForgotPasswordPresenterImpl(ForgotPasswordView forgotPasswordView) {
         this.forgotPasswordView = forgotPasswordView;
         forgotPasswordModelListener = new ForgotPasswordModelImpl(this);

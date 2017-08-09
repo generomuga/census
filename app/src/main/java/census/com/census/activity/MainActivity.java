@@ -19,6 +19,7 @@ import java.io.IOException;
 
 import census.com.census.DatabaseHelper;
 import census.com.census.R;
+import census.com.census.view.FragmentView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton mFab;
     //Nougat version
     //private FloatingActionButton fabAdd;
-
 
     private SharedPreferences sharedPreferences;
 
@@ -123,5 +123,11 @@ public class MainActivity extends AppCompatActivity {
     private void onClearSharedReference(){
         sharedPreferences = this.getSharedPreferences("census.com.census",MODE_PRIVATE);
         sharedPreferences.edit().clear().apply();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }
