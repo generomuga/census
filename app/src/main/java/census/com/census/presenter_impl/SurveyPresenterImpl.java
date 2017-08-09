@@ -12,18 +12,35 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
     }
 
     @Override
-    public void checkFname(String fname) {
+    public boolean checkFname(String fname) {
        if(fname.isEmpty()){
            surveyViewListener.setErrorFname("This field is required!");
-           return;
+           return false;
+       }
+       else{
+           return true;
        }
     }
 
     @Override
-    public void checkMname(String mname) {
+    public boolean checkMname(String mname) {
         if(mname.isEmpty()){
             surveyViewListener.setErrorMname("This field is required!");
-            return;
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    @Override
+    public boolean checkLname(String lname) {
+        if(lname.isEmpty()){
+            surveyViewListener.setErrorLname("This field is required!");
+            return false;
+        }
+        else{
+            return true;
         }
     }
 }

@@ -3,7 +3,8 @@ package census.com.census.presenter;
 
 public interface SurveyPresenter {
     interface OnFamilyIdentification{
-        void checkFname(String fname);
-        void checkMname(String mname);
+        boolean checkFname(String fname);
+        boolean checkMname(String mname);
+        boolean checkLname(String lname);
     }
 }
