@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import census.com.census.R;
 import census.com.census.presenter.ForgotPasswordPresenter;
 import census.com.census.presenter_impl.ForgotPasswordPresenterImpl;
@@ -45,7 +47,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements ForgotP
     }
 
     @Override
-    public void onSuccess() {
-
+    public void onSuccess(String message) {
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 }
