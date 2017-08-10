@@ -19,7 +19,6 @@ import java.io.IOException;
 
 import census.com.census.DatabaseHelper;
 import census.com.census.R;
-import census.com.census.view.FragmentView;
 
 public class MainActivity extends AppCompatActivity {
 

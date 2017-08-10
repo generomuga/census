@@ -10,18 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import census.com.census.FamilyIdentification;
 import census.com.census.fragment.FamilyFragment;
 import census.com.census.fragment.FamilyIdentificationFragment;
-import census.com.census.presenter.FragmentPresenter;
 import census.com.census.presenter.SurveyPresenter;
-import census.com.census.presenter_impl.FragmentPresenterImpl;
-import census.com.census.presenter_impl.MainSurveyPresenterImpl;
 import census.com.census.R;
 import census.com.census.presenter.MainSurveyPresenter;
 import census.com.census.presenter_impl.SurveyPresenterImpl;
-import census.com.census.view.FragmentView;
-import census.com.census.view.MainSurveyView;
 import census.com.census.view.SurveyView;
 
 public class MainSurveyActivity extends AppCompatActivity implements SurveyView.OnFamilyIdentification{
