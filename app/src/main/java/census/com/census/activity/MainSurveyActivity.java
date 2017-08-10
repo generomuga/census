@@ -31,6 +31,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
         setContentView(R.layout.activity_main_survey);
 
         sharedPreferences = this.getSharedPreferences("census.com.census",MODE_PRIVATE);
+        onClearSharedReference();
 
         //to add toolbar in the activity
         toolBarSurvey = (Toolbar) findViewById(R.id.toolBarSurvey);
@@ -46,12 +47,6 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
         }
 
         familyIdentificationListener = new SurveyPresenterImpl(this);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        onClearSharedReference();
     }
 
     private void onClearSharedReference(){
