@@ -168,6 +168,8 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
         familyIdentificationListener.checkFname(FamilyIdentificationFragment.editTextFName.getText().toString().trim());
         familyIdentificationListener.checkMname(FamilyIdentificationFragment.editTextMName.getText().toString().trim());
         familyIdentificationListener.checkLname(FamilyIdentificationFragment.editTextLName.getText().toString().trim());
+        familyIdentificationListener.checkHouseNo(FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim());
+        familyIdentificationListener.checkStreetNo(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim());
 
         /*mainSurveyPresenter.checkFamilyIdentification(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
                 FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
@@ -203,4 +205,16 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     public void setErrorLname(String message) {
         FamilyIdentificationFragment.editTextLName.setError(message);
     }
+
+    @Override
+    public void setErrorHouseNo(String message) {
+        FamilyIdentificationFragment.editTextHouseNo.setError(message);
+    }
+
+    @Override
+    public void setErrorStreetNo(String message) {
+        FamilyIdentificationFragment.editTextStreetNo.setError(message);
+    }
+
+
 }

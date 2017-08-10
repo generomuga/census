@@ -43,4 +43,26 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
             return true;
         }
     }
+
+    @Override
+    public boolean checkHouseNo(String houseNo) {
+        if(houseNo.isEmpty()){
+            surveyViewListener.setErrorHouseNo("This field is required!");
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    @Override
+    public boolean checkStreetNo(String streetNo) {
+        if(streetNo.isEmpty()){
+            surveyViewListener.setErrorStreetNo("This field is required!");
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 }
