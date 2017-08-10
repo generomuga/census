@@ -8,9 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import census.com.census.FamilyIdentification;
 import census.com.census.fragment.FamilyFragment;
 import census.com.census.fragment.FamilyIdentificationFragment;
 import census.com.census.presenter.SurveyPresenter;
@@ -187,6 +185,5 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     public void setErrorStreetNo(String message) {
         FamilyIdentificationFragment.editTextStreetNo.setError(message);
     }
-
 
 }

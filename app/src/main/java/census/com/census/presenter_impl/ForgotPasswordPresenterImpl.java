@@ -8,6 +8,7 @@ import census.com.census.presenter.ForgotPasswordPresenter;
 import census.com.census.view.ForgotPasswordView;
 
 public class ForgotPasswordPresenterImpl implements ForgotPasswordPresenter, ForgotPasswordModel.OnForgotPasswordListener{
+
     ForgotPasswordView forgotPasswordView;
     ForgotPasswordModel forgotPasswordModelListener;
 
