@@ -168,6 +168,11 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     }
 
     @Override
+    public void onBackPressed() {
+        finish();
+    }
+
+    @Override
     public void setErrorFname(String message) {
         FamilyIdentificationFragment.editTextFName.setError(message);
     }
