@@ -1,6 +1,7 @@
 package census.com.census.activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -115,7 +116,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     @Override
     public void onSuccess(String message) {
         mProgress.dismiss();
-        //startActivity(new Intent(SignUpActivity.this,LoginActivity.class));
+        startActivity(new Intent(SignUpActivity.this,LoginActivity.class));
         Toast.makeText(this,message,Toast.LENGTH_LONG).show();
     }
 
@@ -136,6 +137,5 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         mProgress.dismiss();
         mLname.setError(message);
     }
-
 
 }

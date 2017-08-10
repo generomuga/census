@@ -23,13 +23,8 @@ import census.com.census.R;
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-
     private Toolbar toolbarMain;
     private ImageButton mFab;
-    //Nougat version
-    //private FloatingActionButton fabAdd;
-
-    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,26 +41,14 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbarMain);
         getSupportActionBar().setTitle("Main");
 
-        /* floating action button (Nougat version)
-        fabAdd = (FloatingActionButton) findViewById(R.id.fabAddSurvey);
-        fabAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,MainSurveyActivity.class));
-            }
-        });*/
-
         mFab = (ImageButton) findViewById(R.id.fab);
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Log.i("success","asd");
                 startActivity(new Intent(MainActivity.this,MainSurveyActivity.class));
             }
         });
 
-
-       // Toast.makeText(this,"gene", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -80,9 +63,7 @@ public class MainActivity extends AppCompatActivity {
         else {
             //do  nothing
         }
-        //onClearSharedReference();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -118,14 +99,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void onClearSharedReference(){
-        sharedPreferences = this.getSharedPreferences("census.com.census",MODE_PRIVATE);
-        sharedPreferences.edit().clear().apply();
-    }
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        finish();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser == null){
+            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+        }
+        else{
+            finish();
+        }
     }
 }

@@ -1,6 +1,7 @@
 package census.com.census.activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -198,8 +199,8 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     @Override
     public void onSuccess(String message) {
         mProgress.dismiss();
+        startActivity(new Intent(MainSurveyActivity.this,MainActivity.class));
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
-
 
 }
