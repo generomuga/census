@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import census.com.census.FamilyIdentification;
 import census.com.census.fragment.FamilyFragment;
 import census.com.census.fragment.FamilyIdentificationFragment;
 import census.com.census.presenter.SurveyPresenter;
@@ -149,6 +150,17 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
         familyIdentificationListener.checkLname(FamilyIdentificationFragment.editTextLName.getText().toString().trim());
         familyIdentificationListener.checkHouseNo(FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim());
         familyIdentificationListener.checkStreetNo(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim());
+        familyIdentificationListener.sendValue(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
+                                                FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
+                                                FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
+                                                FamilyIdentificationFragment.spinnerRegions.getSelectedItem().toString().trim(),
+                                                FamilyIdentificationFragment.spinnerProvinces.getSelectedItem().toString().trim(),
+                                                FamilyIdentificationFragment.spinnerMunicipal.getSelectedItem().toString().trim(),
+                                                FamilyIdentificationFragment.spinnerBarangay.getSelectedItem().toString().trim(),
+                                                FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim(),
+                                                FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim(),
+                                                1,1,1);
+
     }
 
     @Override

@@ -8,5 +8,7 @@ public interface SurveyPresenter {
         boolean checkLname(String lname);
         boolean checkHouseNo(String houseNo);
         boolean checkStreetNo(String streetNo);
+        void sendValue(String fName,String mName,String lName,String region,String province,
+                                      String municipality,String barangay,String houseNo,String streetNo, int residency, int ownership, int status);
     }
 }

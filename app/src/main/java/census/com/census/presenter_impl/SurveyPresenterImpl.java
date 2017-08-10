@@ -71,6 +71,10 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
     }
 
     @Override
+    public void sendValue(String fName, String mName, String lName, String region, String province, String municipality, String barangay, String houseNo, String streetNo, int residency, int ownership, int status) {
+
+    }
+    @Override
     public void setErrorData(String message) {
 
     }
@@ -79,4 +83,5 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
     public void onSuccess() {
 
     }
+
 }
