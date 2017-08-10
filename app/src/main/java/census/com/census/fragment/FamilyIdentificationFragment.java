@@ -230,7 +230,6 @@ public class FamilyIdentificationFragment extends Fragment{
         sharedPreferences.edit().putInt("residency",radioGroupResidency.getCheckedRadioButtonId()).apply();
         sharedPreferences.edit().putInt("ownership",radioGroupOwnership.getCheckedRadioButtonId()).apply();
         sharedPreferences.edit().putInt("status",radioGroupStatus.getCheckedRadioButtonId()).apply();
-        Log.i("Residency",Integer.toString(radioGroupStatus.getCheckedRadioButtonId()));
     }
 
     @Override

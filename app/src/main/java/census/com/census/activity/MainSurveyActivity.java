@@ -14,22 +14,17 @@ import census.com.census.fragment.FamilyFragment;
 import census.com.census.fragment.FamilyIdentificationFragment;
 import census.com.census.presenter.SurveyPresenter;
 import census.com.census.R;
-import census.com.census.presenter.MainSurveyPresenter;
 import census.com.census.presenter_impl.SurveyPresenterImpl;
 import census.com.census.view.SurveyView;
 
 public class MainSurveyActivity extends AppCompatActivity implements SurveyView.OnFamilyIdentification{
 
     private Toolbar toolBarSurvey;
-    String tag;
-    Fragment fragment;
-
     private SharedPreferences sharedPreferences;
-
-    MainSurveyPresenter mainSurveyPresenter;
+    private String tag;
+    private Fragment fragment;
 
     SurveyPresenter.OnFamilyIdentification familyIdentificationListener;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +45,6 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragmentMain,fragment,tag).commit();
         }
-
-        //implement listener
-       // mainSurveyPresenter = new MainSurveyPresenterImpl(this);
 
         familyIdentificationListener = new SurveyPresenterImpl(this);
     }
@@ -126,7 +118,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
         return super.onOptionsItemSelected(item);
     }
 
-    private void checkActiveFragment(String tag){
+    /*private void checkActiveFragment(String tag){
         Fragment fragment =  getSupportFragmentManager().findFragmentByTag(tag);
 
         if (fragment != null) {
@@ -149,41 +141,15 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                 Toast.makeText(this, "Hello", Toast.LENGTH_LONG).show();
             }
         }
-    }
+    }*/
 
     private void sendFamilyIdentification(){
-
-        int residency = 0;
-        int ownership = 0;
-        int status = 0;
-
-        //if(FamilyIdentificationFragment.editTextFName.getText().toString().trim().isEmpty())
-
         familyIdentificationListener.checkFname(FamilyIdentificationFragment.editTextFName.getText().toString().trim());
         familyIdentificationListener.checkMname(FamilyIdentificationFragment.editTextMName.getText().toString().trim());
         familyIdentificationListener.checkLname(FamilyIdentificationFragment.editTextLName.getText().toString().trim());
         familyIdentificationListener.checkHouseNo(FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim());
         familyIdentificationListener.checkStreetNo(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim());
-
-        /*mainSurveyPresenter.checkFamilyIdentification(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
-                FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
-                FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
-                FamilyIdentificationFragment.spinnerRegions.getSelectedItem().toString().trim(),
-                FamilyIdentificationFragment.spinnerProvinces.getSelectedItem().toString().trim(),
-                FamilyIdentificationFragment.spinnerMunicipal.getSelectedItem().toString().trim(),
-                FamilyIdentificationFragment.spinnerBarangay.getSelectedItem().toString().trim(),
-                FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim(),
-                FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim(),
-                residency, ownership, status
-        );*/
-
     }
-
-    private void sendFamily(){
-        //String a = FamilyFragment.spinne
-        //mainSurveyPresenter.checkFamily("PLDT");
-    }
-
 
     @Override
     public void setErrorFname(String message) {

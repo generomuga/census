@@ -1,18 +1,22 @@
 package census.com.census.presenter_impl;
 
+import census.com.census.model.SurveyModel;
+import census.com.census.model_impl.SurveyModelImpl;
 import census.com.census.presenter.SurveyPresenter;
 import census.com.census.view.SurveyView;
 
-public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentification {
+public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentification,SurveyModel.OnFamilyIdentification.OnResult {
 
     SurveyView.OnFamilyIdentification surveyViewListener;
+    SurveyModel.OnFamilyIdentification surveyModel;
 
     public SurveyPresenterImpl(SurveyView.OnFamilyIdentification surveyViewListener) {
         this.surveyViewListener = surveyViewListener;
+        surveyModel = new SurveyModelImpl(this);
     }
 
     @Override
-    public boolean checkFname(String fname) {
+    public boolean checkFname(String fname){
        if(fname.isEmpty()){
            surveyViewListener.setErrorFname("This field is required!");
            return false;
@@ -64,5 +68,15 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
         else{
             return true;
         }
+    }
+
+    @Override
+    public void setErrorData(String message) {
+
+    }
+
+    @Override
+    public void onSuccess() {
+
     }
 }
