@@ -138,22 +138,23 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     }*/
 
     private void sendFamilyIdentification(){
-        familyIdentificationListener.checkFname(FamilyIdentificationFragment.editTextFName.getText().toString().trim());
-        familyIdentificationListener.checkMname(FamilyIdentificationFragment.editTextMName.getText().toString().trim());
-        familyIdentificationListener.checkLname(FamilyIdentificationFragment.editTextLName.getText().toString().trim());
-        familyIdentificationListener.checkHouseNo(FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim());
-        familyIdentificationListener.checkStreetNo(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim());
-        familyIdentificationListener.sendValue(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
-                                                FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
-                                                FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
-                                                FamilyIdentificationFragment.spinnerRegions.getSelectedItem().toString().trim(),
-                                                FamilyIdentificationFragment.spinnerProvinces.getSelectedItem().toString().trim(),
-                                                FamilyIdentificationFragment.spinnerMunicipal.getSelectedItem().toString().trim(),
-                                                FamilyIdentificationFragment.spinnerBarangay.getSelectedItem().toString().trim(),
-                                                FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim(),
-                                                FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim(),
-                                                1,1,1);
-
+        if(familyIdentificationListener.checkFname(FamilyIdentificationFragment.editTextFName.getText().toString().trim())  &&
+                familyIdentificationListener.checkMname(FamilyIdentificationFragment.editTextMName.getText().toString().trim()) &&
+                familyIdentificationListener.checkLname(FamilyIdentificationFragment.editTextLName.getText().toString().trim()) &&
+                familyIdentificationListener.checkHouseNo(FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim()) &&
+                familyIdentificationListener.checkStreetNo(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim()))
+                {
+                    familyIdentificationListener.sendValue(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
+                            FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
+                            FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
+                            FamilyIdentificationFragment.spinnerRegions.getSelectedItem().toString().trim(),
+                            FamilyIdentificationFragment.spinnerProvinces.getSelectedItem().toString().trim(),
+                            FamilyIdentificationFragment.spinnerMunicipal.getSelectedItem().toString().trim(),
+                            FamilyIdentificationFragment.spinnerBarangay.getSelectedItem().toString().trim(),
+                            FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim(),
+                            FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim(),
+                            1,1,1);
+                }
     }
 
     @Override
