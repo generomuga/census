@@ -17,15 +17,6 @@
             android:elevation="5dp"
             android:orientation="vertical">
 
-            <!--<Switch
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Auto-saved"
-                android:textColor="@color/colorTextView"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp" />-->
-
             <!--<android.support.design.widget.TextInputLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
@@ -106,7 +97,7 @@
                 android:layout_weight="1"
                 android:text="First name"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
             <EditText
                 android:id="@+id/editTextFname"
@@ -117,7 +108,8 @@
                 android:layout_marginRight="11dp"
                 android:hint="Juan"
                 android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -128,7 +120,7 @@
                 android:layout_weight="1"
                 android:text="Middle name"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
             <EditText
                 android:id="@+id/editTextMname"
@@ -139,7 +131,8 @@
                 android:layout_marginRight="11dp"
                 android:hint="Amorsolo"
                 android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -150,7 +143,7 @@
                 android:layout_weight="1"
                 android:text="Last name"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
             <EditText
                 android:id="@+id/editTextLname"
@@ -161,7 +154,8 @@
                 android:layout_marginRight="11dp"
                 android:hint="Dela Cruz"
                 android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp"/>
 
             <!--<TextView
                 android:layout_width="match_parent"
@@ -252,7 +246,7 @@
                 android:layout_weight="1"
                 android:text="Region"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
             <Spinner
                 android:id="@+id/spinnerRegions"
@@ -272,7 +266,7 @@
                 android:layout_weight="1"
                 android:text="Province"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
             <Spinner
                 android:id="@+id/spinnerProvince"
@@ -294,7 +288,7 @@
                 android:layout_weight="1"
                 android:text="Municipality"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
             <Spinner
                 android:id="@+id/spinnerMunicipal"
@@ -314,7 +308,7 @@
                 android:layout_weight="1"
                 android:text="Barangay"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
             <Spinner
                 android:id="@+id/spinnerBarangay"
@@ -334,7 +328,8 @@
                 android:layout_marginRight="11dp"
                 android:hint="House no"
                 android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp"/>
 
             <EditText
                 android:id="@+id/editTextStreetNo"
@@ -345,9 +340,8 @@
                 android:layout_marginRight="11dp"
                 android:hint="Street No"
                 android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />
-
-
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -358,7 +352,7 @@
                 android:layout_weight="1"
                 android:text="Household condition"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
             <RadioGroup
                 android:id="@+id/radioGroupResidency"
@@ -376,7 +370,8 @@
                     android:buttonTint="@color/colorAccent"
                     android:checked="true"
                     android:text="Resident"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="@color/colorEditText"
+                    android:textSize="16sp"/>
 
                 <RadioButton
                     android:id="@+id/radioButtonNonResident"
@@ -384,7 +379,8 @@
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/colorAccent"
                     android:text="Non-resident"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="@color/colorEditText"
+                    android:textSize="16sp"/>
             </RadioGroup>
 
             <TextView
@@ -396,7 +392,7 @@
                 android:layout_weight="1"
                 android:text="Ownership"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
             <RadioGroup
                 android:id="@+id/radioGroupOwnership"
@@ -414,7 +410,8 @@
                     android:buttonTint="@color/colorAccent"
                     android:checked="true"
                     android:text="Owner (main family)"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="@color/colorEditText"
+                    android:textSize="16sp"/>
 
                 <RadioButton
                     android:id="@+id/radioButtonExtended"
@@ -422,7 +419,8 @@
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/colorAccent"
                     android:text="Extended"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="@color/colorEditText"
+                    android:textSize="16sp"/>
             </RadioGroup>
 
 
@@ -435,7 +433,7 @@
                 android:layout_weight="1"
                 android:text="Family status"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
             <RadioGroup
                 android:id="@+id/radioGroupStatus"
@@ -453,7 +451,8 @@
                     android:buttonTint="@color/colorAccent"
                     android:checked="true"
                     android:text="Active"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="@color/colorEditText"
+                    android:textSize="16sp"/>
 
                 <RadioButton
                     android:id="@+id/radioButtonInactive"
@@ -461,18 +460,10 @@
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/colorAccent"
                     android:text="Inactive"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="@color/colorEditText"
+                    android:textSize="16sp"/>
             </RadioGroup>
 
-            <!--<Button
-                android:id="@+id/buttonSave"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/button_round"
-                android:text="Save"/>-->
         </LinearLayout>
 
     </ScrollView>
