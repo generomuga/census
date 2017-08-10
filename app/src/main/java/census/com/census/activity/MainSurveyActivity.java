@@ -1,5 +1,6 @@
 package census.com.census.activity;
 
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import census.com.census.fragment.FamilyFragment;
 import census.com.census.fragment.FamilyIdentificationFragment;
@@ -23,6 +25,8 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     private String tag;
     private Fragment fragment;
 
+    private ProgressDialog mProgress;
+
     SurveyPresenter.OnFamilyIdentification familyIdentificationListener;
 
     @Override
@@ -32,6 +36,8 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
         sharedPreferences = this.getSharedPreferences("census.com.census",MODE_PRIVATE);
         onClearSharedReference();
+
+        mProgress = new ProgressDialog(this);
 
         //to add toolbar in the activity
         toolBarSurvey = (Toolbar) findViewById(R.id.toolBarSurvey);
@@ -144,6 +150,9 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                 familyIdentificationListener.checkHouseNo(FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim()) &&
                 familyIdentificationListener.checkStreetNo(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim()))
                 {
+                    mProgress.setMessage("Sending information...");
+                    mProgress.setCancelable(false);
+                    mProgress.show();
                     familyIdentificationListener.sendValue(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
                             FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
                             FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
@@ -164,22 +173,33 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
     @Override
     public void setErrorMname(String message) {
+        mProgress.dismiss();
         FamilyIdentificationFragment.editTextMName.setError(message);
     }
 
     @Override
     public void setErrorLname(String message) {
+        mProgress.dismiss();
         FamilyIdentificationFragment.editTextLName.setError(message);
     }
 
     @Override
     public void setErrorHouseNo(String message) {
+        mProgress.dismiss();
         FamilyIdentificationFragment.editTextHouseNo.setError(message);
     }
 
     @Override
     public void setErrorStreetNo(String message) {
+        mProgress.dismiss();
         FamilyIdentificationFragment.editTextStreetNo.setError(message);
     }
+
+    @Override
+    public void onSuccess(String message) {
+        mProgress.dismiss();
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
+    }
+
 
 }

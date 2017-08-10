@@ -81,7 +81,7 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
 
     @Override
     public void onSuccess() {
-
+        surveyViewListener.onSuccess("Successfully sent!");
     }
 
 }

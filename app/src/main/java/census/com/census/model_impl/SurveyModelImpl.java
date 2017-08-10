@@ -47,13 +47,12 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification{
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if(databaseError != null){
-                    Log.e("firebase:",databaseError.getMessage().toString());
+                    onResultListener.setErrorData(databaseError.getMessage().toString());
                 }
                 else{
-                    Log.i("firebase:","save");
+                    onResultListener.onSuccess();
                 }
             }
         });
-
     }
 }

@@ -7,5 +7,6 @@ public interface SurveyView {
         void setErrorLname(String message);
         void setErrorHouseNo(String message);
         void setErrorStreetNo(String message);
+        void onSuccess(String message);
     }
 }
