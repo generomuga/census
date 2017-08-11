@@ -23,6 +23,7 @@ public class FamilyIdentification {
     private int familyStatus;
     private String user;
 
+
     public FamilyIdentification() {
     }
 
@@ -137,4 +138,6 @@ public class FamilyIdentification {
     public void setUser(String user) {
         this.user = user;
     }
+
+
 }
