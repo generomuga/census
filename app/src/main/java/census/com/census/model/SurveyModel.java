@@ -7,7 +7,7 @@ public interface SurveyModel {
             void onSuccess();
         }
         void sendData(String fName,String mName,String lName,String region,String province,
-                      String municipality,String barangay,String houseNo,String streetNo, int residency, int ownership, int status);
+                      String municipality,String barangay,String houseNo,String streetNo, int residency, int ownership, int status, String user);
     }
 
 }

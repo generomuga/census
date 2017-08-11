@@ -12,6 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import census.com.census.fragment.FamilyFragment;
 import census.com.census.fragment.FamilyIdentificationFragment;
 import census.com.census.presenter.SurveyPresenter;
@@ -28,12 +31,17 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
     private ProgressDialog mProgress;
 
+    private FirebaseAuth mAuth;
+
     SurveyPresenter.OnFamilyIdentification familyIdentificationListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_survey);
+
+        mAuth = FirebaseAuth.getInstance();
+
 
         sharedPreferences = this.getSharedPreferences("census.com.census",MODE_PRIVATE);
         onClearSharedReference();
@@ -154,6 +162,9 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                     mProgress.setMessage("Sending information...");
                     mProgress.setCancelable(false);
                     mProgress.show();
+
+                    FirebaseUser currentUser = mAuth.getCurrentUser();
+
                     familyIdentificationListener.sendValue(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
                             FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
                             FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
@@ -163,7 +174,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                             FamilyIdentificationFragment.spinnerBarangay.getSelectedItem().toString().trim(),
                             FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim(),
                             FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim(),
-                            1,1,1);
+                            1,1,1,currentUser.getEmail());
                 }
     }
 

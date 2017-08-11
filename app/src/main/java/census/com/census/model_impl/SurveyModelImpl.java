@@ -25,7 +25,7 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification{
     }
 
     @Override
-    public void sendData(String fName, String mName, String lName, String region, String province, String municipality, String barangay, String houseNo, String streetNo, int residency, int ownership, int status) {
+    public void sendData(String fName, String mName, String lName, String region, String province, String municipality, String barangay, String houseNo, String streetNo, int residency, int ownership, int status, String user) {
 
         key = mDatabase.push().getKey();
 
@@ -43,7 +43,7 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification{
         familyIdentification.setResidency(residency);
         familyIdentification.setOwnership(ownership);
         familyIdentification.setFamilyStatus(status);
-        familyIdentification.setUser("genen");
+        familyIdentification.setUser(user);
 
         DatabaseReference mFamilyIdentification = mDatabase.child("familyIdentification");
         mFamilyIdentification.child(key).setValue(familyIdentification, new DatabaseReference.CompletionListener() {
