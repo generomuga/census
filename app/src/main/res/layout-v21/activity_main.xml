@@ -16,12 +16,22 @@
 
         <include android:id="@+id/toolBarMain" layout="@layout/app_bar_main" />
 
+        <TextView
+            android:id="@+id/textViewToday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Data collection"
+            android:textColor="@color/colorTextView"
+            android:layout_below="@id/toolBarMain"/>
+
         <ListView android:id="@+id/listViewSurvey"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/toolBarMain">
+            android:layout_below="@+id/textViewToday">
         </ListView>
-
 
         <!--Lollipop version-->
         <ImageButton
