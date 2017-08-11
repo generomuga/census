@@ -3,10 +3,27 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textViewUser"
+
+    <LinearLayout
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="User"
-        android:textColor="@color/colorEditText"/>
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_height="wrap_content"
+            android:layout_width="66dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/textViewUser"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="User"
+            android:textColor="@color/colorEditText"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
 </LinearLayout>
