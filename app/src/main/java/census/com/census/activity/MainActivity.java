@@ -11,20 +11,35 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import census.com.census.DatabaseHelper;
+import census.com.census.FamilyIdentification;
 import census.com.census.R;
+import census.com.census.SurveyList;
 
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private Toolbar toolbarMain;
     private ImageButton mFab;
+    private ListView mSurveyList;
+
+    private DatabaseReference mDatabase;
+    private List surveyList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +47,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference("data/familyIdentification");
+
+        mSurveyList = (ListView) findViewById(R.id.listViewSurvey);
+
+        surveyList = new ArrayList<>();
+
+
 
         //connect to sqlite database
         connectDB();
@@ -61,7 +83,23 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this,LoginActivity.class));
         }
         else {
-            //do  nothing
+            mDatabase.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                        FamilyIdentification familyIdentification = snapshot.getValue(FamilyIdentification.class);
+                        surveyList.add(familyIdentification);
+                    }
+                    SurveyList adapter = new SurveyList(MainActivity.this,surveyList);
+                    mSurveyList.setAdapter(adapter);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
         }
     }
 

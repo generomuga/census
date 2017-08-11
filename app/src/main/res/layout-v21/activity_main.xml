@@ -16,6 +16,13 @@
 
         <include android:id="@+id/toolBarMain" layout="@layout/app_bar_main" />
 
+        <ListView android:id="@+id/listViewSurvey"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolBarMain">
+        </ListView>
+
+
         <!--Lollipop version-->
         <ImageButton
             android:id="@+id/fab"
