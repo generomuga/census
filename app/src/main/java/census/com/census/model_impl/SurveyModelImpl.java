@@ -1,15 +1,10 @@
 package census.com.census.model_impl;
 
 import android.util.Log;
-
-import com.google.firebase.FirebaseApiNotAvailableException;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
-
-import java.util.Date;
 import java.util.Map;
 
 import census.com.census.FamilyIdentification;
@@ -47,10 +42,6 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification{
         familyIdentification.setOwnership(ownership);
         familyIdentification.setFamilyStatus(status);
         familyIdentification.setUser(user);
-
-        //Map<String,String> timeStamp = ServerValue.TIMESTAMP;
-        //Log.i();
-
 
         DatabaseReference mFamilyIdentification = mDatabase.child("familyIdentification");
         mFamilyIdentification.child(key).setValue(familyIdentification, new DatabaseReference.CompletionListener() {
