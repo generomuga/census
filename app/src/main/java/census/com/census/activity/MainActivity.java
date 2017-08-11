@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
             mDatabase.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
+                    surveyList.clear();
                     for(DataSnapshot snapshot:dataSnapshot.getChildren()){
                         FamilyIdentification familyIdentification = snapshot.getValue(FamilyIdentification.class);
                         surveyList.add(familyIdentification);

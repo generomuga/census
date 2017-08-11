@@ -1,8 +1,14 @@
 package census.com.census.model_impl;
 
+import com.google.firebase.FirebaseApiNotAvailableException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
+
+import java.util.Date;
+
 import census.com.census.FamilyIdentification;
 import census.com.census.model.SurveyModel;
 
@@ -37,6 +43,7 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification{
         familyIdentification.setResidency(residency);
         familyIdentification.setOwnership(ownership);
         familyIdentification.setFamilyStatus(status);
+        familyIdentification.setUser("genen");
 
         DatabaseReference mFamilyIdentification = mDatabase.child("familyIdentification");
         mFamilyIdentification.child(key).setValue(familyIdentification, new DatabaseReference.CompletionListener() {

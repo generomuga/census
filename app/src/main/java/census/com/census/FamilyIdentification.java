@@ -1,5 +1,11 @@
 package census.com.census;
 
+import com.google.firebase.database.ServerValue;
+
+import java.util.Date;
+import java.util.Map;
+import java.util.Objects;
+
 public class FamilyIdentification {
 
     private String id;
@@ -15,6 +21,7 @@ public class FamilyIdentification {
     private int residency;
     private int ownership;
     private int familyStatus;
+    private String user;
 
     public FamilyIdentification() {
     }
@@ -121,5 +128,13 @@ public class FamilyIdentification {
 
     public void setFamilyStatus(int familyStatus) {
         this.familyStatus = familyStatus;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 }
