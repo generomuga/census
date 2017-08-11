@@ -31,9 +31,11 @@ public class SurveyList extends ArrayAdapter<FamilyIdentification> {
         View listViewItem = inflater.inflate(R.layout.list_layout_survey,null,true);
 
         TextView textViewUser = (TextView) listViewItem.findViewById(R.id.textViewUser);
+        TextView textViewEmail = (TextView) listViewItem.findViewById(R.id.textViewEmail);
 
         FamilyIdentification familyIdentification = surveyList.get(position);
         textViewUser.setText(familyIdentification.getfName());
+        textViewEmail.setText(familyIdentification.getUser());
 
         return listViewItem;
     }
