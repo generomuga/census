@@ -52,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/colorTextView"
+                android:layout_marginBottom="5dp"
                 android:textSize="8sp"
                 android:text="12-0-1"/>
 

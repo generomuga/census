@@ -1,11 +1,13 @@
 package census.com.census.model_impl;
 
 import android.util.Log;
+
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ServerValue;
-import java.util.Map;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 import census.com.census.FamilyIdentification;
 import census.com.census.model.SurveyModel;
@@ -27,6 +29,9 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification{
 
         key = mDatabase.push().getKey();
 
+        String time = DateFormat.getDateTimeInstance().format(new Date());
+        Log.i("time",time);
+
         FamilyIdentification familyIdentification = new FamilyIdentification();
         familyIdentification.setId(key);
         familyIdentification.setfName(fName);
@@ -42,6 +47,7 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification{
         familyIdentification.setOwnership(ownership);
         familyIdentification.setFamilyStatus(status);
         familyIdentification.setUser(user);
+        familyIdentification.setTimestamp(time);
 
         DatabaseReference mFamilyIdentification = mDatabase.child("familyIdentification");
         mFamilyIdentification.child(key).setValue(familyIdentification, new DatabaseReference.CompletionListener() {

@@ -22,6 +22,8 @@ public class FamilyIdentification {
     private int ownership;
     private int familyStatus;
     private String user;
+    private String timestamp;
+
 
 
     public FamilyIdentification() {
@@ -139,5 +141,11 @@ public class FamilyIdentification {
         this.user = user;
     }
 
+    public String getTimestamp() {
+        return timestamp;
+    }
 
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
 }
