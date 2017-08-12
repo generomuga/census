@@ -35,7 +35,7 @@ public class SurveyList extends ArrayAdapter<FamilyIdentification> {
         TextView textViewDate = (TextView) listViewItem.findViewById(R.id.textViewDate);
 
         FamilyIdentification familyIdentification = surveyList.get(position);
-        textViewUser.setText(familyIdentification.getfName());
+        textViewUser.setText(familyIdentification.getfName()+" "+familyIdentification.getlName());
         textViewEmail.setText(familyIdentification.getUser());
         textViewDate.setText(familyIdentification.getTimestamp());
 
