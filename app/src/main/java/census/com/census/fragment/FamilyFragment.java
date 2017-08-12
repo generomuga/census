@@ -87,29 +87,31 @@ public class FamilyFragment extends Fragment {
         initViews();
 
         //get the seek bar value
-        //getFamilyNoSeekBarVal();
+        getFamilyNoSeekBarVal();
 
         //get spinner values for years
-        //getYears();
-        //useArrayAdapter(years);
-        //spinnerYear.setAdapter(spinnerArrayAdapter);
+        getYears();
+        useArrayAdapter(years);
+        spinnerYear.setAdapter(spinnerArrayAdapter);
+
+        //load regions
+        loadRegions();
+
+        //load province
+        spinnerRegionEvent();
+
+        //load municipality
+        spinnerProvinceEvent();
+
+        //load barangay
+        spinnerMunicipalEvent();
+
 
         //get spinner values for isp
         //getISP();
         //useArrayAdapter((ArrayList) isps);
         //spinnerISP.setAdapter(spinnerArrayAdapter);
 
-        //load regions
-        //loadRegions();
-
-        //load province
-        //spinnerRegionEvent();
-
-        //load municipality
-        //spinnerProvinceEvent();
-
-        //load barangay
-        //spinnerMunicipalEvent();
 
         return  view;
     }
@@ -273,10 +275,15 @@ public class FamilyFragment extends Fragment {
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     private void getYears(){
         years = new ArrayList<String>();
-        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        int currentYear = 0;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        }
+        else{
+            currentYear = 2017;
+        }
         for(int year = 1980;year<=currentYear;year++){
             years.add(Integer.toString(year));
         }

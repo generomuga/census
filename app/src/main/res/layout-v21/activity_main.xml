@@ -22,7 +22,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:text="Data collection"
+            android:text="Data collected"
             android:textColor="@color/colorTextView"
             android:layout_below="@id/toolBarMain"/>
 

@@ -26,16 +26,20 @@ public class FamilyIdentificationFragment extends Fragment{
     public static EditText editTextLName;
     public static EditText editTextHouseNo;
     public static EditText editTextStreetNo;
+
     public static RadioGroup radioGroupResidency;
     public static RadioGroup radioGroupOwnership;
     public static RadioGroup radioGroupStatus;
+
     public static Spinner spinnerRegions;
     public static Spinner spinnerProvinces;
     public static Spinner spinnerMunicipal;
     public static Spinner spinnerBarangay;
 
     private DbUtils dbUtils;
+
     private ArrayAdapter spinnerArrayAdapter;
+
     private SharedPreferences sharedPreferences;
 
     @Override
@@ -66,26 +70,27 @@ public class FamilyIdentificationFragment extends Fragment{
         onLoadData();
     }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        onSaveReference();
+    }
+
     private void onInitViews(){
         editTextFName = (EditText) view.findViewById(R.id.editTextFname);
         editTextMName = (EditText) view.findViewById(R.id.editTextMname);
         editTextLName = (EditText) view.findViewById(R.id.editTextLname);
         editTextHouseNo = (EditText) view.findViewById(R.id.editTextHouseNo);
         editTextStreetNo = (EditText) view.findViewById(R.id.editTextStreetNo);
-        /*radioButtonResident = (RadioButton) view.findViewById(R.id.radioButtonResident);
-        radioButtonNonResident = (RadioButton) view.findViewById(R.id.radioButtonNonResident);
-        radioButtonOwner = (RadioButton) view.findViewById(R.id.radioButtonOwner);
-        radioButtonExtended = (RadioButton) view.findViewById(R.id.radioButtonExtended);
-        radioButtonActive = (RadioButton) view.findViewById(R.id.radioButtonActive);
-        radioButtonInactive = (RadioButton) view.findViewById(R.id.radioButtonInactive);*/
-        spinnerRegions = (Spinner) view.findViewById(R.id.spinnerRegions);
-        spinnerProvinces = (Spinner) view.findViewById(R.id.spinnerProvince);
-        spinnerMunicipal = (Spinner) view.findViewById(R.id.spinnerMunicipal);
-        spinnerBarangay = (Spinner) view.findViewById(R.id.spinnerBarangay);
 
         radioGroupResidency = (RadioGroup) view.findViewById(R.id.radioGroupResidency);
         radioGroupOwnership = (RadioGroup) view.findViewById(R.id.radioGroupOwnership);
         radioGroupStatus = (RadioGroup) view.findViewById(R.id.radioGroupStatus);
+
+        spinnerRegions = (Spinner) view.findViewById(R.id.spinnerRegions);
+        spinnerProvinces = (Spinner) view.findViewById(R.id.spinnerProvince);
+        spinnerMunicipal = (Spinner) view.findViewById(R.id.spinnerMunicipal);
+        spinnerBarangay = (Spinner) view.findViewById(R.id.spinnerBarangay);
     }
 
     private void onLoadRegions(){
@@ -200,16 +205,8 @@ public class FamilyIdentificationFragment extends Fragment{
         editTextLName.setText(sharedPreferences.getString("lname",""));
         editTextHouseNo.setText(sharedPreferences.getString("houseno",""));
         editTextStreetNo.setText(sharedPreferences.getString("streetno",""));
-
-        //spinnerBarangay.setSelection(sharedPreferences.getInt("barangay",0));
-        //spinnerRegions.setSelection(sharedPreferences.getInt("region",0));
-
         editTextHouseNo.setText(sharedPreferences.getString("houseno",""));
         editTextStreetNo.setText(sharedPreferences.getString("streetno",""));
-
-        radioGroupResidency.check(sharedPreferences.getInt("residency",2131624160));
-        radioGroupOwnership.check(sharedPreferences.getInt("ownership",2131624163));
-        radioGroupStatus.check(sharedPreferences.getInt("status",2131624166));
     }
 
     private void onSaveReference(){
@@ -221,23 +218,6 @@ public class FamilyIdentificationFragment extends Fragment{
         sharedPreferences.edit().putInt("region",spinnerRegions.getSelectedItemPosition()).apply();
         sharedPreferences.edit().putString("houseno",editTextHouseNo.getText().toString().trim()).apply();
         sharedPreferences.edit().putString("streetno",editTextStreetNo.getText().toString().trim()).apply();
-
-        //cause error in naugat version
-        //sharedPreferences.edit().putString("barangay",spinnerBarangay.getSelectedItem().toString()).apply();
-        //sharedPreferences.edit().putString("province",spinnerProvinces.getSelectedItem().toString()).apply();
-        //sharedPreferences.edit().putString("regionv",spinnerRegions.getSelectedItem().toString()).apply();
-
-        sharedPreferences.edit().putInt("residency",radioGroupResidency.getCheckedRadioButtonId()).apply();
-        sharedPreferences.edit().putInt("ownership",radioGroupOwnership.getCheckedRadioButtonId()).apply();
-        sharedPreferences.edit().putInt("status",radioGroupStatus.getCheckedRadioButtonId()).apply();
     }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        onSaveReference();
-    }
-
-
 
 }
