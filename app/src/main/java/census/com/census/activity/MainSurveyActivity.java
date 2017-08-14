@@ -15,9 +15,12 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import census.com.census.Family;
 import census.com.census.FamilyIdentification;
+import census.com.census.fragment.EnvironmentFragment;
 import census.com.census.fragment.FamilyFragment;
 import census.com.census.fragment.FamilyIdentificationFragment;
+import census.com.census.fragment.HealthFragment;
 import census.com.census.model_impl.SurveyModelImpl;
 import census.com.census.presenter.SurveyPresenter;
 import census.com.census.R;
@@ -91,15 +94,15 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
             case R.id.imageButtonHealth:
                 tag = "Health";
                 getSupportActionBar().setTitle("Health");
-                //fragment = new HealthFragment();
-                //switchFragment(fragment,"Health");
+                fragment = new HealthFragment();
+                switchFragment(fragment,"Health");
                 break;
 
             case R.id.imageButtonEnvironment:
                 tag = "Environment";
                 getSupportActionBar().setTitle("Environment");
-                //fragment = new EnvironmentFragment();
-                //switchFragment(fragment,"Environment");
+                fragment = new EnvironmentFragment();
+                switchFragment(fragment,"Environment");
                 break;
         }
     }
