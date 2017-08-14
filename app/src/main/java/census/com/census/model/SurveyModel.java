@@ -12,8 +12,8 @@ public interface SurveyModel {
 
     interface OnFamily{
         interface OnResult{
-            void setErrorData(String message);
-            void onSuccess();
+            void setErrorFamilyData(String message);
+            void onSuccessFamily();
         }
         void sendData(int familyNo, int yearReside, String region, String province, String municipality, String barangay, String isp, int bicycle, int qBicycle,
                       int boat, int qBoat, int bus, int qBus, int car, int qCar, int jeep, int qJeep, int motorboat, int qMotorboat, int motorcycle, int qMotorcyle,

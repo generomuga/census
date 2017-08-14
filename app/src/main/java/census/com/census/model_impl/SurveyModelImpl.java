@@ -12,15 +12,18 @@ import java.util.Date;
 import census.com.census.FamilyIdentification;
 import census.com.census.model.SurveyModel;
 
-public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification{
+public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,SurveyModel.OnFamily{
 
     DatabaseReference mDatabase;
     private String key;
 
     SurveyModel.OnFamilyIdentification.OnResult onResultListener;
 
-    public SurveyModelImpl(OnResult onResultListener) {
+    SurveyModel.OnFamily.OnResult onResultListenerFamily;
+
+    public SurveyModelImpl(SurveyModel.OnFamilyIdentification.OnResult onResultListener, SurveyModel.OnFamily.OnResult onResultListenerFamily) {
         this.onResultListener = onResultListener;
+        this.onResultListenerFamily = onResultListenerFamily;
         mDatabase = FirebaseDatabase.getInstance().getReference("data");
     }
 
@@ -61,5 +64,10 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification{
                 }
             }
         });
+    }
+
+    @Override
+    public void sendData(int familyNo, int yearReside, String region, String province, String municipality, String barangay, String isp, int bicycle, int qBicycle, int boat, int qBoat, int bus, int qBus, int car, int qCar, int jeep, int qJeep, int motorboat, int qMotorboat, int motorcycle, int qMotorcyle, int owner, int qOwner, int pedicab, int qPedicab, int pickup, int qPickup, int pumpboat, int qPumpboat, int raft, int qRaft, int suv, int qSuv, int tric, int qTric, int truck, int qTruck, int van, int qVan) {
+
     }
 }

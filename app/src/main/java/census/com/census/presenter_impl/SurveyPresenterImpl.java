@@ -5,16 +5,18 @@ import census.com.census.model_impl.SurveyModelImpl;
 import census.com.census.presenter.SurveyPresenter;
 import census.com.census.view.SurveyView;
 
-public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentification,SurveyPresenter.OnFamily,SurveyModel.OnFamilyIdentification.OnResult {
+public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentification,SurveyPresenter.OnFamily,SurveyModel.OnFamilyIdentification.OnResult, SurveyModel.OnFamily.OnResult{
 
     SurveyView.OnFamilyIdentification surveyViewListener;
     SurveyView.OnFamily surveyFamilyListener;
+
     SurveyModel.OnFamilyIdentification surveyModel;
+    SurveyModel.OnFamily surveyModelFamily;
 
     public SurveyPresenterImpl(SurveyView.OnFamilyIdentification surveyViewListener,SurveyView.OnFamily surveyFamilyListener) {
         this.surveyViewListener = surveyViewListener;
         this.surveyFamilyListener = surveyFamilyListener;
-        surveyModel = new SurveyModelImpl(this);
+        surveyModel = (SurveyModel.OnFamilyIdentification) (surveyModelFamily = new SurveyModelImpl(this,this));
     }
 
     @Override
@@ -92,5 +94,15 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
             surveyFamilyListener.setErrorNumFam("Please provide number of family members!");
             return;
         }
+    }
+
+    @Override
+    public void setErrorFamilyData(String message) {
+
+    }
+
+    @Override
+    public void onSuccessFamily() {
+
     }
 }
