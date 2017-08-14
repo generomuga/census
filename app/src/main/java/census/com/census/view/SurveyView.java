@@ -9,4 +9,9 @@ public interface SurveyView {
         void setErrorStreetNo(String message);
         void onSuccess(String message);
     }
+    interface OnFamily{
+        void setErrorNumFam(String message);
+        void setErrorQuantity(String message);
+        void onSucess(String message);
+    }
 }

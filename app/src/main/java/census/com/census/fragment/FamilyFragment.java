@@ -45,7 +45,7 @@ public class FamilyFragment extends Fragment {
     public static CheckBox checkBoxTricycle;
     public static CheckBox checkBoxTruck;
     public static CheckBox checkBoxVan;
-    //public static TextInputEditText editTextContactNo;
+
     public static EditText editTextBicycleNo;
     public static EditText editTextBoatNo;
     public static EditText editTextBusNo;
@@ -62,13 +62,14 @@ public class FamilyFragment extends Fragment {
     public static EditText editTextTricycleNo;
     public static EditText editTextTruckNo;
     public static EditText editTextVanNo;
+
     public static Spinner spinnerYear;
     public static Spinner spinnerISP;
 
-    private Spinner spinnerRegion;
-    private Spinner spinnerProvince;
-    private Spinner spinnerMunicipal;
-    private Spinner spinnerBarangay;
+    public static Spinner spinnerRegion;
+    public static Spinner spinnerProvince;
+    public static Spinner spinnerMunicipal;
+    public static Spinner spinnerBarangay;
 
     public static SeekBar seekBarNoFamMembers;
     private static TextView textViewNoFamMembers;
@@ -108,9 +109,9 @@ public class FamilyFragment extends Fragment {
 
 
         //get spinner values for isp
-        //getISP();
-        //useArrayAdapter((ArrayList) isps);
-        //spinnerISP.setAdapter(spinnerArrayAdapter);
+        getISP();
+        useArrayAdapter((ArrayList) isps);
+        spinnerISP.setAdapter(spinnerArrayAdapter);
 
 
         return  view;

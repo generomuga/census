@@ -10,4 +10,12 @@ public interface SurveyModel {
                       String municipality,String barangay,String houseNo,String streetNo, int residency, int ownership, int status, String user);
     }
 
+    interface OnFamily{
+        interface OnResult{
+            void setErrorData(String message);
+            void onSuccess();
+        }
+        
+    }
+
 }
