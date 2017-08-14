@@ -15,8 +15,10 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import census.com.census.FamilyIdentification;
 import census.com.census.fragment.FamilyFragment;
 import census.com.census.fragment.FamilyIdentificationFragment;
+import census.com.census.model_impl.SurveyModelImpl;
 import census.com.census.presenter.SurveyPresenter;
 import census.com.census.R;
 import census.com.census.presenter_impl.SurveyPresenterImpl;
@@ -62,8 +64,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                     .add(R.id.fragmentMain,fragment,tag).commit();
         }
 
-        familyIdentificationListener = new SurveyPresenterImpl(this,this);
-        //familyListener = (SurveyPresenter.OnFamily) new SurveyPresenterImpl(this);
+        familyIdentificationListener = (SurveyPresenter.OnFamilyIdentification) (familyListener = new SurveyPresenterImpl(this,this));
     }
 
     private void onClearSharedReference(){
@@ -120,11 +121,11 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
         switch (item.getItemId()) {
             case R.id.action_save:
                 sendFamilyIdentification();
+                sendFamily();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     private void sendFamilyIdentification(){
         if(familyIdentificationListener.checkFname(FamilyIdentificationFragment.editTextFName.getText().toString().trim())  &&
@@ -153,9 +154,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     }
 
     private void sendFamily(){
-
-
-
+        familyListener.sendValue(0,1,"IV","Laguna","Calauan","Mabacan","Globe",1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
     }
 
     @Override
@@ -201,7 +200,8 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
     @Override
     public void setErrorNumFam(String message) {
-
+        mProgress.dismiss();
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 
     @Override
