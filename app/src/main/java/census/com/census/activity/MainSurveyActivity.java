@@ -22,7 +22,7 @@ import census.com.census.R;
 import census.com.census.presenter_impl.SurveyPresenterImpl;
 import census.com.census.view.SurveyView;
 
-public class MainSurveyActivity extends AppCompatActivity implements SurveyView.OnFamilyIdentification{
+public class MainSurveyActivity extends AppCompatActivity implements SurveyView.OnFamilyIdentification,SurveyView.OnFamily {
 
     private Toolbar toolBarSurvey;
     private SharedPreferences sharedPreferences;
@@ -34,6 +34,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     private FirebaseAuth mAuth;
 
     SurveyPresenter.OnFamilyIdentification familyIdentificationListener;
+    SurveyPresenter.OnFamily familyListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +62,8 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                     .add(R.id.fragmentMain,fragment,tag).commit();
         }
 
-        familyIdentificationListener = new SurveyPresenterImpl(this);
+        familyIdentificationListener = new SurveyPresenterImpl(this,this);
+        //familyListener = (SurveyPresenter.OnFamily) new SurveyPresenterImpl(this);
     }
 
     private void onClearSharedReference(){
@@ -117,40 +119,12 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_save:
-                //checkActiveFragment(tag);
-                //onSaveFamilyIdentification();
-                //Toast.makeText(this,FamilyIdentificationFragment.editTextFName.getText().toString(),Toast.LENGTH_SHORT).show();
                 sendFamilyIdentification();
-                //sendFamily();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    /*private void checkActiveFragment(String tag){
-        Fragment fragment =  getSupportFragmentManager().findFragmentByTag(tag);
-
-        if (fragment != null) {
-            if (fragment.isVisible()) {
-                switch (tag){
-                    case "FamilyIdentification":
-                        //saveObjectFamilyIdentification();
-                        break;
-                    case "Family":
-                        //saveObjectFamily();
-                        break;
-                    case "Health":
-                        Toast.makeText(this,"Health",Toast.LENGTH_SHORT).show();
-                        break;
-                    case "Environment":
-                        Toast.makeText(this,"Environment",Toast.LENGTH_SHORT).show();
-                        break;
-                }
-            } else {
-                Toast.makeText(this, "Hello", Toast.LENGTH_LONG).show();
-            }
-        }
-    }*/
 
     private void sendFamilyIdentification(){
         if(familyIdentificationListener.checkFname(FamilyIdentificationFragment.editTextFName.getText().toString().trim())  &&
@@ -178,8 +152,11 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                 }
     }
 
+    private void sendFamily(){
 
 
+
+    }
 
     @Override
     public void onBackPressed() {
@@ -222,4 +199,18 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void setErrorNumFam(String message) {
+
+    }
+
+    @Override
+    public void setErrorQuantity(String message) {
+
+    }
+
+    @Override
+    public void onSucess(String message) {
+
+    }
 }

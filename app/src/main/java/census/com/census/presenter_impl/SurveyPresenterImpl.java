@@ -5,13 +5,15 @@ import census.com.census.model_impl.SurveyModelImpl;
 import census.com.census.presenter.SurveyPresenter;
 import census.com.census.view.SurveyView;
 
-public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentification,SurveyModel.OnFamilyIdentification.OnResult {
+public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentification,SurveyPresenter.OnFamily,SurveyModel.OnFamilyIdentification.OnResult {
 
     SurveyView.OnFamilyIdentification surveyViewListener;
+    SurveyView.OnFamily surveyFamilyListener;
     SurveyModel.OnFamilyIdentification surveyModel;
 
-    public SurveyPresenterImpl(SurveyView.OnFamilyIdentification surveyViewListener) {
+    public SurveyPresenterImpl(SurveyView.OnFamilyIdentification surveyViewListener,SurveyView.OnFamily surveyFamilyListener) {
         this.surveyViewListener = surveyViewListener;
+        this.surveyFamilyListener = surveyFamilyListener;
         surveyModel = new SurveyModelImpl(this);
     }
 
@@ -84,4 +86,8 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
         surveyViewListener.onSuccess("Successfully sent!");
     }
 
+    @Override
+    public void sendValue(int familyNo, int yearReside, String region, String province, String municipality, String barangay, String isp, int bicycle, int qBicycle, int boat, int qBoat, int bus, int qBus, int car, int qCar, int jeep, int qJeep, int motorboat, int qMotorboat, int motorcycle, int qMotorcyle, int owner, int qOwner, int pedicab, int qPedicab, int pickup, int qPickup, int pumpboat, int qPumpboat, int raft, int qRaft, int suv, int qSuv, int tric, int qTric, int truck, int qTruck, int van, int qVan) {
+
+    }
 }
