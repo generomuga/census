@@ -1,14 +1,11 @@
 package census.com.census.model_impl;
 
-import android.util.Log;
 
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.text.DateFormat;
 import java.util.Date;
-
 import census.com.census.Family;
 import census.com.census.FamilyIdentification;
 import census.com.census.model.SurveyModel;
