@@ -73,32 +73,51 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
         String time = DateFormat.getDateTimeInstance().format(new Date());
         Log.i("time",time);
 
+        /*
+        int pedicab, int qPedicab, int pickup, int qPickup, int pumpboat
+        , int qPumpboat, int raft, int qRaft, int suv, int qSuv,
+        int tric, int qTric, int truck, int qTruck, int van, int qVan*/
+
         Family family = new Family();
         family.setId(key);
-        /*familyIdentification.setfName(fName);
-        familyIdentification.setmName(mName);
-        familyIdentification.setlName(lName);
-        familyIdentification.setRegion(region);
-        familyIdentification.setProvince(province);
-        familyIdentification.setMunicipality(municipality);
-        familyIdentification.setBarangay(barangay);
-        familyIdentification.setHouseNp(houseNo);
-        familyIdentification.setStreetNo(streetNo);
-        familyIdentification.setResidency(residency);
-        familyIdentification.setOwnership(ownership);
-        familyIdentification.setFamilyStatus(status);
-        familyIdentification.setUser(user);
-        familyIdentification.setTimestamp(time);*/
+        family.setYearResided(yearReside);
+        family.setPlaceOrigin(barangay+','+municipality+','+province+','+region);
+        family.setIsp(isp);
+        family.setSelectBicycle(bicycle);
+        family.setNoBicycle(qBicycle);
+        family.setSelectBoat(boat);
+        family.setNoBoat(qBoat);
+        family.setSelectBus(bus);
+        family.setNoBus(qBus);
+        family.setSelectCar(car);
+        family.setNoCar(qCar);
+        family.setSelectJeep(jeep);
+        family.setNoJeep(qJeep);
+        family.setSelectMotorboat(motorboat);
+        family.setNoMotorboat(qMotorboat);
+        family.setSelectMotorboat(motorboat);
+        family.setNoMotorboat(qMotorboat);
+        family.setSelectOwnerJeep(owner);
+        family.setNoOwnerJeep(qOwner);
+        family.setSelectPedicab(pedicab);
+        family.setNoPedicab(qPedicab);
+        family.setSelectPickup(pickup);
+        family.setNoPickup(qPickup);
+
+
+
+
+
 
         DatabaseReference mFamily = mDatabase.child("family");
         mFamily.child(key).setValue(family, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if(databaseError != null){
-                    onResultListener.setErrorData(databaseError.getMessage().toString());
+                    onResultListenerFamily.setErrorFamilyData(databaseError.getMessage().toString());
                 }
                 else{
-                    onResultListener.onSuccess();
+                    onResultListenerFamily.onSuccessFamily();
                 }
             }
         });
