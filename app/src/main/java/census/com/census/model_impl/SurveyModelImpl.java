@@ -73,10 +73,7 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
         String time = DateFormat.getDateTimeInstance().format(new Date());
         Log.i("time",time);
 
-        /*
-        int pedicab, int qPedicab, int pickup, int qPickup, int pumpboat
-        , int qPumpboat, int raft, int qRaft, int suv, int qSuv,
-        int tric, int qTric, int truck, int qTruck, int van, int qVan*/
+
 
         Family family = new Family();
         family.setId(key);
@@ -103,11 +100,18 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
         family.setNoPedicab(qPedicab);
         family.setSelectPickup(pickup);
         family.setNoPickup(qPickup);
-
-
-
-
-
+        family.setSelectPumpBoat(pumpboat);
+        family.setNoPumpBoat(qPumpboat);
+        family.setSelectRaft(raft);
+        family.setNoRaft(qRaft);
+        family.setSelectSuv(suv);
+        family.setNoSuv(qSuv);
+        family.setSelectTricycle(tric);
+        family.setNoTricycle(qTric);
+        family.setSelectTruck(truck);
+        family.setNoTruck(qTruck);
+        family.setSelectVan(van);
+        family.setNoVan(qVan);
 
         DatabaseReference mFamily = mDatabase.child("family");
         mFamily.child(key).setValue(family, new DatabaseReference.CompletionListener() {
