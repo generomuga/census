@@ -9,6 +9,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.text.DateFormat;
 import java.util.Date;
 
+import census.com.census.Family;
 import census.com.census.FamilyIdentification;
 import census.com.census.model.SurveyModel;
 
@@ -69,5 +70,37 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
     @Override
     public void sendData(int familyNo, int yearReside, String region, String province, String municipality, String barangay, String isp, int bicycle, int qBicycle, int boat, int qBoat, int bus, int qBus, int car, int qCar, int jeep, int qJeep, int motorboat, int qMotorboat, int motorcycle, int qMotorcyle, int owner, int qOwner, int pedicab, int qPedicab, int pickup, int qPickup, int pumpboat, int qPumpboat, int raft, int qRaft, int suv, int qSuv, int tric, int qTric, int truck, int qTruck, int van, int qVan) {
 
+        String time = DateFormat.getDateTimeInstance().format(new Date());
+        Log.i("time",time);
+
+        Family family = new Family();
+        family.setId(key);
+        /*familyIdentification.setfName(fName);
+        familyIdentification.setmName(mName);
+        familyIdentification.setlName(lName);
+        familyIdentification.setRegion(region);
+        familyIdentification.setProvince(province);
+        familyIdentification.setMunicipality(municipality);
+        familyIdentification.setBarangay(barangay);
+        familyIdentification.setHouseNp(houseNo);
+        familyIdentification.setStreetNo(streetNo);
+        familyIdentification.setResidency(residency);
+        familyIdentification.setOwnership(ownership);
+        familyIdentification.setFamilyStatus(status);
+        familyIdentification.setUser(user);
+        familyIdentification.setTimestamp(time);*/
+
+        DatabaseReference mFamily = mDatabase.child("family");
+        mFamily.child(key).setValue(family, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if(databaseError != null){
+                    onResultListener.setErrorData(databaseError.getMessage().toString());
+                }
+                else{
+                    onResultListener.onSuccess();
+                }
+            }
+        });
     }
 }

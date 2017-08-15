@@ -157,7 +157,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     }
 
     private void sendFamily(){
-        familyListener.sendValue(0,1,"IV","Laguna","Calauan","Mabacan","Globe",1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
+        familyListener.sendValue(1,1,"IV","Laguna","Calauan","Mabacan","Globe",1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
     }
 
     @Override

@@ -94,6 +94,8 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
             surveyFamilyListener.setErrorNumFam("Please provide number of family members!");
             return;
         }
+
+        surveyModelFamily.sendData(familyNo,yearReside,region,province,municipality,barangay,isp,bicycle,qBicycle,boat,qBoat,bus,qBus,car,qCar,jeep,qJeep,motorboat,qMotorboat,motorcycle,qMotorcyle,owner,qOwner,pedicab,qPedicab,pickup,qPickup,pumpboat,qPumpboat,raft,qRaft,suv,qSuv,tric,qTric,truck,qTruck,van,qVan);
     }
 
     @Override
