@@ -72,7 +72,8 @@ public class FamilyFragment extends Fragment {
     public static Spinner spinnerBarangay;
 
     public static SeekBar seekBarNoFamMembers;
-    private static TextView textViewNoFamMembers;
+
+    public static TextView textViewNoFamMembers;
     private ArrayList years;
     private ArrayList isps;
     private ArrayAdapter<String> spinnerArrayAdapter;

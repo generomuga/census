@@ -138,23 +138,23 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                     familyIdentificationListener.checkLname(FamilyIdentificationFragment.editTextLName.getText().toString().trim()) &&
                     familyIdentificationListener.checkHouseNo(FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim()) &&
                     familyIdentificationListener.checkStreetNo(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim())) {
-               /* if(checkActiveFragment("Family")) {
-                    Toast.makeText(this,"true",Toast.LENGTH_SHORT).show();
-                    if (familyListener.checkNoFamily(0)) {
+
+                //fragment = new FamilyFragment();
+                //switchFragment(fragment,"Family");
+
+                //Toast.makeText(this,"Please fill up the family form!",Toast.LENGTH_SHORT).show();
+
+                if(checkActiveFragment("Family")) {
+                    if (familyListener.checkNoFamily(Integer.parseInt(FamilyFragment.textViewNoFamMembers.getText().toString()))) {
+
                     }
                 }
                 else{
                     fragment = new FamilyFragment();
                     switchFragment(fragment,"Family");
-                    Toast.makeText(this,"false",Toast.LENGTH_SHORT).show();
-                }*/
-                if(familyListener.checkNoFamily(0)){
-
                 }
 
             }
-
-
     }
 
     private boolean checkActiveFragment(String tag){
