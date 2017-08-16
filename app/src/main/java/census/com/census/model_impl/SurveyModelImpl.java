@@ -70,6 +70,7 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
 
         Family family = new Family();
         family.setId(key);
+        family.setNoFamilyMembers(familyNo);
         family.setYearResided(yearReside);
         family.setPlaceOrigin(barangay+','+municipality+','+province+','+region);
         family.setIsp(isp);
