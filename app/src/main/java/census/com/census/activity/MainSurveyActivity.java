@@ -157,13 +157,16 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     }
 
     private void sendFamily(){
-        /*int familyNo, int yearReside, String region, String province, String municipality, String barangay, String isp, int bicycle, int qBicycle,
+        /*int bicycle, int qBicycle,
                       int boat, int qBoat, int bus, int qBus, int car, int qCar, int jeep, int qJeep, int motorboat, int qMotorboat, int motorcycle, int qMotorcyle,
                       int owner, int qOwner, int pedicab, int qPedicab, int pickup, int qPickup, int pumpboat, int qPumpboat, int raft, int qRaft, int suv, int qSuv,
                       int tric, int qTric, int truck, int qTruck, int van, int qVan*/
 
         familyListener.sendValue(FamilyFragment.seekBarNoFamMembers.getProgress(),
-                                 Integer.parseInt(FamilyFragment.spinnerYear.getSelectedItem().toString()),"IV","Laguna","Calauan","Mabacan","Globe",1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
+                                 Integer.parseInt(FamilyFragment.spinnerYear.getSelectedItem().toString()),FamilyFragment.spinnerRegion.getSelectedItem().toString(),
+                                 FamilyFragment.spinnerProvince.getSelectedItem().toString(),FamilyFragment.spinnerMunicipal.getSelectedItem().toString(),
+                                 FamilyFragment.spinnerBarangay.getSelectedItem().toString(),FamilyFragment.spinnerISP.getSelectedItem().toString(),
+                                 1,Integer.parseInt(FamilyFragment.editTextBicycleNo.getText().toString().trim()),1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
     }
 
     @Override
