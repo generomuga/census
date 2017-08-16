@@ -7,11 +7,16 @@ public interface SurveyView {
         void setErrorLname(String message);
         void setErrorHouseNo(String message);
         void setErrorStreetNo(String message);
-        void onSuccess(String message);
+        //void onSuccess(String message);
     }
     interface OnFamily{
         void setErrorNumFam(String message);
-        void setErrorQuantity(String message);
-        void onSucess(String message);
+        //void setErrorQuantity(String message);
+        //void onSucess(String message);
     }
+
+    //test
+    void onSuccess(String message);
+    void onErrorData(String message);
+
 }
