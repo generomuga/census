@@ -72,7 +72,9 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
         //familyIdentificationListener = (SurveyPresenter.OnFamilyIdentification) (familyListener = new SurveyPresenterImpl(this,this));
         //surveyPresenterListener = new SurveyPresenterImpl(this);
-        familyIdentificationListener = (SurveyPresenter.OnFamilyIdentification) (familyListener = new SurveyPresenterImpl(this, (SurveyView.OnFamily) this));
+        //familyIdentificationListener = (SurveyPresenter.OnFamilyIdentification) (familyListener = new SurveyPresenterImpl(this, this));
+
+        familyIdentificationListener = (SurveyPresenter.OnFamilyIdentification) (familyListener = new SurveyPresenterImpl(this,this));
     }
 
     private void onClearSharedReference(){
@@ -159,8 +161,19 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
             }
         }
 
+
         if(toSendFamilyIdentification && toSendFamily){
-            Toast.makeText(this,"Send data!",Toast.LENGTH_SHORT).show();
+            familyIdentificationListener.sendFamilyIndentifactionValue(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
+                                                   FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
+                                                   FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
+                                                   FamilyIdentificationFragment.spinnerRegions.getSelectedItem().toString(),
+                                                   FamilyIdentificationFragment.spinnerProvinces.getSelectedItem().toString(),
+                                                   FamilyIdentificationFragment.spinnerMunicipal.getSelectedItem().toString(),
+                                                   FamilyIdentificationFragment.spinnerBarangay.getSelectedItem().toString(),
+                                                   FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim(),
+                                                   FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim(),
+                                                   1,1,1,mAuth.getCurrentUser().getEmail());
+
         }
         else{
             Toast.makeText(this,"Please complete all forms!",Toast.LENGTH_SHORT).show();

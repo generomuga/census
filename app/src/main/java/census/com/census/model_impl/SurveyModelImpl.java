@@ -15,13 +15,16 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
     DatabaseReference mDatabase;
     private String key;
 
-    SurveyModel.OnFamilyIdentification.OnResult onResultListener;
-
+    SurveyModel.OnFamilyIdentification.OnResult onResultFamilyIdentificationListener;
     SurveyModel.OnFamily.OnResult onResultListenerFamily;
 
-    public SurveyModelImpl(SurveyModel.OnFamilyIdentification.OnResult onResultListener, SurveyModel.OnFamily.OnResult onResultListenerFamily) {
-        this.onResultListener = onResultListener;
-        this.onResultListenerFamily = onResultListenerFamily;
+    /*public SurveyModelImpl(SurveyPresenterImpl onResultFamilyIdentificationListener, SurveyPresenterImpl onResultListenerFamily) {
+        this.onResultFamilyIdentificationListener = (SurveyModel.OnFamilyIdentification.OnResult) onResultFamilyIdentificationListener;
+        this.onResultListenerFamily = (SurveyModel.OnFamily.OnResult) onResultListenerFamily;
+        mDatabase = FirebaseDatabase.getInstance().getReference("data");
+    }*/
+
+    public SurveyModelImpl() {
         mDatabase = FirebaseDatabase.getInstance().getReference("data");
     }
 
@@ -54,10 +57,10 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if(databaseError != null){
-                    onResultListener.setErrorData(databaseError.getMessage().toString());
+                    onResultFamilyIdentificationListener.setErrorData(databaseError.getMessage().toString());
                 }
                 else{
-                    onResultListener.onSuccess();
+                    onResultFamilyIdentificationListener.onSuccess();
                 }
             }
         });

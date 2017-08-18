@@ -1,6 +1,7 @@
 package census.com.census.presenter_impl;
 
 import census.com.census.model.SurveyModel;
+import census.com.census.model_impl.SurveyModelImpl;
 import census.com.census.presenter.SurveyPresenter;
 import census.com.census.view.SurveyView;
 
@@ -8,13 +9,14 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
 
     SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener;
     SurveyView.OnFamily surveyViewFamilyListener;
-    SurveyModel.OnFamily surveyFamilyIdentificationModel;
+
+    SurveyModel.OnFamilyIdentification surveyFamilyIdentificationModel;
+    SurveyModel.OnFamily surveyFamilyModel;
 
     public SurveyPresenterImpl(SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener,SurveyView.OnFamily surveyViewFamilyListener) {
         this.surveyViewFamilyIdentificationListener = surveyViewFamilyIdentificationListener;
         this.surveyViewFamilyListener = surveyViewFamilyListener;
-        //surveyModel = new SurveyModelImpl(this);
-        
+        surveyFamilyIdentificationModel = new SurveyModelImpl();
     }
 
     @Override
@@ -73,9 +75,10 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
     }
 
     @Override
-    public void sendValue(String fName, String mName, String lName, String region, String province, String municipality, String barangay, String houseNo, String streetNo, int residency, int ownership, int status, String user) {
-
+    public void sendFamilyIndentifactionValue(String fName, String mName, String lName, String region, String province, String municipality, String barangay, String houseNo, String streetNo, int residency, int ownership, int status, String user) {
+        surveyFamilyIdentificationModel.sendFamilyIdentificationData(fName,mName,lName,region,province,municipality,barangay,houseNo,streetNo,residency,ownership,status,user);
     }
+
 
     @Override
     public boolean checkNoFamily(int noFamily) {
