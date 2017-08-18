@@ -38,6 +38,10 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
     private FirebaseAuth mAuth;
 
+    private boolean toSendFamilyIdentification = false;
+    private boolean toSendFamily = false;
+
+
     SurveyPresenter.OnFamilyIdentification familyIdentificationListener;
     SurveyPresenter.OnFamily familyListener;
 
@@ -133,29 +137,28 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     }
 
     private void sendData(){
+        if(checkActiveFragment("FamilyIdentification")) {
             if (familyIdentificationListener.checkFname(FamilyIdentificationFragment.editTextFName.getText().toString().trim()) &&
                     familyIdentificationListener.checkMname(FamilyIdentificationFragment.editTextMName.getText().toString().trim()) &&
                     familyIdentificationListener.checkLname(FamilyIdentificationFragment.editTextLName.getText().toString().trim()) &&
                     familyIdentificationListener.checkHouseNo(FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim()) &&
                     familyIdentificationListener.checkStreetNo(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim())) {
-
-                //fragment = new FamilyFragment();
-                //switchFragment(fragment,"Family");
-
-                //Toast.makeText(this,"Please fill up the family form!",Toast.LENGTH_SHORT).show();
-
-                if(checkActiveFragment("Family")) {
-                    if (familyListener.checkNoFamily(Integer.parseInt(FamilyFragment.textViewNoFamMembers.getText().toString()))) {
-
-                    }
-                }
-                else{
-                    fragment = new FamilyFragment();
-                    switchFragment(fragment,"Family");
-                }
-
+                    toSendFamilyIdentification = true;
             }
+
+        }
+        if (checkActiveFragment("Family")){
+            if(familyListener.checkNoFamily(FamilyFragment.seekBarNoFamMembers.getProgress())){
+                toSendFamily = true;
+            }
+        }
+
+        if(toSendFamilyIdentification && toSendFamily){
+            Toast.makeText(this,"Send data!",Toast.LENGTH_SHORT).show();
+        }
+        
     }
+
 
     private boolean checkActiveFragment(String tag){
             Fragment fragment =  getSupportFragmentManager().findFragmentByTag(tag);
