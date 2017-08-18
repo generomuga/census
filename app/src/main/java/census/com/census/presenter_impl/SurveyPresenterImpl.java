@@ -1,5 +1,6 @@
 package census.com.census.presenter_impl;
 
+import census.com.census.model.SurveyModel;
 import census.com.census.presenter.SurveyPresenter;
 import census.com.census.view.SurveyView;
 
@@ -7,11 +8,13 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
 
     SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener;
     SurveyView.OnFamily surveyViewFamilyListener;
+    SurveyModel.OnFamily surveyFamilyIdentificationModel;
 
     public SurveyPresenterImpl(SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener,SurveyView.OnFamily surveyViewFamilyListener) {
         this.surveyViewFamilyIdentificationListener = surveyViewFamilyIdentificationListener;
         this.surveyViewFamilyListener = surveyViewFamilyListener;
         //surveyModel = new SurveyModelImpl(this);
+        
     }
 
     @Override
@@ -70,6 +73,11 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
     }
 
     @Override
+    public void sendValue(String fName, String mName, String lName, String region, String province, String municipality, String barangay, String houseNo, String streetNo, int residency, int ownership, int status, String user) {
+
+    }
+
+    @Override
     public boolean checkNoFamily(int noFamily) {
         if(noFamily == 0){
             surveyViewFamilyListener.setErrorNumFam("Number of family members must have a value!");
@@ -78,7 +86,6 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
             return true;
         }
     }
-
 
     /*@Override
     public void sendValue(String fName, String mName, String lName, String region, String province, String municipality, String barangay, String houseNo, String streetNo, int residency, int ownership, int status, String user) {

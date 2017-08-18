@@ -26,7 +26,7 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
     }
 
     @Override
-    public void sendData(String fName, String mName, String lName, String region, String province, String municipality, String barangay, String houseNo, String streetNo, int residency, int ownership, int status, String user) {
+    public void sendFamilyIdentificationData(String fName, String mName, String lName, String region, String province, String municipality, String barangay, String houseNo, String streetNo, int residency, int ownership, int status, String user) {
 
         key = mDatabase.push().getKey();
 
@@ -120,4 +120,6 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
             }
         });
     }
+
+
 }

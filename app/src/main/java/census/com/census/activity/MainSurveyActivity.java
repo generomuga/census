@@ -38,8 +38,8 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
     private FirebaseAuth mAuth;
 
-    private boolean toSendFamilyIdentification = false;
-    private boolean toSendFamily = false;
+    private boolean toSendFamilyIdentification;
+    private boolean toSendFamily;
 
 
     SurveyPresenter.OnFamilyIdentification familyIdentificationListener;
@@ -145,18 +145,27 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                     familyIdentificationListener.checkStreetNo(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim())) {
                     toSendFamilyIdentification = true;
             }
+            else{
+                toSendFamilyIdentification = false;
+            }
 
         }
         if (checkActiveFragment("Family")){
             if(familyListener.checkNoFamily(FamilyFragment.seekBarNoFamMembers.getProgress())){
                 toSendFamily = true;
             }
+            else{
+                toSendFamily = false;
+            }
         }
 
         if(toSendFamilyIdentification && toSendFamily){
             Toast.makeText(this,"Send data!",Toast.LENGTH_SHORT).show();
         }
-        
+        else{
+            Toast.makeText(this,"Please complete all forms!",Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 
@@ -287,4 +296,5 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
         switchFragment(fragment,"Family");
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
+
 }
