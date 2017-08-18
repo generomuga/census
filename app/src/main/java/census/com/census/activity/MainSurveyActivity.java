@@ -27,7 +27,7 @@ import census.com.census.R;
 import census.com.census.presenter_impl.SurveyPresenterImpl;
 import census.com.census.view.SurveyView;
 
-public class MainSurveyActivity extends AppCompatActivity implements SurveyView.OnFamilyIdentification,SurveyView.OnFamily{
+public class MainSurveyActivity extends AppCompatActivity implements SurveyView.OnFamilyIdentification{
 
     private Toolbar toolBarSurvey;
     private SharedPreferences sharedPreferences;
@@ -74,7 +74,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
         //surveyPresenterListener = new SurveyPresenterImpl(this);
         //familyIdentificationListener = (SurveyPresenter.OnFamilyIdentification) (familyListener = new SurveyPresenterImpl(this, this));
 
-        familyIdentificationListener = (SurveyPresenter.OnFamilyIdentification) (familyListener = new SurveyPresenterImpl(this,this));
+        familyIdentificationListener = new SurveyPresenterImpl(this);
     }
 
     private void onClearSharedReference(){
@@ -139,31 +139,45 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     }
 
     private void sendData(){
+        mProgress.setMessage("Sending data...");
+        mProgress.setCancelable(false);
+        mProgress.show();
+
         if(checkActiveFragment("FamilyIdentification")) {
             if (familyIdentificationListener.checkFname(FamilyIdentificationFragment.editTextFName.getText().toString().trim()) &&
                     familyIdentificationListener.checkMname(FamilyIdentificationFragment.editTextMName.getText().toString().trim()) &&
                     familyIdentificationListener.checkLname(FamilyIdentificationFragment.editTextLName.getText().toString().trim()) &&
                     familyIdentificationListener.checkHouseNo(FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim()) &&
                     familyIdentificationListener.checkStreetNo(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim())) {
-                    toSendFamilyIdentification = true;
+                    //toSendFamilyIdentification = true;
+
+                familyIdentificationListener.sendFamilyIdentificationValue(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
+                        FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
+                        FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
+                        FamilyIdentificationFragment.spinnerRegions.getSelectedItem().toString(),
+                        FamilyIdentificationFragment.spinnerProvinces.getSelectedItem().toString(),
+                        FamilyIdentificationFragment.spinnerMunicipal.getSelectedItem().toString(),
+                        FamilyIdentificationFragment.spinnerBarangay.getSelectedItem().toString(),
+                        FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim(),
+                        FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim(),
+                        1,1,1, mAuth.getCurrentUser().getEmail());
             }
             else{
-                toSendFamilyIdentification = false;
+                //toSendFamilyIdentification = false;
             }
 
         }
-        if (checkActiveFragment("Family")){
+        /*if (checkActiveFragment("Family")){
             if(familyListener.checkNoFamily(FamilyFragment.seekBarNoFamMembers.getProgress())){
                 toSendFamily = true;
             }
             else{
                 toSendFamily = false;
             }
-        }
+        }*/
 
-
-        if(toSendFamilyIdentification && toSendFamily){
-            familyIdentificationListener.sendFamilyIndentifactionValue(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
+        /*if(toSendFamilyIdentification){
+            familyIdentificationListener.sendFamilyIdentificationValue(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
                                                    FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
                                                    FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
                                                    FamilyIdentificationFragment.spinnerRegions.getSelectedItem().toString(),
@@ -172,15 +186,12 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                                                    FamilyIdentificationFragment.spinnerBarangay.getSelectedItem().toString(),
                                                    FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim(),
                                                    FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim(),
-                                                   1,1,1,mAuth.getCurrentUser().getEmail());
-
+                                                   1,1,1, mAuth.getCurrentUser().getEmail());
         }
         else{
             Toast.makeText(this,"Please complete all forms!",Toast.LENGTH_SHORT).show();
-        }
-
+        }*/
     }
-
 
     private boolean checkActiveFragment(String tag){
             Fragment fragment =  getSupportFragmentManager().findFragmentByTag(tag);
@@ -262,9 +273,9 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                                  1,Integer.parseInt(FamilyFragment.editTextBicycleNo.getText().toString().trim()),1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
         */
 
-        if(familyListener.checkNoFamily(0)){
+        //if(familyListener.checkNoFamily(0)){
 
-        }
+        //}
     }
 
 
@@ -302,12 +313,9 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
         FamilyIdentificationFragment.editTextStreetNo.setError(message);
     }
 
-
     @Override
-    public void setErrorNumFam(String message) {
-        fragment = new FamilyFragment();
-        switchFragment(fragment,"Family");
+    public void onSuccessFamilyIdentification(String message) {
+        mProgress.dismiss();
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
-
 }

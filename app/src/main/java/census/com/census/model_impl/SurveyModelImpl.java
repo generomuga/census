@@ -6,17 +6,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.text.DateFormat;
 import java.util.Date;
-import census.com.census.Family;
 import census.com.census.FamilyIdentification;
 import census.com.census.model.SurveyModel;
 
-public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,SurveyModel.OnFamily{
+public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification{
 
     DatabaseReference mDatabase;
     private String key;
 
     SurveyModel.OnFamilyIdentification.OnResult onResultFamilyIdentificationListener;
-    SurveyModel.OnFamily.OnResult onResultListenerFamily;
 
     /*public SurveyModelImpl(SurveyPresenterImpl onResultFamilyIdentificationListener, SurveyPresenterImpl onResultListenerFamily) {
         this.onResultFamilyIdentificationListener = (SurveyModel.OnFamilyIdentification.OnResult) onResultFamilyIdentificationListener;
@@ -24,8 +22,10 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
         mDatabase = FirebaseDatabase.getInstance().getReference("data");
     }*/
 
-    public SurveyModelImpl() {
+    public SurveyModelImpl(OnResult onResultFamilyIdentificationListener) {
+        this.onResultFamilyIdentificationListener = onResultFamilyIdentificationListener;
         mDatabase = FirebaseDatabase.getInstance().getReference("data");
+
     }
 
     @Override
@@ -57,16 +57,16 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if(databaseError != null){
-                    onResultFamilyIdentificationListener.setErrorData(databaseError.getMessage().toString());
+                    onResultFamilyIdentificationListener.setErrorDataFamilyIdentification(databaseError.getMessage().toString());
                 }
                 else{
-                    onResultFamilyIdentificationListener.onSuccess();
+                    onResultFamilyIdentificationListener.onSuccessFamilyIdentification();
                 }
             }
         });
     }
 
-    @Override
+    /*@Override
     public void sendData(int familyNo, int yearReside, String region, String province, String municipality, String barangay, String isp, int bicycle, int qBicycle, int boat, int qBoat, int bus, int qBus, int car, int qCar, int jeep, int qJeep, int motorboat, int qMotorboat, int motorcycle, int qMotorcyle, int owner, int qOwner, int pedicab, int qPedicab, int pickup, int qPickup, int pumpboat, int qPumpboat, int raft, int qRaft, int suv, int qSuv, int tric, int qTric, int truck, int qTruck, int van, int qVan) {
 
         String time = DateFormat.getDateTimeInstance().format(new Date());
@@ -123,6 +123,6 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
             }
         });
     }
-
+    */
 
 }

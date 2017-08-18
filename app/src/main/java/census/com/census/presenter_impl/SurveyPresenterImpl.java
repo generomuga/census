@@ -5,19 +5,18 @@ import census.com.census.model_impl.SurveyModelImpl;
 import census.com.census.presenter.SurveyPresenter;
 import census.com.census.view.SurveyView;
 
-public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentification,SurveyPresenter.OnFamily{
+public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentification,SurveyModel.OnFamilyIdentification.OnResult{
 
     SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener;
-    SurveyView.OnFamily surveyViewFamilyListener;
 
     SurveyModel.OnFamilyIdentification surveyFamilyIdentificationModel;
-    SurveyModel.OnFamily surveyFamilyModel;
 
-    public SurveyPresenterImpl(SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener,SurveyView.OnFamily surveyViewFamilyListener) {
+
+    public SurveyPresenterImpl(SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener) {
         this.surveyViewFamilyIdentificationListener = surveyViewFamilyIdentificationListener;
-        this.surveyViewFamilyListener = surveyViewFamilyListener;
-        surveyFamilyIdentificationModel = new SurveyModelImpl();
+        surveyFamilyIdentificationModel = new SurveyModelImpl(this);
     }
+
 
     @Override
     public boolean checkFname(String fname){
@@ -75,19 +74,18 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
     }
 
     @Override
-    public void sendFamilyIndentifactionValue(String fName, String mName, String lName, String region, String province, String municipality, String barangay, String houseNo, String streetNo, int residency, int ownership, int status, String user) {
+    public void sendFamilyIdentificationValue(String fName, String mName, String lName, String region, String province, String municipality, String barangay, String houseNo, String streetNo, int residency, int ownership, int status, String user) {
         surveyFamilyIdentificationModel.sendFamilyIdentificationData(fName,mName,lName,region,province,municipality,barangay,houseNo,streetNo,residency,ownership,status,user);
     }
 
+    @Override
+    public void setErrorDataFamilyIdentification(String message) {
+
+    }
 
     @Override
-    public boolean checkNoFamily(int noFamily) {
-        if(noFamily == 0){
-            surveyViewFamilyListener.setErrorNumFam("Number of family members must have a value!");
-            return false;        }
-        else{
-            return true;
-        }
+    public void onSuccessFamilyIdentification() {
+        surveyViewFamilyIdentificationListener.onSuccessFamilyIdentification("Successfully submitted!");
     }
 
     /*@Override
