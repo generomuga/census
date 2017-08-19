@@ -15,6 +15,7 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
 
     DatabaseReference mDatabase;
     private String key;
+    private String time;
 
     SurveyModel.OnFamilyIdentification.OnResult onResultFamilyIdentificationListener;
     SurveyModel.OnFamily.OnResult onResultFamily;
@@ -24,14 +25,12 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
         this.onResultFamilyIdentificationListener = onResultFamilyIdentificationListener;
         this.onResultFamily = onResultFamily;
         mDatabase = FirebaseDatabase.getInstance().getReference("data");
+        time = DateFormat.getDateTimeInstance().format(new Date());
     }
 
     @Override
     public void sendFamilyIdentificationData(String fName, String mName, String lName, String region, String province, String municipality, String barangay, String houseNo, String streetNo, int residency, int ownership, int status, String user) {
-
         key = mDatabase.push().getKey();
-
-        String time = DateFormat.getDateTimeInstance().format(new Date());
 
         FamilyIdentification familyIdentification = new FamilyIdentification();
         familyIdentification.setId(key);
@@ -106,6 +105,7 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
         family.setNoTruck(qTruck);
         family.setSelectVan(van);
         family.setNoVan(qVan);
+        family.setTimeStamp(time);
 
         DatabaseReference mFamily = mDatabase.child("family");
         mFamily.child(key).setValue(family, new DatabaseReference.CompletionListener() {
@@ -119,7 +119,6 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
                 }
             }
         });
-
     }
 
     /*@Override

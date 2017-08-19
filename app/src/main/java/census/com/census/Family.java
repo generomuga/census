@@ -40,6 +40,7 @@ public class Family {
     private int noTruck;
     private int selectVan;
     private int noVan;
+    private String timeStamp;
 
     public String getId() {
         return id;
@@ -343,5 +344,13 @@ public class Family {
 
     public void setNoVan(int noVan) {
         this.noVan = noVan;
+    }
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
     }
 }
