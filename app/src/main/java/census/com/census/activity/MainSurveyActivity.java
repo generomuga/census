@@ -71,10 +71,6 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                     .add(R.id.fragmentMain,fragment,tag).commit();
         }
 
-        //familyIdentificationListener = (SurveyPresenter.OnFamilyIdentification) (familyListener = new SurveyPresenterImpl(this,this));
-        //surveyPresenterListener = new SurveyPresenterImpl(this);
-        //familyIdentificationListener = (SurveyPresenter.OnFamilyIdentification) (familyListener = new SurveyPresenterImpl(this, this));
-
         familyIdentificationListener = (SurveyPresenter.OnFamilyIdentification) (familyListener = new SurveyPresenterImpl(this,this));
     }
 
@@ -133,8 +129,6 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_save:
-                //sendFamilyIdentification();
-                //sendFamily();
                 sendData();
                 break;
         }
@@ -142,7 +136,6 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     }
 
     private void sendData(){
-
         Toast.makeText(this,Boolean.toString(isOpenFamilyIdentification)+' '+ Boolean.toString(isOpenFamily),Toast.LENGTH_SHORT).show();
 
         boolean isFamilyIdentificationComplete = false;
@@ -219,65 +212,6 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
         return check;
     }
 
-
-    private void sendFamilyIdentification(){
-        if(familyIdentificationListener.checkFname(FamilyIdentificationFragment.editTextFName.getText().toString().trim())  &&
-                familyIdentificationListener.checkMname(FamilyIdentificationFragment.editTextMName.getText().toString().trim()) &&
-                familyIdentificationListener.checkLname(FamilyIdentificationFragment.editTextLName.getText().toString().trim()) &&
-                familyIdentificationListener.checkHouseNo(FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim()) &&
-                familyIdentificationListener.checkStreetNo(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim()))
-                {
-                    //mProgress.setMessage("Sending information...");
-                    //mProgress.setCancelable(false);
-                    //mProgress.show();
-
-                    //FirebaseUser currentUser = mAuth.getCurrentUser();
-
-                    /*familyIdentificationListener.sendValue(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
-                            FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
-                            FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
-                            FamilyIdentificationFragment.spinnerRegions.getSelectedItem().toString().trim(),
-                            FamilyIdentificationFragment.spinnerProvinces.getSelectedItem().toString().trim(),
-                            FamilyIdentificationFragment.spinnerMunicipal.getSelectedItem().toString().trim(),
-                            FamilyIdentificationFragment.spinnerBarangay.getSelectedItem().toString().trim(),
-                            FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim(),
-                            FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim(),
-                            1,1,1,currentUser.getEmail());*/
-
-                    /*surveyPresenterListener.sendValueFamilyIdentification(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
-                            FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
-                            FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
-                            FamilyIdentificationFragment.spinnerRegions.getSelectedItem().toString().trim(),
-                            FamilyIdentificationFragment.spinnerProvinces.getSelectedItem().toString().trim(),
-                            FamilyIdentificationFragment.spinnerMunicipal.getSelectedItem().toString().trim(),
-                            FamilyIdentificationFragment.spinnerBarangay.getSelectedItem().toString().trim(),
-                            FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim(),
-                            FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim(),
-                            1,1,1,currentUser.getEmail());*/
-                }
-
-
-    }
-
-    private void sendFamily(){
-        /*int bicycle, int qBicycle,
-                      int boat, int qBoat, int bus, int qBus, int car, int qCar, int jeep, int qJeep, int motorboat, int qMotorboat, int motorcycle, int qMotorcyle,
-                      int owner, int qOwner, int pedicab, int qPedicab, int pickup, int qPickup, int pumpboat, int qPumpboat, int raft, int qRaft, int suv, int qSuv,
-                      int tric, int qTric, int truck, int qTruck, int van, int qVan*/
-
-        /*familyListener.sendValue(FamilyFragment.seekBarNoFamMembers.getProgress(),
-                                 Integer.parseInt(FamilyFragment.spinnerYear.getSelectedItem().toString()),FamilyFragment.spinnerRegion.getSelectedItem().toString(),
-                                 FamilyFragment.spinnerProvince.getSelectedItem().toString(),FamilyFragment.spinnerMunicipal.getSelectedItem().toString(),
-                                 FamilyFragment.spinnerBarangay.getSelectedItem().toString(),FamilyFragment.spinnerISP.getSelectedItem().toString(),
-                                 1,Integer.parseInt(FamilyFragment.editTextBicycleNo.getText().toString().trim()),1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
-        */
-
-        //if(familyListener.checkNoFamily(0)){
-
-        //}
-    }
-
-
     @Override
     public void onBackPressed() {
         finish();
@@ -315,7 +249,6 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     @Override
     public void onSuccessFamilyIdentification(String message) {
         mProgress.dismiss();
-        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -333,7 +266,8 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     @Override
     public void onSuccessFamily(String message) {
         mProgress.dismiss();
-        Toast.makeText(this,message,Toast.LENGTH_SHORT);
+        startActivity(new Intent(MainSurveyActivity.this,MainActivity.class));
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 
     @Override
