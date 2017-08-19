@@ -25,6 +25,8 @@ public class HealthFragment extends Fragment {
     public static RadioButton radioButtonFamilyNo;
     public static RadioButton radioButtonFamilyNa;
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
