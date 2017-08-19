@@ -8,11 +8,13 @@ public interface SurveyView {
         void setErrorHouseNo(String message);
         void setErrorStreetNo(String message);
         void onSuccessFamilyIdentification(String message);
+        void onErrorFamilyIdentification(String message);
     }
     interface OnFamily{
         void setErrorNumFam(String message);
         //void setErrorQuantity(String message);
-        //void onSucess(String message);
+        void onSuccessFamily(String message);
+        void onErrorFamily(String message);
     }
 
     //test

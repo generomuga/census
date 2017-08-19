@@ -6,26 +6,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.text.DateFormat;
 import java.util.Date;
+
+import census.com.census.Family;
 import census.com.census.FamilyIdentification;
 import census.com.census.model.SurveyModel;
 
-public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification{
+public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,SurveyModel.OnFamily{
 
     DatabaseReference mDatabase;
     private String key;
 
     SurveyModel.OnFamilyIdentification.OnResult onResultFamilyIdentificationListener;
+    SurveyModel.OnFamily.OnResult onResultFamily;
 
-    /*public SurveyModelImpl(SurveyPresenterImpl onResultFamilyIdentificationListener, SurveyPresenterImpl onResultListenerFamily) {
-        this.onResultFamilyIdentificationListener = (SurveyModel.OnFamilyIdentification.OnResult) onResultFamilyIdentificationListener;
-        this.onResultListenerFamily = (SurveyModel.OnFamily.OnResult) onResultListenerFamily;
-        mDatabase = FirebaseDatabase.getInstance().getReference("data");
-    }*/
 
-    public SurveyModelImpl(OnResult onResultFamilyIdentificationListener) {
+    public SurveyModelImpl(SurveyModel.OnFamilyIdentification.OnResult onResultFamilyIdentificationListener, SurveyModel.OnFamily.OnResult onResultFamily) {
         this.onResultFamilyIdentificationListener = onResultFamilyIdentificationListener;
+        this.onResultFamily = onResultFamily;
         mDatabase = FirebaseDatabase.getInstance().getReference("data");
-
     }
 
     @Override
@@ -64,6 +62,64 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification{
                 }
             }
         });
+    }
+
+    @Override
+    public void sendFamily(int familyNo, int yearReside, String region, String province, String municipality, String barangay, String isp, int bicycle, int qBicycle, int boat, int qBoat, int bus, int qBus, int car, int qCar, int jeep, int qJeep, int motorboat, int qMotorboat, int motorcycle, int qMotorcyle, int owner, int qOwner, int pedicab, int qPedicab, int pickup, int qPickup, int pumpboat, int qPumpboat, int raft, int qRaft, int suv, int qSuv, int tric, int qTric, int truck, int qTruck, int van, int qVan) {
+        //String time = DateFormat.getDateTimeInstance().format(new Date());
+
+        Family family = new Family();
+        family.setId(key);
+        family.setNoFamilyMembers(familyNo);
+        family.setYearResided(yearReside);
+        family.setPlaceOrigin(barangay+','+municipality+','+province+','+region);
+        family.setIsp(isp);
+        family.setSelectBicycle(bicycle);
+        family.setNoBicycle(qBicycle);
+        family.setSelectBoat(boat);
+        family.setNoBoat(qBoat);
+        family.setSelectBus(bus);
+        family.setNoBus(qBus);
+        family.setSelectCar(car);
+        family.setNoCar(qCar);
+        family.setSelectJeep(jeep);
+        family.setNoJeep(qJeep);
+        family.setSelectMotorboat(motorboat);
+        family.setNoMotorboat(qMotorboat);
+        family.setSelectMotorboat(motorboat);
+        family.setNoMotorboat(qMotorboat);
+        family.setSelectOwnerJeep(owner);
+        family.setNoOwnerJeep(qOwner);
+        family.setSelectPedicab(pedicab);
+        family.setNoPedicab(qPedicab);
+        family.setSelectPickup(pickup);
+        family.setNoPickup(qPickup);
+        family.setSelectPumpBoat(pumpboat);
+        family.setNoPumpBoat(qPumpboat);
+        family.setSelectRaft(raft);
+        family.setNoRaft(qRaft);
+        family.setSelectSuv(suv);
+        family.setNoSuv(qSuv);
+        family.setSelectTricycle(tric);
+        family.setNoTricycle(qTric);
+        family.setSelectTruck(truck);
+        family.setNoTruck(qTruck);
+        family.setSelectVan(van);
+        family.setNoVan(qVan);
+
+        DatabaseReference mFamily = mDatabase.child("family");
+        mFamily.child(key).setValue(family, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if(databaseError != null){
+                    onResultFamily.setErrorFamilyData(databaseError.getMessage().toString());
+                }
+                else{
+                    onResultFamily.onSuccessFamily();
+                }
+            }
+        });
+
     }
 
     /*@Override
