@@ -39,8 +39,8 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
     private FirebaseAuth mAuth;
 
-    private boolean toSendFamilyIdentification;
-    private boolean toSendFamily;
+    private boolean isOpenFamilyIdentification;
+    private boolean isOpenFamily;
 
     SurveyPresenter.OnFamilyIdentification familyIdentificationListener;
     SurveyPresenter.OnFamily familyListener;
@@ -65,7 +65,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
         //checks for save instance state
         if(savedInstanceState == null){
             tag = "FamilyIdentification";
-            toSendFamilyIdentification = true;
+            isOpenFamilyIdentification = true;
             fragment = new FamilyIdentificationFragment();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragmentMain,fragment,tag).commit();
@@ -87,7 +87,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
         switch (view.getId()){
             case R.id.imageButtonFamilyId:
                 tag = "FamilyIdentification";
-                toSendFamilyIdentification = true;
+                isOpenFamilyIdentification = true;
                 getSupportActionBar().setTitle("Identification");
                 fragment = new FamilyIdentificationFragment();
                 switchFragment(fragment,tag);
@@ -95,7 +95,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
             case R.id.imageButtonFamily:
                 tag = "Family";
-                toSendFamily = true;
+                isOpenFamily = true;
                 getSupportActionBar().setTitle("Family");
                 fragment = new FamilyFragment();
                 switchFragment(fragment,"Family");
@@ -143,22 +143,21 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
     private void sendData(){
 
-        Toast.makeText(this,Boolean.toString(toSendFamilyIdentification)+' '+ Boolean.toString(toSendFamily),Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,Boolean.toString(isOpenFamilyIdentification)+' '+ Boolean.toString(isOpenFamily),Toast.LENGTH_SHORT).show();
 
         boolean isFamilyIdentificationComplete = false;
         boolean isFamilyComplete = false;
 
-        if(toSendFamilyIdentification){
+        if(isOpenFamilyIdentification) {
             if (familyIdentificationListener.checkFname(FamilyIdentificationFragment.editTextFName.getText().toString().trim()) &&
                     familyIdentificationListener.checkMname(FamilyIdentificationFragment.editTextMName.getText().toString().trim()) &&
                     familyIdentificationListener.checkLname(FamilyIdentificationFragment.editTextLName.getText().toString().trim()) &&
                     familyIdentificationListener.checkHouseNo(FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim()) &&
                     familyIdentificationListener.checkStreetNo(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim())) {
-
                 isFamilyIdentificationComplete = true;
             }
-
-        if(toSendFamily){
+        }
+        if(isOpenFamily){
             if (familyListener.checkNoFamily(FamilyFragment.seekBarNoFamMembers.getProgress())) {
                 isFamilyComplete = true;
             }
@@ -185,9 +184,10 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                     FamilyFragment.spinnerProvince.getSelectedItem().toString(),FamilyFragment.spinnerMunicipal.getSelectedItem().toString(),
                     FamilyFragment.spinnerBarangay.getSelectedItem().toString(),FamilyFragment.spinnerISP.getSelectedItem().toString(),
                     1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
-
             }
-       }
+        else {
+            Toast.makeText(this,"Please complete all the forms",Toast.LENGTH_SHORT).show();
+        }
     }
 
     private boolean checkActiveFragment(String tag){
