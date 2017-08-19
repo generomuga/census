@@ -21,8 +21,8 @@ public interface SurveyPresenter {
                        int tric, int qTric, int truck, int qTruck, int van, int qVan);
     }
 
-    //test
-    //void sendValueFamilyIdentification(String fName,String mName,String lName,String region,String province,
-    //               String municipality,String barangay,String houseNo,String streetNo, int residency, int ownership, int status, String user);
-
+    interface OnHealth{
+        void sendHealthValue(int eatComplete,int plantHerbal,int vegGarden, int useIodize, int familyPlan, int basal, int cervical, int lactation, int rhtythm,
+                int standard, int sympho, int withdrawal, int condom, int depo, int iud, int tubal, int pills, int vasectomy, int others);
+    }
 }

@@ -5,17 +5,21 @@ import census.com.census.model_impl.SurveyModelImpl;
 import census.com.census.presenter.SurveyPresenter;
 import census.com.census.view.SurveyView;
 
-public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentification,SurveyModel.OnFamilyIdentification.OnResult,SurveyPresenter.OnFamily,SurveyModel.OnFamily.OnResult{
+public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentification,SurveyModel.OnFamilyIdentification.OnResult,SurveyPresenter.OnFamily,SurveyModel.OnFamily.OnResult,
+                                            SurveyPresenter.OnHealth
+    {
 
     SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener;
     SurveyView.OnFamily surveyViewFamilyListener;
+    SurveyView.OnHealth surveyViewHealthListener;
 
     SurveyModel.OnFamilyIdentification surveyFamilyIdentificationModel;
     SurveyModel.OnFamily surveyFamilyModel;
 
-    public SurveyPresenterImpl(SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener,SurveyView.OnFamily surveyViewFamilyListener) {
+    public SurveyPresenterImpl(SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener,SurveyView.OnFamily surveyViewFamilyListener,SurveyView.OnHealth surveyViewHealthListener) {
         this.surveyViewFamilyIdentificationListener = surveyViewFamilyIdentificationListener;
         this.surveyViewFamilyListener = surveyViewFamilyListener;
+        this.surveyViewHealthListener = surveyViewHealthListener;
         surveyFamilyIdentificationModel = (SurveyModel.OnFamilyIdentification) (surveyFamilyModel = new SurveyModelImpl(this,this));
     }
 
@@ -112,6 +116,11 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
     @Override
     public void onSuccessFamily() {
         surveyViewFamilyListener.onSuccessFamily("Successfully submitted family");
+    }
+
+    @Override
+    public void sendHealthValue(int eatComplete, int plantHerbal, int vegGarden, int useIodize, int familyPlan, int basal, int cervical, int lactation, int rhtythm, int standard, int sympho, int withdrawal, int condom, int depo, int iud, int tubal, int pills, int vasectomy, int others) {
+
     }
 
     /*@Override

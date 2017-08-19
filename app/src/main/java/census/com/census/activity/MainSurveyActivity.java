@@ -28,7 +28,7 @@ import census.com.census.R;
 import census.com.census.presenter_impl.SurveyPresenterImpl;
 import census.com.census.view.SurveyView;
 
-public class MainSurveyActivity extends AppCompatActivity implements SurveyView.OnFamilyIdentification,SurveyView.OnFamily{
+public class MainSurveyActivity extends AppCompatActivity implements SurveyView.OnFamilyIdentification,SurveyView.OnFamily,SurveyView.OnHealth{
 
     private Toolbar toolBarSurvey;
     private SharedPreferences sharedPreferences;
@@ -41,9 +41,11 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
     private boolean isOpenFamilyIdentification;
     private boolean isOpenFamily;
+    private boolean isOpenHealth;
 
     SurveyPresenter.OnFamilyIdentification familyIdentificationListener;
     SurveyPresenter.OnFamily familyListener;
+    SurveyPresenter.OnHealth healthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +73,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                     .add(R.id.fragmentMain,fragment,tag).commit();
         }
 
-        familyIdentificationListener = (SurveyPresenter.OnFamilyIdentification) (familyListener = new SurveyPresenterImpl(this,this));
+        familyIdentificationListener = (SurveyPresenter.OnFamilyIdentification) (familyListener = (SurveyPresenter.OnFamily) (healthListener = new SurveyPresenterImpl(this,this,this)));
     }
 
     private void onClearSharedReference(){
@@ -99,6 +101,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
             case R.id.imageButtonHealth:
                 tag = "Health";
+                isOpenHealth = true;
                 getSupportActionBar().setTitle("Health");
                 fragment = new HealthFragment();
                 switchFragment(fragment,"Health");
@@ -140,6 +143,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
         boolean isFamilyIdentificationComplete = false;
         boolean isFamilyComplete = false;
+        boolean isHealthComplete = false;
 
         if(isOpenFamilyIdentification) {
             if (familyIdentificationListener.checkFname(FamilyIdentificationFragment.editTextFName.getText().toString().trim()) &&
@@ -155,8 +159,11 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                 isFamilyComplete = true;
             }
         }
+        if(isOpenHealth){
+            isHealthComplete = true;
+        }
 
-        if(isFamilyIdentificationComplete && isFamilyComplete){
+        if(isFamilyIdentificationComplete && isFamilyComplete && isHealthComplete){
             mProgress.setMessage("Sending data...");
             mProgress.setCancelable(true);
             mProgress.show();
@@ -177,6 +184,8 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                     FamilyFragment.spinnerProvince.getSelectedItem().toString(),FamilyFragment.spinnerMunicipal.getSelectedItem().toString(),
                     FamilyFragment.spinnerBarangay.getSelectedItem().toString(),FamilyFragment.spinnerISP.getSelectedItem().toString(),
                     1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
+
+            healthListener.sendHealthValue(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19);
             }
         else {
             Toast.makeText(this,"Please complete all the forms",Toast.LENGTH_SHORT).show();
@@ -274,5 +283,15 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     public void onErrorFamily(String message) {
         mProgress.dismiss();
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onSuccessHealth(String message) {
+
+    }
+
+    @Override
+    public void onErrorHealth(String message) {
+
     }
 }

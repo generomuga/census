@@ -1,6 +1,7 @@
 package census.com.census.view;
 
 public interface SurveyView {
+
     interface OnFamilyIdentification{
         void setErrorFname(String message);
         void setErrorMname(String message);
@@ -10,6 +11,7 @@ public interface SurveyView {
         void onSuccessFamilyIdentification(String message);
         void onErrorFamilyIdentification(String message);
     }
+
     interface OnFamily{
         void setErrorNumFam(String message);
         //void setErrorQuantity(String message);
@@ -17,8 +19,8 @@ public interface SurveyView {
         void onErrorFamily(String message);
     }
 
-    //test
-    void onSuccess(String message);
-    void onErrorData(String message);
-
+    interface OnHealth{
+        void onSuccessHealth(String message);
+        void onErrorHealth(String message);
+    }
 }
