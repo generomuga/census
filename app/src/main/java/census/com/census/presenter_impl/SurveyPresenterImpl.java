@@ -6,7 +6,7 @@ import census.com.census.presenter.SurveyPresenter;
 import census.com.census.view.SurveyView;
 
 public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentification,SurveyModel.OnFamilyIdentification.OnResult,SurveyPresenter.OnFamily,SurveyModel.OnFamily.OnResult,
-                                            SurveyPresenter.OnHealth
+                                            SurveyPresenter.OnHealth,SurveyModel.OnHealth.OnResult
     {
 
     SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener;
@@ -15,12 +15,13 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
 
     SurveyModel.OnFamilyIdentification surveyFamilyIdentificationModel;
     SurveyModel.OnFamily surveyFamilyModel;
+    SurveyModel.OnHealth surveyHealthModel;
 
     public SurveyPresenterImpl(SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener,SurveyView.OnFamily surveyViewFamilyListener,SurveyView.OnHealth surveyViewHealthListener) {
         this.surveyViewFamilyIdentificationListener = surveyViewFamilyIdentificationListener;
         this.surveyViewFamilyListener = surveyViewFamilyListener;
         this.surveyViewHealthListener = surveyViewHealthListener;
-        surveyFamilyIdentificationModel = (SurveyModel.OnFamilyIdentification) (surveyFamilyModel = new SurveyModelImpl(this,this));
+        surveyFamilyIdentificationModel = (SurveyModel.OnFamilyIdentification) (surveyFamilyModel = (SurveyModel.OnFamily) (surveyHealthModel = new SurveyModelImpl(this,this,this)));
     }
 
     @Override
@@ -120,6 +121,16 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
 
     @Override
     public void sendHealthValue(int eatComplete, int plantHerbal, int vegGarden, int useIodize, int familyPlan, int basal, int cervical, int lactation, int rhtythm, int standard, int sympho, int withdrawal, int condom, int depo, int iud, int tubal, int pills, int vasectomy, int others) {
+        surveyHealthModel.sendHealth(eatComplete,plantHerbal,vegGarden,useIodize,familyPlan,basal,cervical,lactation,rhtythm,standard,sympho,withdrawal,condom,depo,iud,tubal,pills,vasectomy,others);
+    }
+
+    @Override
+    public void setErrorHealthData(String message) {
+
+    }
+
+    @Override
+    public void onSuccessHealth() {
 
     }
 

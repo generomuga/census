@@ -174,4 +174,20 @@ public class Health {
     public void setVasectomy(int vasectomy) {
         this.vasectomy = vasectomy;
     }
+
+    public int getOthers() {
+        return others;
+    }
+
+    public void setOthers(int others) {
+        this.others = others;
+    }
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
+    }
 }

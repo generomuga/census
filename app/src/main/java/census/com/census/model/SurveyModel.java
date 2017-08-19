@@ -21,4 +21,13 @@ public interface SurveyModel {
                       int tric, int qTric, int truck, int qTruck, int van, int qVan);
     }
 
+    interface OnHealth{
+        interface OnResult{
+            void setErrorHealthData(String message);
+           void onSuccessHealth();
+        }
+        void sendHealth(int eatComplete,int plantHerbal,int vegGarden, int useIodize, int familyPlan, int basal, int cervical, int lactation, int rhtythm,
+                        int standard, int sympho, int withdrawal, int condom, int depo, int iud, int tubal, int pills, int vasectomy, int others);
+    }
+
 }

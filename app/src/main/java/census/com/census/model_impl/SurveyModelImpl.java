@@ -9,9 +9,10 @@ import java.util.Date;
 
 import census.com.census.Family;
 import census.com.census.FamilyIdentification;
+import census.com.census.Health;
 import census.com.census.model.SurveyModel;
 
-public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,SurveyModel.OnFamily{
+public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,SurveyModel.OnFamily,SurveyModel.OnHealth{
 
     DatabaseReference mDatabase;
     private String key;
@@ -19,19 +20,20 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
 
     SurveyModel.OnFamilyIdentification.OnResult onResultFamilyIdentificationListener;
     SurveyModel.OnFamily.OnResult onResultFamily;
+    SurveyModel.OnHealth.OnResult onResultHealth;
 
-
-    public SurveyModelImpl(SurveyModel.OnFamilyIdentification.OnResult onResultFamilyIdentificationListener, SurveyModel.OnFamily.OnResult onResultFamily) {
+    public SurveyModelImpl(SurveyModel.OnFamilyIdentification.OnResult onResultFamilyIdentificationListener, SurveyModel.OnFamily.OnResult onResultFamily, SurveyModel.OnHealth.OnResult onResultHealth) {
         this.onResultFamilyIdentificationListener = onResultFamilyIdentificationListener;
         this.onResultFamily = onResultFamily;
+        this.onResultHealth = onResultHealth;
+
         mDatabase = FirebaseDatabase.getInstance().getReference("data");
         time = DateFormat.getDateTimeInstance().format(new Date());
+        key = mDatabase.push().getKey();
     }
 
     @Override
     public void sendFamilyIdentificationData(String fName, String mName, String lName, String region, String province, String municipality, String barangay, String houseNo, String streetNo, int residency, int ownership, int status, String user) {
-        key = mDatabase.push().getKey();
-
         FamilyIdentification familyIdentification = new FamilyIdentification();
         familyIdentification.setId(key);
         familyIdentification.setfName(fName);
@@ -65,8 +67,6 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
 
     @Override
     public void sendFamily(int familyNo, int yearReside, String region, String province, String municipality, String barangay, String isp, int bicycle, int qBicycle, int boat, int qBoat, int bus, int qBus, int car, int qCar, int jeep, int qJeep, int motorboat, int qMotorboat, int motorcycle, int qMotorcyle, int owner, int qOwner, int pedicab, int qPedicab, int pickup, int qPickup, int pumpboat, int qPumpboat, int raft, int qRaft, int suv, int qSuv, int tric, int qTric, int truck, int qTruck, int van, int qVan) {
-        //String time = DateFormat.getDateTimeInstance().format(new Date());
-
         Family family = new Family();
         family.setId(key);
         family.setNoFamilyMembers(familyNo);
@@ -116,6 +116,27 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
                 }
                 else{
                     onResultFamily.onSuccessFamily();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void sendHealth(int eatComplete, int plantHerbal, int vegGarden, int useIodize, int familyPlan, int basal, int cervical, int lactation, int rhtythm, int standard, int sympho, int withdrawal, int condom, int depo, int iud, int tubal, int pills, int vasectomy, int others) {
+        Health health = new Health();
+
+        health.setId(key);
+        health.setTimeStamp(time);
+
+        DatabaseReference mHealth = mDatabase.child("health");
+        mHealth.child(key).setValue(health, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if(databaseError != null){
+                    onResultHealth.setErrorHealthData(databaseError.getMessage().toString());
+                }
+                else{
+                    onResultHealth.onSuccessHealth();
                 }
             }
         });
