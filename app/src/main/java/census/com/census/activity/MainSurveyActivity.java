@@ -42,12 +42,12 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     private boolean isOpenFamilyIdentification;
     private boolean isOpenFamily;
     private boolean isOpenHealth;
+    private boolean isOpenEnvironment;
 
     SurveyPresenter.OnFamilyIdentification familyIdentificationListener;
     SurveyPresenter.OnFamily familyListener;
     SurveyPresenter.OnHealth healthListener;
     SurveyPresenter.OnEnvironment environmentListener;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +111,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
             case R.id.imageButtonEnvironment:
                 tag = "Environment";
+                isOpenEnvironment = true;
                 getSupportActionBar().setTitle("Environment");
                 fragment = new EnvironmentFragment();
                 switchFragment(fragment,"Environment");
@@ -146,6 +147,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
         boolean isFamilyIdentificationComplete = false;
         boolean isFamilyComplete = false;
         boolean isHealthComplete = false;
+        boolean isEnvironmentComplete = false;
 
         if(isOpenFamilyIdentification) {
             if (familyIdentificationListener.checkFname(FamilyIdentificationFragment.editTextFName.getText().toString().trim()) &&
@@ -164,8 +166,11 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
         if(isOpenHealth){
             isHealthComplete = true;
         }
+        if(isOpenEnvironment){
+            isEnvironmentComplete = true;
+        }
 
-        if(isFamilyIdentificationComplete && isFamilyComplete && isHealthComplete){
+        if(isFamilyIdentificationComplete && isFamilyComplete && isHealthComplete && isEnvironmentComplete){
             mProgress.setMessage("Sending data...");
             mProgress.setCancelable(true);
             mProgress.show();
@@ -188,6 +193,10 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                     1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
 
             healthListener.sendHealthValue(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19);
+
+
+            environmentListener.sendEnvironmentValue(1,1,1,1,1,1,1,1,1,1,1,1,1);
+
             }
         else {
             Toast.makeText(this,"Please complete all the forms",Toast.LENGTH_SHORT).show();
