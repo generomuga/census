@@ -28,7 +28,7 @@ import census.com.census.R;
 import census.com.census.presenter_impl.SurveyPresenterImpl;
 import census.com.census.view.SurveyView;
 
-public class MainSurveyActivity extends AppCompatActivity implements SurveyView.OnFamilyIdentification,SurveyView.OnFamily,SurveyView.OnHealth{
+public class MainSurveyActivity extends AppCompatActivity implements SurveyView.OnFamilyIdentification,SurveyView.OnFamily,SurveyView.OnHealth,SurveyView.OnEnvironment{
 
     private Toolbar toolBarSurvey;
     private SharedPreferences sharedPreferences;
@@ -46,6 +46,8 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     SurveyPresenter.OnFamilyIdentification familyIdentificationListener;
     SurveyPresenter.OnFamily familyListener;
     SurveyPresenter.OnHealth healthListener;
+    SurveyPresenter.OnEnvironment environmentListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +75,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                     .add(R.id.fragmentMain,fragment,tag).commit();
         }
 
-        familyIdentificationListener = (SurveyPresenter.OnFamilyIdentification) (familyListener = (SurveyPresenter.OnFamily) (healthListener = new SurveyPresenterImpl(this,this,this)));
+        familyIdentificationListener = (SurveyPresenter.OnFamilyIdentification) (familyListener = (SurveyPresenter.OnFamily) (healthListener = (SurveyPresenter.OnHealth) (environmentListener = new SurveyPresenterImpl(this,this,this,this))));
     }
 
     private void onClearSharedReference(){
@@ -292,6 +294,16 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
     @Override
     public void onErrorHealth(String message) {
+
+    }
+
+    @Override
+    public void onSuccessEnvironment(String message) {
+
+    }
+
+    @Override
+    public void onErrorEnvironment(String message) {
 
     }
 }

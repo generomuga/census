@@ -6,21 +6,24 @@ import census.com.census.presenter.SurveyPresenter;
 import census.com.census.view.SurveyView;
 
 public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentification,SurveyModel.OnFamilyIdentification.OnResult,SurveyPresenter.OnFamily,SurveyModel.OnFamily.OnResult,
-                                            SurveyPresenter.OnHealth,SurveyModel.OnHealth.OnResult
+                                            SurveyPresenter.OnHealth,SurveyModel.OnHealth.OnResult, SurveyPresenter.OnEnvironment
     {
 
     SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener;
     SurveyView.OnFamily surveyViewFamilyListener;
     SurveyView.OnHealth surveyViewHealthListener;
+    SurveyView.OnEnvironment surveyViewEnvironmentListener;
 
     SurveyModel.OnFamilyIdentification surveyFamilyIdentificationModel;
     SurveyModel.OnFamily surveyFamilyModel;
     SurveyModel.OnHealth surveyHealthModel;
 
-    public SurveyPresenterImpl(SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener,SurveyView.OnFamily surveyViewFamilyListener,SurveyView.OnHealth surveyViewHealthListener) {
+    public SurveyPresenterImpl(SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener,SurveyView.OnFamily surveyViewFamilyListener,SurveyView.OnHealth surveyViewHealthListener,SurveyView.OnEnvironment surveyViewEnvironmentListener) {
         this.surveyViewFamilyIdentificationListener = surveyViewFamilyIdentificationListener;
         this.surveyViewFamilyListener = surveyViewFamilyListener;
         this.surveyViewHealthListener = surveyViewHealthListener;
+        this.surveyViewEnvironmentListener = surveyViewEnvironmentListener;
+
         surveyFamilyIdentificationModel = (SurveyModel.OnFamilyIdentification) (surveyFamilyModel = (SurveyModel.OnFamily) (surveyHealthModel = new SurveyModelImpl(this,this,this)));
     }
 
@@ -131,6 +134,11 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
 
     @Override
     public void onSuccessHealth() {
+
+    }
+
+    @Override
+    public void sendEnvironmentValue(int toilet, int water, int electricity, int lot, int house, int walls, int roof, int floor, int light, int cook, int garbage, int location, int ecological) {
 
     }
 

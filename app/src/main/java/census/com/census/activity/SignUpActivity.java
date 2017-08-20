@@ -22,15 +22,12 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     private EditText mFname;
     private EditText mMname;
     private EditText mLname;
-
     private EditText mEmail;
     private EditText mEmailConfirm;
-
 
     private Button mRegister;
     private ProgressDialog mProgress;
     private View mForm;
-
 
     SignUpPresenter signUpPresenterListener;
 

@@ -23,4 +23,9 @@ public interface SurveyView {
         void onSuccessHealth(String message);
         void onErrorHealth(String message);
     }
+
+    interface OnEnvironment{
+        void onSuccessEnvironment(String message);
+        void onErrorEnvironment(String message);
+    }
 }
