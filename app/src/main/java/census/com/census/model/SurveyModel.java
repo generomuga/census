@@ -30,4 +30,12 @@ public interface SurveyModel {
                         int standard, int sympho, int withdrawal, int condom, int depo, int iud, int tubal, int pills, int vasectomy, int others);
     }
 
+    interface OnEnvironment{
+        interface OnResult{
+            void setErrorEnvironmentData(String message);
+            void onSuccessEnvironment();
+        }
+        void sendEnvironment(int toilet,int water, int electricity, int lot, int house, int walls, int roof, int floor, int light, int cook, int garbage, int location, int ecologicals);
+    }
+
 }

@@ -1,6 +1,8 @@
 package census.com.census.model_impl;
 
 
+import android.os.Environment;
+
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -12,7 +14,7 @@ import census.com.census.FamilyIdentification;
 import census.com.census.Health;
 import census.com.census.model.SurveyModel;
 
-public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,SurveyModel.OnFamily,SurveyModel.OnHealth{
+public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,SurveyModel.OnFamily,SurveyModel.OnHealth,SurveyModel.OnEnvironment{
 
     DatabaseReference mDatabase;
     private String key;
@@ -21,11 +23,13 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
     SurveyModel.OnFamilyIdentification.OnResult onResultFamilyIdentificationListener;
     SurveyModel.OnFamily.OnResult onResultFamily;
     SurveyModel.OnHealth.OnResult onResultHealth;
+    SurveyModel.OnEnvironment.OnResult onResultEnvironment;
 
-    public SurveyModelImpl(SurveyModel.OnFamilyIdentification.OnResult onResultFamilyIdentificationListener, SurveyModel.OnFamily.OnResult onResultFamily, SurveyModel.OnHealth.OnResult onResultHealth) {
+    public SurveyModelImpl(SurveyModel.OnFamilyIdentification.OnResult onResultFamilyIdentificationListener, SurveyModel.OnFamily.OnResult onResultFamily, SurveyModel.OnHealth.OnResult onResultHealth, SurveyModel.OnEnvironment.OnResult onResultEnvironment) {
         this.onResultFamilyIdentificationListener = onResultFamilyIdentificationListener;
         this.onResultFamily = onResultFamily;
         this.onResultHealth = onResultHealth;
+        this.onResultEnvironment = onResultEnvironment;
 
         mDatabase = FirebaseDatabase.getInstance().getReference("data");
         time = DateFormat.getDateTimeInstance().format(new Date());
@@ -142,63 +146,24 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
         });
     }
 
-    /*@Override
-    public void sendData(int familyNo, int yearReside, String region, String province, String municipality, String barangay, String isp, int bicycle, int qBicycle, int boat, int qBoat, int bus, int qBus, int car, int qCar, int jeep, int qJeep, int motorboat, int qMotorboat, int motorcycle, int qMotorcyle, int owner, int qOwner, int pedicab, int qPedicab, int pickup, int qPickup, int pumpboat, int qPumpboat, int raft, int qRaft, int suv, int qSuv, int tric, int qTric, int truck, int qTruck, int van, int qVan) {
+    @Override
+    public void sendEnvironment(int toilet, int water, int electricity, int lot, int house, int walls, int roof, int floor, int light, int cook, int garbage, int location, int ecologicals) {
+        census.com.census.Environment environment = new census.com.census.Environment();
 
-        String time = DateFormat.getDateTimeInstance().format(new Date());
+        environment.setId(key);
+        environment.setTimeStamp(time);
 
-        Family family = new Family();
-        family.setId(key);
-        family.setNoFamilyMembers(familyNo);
-        family.setYearResided(yearReside);
-        family.setPlaceOrigin(barangay+','+municipality+','+province+','+region);
-        family.setIsp(isp);
-        family.setSelectBicycle(bicycle);
-        family.setNoBicycle(qBicycle);
-        family.setSelectBoat(boat);
-        family.setNoBoat(qBoat);
-        family.setSelectBus(bus);
-        family.setNoBus(qBus);
-        family.setSelectCar(car);
-        family.setNoCar(qCar);
-        family.setSelectJeep(jeep);
-        family.setNoJeep(qJeep);
-        family.setSelectMotorboat(motorboat);
-        family.setNoMotorboat(qMotorboat);
-        family.setSelectMotorboat(motorboat);
-        family.setNoMotorboat(qMotorboat);
-        family.setSelectOwnerJeep(owner);
-        family.setNoOwnerJeep(qOwner);
-        family.setSelectPedicab(pedicab);
-        family.setNoPedicab(qPedicab);
-        family.setSelectPickup(pickup);
-        family.setNoPickup(qPickup);
-        family.setSelectPumpBoat(pumpboat);
-        family.setNoPumpBoat(qPumpboat);
-        family.setSelectRaft(raft);
-        family.setNoRaft(qRaft);
-        family.setSelectSuv(suv);
-        family.setNoSuv(qSuv);
-        family.setSelectTricycle(tric);
-        family.setNoTricycle(qTric);
-        family.setSelectTruck(truck);
-        family.setNoTruck(qTruck);
-        family.setSelectVan(van);
-        family.setNoVan(qVan);
-
-        DatabaseReference mFamily = mDatabase.child("family");
-        mFamily.child(key).setValue(family, new DatabaseReference.CompletionListener() {
+        DatabaseReference mEnvironment = mDatabase.child("environment");
+        mEnvironment.child(key).setValue(environment, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if(databaseError != null){
-                    onResultListenerFamily.setErrorFamilyData(databaseError.getMessage().toString());
+                    onResultEnvironment.setErrorEnvironmentData(databaseError.getMessage().toString());
                 }
                 else{
-                    onResultListenerFamily.onSuccessFamily();
+                    onResultEnvironment.onSuccessEnvironment();
                 }
             }
         });
     }
-    */
-
 }

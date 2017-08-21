@@ -6,7 +6,7 @@ import census.com.census.presenter.SurveyPresenter;
 import census.com.census.view.SurveyView;
 
 public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentification,SurveyModel.OnFamilyIdentification.OnResult,SurveyPresenter.OnFamily,SurveyModel.OnFamily.OnResult,
-                                            SurveyPresenter.OnHealth,SurveyModel.OnHealth.OnResult, SurveyPresenter.OnEnvironment
+                                            SurveyPresenter.OnHealth,SurveyModel.OnHealth.OnResult, SurveyPresenter.OnEnvironment, SurveyModel.OnEnvironment.OnResult
     {
 
     SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener;
@@ -17,6 +17,7 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
     SurveyModel.OnFamilyIdentification surveyFamilyIdentificationModel;
     SurveyModel.OnFamily surveyFamilyModel;
     SurveyModel.OnHealth surveyHealthModel;
+    SurveyModel.OnEnvironment surveyEnvironmentModel;
 
     public SurveyPresenterImpl(SurveyView.OnFamilyIdentification surveyViewFamilyIdentificationListener,SurveyView.OnFamily surveyViewFamilyListener,SurveyView.OnHealth surveyViewHealthListener,SurveyView.OnEnvironment surveyViewEnvironmentListener) {
         this.surveyViewFamilyIdentificationListener = surveyViewFamilyIdentificationListener;
@@ -24,7 +25,7 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
         this.surveyViewHealthListener = surveyViewHealthListener;
         this.surveyViewEnvironmentListener = surveyViewEnvironmentListener;
 
-        surveyFamilyIdentificationModel = (SurveyModel.OnFamilyIdentification) (surveyFamilyModel = (SurveyModel.OnFamily) (surveyHealthModel = new SurveyModelImpl(this,this,this)));
+        surveyFamilyIdentificationModel = (SurveyModel.OnFamilyIdentification) (surveyFamilyModel = (SurveyModel.OnFamily) (surveyHealthModel = (SurveyModel.OnHealth) (surveyEnvironmentModel = new SurveyModelImpl(this,this,this,this))));
     }
 
     @Override
@@ -139,8 +140,19 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
 
     @Override
     public void sendEnvironmentValue(int toilet, int water, int electricity, int lot, int house, int walls, int roof, int floor, int light, int cook, int garbage, int location, int ecological) {
+        surveyEnvironmentModel.sendEnvironment(toilet,water,electricity,lot,house,walls,roof,floor,light,cook,garbage,location,ecological);
+    }
+
+    @Override
+    public void setErrorEnvironmentData(String message) {
 
     }
+
+    @Override
+    public void onSuccessEnvironment() {
+
+    }
+
 
     /*@Override
     public void sendValue(String fName, String mName, String lName, String region, String province, String municipality, String barangay, String houseNo, String streetNo, int residency, int ownership, int status, String user) {
