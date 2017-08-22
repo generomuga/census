@@ -35,8 +35,11 @@ import census.com.census.DatabaseHelper;
 import census.com.census.FamilyIdentification;
 import census.com.census.R;
 import census.com.census.SurveyList;
+import census.com.census.presenter.MainPresenter;
+import census.com.census.presenter_impl.MainPresenterImpl;
+import census.com.census.view.MainView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainView {
 
     private FirebaseAuth mAuth;
     private Toolbar toolbarMain;
@@ -46,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private List surveyList;
 
+    MainPresenter mainPresenterListener;
+
     //private List<FamilyIdentification> familyIdentifications;
 
     @Override
@@ -53,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //familyIdentifications = new ArrayList<>();
+        mainPresenterListener = new MainPresenterImpl(this);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -87,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
 
     }
 
@@ -156,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     @Override
     public void onBackPressed() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -188,11 +193,10 @@ public class MainActivity extends AppCompatActivity {
                 alertDialog.dismiss();
             }
         });
-
     }
 
     private void deleteRecord(String dataId) {
-        DatabaseReference drFamilyIdentification = FirebaseDatabase.getInstance().getReference("data").child("familyIdentification").child(dataId);
+        /*DatabaseReference drFamilyIdentification = FirebaseDatabase.getInstance().getReference("data").child("familyIdentification").child(dataId);
         DatabaseReference drFamily = FirebaseDatabase.getInstance().getReference("data").child("family").child(dataId);
         DatabaseReference drHealth = FirebaseDatabase.getInstance().getReference("data").child("health").child(dataId);
         DatabaseReference drEnvironment = FirebaseDatabase.getInstance().getReference("data").child("environment").child(dataId);
@@ -202,6 +206,18 @@ public class MainActivity extends AppCompatActivity {
         drHealth.removeValue();
         drEnvironment.removeValue();
 
-        Toast.makeText(this,"Remove!",Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Remove!",Toast.LENGTH_LONG).show();*/
+
+        mainPresenterListener.checkList(dataId);
+    }
+
+    @Override
+    public void onSuccessDelete() {
+
+    }
+
+    @Override
+    public void onErrorDelete() {
+
     }
 }
