@@ -196,18 +196,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     private void deleteRecord(String dataId) {
-        /*DatabaseReference drFamilyIdentification = FirebaseDatabase.getInstance().getReference("data").child("familyIdentification").child(dataId);
-        DatabaseReference drFamily = FirebaseDatabase.getInstance().getReference("data").child("family").child(dataId);
-        DatabaseReference drHealth = FirebaseDatabase.getInstance().getReference("data").child("health").child(dataId);
-        DatabaseReference drEnvironment = FirebaseDatabase.getInstance().getReference("data").child("environment").child(dataId);
-
-        drFamilyIdentification.removeValue();
-        drFamily.removeValue();
-        drHealth.removeValue();
-        drEnvironment.removeValue();
-
-        Toast.makeText(this,"Remove!",Toast.LENGTH_LONG).show();*/
-
         mainPresenterListener.checkList(dataId);
     }
 

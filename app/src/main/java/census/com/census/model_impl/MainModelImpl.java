@@ -1,6 +1,10 @@
 package census.com.census.model_impl;
 
 
+import android.support.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,9 +37,32 @@ public class MainModelImpl implements MainModel{
         DatabaseReference mHealth = mDatabase.child("health").child(id);
         DatabaseReference mEnvironment = mDatabase.child("environment").child(id);
 
-        mFamilyIdentification.removeValue();
-        mFamily.removeValue();
-        mHealth.removeValue();
-        mEnvironment.removeValue();
+        mFamilyIdentification.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+            }
+        });
+
+        mFamily.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+            }
+        });
+
+        mHealth.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+            }
+        });
+
+        mEnvironment.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+            }
+        });
     }
 }
