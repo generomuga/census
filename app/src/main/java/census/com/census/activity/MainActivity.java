@@ -27,6 +27,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +38,8 @@ import census.com.census.DatabaseHelper;
 import census.com.census.FamilyIdentification;
 import census.com.census.R;
 import census.com.census.SurveyList;
+import census.com.census.events.DeleteErrorEvent;
+import census.com.census.events.DeleteSuccessEvent;
 import census.com.census.presenter.MainPresenter;
 import census.com.census.presenter_impl.MainPresenterImpl;
 import census.com.census.view.MainView;
@@ -99,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
     protected void onStart() {
         super.onStart();
 
+        //EventBus.getDefault().register(this);
+
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if(currentUser == null){
@@ -124,6 +131,12 @@ public class MainActivity extends AppCompatActivity implements MainView {
                 }
             });
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        //EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -208,4 +221,5 @@ public class MainActivity extends AppCompatActivity implements MainView {
     public void onErrorDelete() {
 
     }
+
 }

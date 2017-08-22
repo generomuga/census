@@ -8,6 +8,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.greenrobot.eventbus.EventBus;
+
+import census.com.census.events.DeleteSuccessEvent;
 import census.com.census.model.MainModel;
 
 public class MainModelImpl implements MainModel{
@@ -40,21 +43,21 @@ public class MainModelImpl implements MainModel{
         mFamilyIdentification.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-
+                EventBus.getDefault().post(new DeleteSuccessEvent());
             }
         });
 
         mFamily.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-
+                EventBus.getDefault().post(new DeleteSuccessEvent());
             }
         });
 
         mHealth.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-
+                EventBus.getDefault().post(new DeleteSuccessEvent());
             }
         });
 
