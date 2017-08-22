@@ -97,14 +97,11 @@ public class MainActivity extends AppCompatActivity implements MainView {
                 return false;
             }
         });
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
-        //EventBus.getDefault().register(this);
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
@@ -131,12 +128,13 @@ public class MainActivity extends AppCompatActivity implements MainView {
                 }
             });
         }
+
+
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        //EventBus.getDefault().unregister(this);
     }
 
     @Override
