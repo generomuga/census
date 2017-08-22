@@ -46,14 +46,14 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private List surveyList;
 
-    private List<FamilyIdentification> familyIdentifications;
+    //private List<FamilyIdentification> familyIdentifications;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        familyIdentifications = new ArrayList<>();
+        //familyIdentifications = new ArrayList<>();
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -82,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
         mSurveyList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                //FamilyIdentification familyIdentification = familyIdentifications.get(position);
-                showUpdateDialog("");
+                FamilyIdentification familyIdentification = (FamilyIdentification) surveyList.get(position);
+                showUpdateDialog(familyIdentification.getId());
                 return false;
             }
         });
@@ -166,8 +166,8 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     }
-    
-    private void showUpdateDialog(String dataId){
+
+    private void showUpdateDialog(final String dataId){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
 
@@ -178,8 +178,30 @@ public class MainActivity extends AppCompatActivity {
 
         dialogBuilder.setTitle("Sample");
 
-        AlertDialog alertDialog = dialogBuilder.create();
+        final AlertDialog alertDialog = dialogBuilder.create();
         alertDialog.show();
 
+        mDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteRecord(dataId);
+                alertDialog.dismiss();
+            }
+        });
+
+    }
+
+    private void deleteRecord(String dataId) {
+        DatabaseReference drFamilyIdentification = FirebaseDatabase.getInstance().getReference("data").child("familyIdentification").child(dataId);
+        DatabaseReference drFamily = FirebaseDatabase.getInstance().getReference("data").child("family").child(dataId);
+        DatabaseReference drHealth = FirebaseDatabase.getInstance().getReference("data").child("health").child(dataId);
+        DatabaseReference drEnvironment = FirebaseDatabase.getInstance().getReference("data").child("environment").child(dataId);
+
+        drFamilyIdentification.removeValue();
+        drFamily.removeValue();
+        drHealth.removeValue();
+        drEnvironment.removeValue();
+
+        Toast.makeText(this,"Remove!",Toast.LENGTH_LONG).show();
     }
 }
