@@ -3,13 +3,18 @@ package census.com.census.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.SQLException;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -41,10 +46,14 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private List surveyList;
 
+    private List<FamilyIdentification> familyIdentifications;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        familyIdentifications = new ArrayList<>();
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -53,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
         mSurveyList = (ListView) findViewById(R.id.listViewSurvey);
 
         surveyList = new ArrayList<>();
-
-
 
         //connect to sqlite database
         connectDB();
@@ -71,6 +78,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,MainSurveyActivity.class));
             }
         });
+
+        mSurveyList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                //FamilyIdentification familyIdentification = familyIdentifications.get(position);
+                showUpdateDialog("");
+                return false;
+            }
+        });
+
 
     }
 
@@ -148,5 +165,21 @@ public class MainActivity extends AppCompatActivity {
         else{
             finish();
         }
+    }
+    
+    private void showUpdateDialog(String dataId){
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+
+        final View dialogView = inflater.inflate(R.layout.dialog_update_delete,null);
+        dialogBuilder.setView(dialogView);
+
+        Button mDelete = (Button) dialogView.findViewById(R.id.buttonDelete);
+
+        dialogBuilder.setTitle("Sample");
+
+        AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
+
     }
 }
