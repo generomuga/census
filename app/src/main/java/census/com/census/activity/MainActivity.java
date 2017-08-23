@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 FamilyIdentification familyIdentification = (FamilyIdentification) surveyList.get(position);
-                showUpdateDialog(familyIdentification.getId());
+                showUpdateDialog(familyIdentification.getId(),familyIdentification.getfName()+' '+familyIdentification.getlName());
                 return false;
             }
         });
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         }
     }
 
-    private void showUpdateDialog(final String dataId){
+    private void showUpdateDialog(final String dataId,final String name){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
 
