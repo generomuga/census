@@ -1,6 +1,5 @@
 package census.com.census.events;
 
-public class DeleteSuccessEvent {
 
-
+public class DeleteSuccessFamilyEvent {
 }

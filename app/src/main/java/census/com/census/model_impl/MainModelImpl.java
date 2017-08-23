@@ -10,7 +10,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import org.greenrobot.eventbus.EventBus;
 
-import census.com.census.events.DeleteSuccessEvent;
+import census.com.census.events.DeleteErrorFamilyEvent;
+import census.com.census.events.DeleteErrorFamilyIdentificationEvent;
+import census.com.census.events.DeleteErrorHealthEvent;
+import census.com.census.events.DeleteSuccessFamilyEvent;
+import census.com.census.events.DeleteSuccessFamilyIdentificationEvent;
+import census.com.census.events.DeleteSuccessHealthEvent;
 import census.com.census.model.MainModel;
 
 public class MainModelImpl implements MainModel{
@@ -18,7 +23,6 @@ public class MainModelImpl implements MainModel{
     private DatabaseReference mDatabase;
 
     public MainModelImpl() {
-
         mDatabase = FirebaseDatabase.getInstance().getReference("data");
     }
 
@@ -32,21 +36,36 @@ public class MainModelImpl implements MainModel{
         mFamilyIdentification.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                EventBus.getDefault().post(new DeleteSuccessEvent());
+                if(task != null) {
+                    EventBus.getDefault().post(new DeleteSuccessFamilyIdentificationEvent());
+                }
+                else{
+                    EventBus.getDefault().post(new DeleteErrorFamilyIdentificationEvent(task.getException().getMessage()));
+                }
             }
         });
 
         mFamily.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
+                @Override
             public void onComplete(@NonNull Task<Void> task) {
-                //EventBus.getDefault().post(new DeleteSuccessEvent());
+                if(task != null){
+                    EventBus.getDefault().post(new DeleteSuccessFamilyEvent());
+                }
+                else{
+                    EventBus.getDefault().post(new DeleteErrorFamilyEvent(task.getException().getMessage()));
+                }
             }
         });
 
         mHealth.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-               // EventBus.getDefault().post(new DeleteSuccessEvent());
+                if(task != null){
+                    EventBus.getDefault().post(new DeleteSuccessHealthEvent());
+                }
+                else{
+                    EventBus.getDefault().post(new DeleteErrorHealthEvent(task.getException().getMessage()));
+                }
             }
         });
 

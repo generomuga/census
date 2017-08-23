@@ -35,7 +35,12 @@ import census.com.census.DatabaseHelper;
 import census.com.census.FamilyIdentification;
 import census.com.census.R;
 import census.com.census.SurveyList;
-import census.com.census.events.DeleteSuccessEvent;
+import census.com.census.events.DeleteErrorFamilyEvent;
+import census.com.census.events.DeleteErrorFamilyIdentificationEvent;
+import census.com.census.events.DeleteErrorHealthEvent;
+import census.com.census.events.DeleteSuccessFamilyEvent;
+import census.com.census.events.DeleteSuccessFamilyIdentificationEvent;
+import census.com.census.events.DeleteSuccessHealthEvent;
 import census.com.census.presenter.MainPresenter;
 import census.com.census.presenter_impl.MainPresenterImpl;
 import census.com.census.view.MainView;
@@ -64,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         mAuth = FirebaseAuth.getInstance();
 
         mDatabase = FirebaseDatabase.getInstance().getReference("data/familyIdentification");
+        mDatabase.keepSynced(true);
 
         mSurveyList = (ListView) findViewById(R.id.listViewSurvey);
 
@@ -101,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
         EventBus.getDefault().register(this);
 
+
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if(currentUser == null){
@@ -129,7 +136,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     protected void onStop() {
         super.onStop();
-
         EventBus.getDefault().unregister(this);
     }
 
@@ -217,8 +223,34 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     @Subscribe
-    public void onDeleteSuccessEvent(DeleteSuccessEvent deleteSuccessEvent){
-        //onSuccessDelete();
+    public void onDeleteSuccessFamilyIdentification(DeleteSuccessFamilyIdentificationEvent deleteSuccessEvent){
+
     }
+
+    @Subscribe
+    public void onDeleteErrorFamilyIdentification(DeleteErrorFamilyIdentificationEvent deleteErrorFamilyIdentificationEvent){
+        deleteErrorFamilyIdentificationEvent.getMessage();
+    }
+
+    @Subscribe
+    public void onDeleteSuccessFamily(DeleteSuccessFamilyEvent deleteSuccessFamilyEvent){
+
+    }
+
+    @Subscribe
+    public void onDeleteErrorFamily(DeleteErrorFamilyEvent deleteErrorFamilyEvent){
+        deleteErrorFamilyEvent.getMessage();
+    }
+
+    @Subscribe
+    public void onDeleteSuccessHealth(DeleteSuccessHealthEvent deleteSuccessHealthEvent){
+
+    }
+
+    @Subscribe
+    public void onDeleteErrorHealth(DeleteErrorHealthEvent deleteErrorHealthEvent){
+        deleteErrorHealthEvent.getMessage();
+    }
+
 
 }

@@ -1,9 +1,10 @@
 package census.com.census.events;
 
-public class DeleteErrorFamilyEvent {
+public class DeleteErrorHealthEvent {
+
     private String message;
 
-    public DeleteErrorFamilyEvent(String message) {
+    public DeleteErrorHealthEvent(String message) {
         this.message = message;
     }
 
