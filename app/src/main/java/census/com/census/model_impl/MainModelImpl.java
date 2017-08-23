@@ -10,9 +10,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import org.greenrobot.eventbus.EventBus;
 
+import census.com.census.events.DeleteErrorEnvironmentEvent;
 import census.com.census.events.DeleteErrorFamilyEvent;
 import census.com.census.events.DeleteErrorFamilyIdentificationEvent;
 import census.com.census.events.DeleteErrorHealthEvent;
+import census.com.census.events.DeleteSuccessEnvironmentEvent;
 import census.com.census.events.DeleteSuccessFamilyEvent;
 import census.com.census.events.DeleteSuccessFamilyIdentificationEvent;
 import census.com.census.events.DeleteSuccessHealthEvent;
@@ -72,7 +74,12 @@ public class MainModelImpl implements MainModel{
         mEnvironment.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-
+                if(task != null){
+                    EventBus.getDefault().post(new DeleteSuccessEnvironmentEvent());
+                }
+                else{
+                    EventBus.getDefault().post(new DeleteErrorEnvironmentEvent(task.getException().getMessage()));
+                }
             }
         });
     }

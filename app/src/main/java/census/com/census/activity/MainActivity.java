@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,9 +36,11 @@ import census.com.census.DatabaseHelper;
 import census.com.census.FamilyIdentification;
 import census.com.census.R;
 import census.com.census.SurveyList;
+import census.com.census.events.DeleteErrorEnvironmentEvent;
 import census.com.census.events.DeleteErrorFamilyEvent;
 import census.com.census.events.DeleteErrorFamilyIdentificationEvent;
 import census.com.census.events.DeleteErrorHealthEvent;
+import census.com.census.events.DeleteSuccessEnvironmentEvent;
 import census.com.census.events.DeleteSuccessFamilyEvent;
 import census.com.census.events.DeleteSuccessFamilyIdentificationEvent;
 import census.com.census.events.DeleteSuccessHealthEvent;
@@ -224,7 +227,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Subscribe
     public void onDeleteSuccessFamilyIdentification(DeleteSuccessFamilyIdentificationEvent deleteSuccessEvent){
-
+        Toast.makeText(this,"Deleted!",Toast.LENGTH_SHORT).show();
     }
 
     @Subscribe
@@ -251,6 +254,17 @@ public class MainActivity extends AppCompatActivity implements MainView {
     public void onDeleteErrorHealth(DeleteErrorHealthEvent deleteErrorHealthEvent){
         deleteErrorHealthEvent.getMessage();
     }
+
+    @Subscribe
+    public void onDeleteSuccessEnvironment(DeleteSuccessEnvironmentEvent deleteSuccessEnvironmentEvent){
+
+    }
+
+    @Subscribe
+    public void onDeleteErrorEnvironment(DeleteErrorEnvironmentEvent deleteErrorEnvironmentEvent){
+        deleteErrorEnvironmentEvent.getMessage();
+    }
+
 
 
 }
