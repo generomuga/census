@@ -50,17 +50,17 @@ import census.com.census.view.MainView;
 
 public class MainActivity extends AppCompatActivity implements MainView {
 
+    private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
-    private Toolbar toolbarMain;
+
     private ImageButton mFab;
+
+    private List surveyList;
     private ListView mSurveyList;
 
-    private DatabaseReference mDatabase;
-    private List surveyList;
+    private Toolbar toolbarMain;
 
-    MainPresenter mainPresenterListener;
-
-    //private List<FamilyIdentification> familyIdentifications;
+    private MainPresenter mainPresenterListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,15 +102,13 @@ public class MainActivity extends AppCompatActivity implements MainView {
                 return false;
             }
         });
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
         EventBus.getDefault().register(this);
-
-
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if(currentUser == null){
@@ -130,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
                 }
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-
+                    //do nothing
                 }
             });
         }
@@ -159,6 +157,17 @@ public class MainActivity extends AppCompatActivity implements MainView {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser == null){
+            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+        }
+        else{
+            finish();
+        }
+    }
+
     private void connectDB(){
         DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
         try {
@@ -176,18 +185,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
         }
     }
 
-
-    @Override
-    public void onBackPressed() {
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser == null){
-            startActivity(new Intent(MainActivity.this,LoginActivity.class));
-        }
-        else{
-            finish();
-        }
-    }
-
     private void showUpdateDialog(final String dataId,final String name){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
@@ -197,7 +194,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
         Button mDelete = (Button) dialogView.findViewById(R.id.buttonDelete);
 
-        dialogBuilder.setTitle("Sample");
+        dialogBuilder.setTitle(name);
 
         final AlertDialog alertDialog = dialogBuilder.create();
         alertDialog.show();
