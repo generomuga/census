@@ -1,7 +1,6 @@
 package census.com.census.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.SQLException;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -14,10 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -38,7 +35,6 @@ import census.com.census.DatabaseHelper;
 import census.com.census.FamilyIdentification;
 import census.com.census.R;
 import census.com.census.SurveyList;
-import census.com.census.events.DeleteErrorEvent;
 import census.com.census.events.DeleteSuccessEvent;
 import census.com.census.presenter.MainPresenter;
 import census.com.census.presenter_impl.MainPresenterImpl;
@@ -103,14 +99,15 @@ public class MainActivity extends AppCompatActivity implements MainView {
     protected void onStart() {
         super.onStart();
 
+        EventBus.getDefault().register(this);
+
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if(currentUser == null){
             startActivity(new Intent(MainActivity.this,LoginActivity.class));
         }
         else {
-
-            mDatabase.addValueEventListener(new ValueEventListener() {
+            mDatabase.orderByChild("familyIdentification/timestamp").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     surveyList.clear();
@@ -121,20 +118,19 @@ public class MainActivity extends AppCompatActivity implements MainView {
                     SurveyList adapter = new SurveyList(MainActivity.this,surveyList);
                     mSurveyList.setAdapter(adapter);
                 }
-
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
 
                 }
             });
         }
-
-
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -218,6 +214,11 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     public void onErrorDelete() {
 
+    }
+
+    @Subscribe
+    public void onDeleteSuccessEvent(DeleteSuccessEvent deleteSuccessEvent){
+        //onSuccessDelete();
     }
 
 }

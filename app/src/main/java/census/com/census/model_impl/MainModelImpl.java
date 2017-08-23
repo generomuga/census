@@ -20,17 +20,6 @@ public class MainModelImpl implements MainModel{
     public MainModelImpl() {
 
         mDatabase = FirebaseDatabase.getInstance().getReference("data");
-
-        /*DatabaseReference drFamilyIdentification = FirebaseDatabase.getInstance().getReference("data").child("familyIdentification").child(dataId);
-        DatabaseReference drFamily = FirebaseDatabase.getInstance().getReference("data").child("family").child(dataId);
-        DatabaseReference drHealth = FirebaseDatabase.getInstance().getReference("data").child("health").child(dataId);
-        DatabaseReference drEnvironment = FirebaseDatabase.getInstance().getReference("data").child("environment").child(dataId);
-
-        drFamilyIdentification.removeValue();
-        drFamily.removeValue();
-        drHealth.removeValue();
-        drEnvironment.removeValue();
-        */
     }
 
     @Override
@@ -50,14 +39,14 @@ public class MainModelImpl implements MainModel{
         mFamily.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                EventBus.getDefault().post(new DeleteSuccessEvent());
+                //EventBus.getDefault().post(new DeleteSuccessEvent());
             }
         });
 
         mHealth.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                EventBus.getDefault().post(new DeleteSuccessEvent());
+               // EventBus.getDefault().post(new DeleteSuccessEvent());
             }
         });
 
