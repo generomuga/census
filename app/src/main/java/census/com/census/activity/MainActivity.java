@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
             startActivity(new Intent(MainActivity.this,LoginActivity.class));
         }
         else {
-            mDatabase.orderByChild("familyIdentification/timestamp").addValueEventListener(new ValueEventListener() {
+            mDatabase.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     surveyList.clear();
