@@ -33,8 +33,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         mEmail = (EditText) findViewById(R.id.userEmail);
         mPassword = (EditText) findViewById(R.id.userPassword);
 
-
-
         btnSignIn = (Button) findViewById(R.id.buttonSignIn);
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override

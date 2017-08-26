@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import java.util.ArrayList;
@@ -26,6 +27,8 @@ public class FamilyIdentificationFragment extends Fragment{
     public static EditText editTextLName;
     public static EditText editTextHouseNo;
     public static EditText editTextStreetNo;
+
+    public static RadioButton radioButtonResident;
 
     public static RadioGroup radioGroupResidency;
     public static RadioGroup radioGroupOwnership;
@@ -82,6 +85,8 @@ public class FamilyIdentificationFragment extends Fragment{
         editTextLName = (EditText) view.findViewById(R.id.editTextLname);
         editTextHouseNo = (EditText) view.findViewById(R.id.editTextHouseNo);
         editTextStreetNo = (EditText) view.findViewById(R.id.editTextStreetNo);
+
+        radioButtonResident = (RadioButton) view.findViewById(R.id.radioButtonResident);
 
         radioGroupResidency = (RadioGroup) view.findViewById(R.id.radioGroupResidency);
         radioGroupOwnership = (RadioGroup) view.findViewById(R.id.radioGroupOwnership);
@@ -218,6 +223,9 @@ public class FamilyIdentificationFragment extends Fragment{
         sharedPreferences.edit().putInt("region",spinnerRegions.getSelectedItemPosition()).apply();
         sharedPreferences.edit().putString("houseno",editTextHouseNo.getText().toString().trim()).apply();
         sharedPreferences.edit().putString("streetno",editTextStreetNo.getText().toString().trim()).apply();
+
+
+        sharedPreferences.edit().putBoolean("rbResident",radioButtonResident.isChecked()).apply();
     }
 
 }
