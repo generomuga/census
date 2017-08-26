@@ -29,6 +29,11 @@ public class FamilyIdentificationFragment extends Fragment{
     public static EditText editTextStreetNo;
 
     public static RadioButton radioButtonResident;
+    public static RadioButton radioButtonNonResident;
+    public static RadioButton mOwner;
+    public static RadioButton mExtended;
+    public static RadioButton mActive;
+    public static RadioButton mInActive;
 
     public static RadioGroup radioGroupResidency;
     public static RadioGroup radioGroupOwnership;
@@ -74,8 +79,8 @@ public class FamilyIdentificationFragment extends Fragment{
     }
 
     @Override
-    public void onDetach() {
-        super.onDetach();
+    public void onPause() {
+        super.onPause();
         onSaveReference();
     }
 
@@ -87,6 +92,11 @@ public class FamilyIdentificationFragment extends Fragment{
         editTextStreetNo = (EditText) view.findViewById(R.id.editTextStreetNo);
 
         radioButtonResident = (RadioButton) view.findViewById(R.id.radioButtonResident);
+        radioButtonNonResident = (RadioButton) view.findViewById(R.id.radioButtonNonResident);
+        mOwner = (RadioButton) view.findViewById(R.id.radioButtonOwner);
+        mExtended = (RadioButton) view.findViewById(R.id.radioButtonExtended);
+        mActive = (RadioButton) view.findViewById(R.id.radioButtonActive);
+        mInActive = (RadioButton) view.findViewById(R.id.radioButtonInactive);
 
         radioGroupResidency = (RadioGroup) view.findViewById(R.id.radioGroupResidency);
         radioGroupOwnership = (RadioGroup) view.findViewById(R.id.radioGroupOwnership);
@@ -212,6 +222,13 @@ public class FamilyIdentificationFragment extends Fragment{
         editTextStreetNo.setText(sharedPreferences.getString("streetno",""));
         editTextHouseNo.setText(sharedPreferences.getString("houseno",""));
         editTextStreetNo.setText(sharedPreferences.getString("streetno",""));
+
+        radioButtonResident.setChecked(sharedPreferences.getBoolean("resident",true));
+        radioButtonNonResident.setChecked(sharedPreferences.getBoolean("nonResident",false));
+        mOwner.setChecked(sharedPreferences.getBoolean("owner",true));
+        mExtended.setChecked(sharedPreferences.getBoolean("extended",false));
+        mActive.setChecked(sharedPreferences.getBoolean("active",true));
+        mInActive.setChecked(sharedPreferences.getBoolean("inactive",false));
     }
 
     private void onSaveReference(){
@@ -224,8 +241,12 @@ public class FamilyIdentificationFragment extends Fragment{
         sharedPreferences.edit().putString("houseno",editTextHouseNo.getText().toString().trim()).apply();
         sharedPreferences.edit().putString("streetno",editTextStreetNo.getText().toString().trim()).apply();
 
-
-        sharedPreferences.edit().putBoolean("rbResident",radioButtonResident.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("resident",radioButtonResident.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("nonResident",radioButtonNonResident.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("owner",mOwner.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("extended",mExtended.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("active",mActive.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("inactive",mInActive.isChecked()).apply();
     }
 
 }
