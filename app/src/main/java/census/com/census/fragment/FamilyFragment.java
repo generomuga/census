@@ -1,5 +1,7 @@
 package census.com.census.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
@@ -80,6 +82,8 @@ public class FamilyFragment extends Fragment {
 
     private DbUtils dbUtils;
 
+    private SharedPreferences sharedPreferences;
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -121,11 +125,24 @@ public class FamilyFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        onLoadData();
     }
 
     @Override
     public void onPause() {
         super.onPause();
+        onSaveReference();
+    }
+
+    private void onLoadData(){
+        sharedPreferences = getActivity().getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
+
+        seekBarNoFamMembers.setProgress(sharedPreferences.getInt("noFam",0));
+    }
+
+    private void onSaveReference(){
+        //sharedPreferences.edit().putString("fname",editTextFName.getText().toString().trim()).apply();
+        sharedPreferences.edit().putInt("noFam",seekBarNoFamMembers.getProgress()).apply();
     }
 
     private void initViews(){
