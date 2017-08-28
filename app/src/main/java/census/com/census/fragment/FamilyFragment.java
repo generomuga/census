@@ -155,22 +155,22 @@ public class FamilyFragment extends Fragment {
         checkBoxTruck.setChecked(sharedPreferences.getBoolean("checkTruck",false));
         checkBoxVan.setChecked(sharedPreferences.getBoolean("checkVan",false));
 
-        editTextBicycleNo.setText(sharedPreferences.getString("noBicycle","0"));
-        editTextBoatNo.setText(sharedPreferences.getString("noBoat","0"));
-        editTextBusNo.setText(sharedPreferences.getString("noBus","0"));
-        editTextCarNo.setText(sharedPreferences.getString("noCar","0"));
-        editTextJeepNo.setText(sharedPreferences.getString("noJeep","0"));
-        editTextMotorBoatNo.setText(sharedPreferences.getString("noMotorBoat","0"));
-        editTextMotorcycleNo.setText(sharedPreferences.getString("noMotorcycle","0"));
-        editTextOwnerNo.setText(sharedPreferences.getString("noOwner","0"));
-        editTextPedicabNo.setText(sharedPreferences.getString("noPedicab","0"));
-        editTextPickupNo.setText(sharedPreferences.getString("noPickup","0"));
-        editTextPumpBoatNo.setText(sharedPreferences.getString("noPumpBoat","0"));
-        editTextRaftNo.setText(sharedPreferences.getString("noRaft","0"));
-        editTextSuvNo.setText(sharedPreferences.getString("noSuv","0"));
-        editTextTricycleNo.setText(sharedPreferences.getString("noTric","0"));
-        editTextTruckNo.setText(sharedPreferences.getString("noTruck","0"));
-        editTextVanNo.setText(sharedPreferences.getString("noVan","0"));
+        editTextBicycleNo.setText(sharedPreferences.getString("noBicycle",""));
+        editTextBoatNo.setText(sharedPreferences.getString("noBoat",""));
+        editTextBusNo.setText(sharedPreferences.getString("noBus",""));
+        editTextCarNo.setText(sharedPreferences.getString("noCar",""));
+        editTextJeepNo.setText(sharedPreferences.getString("noJeep",""));
+        editTextMotorBoatNo.setText(sharedPreferences.getString("noMotorBoat",""));
+        editTextMotorcycleNo.setText(sharedPreferences.getString("noMotorcycle",""));
+        editTextOwnerNo.setText(sharedPreferences.getString("noOwner",""));
+        editTextPedicabNo.setText(sharedPreferences.getString("noPedicab",""));
+        editTextPickupNo.setText(sharedPreferences.getString("noPickup",""));
+        editTextPumpBoatNo.setText(sharedPreferences.getString("noPumpBoat",""));
+        editTextRaftNo.setText(sharedPreferences.getString("noRaft",""));
+        editTextSuvNo.setText(sharedPreferences.getString("noSuv",""));
+        editTextTricycleNo.setText(sharedPreferences.getString("noTric",""));
+        editTextTruckNo.setText(sharedPreferences.getString("noTruck",""));
+        editTextVanNo.setText(sharedPreferences.getString("noVan",""));
     }
 
     private void onSaveReference(){
