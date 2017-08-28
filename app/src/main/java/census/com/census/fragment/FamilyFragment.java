@@ -138,11 +138,43 @@ public class FamilyFragment extends Fragment {
         sharedPreferences = getActivity().getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
 
         seekBarNoFamMembers.setProgress(sharedPreferences.getInt("noFam",0));
+        checkBoxBicycle.setChecked(sharedPreferences.getBoolean("checkBicycle",false));
+        checkBoxBoat.setChecked(sharedPreferences.getBoolean("checkBoat",false));
+        checkBoxBus.setChecked(sharedPreferences.getBoolean("checkBus",false));
+        checkBoxCar.setChecked(sharedPreferences.getBoolean("checkCar",false));
+        checkBoxJeep.setChecked(sharedPreferences.getBoolean("checkJeep",false));
+        checkBoxMotorBoat.setChecked(sharedPreferences.getBoolean("checkMotorBoat",false));
+        checkBoxMotorcycle.setChecked(sharedPreferences.getBoolean("checkMotorcycle",false));
+        checkBoxOwner.setChecked(sharedPreferences.getBoolean("checkOwner",false));
+        checkBoxPedicab.setChecked(sharedPreferences.getBoolean("checkPedicab",false));
+        checkBoxPickup.setChecked(sharedPreferences.getBoolean("checkPickup",false));
+        checkBoxPumpBoat.setChecked(sharedPreferences.getBoolean("checkPumpBoat",false));
+        checkBoxRaft.setChecked(sharedPreferences.getBoolean("checkRaft",false));
+        checkBoxSuv.setChecked(sharedPreferences.getBoolean("checkSuv",false));
+        checkBoxTricycle.setChecked(sharedPreferences.getBoolean("checkTric",false));
+        checkBoxTruck.setChecked(sharedPreferences.getBoolean("checkTruck",false));
+        checkBoxVan.setChecked(sharedPreferences.getBoolean("checkVan",false));
     }
 
     private void onSaveReference(){
         //sharedPreferences.edit().putString("fname",editTextFName.getText().toString().trim()).apply();
         sharedPreferences.edit().putInt("noFam",seekBarNoFamMembers.getProgress()).apply();
+        sharedPreferences.edit().putBoolean("checkBicycle",checkBoxBicycle.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("checkBoat",checkBoxBoat.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("checkBus",checkBoxBus.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("checkCar",checkBoxCar.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("checkJeep",checkBoxJeep.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("checkMotorBoat",checkBoxMotorBoat.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("checkMotorcycle",checkBoxMotorcycle.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("checkOwner",checkBoxOwner.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("checkPedicab",checkBoxPedicab.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("checkPickup",checkBoxPickup.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("checkPumpBoat",checkBoxPumpBoat.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("checkRaft",checkBoxRaft.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("checkSuv",checkBoxSuv.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("checkTric",checkBoxTricycle.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("checkTruck",checkBoxTruck.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("checkVan",checkBoxVan.isChecked()).apply();
     }
 
     private void initViews(){
