@@ -154,6 +154,23 @@ public class FamilyFragment extends Fragment {
         checkBoxTricycle.setChecked(sharedPreferences.getBoolean("checkTric",false));
         checkBoxTruck.setChecked(sharedPreferences.getBoolean("checkTruck",false));
         checkBoxVan.setChecked(sharedPreferences.getBoolean("checkVan",false));
+
+        editTextBicycleNo.setText(sharedPreferences.getString("noBicycle","0"));
+        editTextBoatNo.setText(sharedPreferences.getString("noBoat","0"));
+        editTextBusNo.setText(sharedPreferences.getString("noBus","0"));
+        editTextCarNo.setText(sharedPreferences.getString("noCar","0"));
+        editTextJeepNo.setText(sharedPreferences.getString("noJeep","0"));
+        editTextMotorBoatNo.setText(sharedPreferences.getString("noMotorBoat","0"));
+        editTextMotorcycleNo.setText(sharedPreferences.getString("noMotorcycle","0"));
+        editTextOwnerNo.setText(sharedPreferences.getString("noOwner","0"));
+        editTextPedicabNo.setText(sharedPreferences.getString("noPedicab","0"));
+        editTextPickupNo.setText(sharedPreferences.getString("noPickup","0"));
+        editTextPumpBoatNo.setText(sharedPreferences.getString("noPumpBoat","0"));
+        editTextRaftNo.setText(sharedPreferences.getString("noRaft","0"));
+        editTextSuvNo.setText(sharedPreferences.getString("noSuv","0"));
+        editTextTricycleNo.setText(sharedPreferences.getString("noTric","0"));
+        editTextTruckNo.setText(sharedPreferences.getString("noTruck","0"));
+        editTextVanNo.setText(sharedPreferences.getString("noVan","0"));
     }
 
     private void onSaveReference(){
@@ -175,6 +192,23 @@ public class FamilyFragment extends Fragment {
         sharedPreferences.edit().putBoolean("checkTric",checkBoxTricycle.isChecked()).apply();
         sharedPreferences.edit().putBoolean("checkTruck",checkBoxTruck.isChecked()).apply();
         sharedPreferences.edit().putBoolean("checkVan",checkBoxVan.isChecked()).apply();
+
+        sharedPreferences.edit().putString("noBicycle",editTextBicycleNo.getText().toString()).apply();
+        sharedPreferences.edit().putString("noBoat",editTextBoatNo.getText().toString()).apply();
+        sharedPreferences.edit().putString("noBus",editTextBusNo.getText().toString()).apply();
+        sharedPreferences.edit().putString("noCar",editTextCarNo.getText().toString()).apply();
+        sharedPreferences.edit().putString("noJeep",editTextJeepNo.getText().toString()).apply();
+        sharedPreferences.edit().putString("noMotorBoat",editTextMotorBoatNo.getText().toString()).apply();
+        sharedPreferences.edit().putString("noMotorcycle",editTextMotorcycleNo.getText().toString()).apply();
+        sharedPreferences.edit().putString("noOwner",editTextOwnerNo.getText().toString()).apply();
+        sharedPreferences.edit().putString("noPedicab",editTextPedicabNo.getText().toString()).apply();
+        sharedPreferences.edit().putString("noPickup",editTextPickupNo.getText().toString()).apply();
+        sharedPreferences.edit().putString("noPumpBoat",editTextPumpBoatNo.getText().toString()).apply();
+        sharedPreferences.edit().putString("noRaft",editTextRaftNo.getText().toString()).apply();
+        sharedPreferences.edit().putString("noSuv",editTextSuvNo.getText().toString()).apply();
+        sharedPreferences.edit().putString("noTric",editTextTricycleNo.getText().toString()).apply();
+        sharedPreferences.edit().putString("noTruck",editTextTruckNo.getText().toString()).apply();
+        sharedPreferences.edit().putString("noVan",editTextVanNo.getText().toString()).apply();
     }
 
     private void initViews(){

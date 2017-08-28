@@ -390,7 +390,8 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
-                    android:textColorHint="@color/colorTextView" />
+                    android:textColorHint="@color/colorTextView"
+                    android:textColor="@color/colorEditText"/>
 
             </LinearLayout>
 
