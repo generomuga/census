@@ -27,6 +27,7 @@ public class HealthFragment extends Fragment {
     public static RadioButton radioButtonFamilyNo;
     public static RadioButton radioButtonFamilyNa;
 
+
     private SharedPreferences sharedPreferences;
 
 
@@ -68,6 +69,8 @@ public class HealthFragment extends Fragment {
         radioButtonFamilyYes.setChecked(sharedPreferences.getBoolean("familyYes",true));
         radioButtonFamilyNo.setChecked(sharedPreferences.getBoolean("familyNo",false));
         radioButtonFamilyNa.setChecked(sharedPreferences.getBoolean("familyNa",false));
+
+
     }
 
     private void onSaveReference(){
@@ -102,7 +105,7 @@ public class HealthFragment extends Fragment {
         sharedPreferences.edit().putBoolean("familyYes",radioButtonFamilyYes.isChecked()).apply();
         sharedPreferences.edit().putBoolean("familyNo",radioButtonFamilyNo.isChecked()).apply();
         sharedPreferences.edit().putBoolean("familyNa",radioButtonFamilyNa.isChecked()).apply();
-
+        //sharedPreferences.edit().putBoolean("basal",)
     }
 
     private void initViews(){
