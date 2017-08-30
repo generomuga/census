@@ -57,10 +57,41 @@ public class HealthFragment extends Fragment {
     private void onLoadData(){
         sharedPreferences = getActivity().getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
 
+        radioButtonEatYes.setChecked(sharedPreferences.getBoolean("eatYes",true));
+        radioButtonEatNo.setChecked(sharedPreferences.getBoolean("eatNo",false));
+        radioButtonHerbalYes.setChecked(sharedPreferences.getBoolean("herbalYes",true));
+        radioButtonHerbalNo.setChecked(sharedPreferences.getBoolean("herbalNo",false));
+        radioButtonIodizeYes.setChecked(sharedPreferences.getBoolean("iodizeYes",true));
+        radioButtonIodizeNo.setChecked(sharedPreferences.getBoolean("iodizeNo",false));
     }
 
     private void onSaveReference(){
-        //sharedPreferences.edit().putString("fname",editTextFName.getText().toString().trim()).apply();
+        /*eatComplete;
+        private int plantHerbal;
+        private int vegGarden;
+        private int useIodize;
+        private int familyPlan;
+        private int basal;
+        private int cervical;
+        private int lactation;
+        private int rhtythm;
+        private int standard;
+        private int sympho;
+        private int withdrawal;
+        private int condom;
+        private int depo;
+        private int iud;
+        private int tubal;
+        private int pills;
+        private int vasectomy;
+        private int others;*/
+
+        sharedPreferences.edit().putBoolean("eatYes",radioButtonEatYes.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("eatNo",radioButtonEatNo.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("herbalYes",radioButtonHerbalYes.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("herbalNo",radioButtonHerbalNo.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("iodizeYes",radioButtonIodizeYes.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("iodizeNo",radioButtonIodizeNo.isChecked()).apply();
     }
 
     private void initViews(){
