@@ -1,5 +1,7 @@
 package census.com.census.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,6 +27,8 @@ public class HealthFragment extends Fragment {
     public static RadioButton radioButtonFamilyNo;
     public static RadioButton radioButtonFamilyNa;
 
+    private SharedPreferences sharedPreferences;
+
 
 
     @Override
@@ -36,6 +40,27 @@ public class HealthFragment extends Fragment {
         initViews();
 
         return view;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        onSaveReference();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        onLoadData();
+    }
+
+    private void onLoadData(){
+        sharedPreferences = getActivity().getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
+
+    }
+
+    private void onSaveReference(){
+        //sharedPreferences.edit().putString("fname",editTextFName.getText().toString().trim()).apply();
     }
 
     private void initViews(){

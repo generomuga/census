@@ -134,6 +134,7 @@ public class FamilyFragment extends Fragment {
         onSaveReference();
     }
 
+
     private void onLoadData(){
         sharedPreferences = getActivity().getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
 
