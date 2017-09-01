@@ -188,11 +188,30 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                     FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim(),
                     resident,ownership,familyStatus, mAuth.getCurrentUser().getEmail());
 
+
+            int selectBicycle = (FamilyFragment.checkBoxBicycle.isChecked()) ? 1 : 0;
+            int selectBoat = (FamilyFragment.checkBoxBoat.isChecked())? 1 : 0;
+            int selectBus = (FamilyFragment.checkBoxBus.isChecked())? 1 : 0;
+            int selectCar = (FamilyFragment.checkBoxCar.isChecked())? 1 : 0;
+            int selectJeep = (FamilyFragment.checkBoxJeep.isChecked())? 1 : 0;
+            int selectMotorBoat = (FamilyFragment.checkBoxMotorBoat.isChecked())? 1 : 0;
+            int selectMotorcycle = (FamilyFragment.checkBoxMotorcycle.isChecked())? 1 : 0;
+            int selectOwner = (FamilyFragment.checkBoxOwner.isChecked())? 1 : 0;
+            int selectPedicab = (FamilyFragment.checkBoxPedicab.isChecked())? 1 : 0;
+            int selectPickup = (FamilyFragment.checkBoxPickup.isChecked())? 1 : 0;
+            int selectPumpBoat = (FamilyFragment.checkBoxPumpBoat.isChecked())? 1 : 0;
+            int selectRaft = (FamilyFragment.checkBoxRaft.isChecked())? 1 : 0;
+            int selectSuv = (FamilyFragment.checkBoxSuv.isChecked())? 1 : 0;
+            int selectTric = (FamilyFragment.checkBoxTricycle.isChecked())? 1 : 0;
+            int selectTruck = (FamilyFragment.checkBoxTruck.isChecked())? 1 : 0;
+            int selectVan = (FamilyFragment.checkBoxVan.isChecked())? 1 : 0;
+
             familyListener.sendFamilyValue(FamilyFragment.seekBarNoFamMembers.getProgress(),
                     Integer.parseInt(FamilyFragment.spinnerYear.getSelectedItem().toString()),FamilyFragment.spinnerRegion.getSelectedItem().toString(),
                     FamilyFragment.spinnerProvince.getSelectedItem().toString(),FamilyFragment.spinnerMunicipal.getSelectedItem().toString(),
                     FamilyFragment.spinnerBarangay.getSelectedItem().toString(),FamilyFragment.spinnerISP.getSelectedItem().toString(),
-                    1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
+                    selectBicycle,1,selectBoat,1,selectBus,1,selectCar,1,selectJeep,1,selectMotorBoat,1,selectMotorcycle,1,selectOwner,1,selectPedicab,1,
+                    selectPickup,1,selectPumpBoat,1,selectRaft,1,selectSuv,1,selectTric,1,selectTruck,1,selectVan,1);
 
             healthListener.sendHealthValue(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19);
 
