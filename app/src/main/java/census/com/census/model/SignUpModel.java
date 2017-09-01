@@ -8,5 +8,4 @@ public interface SignUpModel {
     }
 
     void register(String email,String password);
-
 }

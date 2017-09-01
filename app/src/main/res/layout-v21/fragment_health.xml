@@ -211,6 +211,7 @@
                 android:textColor="@color/colorTextView" />
 
             <CheckBox
+                android:id="@+id/checkboxBasal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -220,6 +221,7 @@
                 android:textColor="@color/colorEditText" />
 
             <CheckBox
+                android:id="@+id/checkboxCervical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -229,6 +231,7 @@
                 android:textColor="@color/colorEditText" />
 
             <CheckBox
+                android:id="@+id/checkboxLactation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -238,6 +241,7 @@
                 android:textColor="@color/colorEditText" />
 
             <CheckBox
+                android:id="@+id/checkboxRhythm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -247,6 +251,7 @@
                 android:textColor="@color/colorEditText" />
 
             <CheckBox
+                android:id="@+id/checkboxStandard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -256,6 +261,7 @@
                 android:textColor="@color/colorEditText" />
 
             <CheckBox
+                android:id="@+id/checkboxSympho"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -265,6 +271,7 @@
                 android:textColor="@color/colorEditText" />
 
             <CheckBox
+                android:id="@+id/checkboxWithdrawal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -274,6 +281,7 @@
                 android:textColor="@color/colorEditText" />
 
             <CheckBox
+                android:id="@+id/checkboxCondom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -283,6 +291,7 @@
                 android:textColor="@color/colorEditText" />
 
             <CheckBox
+                android:id="@+id/checkboxDepo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -292,6 +301,7 @@
                 android:textColor="@color/colorEditText" />
 
             <CheckBox
+                android:id="@+id/checkboxIud"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -301,6 +311,7 @@
                 android:textColor="@color/colorEditText" />
 
             <CheckBox
+                android:id="@+id/checkboxTubal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -310,6 +321,7 @@
                 android:textColor="@color/colorEditText" />
 
             <CheckBox
+                android:id="@+id/checkboxPill"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -319,6 +331,7 @@
                 android:textColor="@color/colorEditText" />
 
             <CheckBox
+                android:id="@+id/checkboxVasectomy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -328,6 +341,7 @@
                 android:textColor="@color/colorEditText" />
 
             <CheckBox
+                android:id="@+id/checkboxOthers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"

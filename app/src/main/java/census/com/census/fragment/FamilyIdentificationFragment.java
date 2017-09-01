@@ -229,6 +229,8 @@ public class FamilyIdentificationFragment extends Fragment{
         mExtended.setChecked(sharedPreferences.getBoolean("extended",false));
         mActive.setChecked(sharedPreferences.getBoolean("active",true));
         mInActive.setChecked(sharedPreferences.getBoolean("inactive",false));
+        spinnerRegions.setSelection(sharedPreferences.getInt("region",0));
+        spinnerProvinces.setSelection(sharedPreferences.getInt("province",0));
     }
 
     private void onSaveReference(){
@@ -247,6 +249,9 @@ public class FamilyIdentificationFragment extends Fragment{
         sharedPreferences.edit().putBoolean("extended",mExtended.isChecked()).apply();
         sharedPreferences.edit().putBoolean("active",mActive.isChecked()).apply();
         sharedPreferences.edit().putBoolean("inactive",mInActive.isChecked()).apply();
+
+        sharedPreferences.edit().putInt("region",spinnerRegions.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("province",spinnerProvinces.getSelectedItemPosition()).apply();
     }
 
 }

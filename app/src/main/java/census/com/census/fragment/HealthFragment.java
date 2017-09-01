@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.RadioButton;
 
 import census.com.census.R;
@@ -27,10 +28,22 @@ public class HealthFragment extends Fragment {
     public static RadioButton radioButtonFamilyNo;
     public static RadioButton radioButtonFamilyNa;
 
+    public static CheckBox mBasal;
+    public static CheckBox mCervical;
+    public static CheckBox mLactation;
+    public static CheckBox mRhythm;
+    public static CheckBox mStandard;
+    public static CheckBox mSympho;
+    public static CheckBox mWithdrawal;
+    public static CheckBox mCondom;
+    public static CheckBox mDepo;
+    public static CheckBox mIud;
+    public static CheckBox mTubal;
+    public static CheckBox mPills;
+    public static CheckBox mVasectomy;
+    public static CheckBox mOthers;
 
     private SharedPreferences sharedPreferences;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -70,6 +83,20 @@ public class HealthFragment extends Fragment {
         radioButtonFamilyNo.setChecked(sharedPreferences.getBoolean("familyNo",false));
         radioButtonFamilyNa.setChecked(sharedPreferences.getBoolean("familyNa",false));
 
+        mBasal.setChecked(sharedPreferences.getBoolean("basal",false));
+        mCervical.setChecked(sharedPreferences.getBoolean("cervical",false));
+        mLactation.setChecked(sharedPreferences.getBoolean("lactation",false));
+        mRhythm.setChecked(sharedPreferences.getBoolean("rhythm",false));
+        mStandard.setChecked(sharedPreferences.getBoolean("standard",false));
+        mSympho.setChecked(sharedPreferences.getBoolean("sympho",false));
+        mWithdrawal.setChecked(sharedPreferences.getBoolean("withdrawal",false));
+        mCondom.setChecked(sharedPreferences.getBoolean("condom",false));
+        mDepo.setChecked(sharedPreferences.getBoolean("depo",false));
+        mIud.setChecked(sharedPreferences.getBoolean("iud",false));
+        mTubal.setChecked(sharedPreferences.getBoolean("tubal",false));
+        mPills.setChecked(sharedPreferences.getBoolean("pills",false));
+        mVasectomy.setChecked(sharedPreferences.getBoolean("vasectomy",false));
+        mOthers.setChecked(sharedPreferences.getBoolean("others",false));
 
     }
 
@@ -105,7 +132,20 @@ public class HealthFragment extends Fragment {
         sharedPreferences.edit().putBoolean("familyYes",radioButtonFamilyYes.isChecked()).apply();
         sharedPreferences.edit().putBoolean("familyNo",radioButtonFamilyNo.isChecked()).apply();
         sharedPreferences.edit().putBoolean("familyNa",radioButtonFamilyNa.isChecked()).apply();
-        //sharedPreferences.edit().putBoolean("basal",)
+        sharedPreferences.edit().putBoolean("basal",mBasal.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("cervical",mCervical.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("lactation",mLactation.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("rhythm",mRhythm.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("standard",mStandard.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("sympho",mSympho.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("withdrawal",mWithdrawal.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("condom",mCondom.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("depo",mDepo.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("iud",mIud.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("tubal",mTubal.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("pills",mPills.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("vasectomy",mVasectomy.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("others",mOthers.isChecked()).apply();
     }
 
     private void initViews(){
@@ -120,6 +160,21 @@ public class HealthFragment extends Fragment {
         radioButtonFamilyYes = (RadioButton) view.findViewById(R.id.radioButtonFamilyYes);
         radioButtonFamilyNo = (RadioButton) view.findViewById(R.id.radioButtonFamilyNo);
         radioButtonFamilyNa = (RadioButton) view.findViewById(R.id.radioButtonFamilyNa);
+
+        mBasal = (CheckBox) view.findViewById(R.id.checkboxBasal);
+        mCervical = (CheckBox) view.findViewById(R.id.checkboxCervical);
+        mLactation = (CheckBox) view.findViewById(R.id.checkboxLactation);
+        mRhythm = (CheckBox) view.findViewById(R.id.checkboxRhythm);
+        mStandard = (CheckBox) view.findViewById(R.id.checkboxStandard);
+        mSympho = (CheckBox) view.findViewById(R.id.checkboxSympho);
+        mWithdrawal = (CheckBox) view.findViewById(R.id.checkboxWithdrawal);
+        mCondom = (CheckBox) view.findViewById(R.id.checkboxCondom);
+        mDepo = (CheckBox) view.findViewById(R.id.checkboxDepo);
+        mIud = (CheckBox) view.findViewById(R.id.checkboxIud);
+        mTubal = (CheckBox) view.findViewById(R.id.checkboxTubal);
+        mPills = (CheckBox) view.findViewById(R.id.checkboxPill);
+        mVasectomy = (CheckBox) view.findViewById(R.id.checkboxVasectomy);
+        mOthers = (CheckBox) view.findViewById(R.id.checkboxOthers);
     }
 
 }
