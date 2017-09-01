@@ -142,8 +142,6 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     }
 
     private void sendData(){
-        Toast.makeText(this,Boolean.toString(isOpenFamilyIdentification)+' '+ Boolean.toString(isOpenFamily),Toast.LENGTH_SHORT).show();
-
         boolean isFamilyIdentificationComplete = false;
         boolean isFamilyComplete = false;
         boolean isHealthComplete = false;
