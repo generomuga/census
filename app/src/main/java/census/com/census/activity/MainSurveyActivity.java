@@ -175,6 +175,10 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
             mProgress.setCancelable(true);
             mProgress.show();
 
+            int resident = (FamilyIdentificationFragment.radioButtonResident.isChecked()) ? 1 : 0;
+            int ownership = (FamilyIdentificationFragment.mOwner.isChecked()) ? 1 : 0;
+            int familyStatus = (FamilyIdentificationFragment.mActive.isChecked()) ? 1 : 0;
+
             familyIdentificationListener.sendFamilyIdentificationValue(FamilyIdentificationFragment.editTextFName.getText().toString().trim(),
                     FamilyIdentificationFragment.editTextMName.getText().toString().trim(),
                     FamilyIdentificationFragment.editTextLName.getText().toString().trim(),
@@ -184,7 +188,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                     FamilyIdentificationFragment.spinnerBarangay.getSelectedItem().toString(),
                     FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim(),
                     FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim(),
-                    1,1,1, mAuth.getCurrentUser().getEmail());
+                    resident,ownership,familyStatus, mAuth.getCurrentUser().getEmail());
 
             familyListener.sendFamilyValue(FamilyFragment.seekBarNoFamMembers.getProgress(),
                     Integer.parseInt(FamilyFragment.spinnerYear.getSelectedItem().toString()),FamilyFragment.spinnerRegion.getSelectedItem().toString(),

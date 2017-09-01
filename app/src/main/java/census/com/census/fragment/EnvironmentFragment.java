@@ -1,6 +1,8 @@
 package census.com.census.fragment;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.AsyncLayoutInflater;
@@ -14,7 +16,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import census.com.census.R;
-
 
 public class EnvironmentFragment extends Fragment {
 
@@ -51,6 +52,7 @@ public class EnvironmentFragment extends Fragment {
     private ArrayList listLocation;
     private ArrayList listEcological;
 
+    private SharedPreferences sharedPreferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -117,6 +119,28 @@ public class EnvironmentFragment extends Fragment {
         spinnerEcological.setAdapter(spinnerArrayAdapter);
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        //onLoadReference();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        onSaveReference();
+    }
+
+    private void onLoadReference(){
+        spinnerToilet.setSelection(sharedPreferences.getInt("toilet",0));
+    }
+
+    private void onSaveReference(){
+        sharedPreferences = getActivity().getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
+
+        sharedPreferences.edit().putInt("toilet",spinnerToilet.getSelectedItemPosition()).apply();
     }
 
     private void initViews(){

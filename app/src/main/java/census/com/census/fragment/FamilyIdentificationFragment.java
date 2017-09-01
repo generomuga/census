@@ -225,6 +225,8 @@ public class FamilyIdentificationFragment extends Fragment{
 
         radioButtonResident.setChecked(sharedPreferences.getBoolean("resident",true));
         radioButtonNonResident.setChecked(sharedPreferences.getBoolean("nonResident",false));
+
+
         mOwner.setChecked(sharedPreferences.getBoolean("owner",true));
         mExtended.setChecked(sharedPreferences.getBoolean("extended",false));
         mActive.setChecked(sharedPreferences.getBoolean("active",true));
