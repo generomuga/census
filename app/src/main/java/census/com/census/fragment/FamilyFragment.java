@@ -381,6 +381,110 @@ public class FamilyFragment extends Fragment {
                 }
             }
         });
+
+        checkBoxPedicab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxPedicab.isChecked()){
+                    editTextPedicabNo.setEnabled(true);
+                }
+                else{
+                    editTextPedicabNo.setEnabled(false);
+                    editTextPedicabNo.setText(null);
+                }
+            }
+        });
+
+        checkBoxPickup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxPickup.isChecked()){
+                    editTextPickupNo.setEnabled(true);
+                }
+                else{
+                    editTextPickupNo.setEnabled(false);
+                    editTextPickupNo.setText(null);
+                }
+            }
+        });
+
+        checkBoxPumpBoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxPumpBoat.isChecked()){
+                    editTextPumpBoatNo.setEnabled(true);
+                }
+                else{
+                    editTextPumpBoatNo.setEnabled(false);
+                    editTextPumpBoatNo.setText(null);
+                }
+            }
+        });
+
+        checkBoxRaft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxRaft.isChecked()){
+                    editTextRaftNo.setEnabled(true);
+                }
+                else{
+                    editTextRaftNo.setEnabled(false);
+                    editTextRaftNo.setText(null);
+                }
+            }
+        });
+
+        checkBoxSuv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxSuv.isChecked()){
+                    editTextSuvNo.setEnabled(true);
+                }
+                else{
+                    editTextSuvNo.setEnabled(false);
+                    editTextSuvNo.setText(null);
+                }
+            }
+        });
+
+        checkBoxTricycle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxTricycle.isChecked()){
+                    editTextTricycleNo.setEnabled(true);
+                }
+                else{
+                    editTextTricycleNo.setEnabled(false);
+                    editTextTricycleNo.setText(null);
+                }
+            }
+        });
+
+        checkBoxTruck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxTruck.isChecked()){
+                    editTextTruckNo.setEnabled(true);
+                }
+                else{
+                    editTextTruckNo.setEnabled(false);
+                    editTextTruckNo.setText(null);
+                }
+            }
+        });
+
+        checkBoxVan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxVan.isChecked()){
+                    editTextVanNo.setEnabled(true);
+                }
+                else{
+                    editTextVanNo.setEnabled(false);
+                    editTextVanNo.setText(null);
+                }
+            }
+        });
     }
 
     private void loadRegions(){
