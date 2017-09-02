@@ -190,28 +190,45 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
 
             int selectBicycle = (FamilyFragment.checkBoxBicycle.isChecked()) ? 1 : 0;
+            int qBicycle = (selectBicycle > 0) ? Integer.parseInt(FamilyFragment.editTextBicycleNo.getText().toString()) : 0;
             int selectBoat = (FamilyFragment.checkBoxBoat.isChecked())? 1 : 0;
+            int qBoat = (selectBoat > 0) ? Integer.parseInt(FamilyFragment.editTextBoatNo.getText().toString()) : 0;
             int selectBus = (FamilyFragment.checkBoxBus.isChecked())? 1 : 0;
+            int qBus = (selectBus > 0) ? Integer.parseInt(FamilyFragment.editTextBusNo.getText().toString()) : 0;
             int selectCar = (FamilyFragment.checkBoxCar.isChecked())? 1 : 0;
+            int qCar = (selectCar > 0) ? Integer.parseInt(FamilyFragment.editTextCarNo.getText().toString()) : 0;
             int selectJeep = (FamilyFragment.checkBoxJeep.isChecked())? 1 : 0;
+            int qJeep = (selectJeep > 0) ? Integer.parseInt(FamilyFragment.editTextJeepNo.getText().toString()) : 0;
             int selectMotorBoat = (FamilyFragment.checkBoxMotorBoat.isChecked())? 1 : 0;
+            int qMotorBoat = (selectMotorBoat > 0) ? Integer.parseInt(FamilyFragment.editTextMotorBoatNo.getText().toString()) : 0;
             int selectMotorcycle = (FamilyFragment.checkBoxMotorcycle.isChecked())? 1 : 0;
+            int qMotorcycle = (selectMotorcycle > 0) ? Integer.parseInt(FamilyFragment.editTextMotorcycleNo.getText().toString()) : 0;
             int selectOwner = (FamilyFragment.checkBoxOwner.isChecked())? 1 : 0;
+            int qOwner = (selectOwner > 0) ? Integer.parseInt(FamilyFragment.editTextOwnerNo.getText().toString()) : 0;
             int selectPedicab = (FamilyFragment.checkBoxPedicab.isChecked())? 1 : 0;
+            int qPedicab = (selectPedicab > 0) ? Integer.parseInt(FamilyFragment.editTextPedicabNo.getText().toString()) : 0;
             int selectPickup = (FamilyFragment.checkBoxPickup.isChecked())? 1 : 0;
+            int qPickup = (selectPickup > 0) ? Integer.parseInt(FamilyFragment.editTextPickupNo.getText().toString()) : 0;
             int selectPumpBoat = (FamilyFragment.checkBoxPumpBoat.isChecked())? 1 : 0;
+            int qPumpBoat = (selectPumpBoat > 0) ? Integer.parseInt(FamilyFragment.editTextPumpBoatNo.getText().toString()) : 0;
             int selectRaft = (FamilyFragment.checkBoxRaft.isChecked())? 1 : 0;
+            int qRaft = (selectRaft > 0) ? Integer.parseInt(FamilyFragment.editTextRaftNo.getText().toString()) : 0;
             int selectSuv = (FamilyFragment.checkBoxSuv.isChecked())? 1 : 0;
+            int qSuv = (selectSuv > 0) ? Integer.parseInt(FamilyFragment.editTextSuvNo.getText().toString()) : 0;
             int selectTric = (FamilyFragment.checkBoxTricycle.isChecked())? 1 : 0;
+            int qTric = (selectTric > 0) ? Integer.parseInt(FamilyFragment.editTextTricycleNo.getText().toString()) : 0;
             int selectTruck = (FamilyFragment.checkBoxTruck.isChecked())? 1 : 0;
+            int qTruck = (selectTruck > 0) ? Integer.parseInt(FamilyFragment.editTextTruckNo.getText().toString()) : 0;
             int selectVan = (FamilyFragment.checkBoxVan.isChecked())? 1 : 0;
+            int qVan = (selectVan > 0) ? Integer.parseInt(FamilyFragment.editTextVanNo.getText().toString()) : 0;
 
             familyListener.sendFamilyValue(FamilyFragment.seekBarNoFamMembers.getProgress(),
                     Integer.parseInt(FamilyFragment.spinnerYear.getSelectedItem().toString()),FamilyFragment.spinnerRegion.getSelectedItem().toString(),
                     FamilyFragment.spinnerProvince.getSelectedItem().toString(),FamilyFragment.spinnerMunicipal.getSelectedItem().toString(),
                     FamilyFragment.spinnerBarangay.getSelectedItem().toString(),FamilyFragment.spinnerISP.getSelectedItem().toString(),
-                    selectBicycle,1,selectBoat,1,selectBus,1,selectCar,1,selectJeep,1,selectMotorBoat,1,selectMotorcycle,1,selectOwner,1,selectPedicab,1,
-                    selectPickup,1,selectPumpBoat,1,selectRaft,1,selectSuv,1,selectTric,1,selectTruck,1,selectVan,1);
+                    selectBicycle,qBicycle,selectBoat,qBoat,selectBus,qBus,selectCar,qCar,selectJeep,qJeep,selectMotorBoat,qMotorBoat,selectMotorcycle,qMotorcycle,
+                    selectOwner,qOwner,selectPedicab,qPedicab,
+                    selectPickup,qPickup,selectPumpBoat,qPumpBoat,selectRaft,qRaft,selectSuv,qSuv,selectTric,qTric,selectTruck,qTruck,selectVan,qVan);
 
             healthListener.sendHealthValue(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19);
 
