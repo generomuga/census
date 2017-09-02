@@ -291,7 +291,96 @@ public class FamilyFragment extends Fragment {
             }
         });
 
+        checkBoxBoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxBoat.isChecked()){
+                    editTextBoatNo.setEnabled(true);
+                }
+                else{
+                    editTextBoatNo.setEnabled(false);
+                    editTextBoatNo.setText(null);
+                }
+            }
+        });
 
+        checkBoxBus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxBus.isChecked()){
+                    editTextBusNo.setEnabled(true);
+                }
+                else{
+                    editTextBusNo.setEnabled(false);
+                    editTextBusNo.setText(null);
+                }
+            }
+        });
+
+        checkBoxCar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxCar.isChecked()){
+                    editTextCarNo.setEnabled(true);
+                }
+                else{
+                    editTextCarNo.setEnabled(false);
+                    editTextCarNo.setText(null);
+                }
+            }
+        });
+
+        checkBoxJeep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxJeep.isChecked()){
+                    editTextJeepNo.setEnabled(true);
+                }
+                else{
+                    editTextJeepNo.setEnabled(false);
+                    editTextJeepNo.setText(null);
+                }
+            }
+        });
+
+        checkBoxMotorBoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxMotorBoat.isChecked()){
+                    editTextMotorBoatNo.setEnabled(true);
+                }
+                else{
+                    editTextMotorBoatNo.setEnabled(false);
+                    editTextMotorBoatNo.setText(null);
+                }
+            }
+        });
+
+        checkBoxMotorcycle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxMotorcycle.isChecked()){
+                    editTextMotorcycleNo.setEnabled(true);
+                }
+                else{
+                    editTextMotorcycleNo.setEnabled(false);
+                    editTextMotorcycleNo.setText(null);
+                }
+            }
+        });
+
+        checkBoxOwner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxOwner.isChecked()){
+                    editTextOwnerNo.setEnabled(true);
+                }
+                else{
+                    editTextOwnerNo.setEnabled(false);
+                    editTextOwnerNo.setText(null);
+                }
+            }
+        });
     }
 
     private void loadRegions(){
