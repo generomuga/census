@@ -274,6 +274,7 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
+                    android:inputType="number"
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
             </LinearLayout>
@@ -303,6 +304,7 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
+                    android:inputType="number"
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
             </LinearLayout>
@@ -332,6 +334,7 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
+                    android:inputType="number"
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
             </LinearLayout>
@@ -361,6 +364,7 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
+                    android:inputType="number"
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
             </LinearLayout>
@@ -390,6 +394,7 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
+                    android:inputType="number"
                     android:textColorHint="@color/colorTextView"
                     android:textColor="@color/colorEditText"/>
 
@@ -420,6 +425,7 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
+                    android:inputType="number"
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
             </LinearLayout>
@@ -449,6 +455,7 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
+                    android:inputType="number"
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
             </LinearLayout>
@@ -478,6 +485,7 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
+                    android:inputType="number"
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
 
@@ -508,6 +516,7 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
+                    android:inputType="number"
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
 
@@ -538,6 +547,7 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
+                    android:inputType="number"
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
 
@@ -568,6 +578,7 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
+                    android:inputType="number"
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
             </LinearLayout>
@@ -597,6 +608,7 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
+                    android:inputType="number"
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
 
@@ -627,6 +639,7 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
+                    android:inputType="number"
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
 
@@ -657,6 +670,7 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
+                    android:inputType="number"
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
 
@@ -687,6 +701,7 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
+                    android:inputType="number"
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
 
@@ -717,6 +732,7 @@
                     android:layout_marginLeft="11dp"
                     android:layout_weight="1"
                     android:hint="Quantity"
+                    android:inputType="number"
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
             </LinearLayout>

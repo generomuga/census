@@ -260,6 +260,38 @@ public class FamilyFragment extends Fragment {
         editTextVanNo = (EditText) view.findViewById(id.editTextVanNo);
         seekBarNoFamMembers = (SeekBar) view.findViewById(id.seekBarNoFamilyMembers);
         textViewNoFamMembers = (TextView) view.findViewById(id.textViewNoFamMembers);
+
+        editTextBicycleNo.setEnabled(false);
+        editTextBoatNo.setEnabled(false);
+        editTextBusNo.setEnabled(false);
+        editTextCarNo.setEnabled(false);
+        editTextJeepNo.setEnabled(false);
+        editTextMotorBoatNo.setEnabled(false);
+        editTextMotorcycleNo.setEnabled(false);
+        editTextOwnerNo.setEnabled(false);
+        editTextPedicabNo.setEnabled(false);
+        editTextPickupNo.setEnabled(false);
+        editTextPumpBoatNo.setEnabled(false);
+        editTextRaftNo.setEnabled(false);
+        editTextSuvNo.setEnabled(false);
+        editTextTricycleNo.setEnabled(false);
+        editTextTruckNo.setEnabled(false);
+        editTextVanNo.setEnabled(false);
+
+        checkBoxBicycle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxBicycle.isChecked()){
+                    editTextBicycleNo.setEnabled(true);
+                }
+                else{
+                    editTextBicycleNo.setEnabled(false);
+                    editTextBicycleNo.setText(null);
+                }
+            }
+        });
+
+
     }
 
     private void loadRegions(){
