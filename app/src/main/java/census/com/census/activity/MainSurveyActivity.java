@@ -333,7 +333,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
     @Override
     public void onSuccessHealth(String message) {
-
+        mProgress.dismiss();
     }
 
     @Override
@@ -343,7 +343,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
 
     @Override
     public void onSuccessEnvironment(String message) {
-
+        mProgress.dismiss();
     }
 
     @Override

@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
         mAuth = FirebaseAuth.getInstance();
 
         mDatabase = FirebaseDatabase.getInstance().getReference("data/familyIdentification");
-        mDatabase.keepSynced(true);
 
         mSurveyList = (ListView) findViewById(R.id.listViewSurvey);
 

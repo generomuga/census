@@ -1,8 +1,11 @@
 package census.com.census.model_impl;
 
+import android.support.annotation.NonNull;
 
-import android.os.Environment;
-
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -56,6 +59,11 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
         familyIdentification.setTimestamp(time);
 
         DatabaseReference mFamilyIdentification = mDatabase.child("familyIdentification");
+
+        //for offline capability
+        //mFamilyIdentification.child(key).setValue(familyIdentification);
+
+        //for online capability
         mFamilyIdentification.child(key).setValue(familyIdentification, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
@@ -67,6 +75,7 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
                 }
             }
         });
+
     }
 
     @Override
@@ -112,6 +121,11 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
         family.setTimeStamp(time);
 
         DatabaseReference mFamily = mDatabase.child("family");
+
+        //for offline capability
+        //mFamily.child(key).setValue(mFamily);
+
+        //for online capability
         mFamily.child(key).setValue(family, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
@@ -133,6 +147,11 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
         health.setTimeStamp(time);
 
         DatabaseReference mHealth = mDatabase.child("health");
+
+        //for offline capability
+        //mHealth.child(key).setValue(mHealth);
+
+        //for online capability
         mHealth.child(key).setValue(health, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
@@ -154,6 +173,11 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
         environment.setTimeStamp(time);
 
         DatabaseReference mEnvironment = mDatabase.child("environment");
+
+        //for offline capability
+        //mEnvironment.child(key).setValue(mEnvironment);
+
+        //for online capability
         mEnvironment.child(key).setValue(environment, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
@@ -165,5 +189,6 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
                 }
             }
         });
+
     }
 }
