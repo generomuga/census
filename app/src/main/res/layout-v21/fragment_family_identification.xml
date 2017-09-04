@@ -107,6 +107,7 @@
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
                 android:hint="Juan"
+                android:inputType=""
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint"
                 android:textSize="16sp"/>

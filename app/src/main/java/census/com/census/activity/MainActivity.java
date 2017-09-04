@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         mainPresenterListener = new MainPresenterImpl(this);
 
         mAuth = FirebaseAuth.getInstance();

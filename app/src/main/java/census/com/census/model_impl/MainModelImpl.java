@@ -26,6 +26,7 @@ public class MainModelImpl implements MainModel{
 
     public MainModelImpl() {
         mDatabase = FirebaseDatabase.getInstance().getReference("data");
+        mDatabase.keepSynced(true);
     }
 
     @Override

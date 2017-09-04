@@ -231,10 +231,7 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                     selectPickup,qPickup,selectPumpBoat,qPumpBoat,selectRaft,qRaft,selectSuv,qSuv,selectTric,qTric,selectTruck,qTruck,selectVan,qVan);
 
             healthListener.sendHealthValue(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19);
-
-
             environmentListener.sendEnvironmentValue(1,1,1,1,1,1,1,1,1,1,1,1,1);
-
             }
         else {
             Toast.makeText(this,"Please complete all the forms",Toast.LENGTH_SHORT).show();
