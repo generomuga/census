@@ -14,6 +14,7 @@ public interface SurveyView {
 
     interface OnFamily{
         void setErrorNumFam(String message);
+        void setErrorBicycleNo(String message);
         //void setErrorQuantity(String message);
         void onSuccessFamily(String message);
         void onErrorFamily(String message);

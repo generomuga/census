@@ -152,7 +152,8 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
                     familyIdentificationListener.checkMname(FamilyIdentificationFragment.editTextMName.getText().toString().trim()) &&
                     familyIdentificationListener.checkLname(FamilyIdentificationFragment.editTextLName.getText().toString().trim()) &&
                     familyIdentificationListener.checkHouseNo(FamilyIdentificationFragment.editTextHouseNo.getText().toString().trim()) &&
-                    familyIdentificationListener.checkStreetNo(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim())) {
+                    familyIdentificationListener.checkStreetNo(FamilyIdentificationFragment.editTextStreetNo.getText().toString().trim())
+                    && familyIdentificationListener.checkBicycleNo(FamilyFragment.checkBoxBicycle.isChecked(),FamilyFragment.editTextBicycleNo.getText().toString())) {
                 isFamilyIdentificationComplete = true;
             }
         }
@@ -316,6 +317,11 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
     public void setErrorNumFam(String message) {
         mProgress.dismiss();
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void setErrorBicycleNo(String message) {
+        mProgress.dismiss();
     }
 
     @Override

@@ -84,6 +84,20 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
     }
 
     @Override
+    public boolean checkBicycleNo(boolean isChecked,String bicycleNo) {
+        if(isChecked){
+            return !bicycleNo.isEmpty();
+        }
+        else if(!isChecked){
+            return bicycleNo.isEmpty();
+        }
+        else{
+            surveyViewFamilyListener.setErrorBicycleNo("This field is required!");
+            return false;
+        }
+    }
+
+    @Override
     public void sendFamilyIdentificationValue(String fName, String mName, String lName, String region, String province, String municipality, String barangay, String houseNo, String streetNo, int residency, int ownership, int status, String user) {
         surveyFamilyIdentificationModel.sendFamilyIdentificationData(fName,mName,lName,region,province,municipality,barangay,houseNo,streetNo,residency,ownership,status,user);;
     }
@@ -152,11 +166,5 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
     public void onSuccessEnvironment() {
 
     }
-
-
-    /*@Override
-    public void sendValue(String fName, String mName, String lName, String region, String province, String municipality, String barangay, String houseNo, String streetNo, int residency, int ownership, int status, String user) {
-        surveyModel.sendData(fName,mName,lName,region,province,municipality,barangay,houseNo,streetNo,residency,ownership,status,user);
-    }*/
 
 }
