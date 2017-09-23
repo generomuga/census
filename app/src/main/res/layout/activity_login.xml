@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:background="@color/colorPrimary">
+        android:background="#394152">
 
         <!--<EditText
             android:id="@+id/userEmail"
@@ -39,9 +39,11 @@
             android:layout_marginTop="10dp"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:textColorHint="@color/colorHint"
             android:textColor="#fff"
+            android:drawableLeft="@mipmap/ic_email_white_24dp"
+            android:drawablePadding="10dp"
             android:padding="10dp"/>
 
         <!--<EditText
@@ -70,10 +72,12 @@
             android:gravity="center"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:textColorHint="@color/colorHint"
             android:textColor="#fff"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            android:drawableLeft="@mipmap/ic_lock_white_24dp"
+            android:drawablePadding="10dp"/>
 
         <Button
             android:id="@+id/buttonSignIn"
