@@ -381,8 +381,8 @@
                     android:id="@+id/radioButtonNonResident"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorPrimary"
-                    android:text="#33C19B"
+                    android:buttonTint="#33C19B"
+                    android:text="Non-Resident"
                     android:textColor="@color/colorEditText"
                     android:textSize="16sp"/>
             </RadioGroup>

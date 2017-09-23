@@ -17,6 +17,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import java.util.ArrayList;
+import java.util.Arrays;
+
 import census.com.census.DbUtils;
 import census.com.census.R;
 
@@ -60,19 +62,30 @@ public class FamilyIdentificationFragment extends Fragment{
         onInitViews();
 
         //to load regions from sql
-        onLoadRegions();
+        onLoadRegionsn();
 
-        //select region
-        onSpinnerRegionEvent();
+        //select region old
+        //onSpinnerRegionEvent();
 
-        //select province
-        onSpinnerProvinceEvent();
+        //new
+        onLoadProvincen();
 
-        //select municipal
-        onSpinnerMunicipalEvent();
+        //new
+        onLoadMunicipalityn();
+
+        //new
+        onLoadBarangayn();
+
+        //select province old
+        //onSpinnerProvinceEvent();
+
+        //select municipal old
+        //onSpinnerMunicipalEvent();
 
         return view;
     }
+
+
 
     @Override
     public void onResume() {
@@ -124,6 +137,52 @@ public class FamilyIdentificationFragment extends Fragment{
             Log.i("regions:","empty");
         }
     }
+
+    private void onLoadRegionsn(){
+        ArrayList listRegion = new ArrayList<>(Arrays.asList(
+                "Region IV"
+        ));
+        useArrayAdapter(listRegion);
+        spinnerRegions.setAdapter(spinnerArrayAdapter);
+    }
+
+    private void onLoadProvincen() {
+        ArrayList listProvince = new ArrayList<>(Arrays.asList(
+                "Laguna"
+        ));
+        useArrayAdapter(listProvince);
+        spinnerProvinces.setAdapter(spinnerArrayAdapter);
+    }
+
+    private void onLoadMunicipalityn() {
+        ArrayList listMunicipality = new ArrayList<>(Arrays.asList(
+                "Los Banos"
+        ));
+        useArrayAdapter(listMunicipality);
+        spinnerMunicipal.setAdapter(spinnerArrayAdapter);
+    }
+
+    private void onLoadBarangayn(){
+        ArrayList listBarangay = new ArrayList<>(Arrays.asList(
+             "Anos",
+             "Bagong Silang",
+             "Bambang",
+             "Batong Malake",
+             "Baybayin",
+             "Bayog",
+             "Lalakay",
+             "Maahas",
+             "Malinta",
+             "Mayondon",
+             "Tuntungin-Putho",
+             "San Antonio",
+             "Tadlac",
+             "Timugan"
+        ));
+        useArrayAdapter(listBarangay);
+        spinnerBarangay.setAdapter(spinnerArrayAdapter);
+    }
+
 
     private void onSpinnerRegionEvent(){
         spinnerRegions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
