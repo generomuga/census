@@ -43,8 +43,8 @@
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
             android:drawableLeft="@mipmap/ic_email_white_24dp"
             android:drawablePadding="10dp"
@@ -75,8 +75,8 @@
             android:id="@+id/userPassword"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_marginTop="15dp"
             android:drawableLeft="@mipmap/ic_lock_white_24dp"
             android:drawablePadding="10dp"
@@ -90,10 +90,10 @@
 
         <Button
             android:id="@+id/buttonSignIn"
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/button_round"
             android:gravity="center"
@@ -114,7 +114,7 @@
 
         <TextView
             android:id="@+id/textViewNotSignUp"
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
@@ -125,10 +125,10 @@
 
         <Button
             android:id="@+id/buttonRegister"
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_round"
             android:gravity="center"
