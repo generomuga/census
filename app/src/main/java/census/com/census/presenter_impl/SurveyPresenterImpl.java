@@ -1,5 +1,11 @@
 package census.com.census.presenter_impl;
 
+import android.text.InputFilter;
+import android.text.Spanned;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import census.com.census.model.SurveyModel;
 import census.com.census.model_impl.SurveyModelImpl;
 import census.com.census.presenter.SurveyPresenter;
@@ -38,6 +44,20 @@ public class SurveyPresenterImpl implements SurveyPresenter.OnFamilyIdentificati
            return true;
        }
     }
+
+    /*private boolean hasNumber(String name){
+        Pattern ps = Pattern.compile("^[a-zA-Z ]+$");
+        Matcher ms = ps.matcher(name);
+        boolean bs = ms.matches();
+        if (!bs) {
+            if (ErrorMessage.contains("invalid"))
+                ErrorMessage = ErrorMessage + "state,";
+            else
+                ErrorMessage = ErrorMessage + "invalid state,";
+
+        }
+    }*/
+
 
     @Override
     public boolean checkMname(String mname) {

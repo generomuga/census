@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -141,11 +143,23 @@ public class MainSurveyActivity extends AppCompatActivity implements SurveyView.
         return super.onOptionsItemSelected(item);
     }
 
+    private static InputFilter filter = new InputFilter() {
+        @Override
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+            String blockCharacterSet = "1234567890";
+            if (source != null && blockCharacterSet.contains(("" + source))) {
+                return "";
+            }
+            return null;
+        }
+    };
+
     private void sendData(){
         boolean isFamilyIdentificationComplete = false;
         boolean isFamilyComplete = false;
         boolean isHealthComplete = false;
         boolean isEnvironmentComplete = false;
+
 
         if(isOpenFamilyIdentification) {
             if (familyIdentificationListener.checkFname(FamilyIdentificationFragment.editTextFName.getText().toString().trim()) &&

@@ -110,7 +110,8 @@
                 android:inputType=""
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz "/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -133,7 +134,8 @@
                 android:hint="Amorsolo"
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz "/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -156,7 +158,8 @@
                 android:hint="Dela Cruz"
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz "/>
 
             <!--<TextView
                 android:layout_width="match_parent"

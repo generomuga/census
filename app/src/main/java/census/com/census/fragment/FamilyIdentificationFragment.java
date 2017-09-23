@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -255,5 +257,6 @@ public class FamilyIdentificationFragment extends Fragment{
         sharedPreferences.edit().putInt("region",spinnerRegions.getSelectedItemPosition()).apply();
         sharedPreferences.edit().putInt("province",spinnerProvinces.getSelectedItemPosition()).apply();
     }
+
 
 }
