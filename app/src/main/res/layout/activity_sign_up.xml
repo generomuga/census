@@ -35,10 +35,7 @@
            android:layout_marginBottom="10dp"
            android:hint="First name"
            android:inputType="textEmailAddress"
-           android:textAlignment="center"
-           android:textColorHint="@color/colorHint"
-           android:background="@color/colorLoginEditText"
-           android:textColor="@color/colorEditText"
+           android:textAlignment="textStart"
            android:padding="10dp"/>
 
        <EditText
@@ -51,10 +48,7 @@
            android:layout_marginBottom="10dp"
            android:hint="Middle name"
            android:inputType="textEmailAddress"
-           android:textAlignment="center"
-           android:textColorHint="@color/colorHint"
-           android:background="@color/colorLoginEditText"
-           android:textColor="@color/colorEditText"
+           android:textAlignment="textStart"
            android:padding="10dp"/>
 
        <EditText
@@ -67,10 +61,7 @@
            android:layout_marginBottom="10dp"
            android:hint="Last name"
            android:inputType="textEmailAddress"
-           android:textAlignment="center"
-           android:textColorHint="@color/colorHint"
-           android:background="@color/colorLoginEditText"
-           android:textColor="@color/colorEditText"
+           android:textAlignment="textStart"
            android:padding="10dp"/>
 
        <EditText
@@ -83,10 +74,7 @@
            android:layout_marginBottom="10dp"
            android:hint="@string/email"
            android:inputType="textEmailAddress"
-           android:textAlignment="center"
-           android:textColorHint="@color/colorHint"
-           android:background="@color/colorLoginEditText"
-           android:textColor="@color/colorEditText"
+           android:textAlignment="textStart"
            android:padding="10dp"/>
 
        <EditText
@@ -99,10 +87,7 @@
            android:layout_marginBottom="10dp"
            android:hint="Confirm email"
            android:inputType="textEmailAddress"
-           android:textAlignment="center"
-           android:textColorHint="@color/colorHint"
-           android:background="@color/colorLoginEditText"
-           android:textColor="@color/colorEditText"
+           android:textAlignment="textStart"
            android:padding="10dp"/>
 
 
