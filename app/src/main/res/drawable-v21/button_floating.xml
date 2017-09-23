@@ -4,7 +4,7 @@
         <layer-list>
             <item>
                 <shape android:shape="oval">
-                    <solid android:color="@color/colorPrimary"/>
+                    <solid android:color="#33C189"/>
                     <padding
                         android:bottom="5px"
                         android:left="5px"

@@ -6,7 +6,7 @@
     android:orientation="vertical"
     tools:context="census.com.census.activity.MainSurveyActivity"
     android:weightSum="9"
-    android:background="@color/colorPrimaryDark">
+    android:background="#394152">
 
     <include android:id="@+id/toolBarSurvey" layout="@layout/app_bar_survey"/>
 
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/colorPrimary"
+        android:background="#394152"
         android:orientation="horizontal"
         android:weightSum="3">
 
