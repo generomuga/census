@@ -6,6 +6,7 @@
     android:orientation="vertical"
     tools:context="census.com.census.activity.SignUpActivity">
 
+
    <LinearLayout
        android:id="@+id/signUpForm"
        android:layout_width="match_parent"
@@ -14,6 +15,14 @@
        android:orientation="vertical"
        android:gravity="center">
 
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Sign up"
+           android:textAlignment="center"
+           android:textSize="40sp"
+           android:textStyle="bold"/>
 
        <EditText
            android:id="@+id/editTextFname"
