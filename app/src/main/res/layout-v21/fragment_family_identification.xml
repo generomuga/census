@@ -371,7 +371,7 @@
                     android:id="@+id/radioButtonResident"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorPrimary"
+                    android:buttonTint="#33C19B"
                     android:checked="true"
                     android:text="Resident"
                     android:textColor="@color/colorEditText"
@@ -382,7 +382,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/colorPrimary"
-                    android:text="Non-resident"
+                    android:text="#33C19B"
                     android:textColor="@color/colorEditText"
                     android:textSize="16sp"/>
             </RadioGroup>

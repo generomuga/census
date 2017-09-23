@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:weightSum="2">
 
-    <Button
+    <!--<Button
         android:id="@+id/buttonUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,7 +14,7 @@
         android:layout_marginBottom="4dp"
         android:layout_weight="1"
         android:text="Update"
-        android:background="@drawable/button_round"/>
+        android:background="@drawable/button_round"/>-->
 
     <Button
         android:id="@+id/buttonDelete"
