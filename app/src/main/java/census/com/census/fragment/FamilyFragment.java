@@ -100,17 +100,29 @@ public class FamilyFragment extends Fragment {
         useArrayAdapter(years);
         spinnerYear.setAdapter(spinnerArrayAdapter);
 
-        //load regions
-        loadRegions();
+        //load regions old
+        //loadRegions();
 
-        //load province
-        spinnerRegionEvent();
+        //new
+        onLoadRegionsn();
 
-        //load municipality
-        spinnerProvinceEvent();
+        //new
+        onLoadProvincen();
 
-        //load barangay
-        spinnerMunicipalEvent();
+        //new
+        onLoadMunicipalityn();
+
+        //new
+        onLoadBarangayn();
+
+        //load province old
+        //spinnerRegionEvent();
+
+        //load municipality old
+        //spinnerProvinceEvent();
+
+        //load barangay old
+        //spinnerMunicipalEvent();
 
 
         //get spinner values for isp
@@ -532,6 +544,53 @@ public class FamilyFragment extends Fragment {
             Log.i("provinces:","empty");
         }
     }
+
+    private void onLoadRegionsn(){
+        ArrayList listRegion = new ArrayList<>(Arrays.asList(
+                "Region IV"
+        ));
+        useArrayAdapter(listRegion);
+        spinnerRegion.setAdapter(spinnerArrayAdapter);
+    }
+
+    private void onLoadProvincen() {
+        ArrayList listProvince = new ArrayList<>(Arrays.asList(
+                "Laguna"
+        ));
+        useArrayAdapter(listProvince);
+        spinnerProvince.setAdapter(spinnerArrayAdapter);
+    }
+
+    private void onLoadMunicipalityn() {
+        ArrayList listMunicipality = new ArrayList<>(Arrays.asList(
+                "Los Banos"
+        ));
+        useArrayAdapter(listMunicipality);
+        spinnerMunicipal.setAdapter(spinnerArrayAdapter);
+    }
+
+    private void onLoadBarangayn(){
+        ArrayList listBarangay = new ArrayList<>(Arrays.asList(
+                "Anos",
+                "Bagong Silang",
+                "Bambang",
+                "Batong Malake",
+                "Baybayin",
+                "Bayog",
+                "Lalakay",
+                "Maahas",
+                "Malinta",
+                "Mayondon",
+                "Tuntungin-Putho",
+                "San Antonio",
+                "Tadlac",
+                "Timugan"
+        ));
+        useArrayAdapter(listBarangay);
+        spinnerBarangay.setAdapter(spinnerArrayAdapter);
+    }
+
+
 
     private void spinnerProvinceEvent(){
         spinnerProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
