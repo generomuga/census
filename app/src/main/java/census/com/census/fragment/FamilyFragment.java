@@ -664,7 +664,7 @@ public class FamilyFragment extends Fragment {
         else{
             currentYear = 2017;
         }
-        for(int year = 1980;year<=currentYear;year++){
+        for(int year = 1900;year<=currentYear;year++){
             years.add(Integer.toString(year));
         }
     }
