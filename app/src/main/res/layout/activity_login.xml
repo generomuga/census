@@ -16,75 +16,42 @@
 
         <ImageView
             android:id="@+id/imageView2"
+            android:adjustViewBounds="true"
             android:layout_width="184dp"
             android:layout_height="156dp"
-            android:src="@drawable/ama2"
             android:layout_weight="0.08"
-            android:adjustViewBounds="true"/>
-
-        <!--<EditText
-            android:id="@+id/userEmail"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="10dp"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:textAlignment="center"
-            android:textColorHint="@color/colorHint"
-            android:background="@color/colorLoginEditText"
-            android:textColor="@color/colorEditText"
-            android:padding="10dp"/>-->
+            android:src="@drawable/ama2" />
 
         <EditText
             android:id="@+id/userEmail"
+            android:background="@drawable/edittext_round"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
-            android:drawableLeft="@mipmap/ic_email_white_24dp"
-            android:drawablePadding="10dp"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
             android:padding="10dp"
-            android:textAlignment="textStart"
+            android:textAlignment="center"
             android:textColor="#fff"
             android:textColorHint="@color/colorHint" />
 
-        <!--<EditText
+        <EditText
             android:id="@+id/userPassword"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="15dp"
+            android:background="@drawable/edittext_round"
             android:gravity="center"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:textAlignment="center"
-            android:textColorHint="@color/colorHint"
-            android:background="@color/colorLoginEditText"
-            android:textColor="@color/colorEditText"
-            android:padding="10dp"/>-->
-
-        <EditText
-            android:id="@+id/userPassword"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="15dp"
-            android:drawableLeft="@mipmap/ic_lock_white_24dp"
-            android:drawablePadding="10dp"
-            android:gravity="center"
-            android:hint="@string/password"
-            android:inputType="textPassword"
             android:padding="10dp"
-            android:textAlignment="textStart"
+            android:textAlignment="center"
             android:textColor="#fff"
             android:textColorHint="@color/colorHint" />
 
@@ -134,19 +101,6 @@
             android:gravity="center"
             android:padding="8dp"
             android:text="@string/register" />
-
-        <!--<Button
-            android:id="@+id/buttonForgot"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/button_round"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Forgot password" />-->
-
 
     </LinearLayout>
 
