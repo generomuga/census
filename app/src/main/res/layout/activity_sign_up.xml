@@ -26,6 +26,9 @@
 
        <EditText
            android:id="@+id/editTextFname"
+           android:background="@drawable/edittext_round"
+           android:hint="First name"
+           android:inputType="textEmailAddress"
            android:layout_width="280dp"
            android:layout_height="wrap_content"
            android:layout_gravity="center"
@@ -33,75 +36,77 @@
            android:layout_marginRight="15dp"
            android:layout_marginTop="10dp"
            android:layout_marginBottom="10dp"
-           android:hint="First name"
-           android:inputType="textEmailAddress"
-           android:textAlignment="textStart"
-           android:padding="10dp"/>
+           android:padding="10dp"
+           android:textAlignment="center" />
 
        <EditText
            android:id="@+id/editTextMname"
+           android:background="@drawable/edittext_round"
+           android:hint="Middle name"
+           android:inputType="textEmailAddress"
            android:layout_width="280dp"
            android:layout_height="wrap_content"
            android:layout_gravity="center"
            android:layout_marginLeft="15dp"
            android:layout_marginRight="15dp"
            android:layout_marginBottom="10dp"
-           android:hint="Middle name"
-           android:inputType="textEmailAddress"
-           android:textAlignment="textStart"
-           android:padding="10dp"/>
+           android:padding="10dp"
+           android:textAlignment="center"/>
 
        <EditText
            android:id="@+id/editTextLname"
+           android:background="@drawable/edittext_round"
+           android:hint="Last name"
+           android:inputType="textEmailAddress"
            android:layout_width="280dp"
            android:layout_height="wrap_content"
            android:layout_gravity="center"
            android:layout_marginLeft="15dp"
            android:layout_marginRight="15dp"
            android:layout_marginBottom="10dp"
-           android:hint="Last name"
-           android:inputType="textEmailAddress"
-           android:textAlignment="textStart"
-           android:padding="10dp"/>
+           android:padding="10dp"
+           android:textAlignment="center" />
 
        <EditText
            android:id="@+id/userEmail"
+           android:background="@drawable/edittext_round"
+           android:hint="@string/email"
+           android:inputType="textEmailAddress"
            android:layout_width="280dp"
            android:layout_height="wrap_content"
            android:layout_gravity="center"
            android:layout_marginLeft="15dp"
            android:layout_marginRight="15dp"
            android:layout_marginBottom="10dp"
-           android:hint="@string/email"
-           android:inputType="textEmailAddress"
-           android:textAlignment="textStart"
-           android:padding="10dp"/>
+           android:padding="10dp"
+           android:textAlignment="center"/>
 
        <EditText
            android:id="@+id/userEmailConfirm"
+           android:background="@drawable/edittext_round"
+           android:hint="Confirm email"
+           android:inputType="textEmailAddress"
            android:layout_width="280dp"
            android:layout_height="wrap_content"
            android:layout_gravity="center"
            android:layout_marginLeft="15dp"
            android:layout_marginRight="15dp"
            android:layout_marginBottom="10dp"
-           android:hint="Confirm email"
-           android:inputType="textEmailAddress"
-           android:textAlignment="textStart"
-           android:padding="10dp"/>
+           android:padding="10dp"
+           android:textAlignment="center" />
 
 
        <Button
            android:id="@+id/buttonRegister"
-           android:layout_width="250dp"
+           android:background="@drawable/button_round"
+           android:gravity="center"
+           android:layout_width="280dp"
            android:layout_height="wrap_content"
            android:layout_marginLeft="15dp"
            android:layout_marginRight="15dp"
            android:layout_marginTop="10dp"
-           android:gravity="center"
-           android:text="@string/register"
-           android:background="@drawable/button_round"
-           android:padding="15dp"/>
+           android:padding="15dp"
+           android:text="@string/register" />
 
    </LinearLayout>
     
