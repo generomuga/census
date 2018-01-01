@@ -123,6 +123,7 @@
                 android:id="@+id/editTextRegion"
                 android:background="@drawable/edittext_round"
                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:enabled="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -159,6 +160,7 @@
                 android:id="@+id/editTextProvince"
                 android:background="@drawable/edittext_round"
                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:enabled="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -194,6 +196,7 @@
                 android:id="@+id/editTextMunicipality"
                 android:background="@drawable/edittext_round"
                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:enabled="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -229,6 +232,7 @@
                 android:id="@+id/editTextBarangay"
                 android:background="@drawable/edittext_round"
                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:enabled="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -288,7 +292,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:text="Household condition"
-                    android:textColor="@color/colorTextView"
+                    android:textColor="#fff"
                     android:textSize="13sp" />
 
                 <RadioButton
