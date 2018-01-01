@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#394152"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="census.com.census.activity.MainSurveyActivity"
     android:weightSum="4"
-    android:background="#394152">
+    tools:context="census.com.census.activity.MainSurveyActivity">
 
     <LinearLayout
         android:id="@+id/linearLayoutToolbar"
@@ -16,7 +16,7 @@
         <include android:id="@+id/toolBarSurvey" layout="@layout/app_bar_survey" />
     </LinearLayout>
 
-    <LinearLayout
+   <!--<LinearLayout
         android:id="@+id/linearLayoutFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -77,9 +77,9 @@
             android:layout_weight="1"
             android:background="@drawable/image_button_color"
             android:src="@mipmap/ic_card_membership_white_24dp"
-            android:onClick="changeFragment"/>
+            android:onClick=""/>
 
-    </LinearLayout>
+    </LinearLayout> -->
 
 </RelativeLayout>
 
