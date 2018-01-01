@@ -3,21 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="census.com.census.fragment.FamilyIdentificationFragment"
-    android:background="@color/colorLoginEditText">
+    android:background="#394152">
 
     <ScrollView
+        android:background="#394152"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:background="#394152"
+            android:elevation="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/elevated_rectangle"
-            android:elevation="5dp"
             android:orientation="vertical">
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -27,23 +28,24 @@
                 android:layout_weight="1"
                 android:text="First name"
                 android:textColor="@color/colorTextView"
-                android:textSize="13sp" />
+                android:textSize="13sp" />-->
 
             <EditText
                 android:id="@+id/editTextFname"
+                android:background="@drawable/edittext_round"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:hint="First Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
-                android:hint="Juan"
-                android:inputType=""
+                android:padding="10dp"
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint"
-                android:textSize="16sp"
-                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz "/>
+                android:textSize="16sp" />
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -52,22 +54,24 @@
                 android:layout_weight="1"
                 android:text="Middle name"
                 android:textColor="@color/colorTextView"
-                android:textSize="13sp" />
+                android:textSize="13sp" />-->
 
             <EditText
                 android:id="@+id/editTextMname"
+                android:background="@drawable/edittext_round"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:hint="Middle Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
-                android:hint="Amorsolo"
+                android:padding="10dp"
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint"
-                android:textSize="16sp"
-                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz "/>
+                android:textSize="16sp" />
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -76,22 +80,24 @@
                 android:layout_weight="1"
                 android:text="Last name"
                 android:textColor="@color/colorTextView"
-                android:textSize="13sp" />
+                android:textSize="13sp" /> -->
 
             <EditText
                 android:id="@+id/editTextLname"
+                android:background="@drawable/edittext_round"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:hint="Last Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
-                android:hint="Dela Cruz"
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint"
-                android:textSize="16sp"
-                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz "/>
+                android:padding="10dp"
+                android:textSize="16sp" />
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -100,18 +106,33 @@
                 android:layout_weight="1"
                 android:text="Region"
                 android:textColor="@color/colorTextView"
-                android:textSize="13sp" />
+                android:textSize="13sp" />-->
 
-            <Spinner
+            <!--<Spinner
                 android:id="@+id/spinnerRegions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:popupBackground="@color/colorPrimary" />
+                android:popupBackground="@color/colorPrimary" />-->
 
-            <TextView
+            <EditText
+                android:id="@+id/editTextRegion"
+                android:background="@drawable/edittext_round"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:textColor="#fff"
+                android:textColorHint="@color/colorHint"
+                android:padding="10dp"
+                android:text="Region IV"
+                android:textSize="16sp" />
+
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -130,9 +151,24 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="8dp"
                 android:popupBackground="@color/colorPrimary"
-                android:foregroundTint="@color/colorPrimary"/>
+                android:foregroundTint="@color/colorPrimary"/> -->
 
-            <TextView
+            <EditText
+                android:id="@+id/editTextProvince"
+                android:background="@drawable/edittext_round"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:textColor="#fff"
+                android:textColorHint="@color/colorHint"
+                android:padding="10dp"
+                android:text="Laguna"
+                android:textSize="16sp" />
+
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -150,9 +186,24 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:popupBackground="@color/colorPrimary"/>
+                android:popupBackground="@color/colorPrimary"/>-->
 
-            <TextView
+            <EditText
+                android:id="@+id/editTextMunicipality"
+                android:background="@drawable/edittext_round"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:textColor="#fff"
+                android:textColorHint="@color/colorHint"
+                android:padding="10dp"
+                android:text="Los Banos"
+                android:textSize="16sp" />
+
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -170,28 +221,47 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:popupBackground="@color/colorPrimary"/>
+                android:popupBackground="@color/colorPrimary"/>-->
 
             <EditText
-                android:id="@+id/editTextHouseNo"
+                android:id="@+id/editTextBarangay"
+                android:background="@drawable/edittext_round"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
+                android:textColor="#fff"
+                android:textColorHint="@color/colorHint"
+                android:padding="10dp"
+                android:text="Anos"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editTextHouseNo"
+                android:background="@drawable/edittext_round"
                 android:hint="House no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:padding="10dp"
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint"
                 android:textSize="16sp"/>
 
             <EditText
+                android:background="@drawable/edittext_round"
                 android:id="@+id/editTextStreetNo"
+                android:hint="Street No"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
-                android:hint="Street No"
+                android:padding="10dp"
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint"
                 android:textSize="16sp"/>
@@ -209,12 +279,14 @@
 
             <RadioGroup
                 android:id="@+id/radioGroupResidency"
+                android:background="@drawable/edittext_round"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <RadioButton
                     android:id="@+id/radioButtonResident"
@@ -275,7 +347,6 @@
                     android:textColor="@color/colorEditText"
                     android:textSize="16sp"/>
             </RadioGroup>
-
 
             <TextView
                 android:layout_width="match_parent"
