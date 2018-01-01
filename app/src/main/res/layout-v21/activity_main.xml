@@ -1,78 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v4.widget.DrawerLayout android:layout_width="match_parent"
+<RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="census.com.census.activity.MainActivity"
-        android:id="@+id/linearLayoutMain"
-        android:background="@color/colorLoginEditText">
+    <include android:id="@+id/toolBarMain" layout="@layout/app_bar_main" />
 
-        <include android:id="@+id/toolBarMain" layout="@layout/app_bar_main" />
 
-        <TextView
-            android:id="@+id/textViewToday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:text="Data collected"
-            android:textColor="@color/colorTextView"
-            android:layout_below="@id/toolBarMain"/>
-
-        <ListView android:id="@+id/listViewSurvey"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="@color/colorTextView"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:dividerHeight="1dip"
-            android:layout_below="@+id/textViewToday">
-        </ListView>
-
-        <!--Lollipop version-->
-        <ImageButton
-            android:id="@+id/fab"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:elevation="1dp"
-            android:background="@drawable/button_floating"
-            android:src="@mipmap/ic_add_white_24dp"/>
-
-        <!--Nougat version-->
-        <!--<android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabAddSurvey"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:src="@mipmap/ic_add_white_24dp"
-            app:layout_anchorGravity="bottom|right|end"
-            android:backgroundTint="@color/colorPrimary"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"/>-->
-
-    </RelativeLayout>
-
-    <!--for navigation drawer-->
-    <!--<fragment
-        android:layout_width="280dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:layout="@layout/fragment_navigation_drawer"
-        android:name="census.com.census.NavigationDrawerFragment"
-        tools:layout="@layout/fragment_navigation_drawer"/>-->
-
-</android.support.v4.widget.DrawerLayout>
+</RelativeLayout>
 
