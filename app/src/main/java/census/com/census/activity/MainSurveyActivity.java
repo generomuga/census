@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import census.com.census.FamilyIdentification;
@@ -62,7 +61,6 @@ public class MainSurveyActivity extends AppCompatActivity {
             case R.id.imageButtonFamily:
                 //check if the fields are complete
                 boolean isComplete = checkFieldsComplete();
-                Toast.makeText(this, Boolean.toString(isComplete), Toast.LENGTH_LONG).show();
                 if (!isComplete){
                     Toast.makeText(this, "Please complete all fields", Toast.LENGTH_LONG).show();
                     return;
@@ -78,7 +76,22 @@ public class MainSurveyActivity extends AppCompatActivity {
     }
 
     private boolean checkFieldsComplete(){
-        return !FamilyIdentificationFragment.mFname.getText().toString().equals("");
+        if (FamilyIdentificationFragment.mFname.getText().toString().equals("")){
+            return false;
+        }
+        if (FamilyIdentificationFragment.mMname.getText().toString().equals("")){
+            return false;
+        }
+        if (FamilyIdentificationFragment.mLname.getText().toString().equals("")){
+            return false;
+        }
+        if (FamilyIdentificationFragment.mHouseNo.getText().toString().equals("")){
+            return false;
+        }
+        if (FamilyIdentificationFragment.mStreetNo.getText().toString().equals("")){
+            return false;
+        }
+        return true;
     }
 
 }
