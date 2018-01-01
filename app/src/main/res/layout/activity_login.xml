@@ -57,29 +57,29 @@
 
         <Button
             android:id="@+id/buttonSignIn"
-            android:layout_width="match_parent"
+            android:background="@drawable/button_round"
+            android:gravity="center"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/button_round"
-            android:gravity="center"
             android:padding="8dp"
             android:text="@string/action_sign_in_short" />
 
         <TextView
             android:id="@+id/textViewForgot"
+            android:gravity="center"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:gravity="center"
             android:text="Forgot password"
-            android:textAlignment="textEnd"
+            android:textAlignment="center"
             android:textColor="@color/colorLoginEditText"
             android:textStyle="bold" />
 
 
-        <TextView
+        <!--<TextView
             android:id="@+id/textViewNotSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -88,17 +88,17 @@
             android:text="@string/not_sign_up"
             android:textAlignment="center"
             android:textColor="@color/colorLoginEditText"
-            android:textStyle="bold" />
+            android:textStyle="bold" />-->
 
         <Button
             android:id="@+id/buttonRegister"
-            android:layout_width="match_parent"
+            android:background="@drawable/button_round"
+            android:gravity="center"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/button_round"
-            android:gravity="center"
             android:padding="8dp"
             android:text="@string/register" />
 
