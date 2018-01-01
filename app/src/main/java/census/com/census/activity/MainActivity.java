@@ -3,6 +3,7 @@ package census.com.census.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 
 import census.com.census.R;
 
@@ -21,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Census");
     }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
 }
