@@ -17,76 +17,6 @@
             android:elevation="5dp"
             android:orientation="vertical">
 
-            <!--<android.support.design.widget.TextInputLayout
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginTop="8dp"
-                android:theme="@style/TextLabel">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/editTextFname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="First name"
-                    android:textColor="@color/colorEditText"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:theme="@style/TextLabel">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/editTextMname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Middle name"
-                    android:textColor="@color/colorEditText"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:theme="@style/TextLabel">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/editTextLname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Last name"
-                    android:textColor="@color/colorEditText"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:theme="@style/TextLabel">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/editTextContactNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Contact no"
-                    android:textColor="@color/colorEditText"/>
-
-            </android.support.design.widget.TextInputLayout>-->
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -160,86 +90,6 @@
                 android:textColorHint="@color/colorHint"
                 android:textSize="16sp"
                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz "/>
-
-            <!--<TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:text="Address"
-                android:textColor="@color/colorTextView"
-                android:textSize="12sp" />-->
-
-            <!--<EditText
-                android:id="@+id/editTextBrgy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:hint="Barangay"
-                android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />
-
-            <EditText
-                android:id="@+id/editTextMunicipality"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:hint="Municipality"
-                android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />-->
-
-            <!--<EditText
-                android:id="@+id/editTextProvince"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:hint="Province"
-                android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />-->
-
-            <!--<android.support.design.widget.TextInputLayout
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:theme="@style/TextLabel">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/editTextStreetNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Street no"
-                    android:textColor="@color/colorEditText"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:theme="@style/TextLabel">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/editTextHouseNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="House no"
-                    android:textColor="@color/colorEditText"/>
-
-            </android.support.design.widget.TextInputLayout>-->
-
 
             <TextView
                 android:layout_width="match_parent"
@@ -470,4 +320,5 @@
         </LinearLayout>
 
     </ScrollView>
+
 </FrameLayout>

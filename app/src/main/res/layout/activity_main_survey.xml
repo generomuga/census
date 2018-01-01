@@ -16,70 +16,66 @@
         <include android:id="@+id/toolBarSurvey" layout="@layout/app_bar_survey" />
     </LinearLayout>
 
-    <!--<LinearLayout
-         android:id="@+id/linearLayoutFragment"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:layout_below="@+id/linearLayoutToolbar"
-         android:layout_above="@+id/linearLayoutFragmentNavigator"
-         android:layout_centerHorizontal="true"
-         android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/linearLayoutFragment"
+        android:layout_above="@+id/linearLayoutFragmentNavigator"
+        android:layout_below="@+id/linearLayoutToolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-         <fragment
-             android:name="census.com.census.fragment.FamilyIdentificationFragment"
-             android:id="@+id/fragmentMain"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content" />
+        <fragment
+            android:name="census.com.census.fragment.FamilyIdentificationFragment"
+            android:id="@+id/fragmentMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-     </LinearLayout>
+    </LinearLayout>
 
-     <LinearLayout
-         android:id="@+id/linearLayoutFragmentNavigator"
-         android:layout_width="match_parent"
-         android:layout_height="50dp"
-         android:orientation="horizontal"
-         android:weightSum="4"
-         android:layout_alignParentBottom="true"
-         android:layout_alignParentLeft="true"
-         android:layout_alignParentStart="true">
+    <LinearLayout
+        android:id="@+id/linearLayoutFragmentNavigator"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-         <ImageButton
-             android:id="@+id/imageButtonFamilyId"
-             android:layout_width="0dp"
-             android:layout_height="50dp"
-             android:layout_weight="1"
-             android:background="@drawable/image_button_color"
-             android:src="@mipmap/ic_info_white_24dp"
-             android:onClick="changeFragment"/>
+        <ImageButton
+            android:id="@+id/imageButtonFamilyId"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/image_button_color"
+            android:src="@mipmap/ic_info_white_24dp"/>
 
-         <ImageButton
-             android:id="@+id/imageButtonFamily"
-             android:layout_width="0dp"
-             android:layout_height="50dp"
-             android:layout_weight="1"
-             android:background="@drawable/image_button_color"
-             android:src="@mipmap/ic_perm_identity_white_24dp"
-             android:onClick="changeFragment"/>
+        <ImageButton
+            android:id="@+id/imageButtonFamily"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/image_button_color"
+            android:src="@mipmap/ic_perm_identity_white_24dp" />
 
-         <ImageButton
-             android:id="@+id/imageButtonHealth"
-             android:layout_width="0dp"
-             android:layout_height="50dp"
-             android:layout_weight="1"
-             android:background="@drawable/image_button_color"
-             android:src="@mipmap/ic_assignment_white_24dp"
-             android:onClick="changeFragment"/>
+        <ImageButton
+            android:id="@+id/imageButtonHealth"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/image_button_color"
+            android:src="@mipmap/ic_assignment_white_24dp" />
 
-         <ImageButton
-             android:id="@+id/imageButtonEnvironment"
-             android:layout_width="0dp"
-             android:layout_height="50dp"
-             android:layout_weight="1"
-             android:background="@drawable/image_button_color"
-             android:src="@mipmap/ic_card_membership_white_24dp"
-             android:onClick=""/>
+        <ImageButton
+            android:id="@+id/imageButtonEnvironment"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/image_button_color"
+            android:src="@mipmap/ic_card_membership_white_24dp" />
 
-     </LinearLayout> -->
+    </LinearLayout>
 
 </RelativeLayout>
 

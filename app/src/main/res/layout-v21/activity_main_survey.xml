@@ -16,13 +16,13 @@
         <include android:id="@+id/toolBarSurvey" layout="@layout/app_bar_survey" />
     </LinearLayout>
 
-   <!--<LinearLayout
+    <LinearLayout
         android:id="@+id/linearLayoutFragment"
+        android:layout_above="@+id/linearLayoutFragmentNavigator"
+        android:layout_below="@+id/linearLayoutToolbar"
+        android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/linearLayoutToolbar"
-        android:layout_above="@+id/linearLayoutFragmentNavigator"
-        android:layout_centerHorizontal="true"
         android:orientation="vertical">
 
         <fragment
@@ -49,8 +49,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/image_button_color"
-            android:src="@mipmap/ic_info_white_24dp"
-            android:onClick="changeFragment"/>
+            android:src="@mipmap/ic_info_white_24dp"/>
 
         <ImageButton
             android:id="@+id/imageButtonFamily"
@@ -58,8 +57,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/image_button_color"
-            android:src="@mipmap/ic_perm_identity_white_24dp"
-            android:onClick="changeFragment"/>
+            android:src="@mipmap/ic_perm_identity_white_24dp" />
 
         <ImageButton
             android:id="@+id/imageButtonHealth"
@@ -67,8 +65,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/image_button_color"
-            android:src="@mipmap/ic_assignment_white_24dp"
-            android:onClick="changeFragment"/>
+            android:src="@mipmap/ic_assignment_white_24dp" />
 
         <ImageButton
             android:id="@+id/imageButtonEnvironment"
@@ -76,10 +73,9 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/image_button_color"
-            android:src="@mipmap/ic_card_membership_white_24dp"
-            android:onClick=""/>
+            android:src="@mipmap/ic_card_membership_white_24dp" />
 
-    </LinearLayout> -->
+    </LinearLayout>
 
 </RelativeLayout>
 
