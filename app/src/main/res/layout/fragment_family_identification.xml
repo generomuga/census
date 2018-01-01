@@ -266,16 +266,6 @@
                 android:textColorHint="@color/colorHint"
                 android:textSize="16sp"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_weight="1"
-                android:text="Household condition"
-                android:textColor="@color/colorTextView"
-                android:textSize="13sp" />
 
             <RadioGroup
                 android:id="@+id/radioGroupResidency"
@@ -283,10 +273,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:orientation="vertical"
                 android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:text="Household condition"
+                    android:textColor="@color/colorTextView"
+                    android:textSize="13sp" />
 
                 <RadioButton
                     android:id="@+id/radioButtonResident"
@@ -308,25 +309,27 @@
                     android:textSize="16sp"/>
             </RadioGroup>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_weight="1"
-                android:text="Ownership"
-                android:textColor="@color/colorTextView"
-                android:textSize="13sp" />
-
             <RadioGroup
                 android:id="@+id/radioGroupOwnership"
+                android:background="@drawable/edittext_round"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:orientation="vertical">
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:text="Ownership"
+                    android:textColor="@color/colorTextView"
+                    android:textSize="13sp" />
 
                 <RadioButton
                     android:id="@+id/radioButtonOwner"
@@ -348,25 +351,27 @@
                     android:textSize="16sp"/>
             </RadioGroup>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_weight="1"
-                android:text="Family status"
-                android:textColor="@color/colorTextView"
-                android:textSize="13sp" />
-
             <RadioGroup
                 android:id="@+id/radioGroupStatus"
+                android:background="@drawable/edittext_round"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:orientation="vertical">
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:text="Family status"
+                    android:textColor="@color/colorTextView"
+                    android:textSize="13sp" />
 
                 <RadioButton
                     android:id="@+id/radioButtonActive"
