@@ -43,7 +43,7 @@
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
                 android:padding="10dp"
-                android:textColor="@color/colorEditText"
+                android:textColor="#fff"
                 android:textColorHint="@color/colorHint"
                 android:textSize="16sp" />
 
@@ -69,7 +69,7 @@
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
                 android:padding="10dp"
-                android:textColor="@color/colorEditText"
+                android:textColor="#fff"
                 android:textColorHint="@color/colorHint"
                 android:textSize="16sp" />
 
@@ -94,7 +94,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
-                android:textColor="@color/colorEditText"
+                android:textColor="#fff"
                 android:textColorHint="@color/colorHint"
                 android:padding="10dp"
                 android:textSize="16sp" />
@@ -129,7 +129,7 @@
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
                 android:textColor="#fff"
-                android:textColorHint="@color/colorHint"
+                android:textColorHint="#fff"
                 android:padding="10dp"
                 android:text="Region IV"
                 android:textSize="16sp" />
@@ -250,7 +250,7 @@
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
                 android:padding="10dp"
-                android:textColor="@color/colorEditText"
+                android:textColor="#fff"
                 android:textColorHint="@color/colorHint"
                 android:textSize="16sp"/>
 
@@ -264,7 +264,7 @@
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
                 android:padding="10dp"
-                android:textColor="@color/colorEditText"
+                android:textColor="#fff"
                 android:textColorHint="@color/colorHint"
                 android:textSize="16sp"/>
 
@@ -298,7 +298,7 @@
                     android:buttonTint="#33C19B"
                     android:checked="true"
                     android:text="Resident"
-                    android:textColor="@color/colorEditText"
+                    android:textColor="#fff"
                     android:textSize="16sp"/>
 
                 <RadioButton
@@ -307,7 +307,7 @@
                     android:layout_height="wrap_content"
                     android:buttonTint="#33C19B"
                     android:text="Non-Resident"
-                    android:textColor="@color/colorEditText"
+                    android:textColor="#fff"
                     android:textSize="16sp"/>
             </RadioGroup>
 
@@ -330,7 +330,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:text="Ownership"
-                    android:textColor="@color/colorTextView"
+                    android:textColor="#fff"
                     android:textSize="13sp" />
 
                 <RadioButton
@@ -340,7 +340,7 @@
                     android:buttonTint="#33C19B"
                     android:checked="true"
                     android:text="Owner (main family)"
-                    android:textColor="@color/colorEditText"
+                    android:textColor="#fff"
                     android:textSize="16sp"/>
 
                 <RadioButton
@@ -349,7 +349,7 @@
                     android:layout_height="wrap_content"
                     android:buttonTint="#33C19B"
                     android:text="Extended"
-                    android:textColor="@color/colorEditText"
+                    android:textColor="#fff"
                     android:textSize="16sp"/>
             </RadioGroup>
 
@@ -372,7 +372,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:text="Family status"
-                    android:textColor="@color/colorTextView"
+                    android:textColor="#fff"
                     android:textSize="13sp" />
 
                 <RadioButton
@@ -382,7 +382,7 @@
                     android:buttonTint="#33C19B"
                     android:checked="true"
                     android:text="Active"
-                    android:textColor="@color/colorEditText"
+                    android:textColor="#fff"
                     android:textSize="16sp"/>
 
                 <RadioButton
@@ -391,7 +391,7 @@
                     android:layout_height="wrap_content"
                     android:buttonTint="#33C19B"
                     android:text="Inactive"
-                    android:textColor="@color/colorEditText"
+                    android:textColor="#fff"
                     android:textSize="16sp"/>
             </RadioGroup>
 
