@@ -54,10 +54,19 @@ public class FamilyIdentificationFragment extends Fragment {
 
     private void savePreference(){
         mSharedPreference.edit().putString("fname", mFname.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("mname", mMname.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("lname", mLname.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("house", mHouseNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("street", mStreetNo.getText().toString().trim()).apply();
     }
 
     private void loadPreference(){
         mFname.setText(mSharedPreference.getString("fname",""));
+        mMname.setText(mSharedPreference.getString("mname",""));
+        mLname.setText(mSharedPreference.getString("lname",""));
+        mHouseNo.setText(mSharedPreference.getString("house",""));
+        mStreetNo.setText(mSharedPreference.getString("street", ""));
+
     }
 
 }
