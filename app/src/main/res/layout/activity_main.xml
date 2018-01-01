@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relativeLayoutMain"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
     <include android:id="@+id/toolBarMain" layout="@layout/app_bar_main" />
 
+    <android.support.constraint.ConstraintLayout
+        android:layout_below="@id/toolBarMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/listViewData"
+            android:background="#ffff"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|left"
+            android:layout_margin="16dp"
+            android:src="@mipmap/ic_add_white_24dp"
+            app:layout_anchor="@id/listViewData"
+            app:layout_anchorGravity="bottom|right|end" />
+
+    </android.support.constraint.ConstraintLayout>
 
 </RelativeLayout>
 
