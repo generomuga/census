@@ -7,7 +7,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
-import census.com.census.FamilyIdentification;
 import census.com.census.R;
 import census.com.census.fragment.FamilyFragment;
 import census.com.census.fragment.FamilyIdentificationFragment;
@@ -19,8 +18,6 @@ public class MainSurveyActivity extends AppCompatActivity {
 
     //fragments
     FragmentTransaction mTransaction;
-
-    private String mTag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
