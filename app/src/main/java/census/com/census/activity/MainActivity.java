@@ -1,6 +1,7 @@
 package census.com.census.activity;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     //views
     private Toolbar mToolbar;
+    FloatingActionButton mSurvey;
 
     //firebase components
     private FirebaseAuth mAuth;
@@ -26,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         //init views
         mToolbar = (Toolbar) findViewById(R.id.toolBarMain);
+        mSurvey = (FloatingActionButton) findViewById(R.id.fabSurvey);
+
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Census");
     }
