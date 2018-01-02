@@ -91,7 +91,7 @@
 
 
             <EditText
-                android:id="@+id/editTextFemaleVoters"
+                android:id="@+id/editTextNoVoters"
                 android:background="@drawable/edittext_round"
                 android:digits="123456789"
                 android:hint="Number of voters"
