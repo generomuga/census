@@ -1,6 +1,5 @@
 package census.com.census.fragment;
 
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -12,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
+
+import census.com.census.R;
 
 import static census.com.census.R.*;
 
@@ -27,7 +28,7 @@ public class FamilyFragment extends Fragment {
     public static CheckBox mMotorcycle;
     public static CheckBox mOwner;
     public static CheckBox mPedicab;
-    public static CheckBox mPickup;
+    public static CheckBox mPickUp;
     public static CheckBox mPumpboat;
     public static CheckBox mRaft;
     public static CheckBox mSuv;
@@ -44,7 +45,7 @@ public class FamilyFragment extends Fragment {
     public static EditText mMotorcycleNo;
     public static EditText mOwnerNo;
     public static EditText mPedicabNo;
-    public static EditText mPickupNo;
+    public static EditText mPickUpNo;
     public static EditText mPumpboatNo;
     public static EditText mRaftNo;
     public static EditText mSuvNo;
@@ -80,7 +81,7 @@ public class FamilyFragment extends Fragment {
         mMotorcycleNo = (EditText) view.findViewById(id.editTextMotorcycleNo);
         mOwnerNo = (EditText) view.findViewById(id.editTextOwnerNo);
         mPedicabNo = (EditText) view.findViewById(id.editTextPedicabNo);
-        mPickupNo = (EditText) view.findViewById(id.editTextPickUpNo);
+        mPickUpNo = (EditText) view.findViewById(id.editTextPickUpNo);
         mPumpboatNo = (EditText) view.findViewById(id.editTextPumpBoatNo);
         mRaftNo = (EditText) view.findViewById(id.editTextRaftNo);
         mSuvNo = (EditText) view.findViewById(id.editTextSuvNo);
@@ -97,7 +98,7 @@ public class FamilyFragment extends Fragment {
         mMotorcycle = (CheckBox) view.findViewById(id.checkboxMotorcycle);
         mOwner = (CheckBox) view.findViewById(id.checkboxOwner);
         mPedicab = (CheckBox) view.findViewById(id.checkboxPedicab);
-        mPickup = (CheckBox) view.findViewById(id.checkboxPickup);
+        mPickUp = (CheckBox) view.findViewById(id.checkboxPickUp);
         mPumpboat = (CheckBox) view.findViewById(id.checkboxPumpBoat);
         mRaft = (CheckBox) view.findViewById(id.checkboxRaft);
         mSuv = (CheckBox) view.findViewById(id.checkboxSuv);
@@ -133,6 +134,23 @@ public class FamilyFragment extends Fragment {
         mSharedPreference.edit().putString("placeOrigin", mPlaceOrigin.getText().toString().trim()).apply();
         mSharedPreference.edit().putString("noVoters", mNoVoters.getText().toString().trim()).apply();
 
+        mSharedPreference.edit().putBoolean("checkBicycle", mBicycle.isChecked()).apply();
+        mSharedPreference.edit().putBoolean("checkBoat", mBoat.isChecked()).apply();
+        mSharedPreference.edit().putBoolean("checkBus", mBus.isChecked()).apply();
+        mSharedPreference.edit().putBoolean("checkCar", mCar.isChecked()).apply();
+        mSharedPreference.edit().putBoolean("checkJeep", mJeep.isChecked()).apply();
+        mSharedPreference.edit().putBoolean("checkMotorboat", mMotorBoat.isChecked()).apply();
+        mSharedPreference.edit().putBoolean("checkMotorcycle", mMotorcycle.isChecked()).apply();
+        mSharedPreference.edit().putBoolean("checkOwner", mOwner.isChecked()).apply();
+        mSharedPreference.edit().putBoolean("checkPedicab", mPedicab.isChecked()).apply();
+        mSharedPreference.edit().putBoolean("checkPickup", mPickUp.isChecked()).apply();
+        mSharedPreference.edit().putBoolean("checkPumpBoat", mPumpboat.isChecked()).apply();
+        mSharedPreference.edit().putBoolean("checkRaft", mRaft.isChecked()).apply();
+        mSharedPreference.edit().putBoolean("checkSuv", mSuv.isChecked()).apply();
+        mSharedPreference.edit().putBoolean("checkTricycle", mTricycle.isChecked()).apply();
+        mSharedPreference.edit().putBoolean("checkTruck", mTruck.isChecked()).apply();
+        mSharedPreference.edit().putBoolean("checkVan", mVan.isChecked()).apply();
+
         mSharedPreference.edit().putString("bicycleNo", mBicycleNo.getText().toString().trim()).apply();
         mSharedPreference.edit().putString("boatNo", mBoatNo.getText().toString().trim()).apply();
         mSharedPreference.edit().putString("busNo", mBusNo.getText().toString().trim()).apply();
@@ -142,7 +160,7 @@ public class FamilyFragment extends Fragment {
         mSharedPreference.edit().putString("motorCycleNo", mMotorcycleNo.getText().toString().trim()).apply();
         mSharedPreference.edit().putString("ownerNo", mOwnerNo.getText().toString().trim()).apply();
         mSharedPreference.edit().putString("pedicabNo", mPedicabNo.getText().toString().trim()).apply();
-        mSharedPreference.edit().putString("pickUpNo", mPickupNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("pickUpNo", mPickUpNo.getText().toString().trim()).apply();
         mSharedPreference.edit().putString("pumpBoatNo", mPumpboatNo.getText().toString().trim()).apply();
         mSharedPreference.edit().putString("raftNo", mRaftNo.getText().toString().trim()).apply();
         mSharedPreference.edit().putString("suvNo", mSuvNo.getText().toString().trim()).apply();
@@ -158,6 +176,23 @@ public class FamilyFragment extends Fragment {
         mPlaceOrigin.setText(mSharedPreference.getString("placeOrigin",""));
         mNoVoters.setText(mSharedPreference.getString("noVoters", ""));
 
+        mBicycle.setChecked(mSharedPreference.getBoolean("checkBicycle",false));
+        mBoat.setChecked(mSharedPreference.getBoolean("checkBoat",false));
+        mBus.setChecked(mSharedPreference.getBoolean("checkBus",false));
+        mCar.setChecked(mSharedPreference.getBoolean("checkCar",false));
+        mJeep.setChecked(mSharedPreference.getBoolean("checkJeep",false));
+        mMotorBoat.setChecked(mSharedPreference.getBoolean("checkMotorboat",false));
+        mMotorcycle.setChecked(mSharedPreference.getBoolean("checkMotorcycle",false));
+        mOwner.setChecked(mSharedPreference.getBoolean("checkOwner",false));
+        mPedicab.setChecked(mSharedPreference.getBoolean("checkPedicab",false));
+        mPickUp.setChecked(mSharedPreference.getBoolean("checkPickup",false));
+        mPumpboat.setChecked(mSharedPreference.getBoolean("checkPumpBoat",false));
+        mRaft.setChecked(mSharedPreference.getBoolean("checkRaft",false));
+        mSuv.setChecked(mSharedPreference.getBoolean("checkSuv",false));
+        mTricycle.setChecked(mSharedPreference.getBoolean("checkTricycle",false));
+        mTruck.setChecked(mSharedPreference.getBoolean("checkTruck",false));
+        mVan.setChecked(mSharedPreference.getBoolean("checkVan",false));
+
         mBicycleNo.setText(mSharedPreference.getString("bicycleNo", ""));
         mBoatNo.setText(mSharedPreference.getString("boatNo", ""));
         mBusNo.setText(mSharedPreference.getString("busNo", ""));
@@ -167,7 +202,7 @@ public class FamilyFragment extends Fragment {
         mMotorcycleNo.setText(mSharedPreference.getString("motorCycleNo", ""));
         mOwnerNo.setText(mSharedPreference.getString("ownerNo", ""));
         mPedicabNo.setText(mSharedPreference.getString("pedicabNo", ""));
-        mPickupNo.setText(mSharedPreference.getString("pickUpNo", ""));
+        mPickUpNo.setText(mSharedPreference.getString("pickUpNo", ""));
         mPumpboatNo.setText(mSharedPreference.getString("pumpBoatNo", ""));
         mRaftNo.setText(mSharedPreference.getString("raftNo", ""));
         mSuvNo.setText(mSharedPreference.getString("suvNo", ""));
