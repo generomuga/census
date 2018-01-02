@@ -8,7 +8,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:background="@drawable/elevated_rectangle"
         android:orientation="vertical">
 
@@ -23,100 +22,333 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
                 android:text="Do you eat complete meals everyday?"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp"
-                android:layout_weight="1"/>
+                android:textSize="12sp" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:orientation="vertical">
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Yes"
-                    android:buttonTint="@color/colorAccent"/>
 
                 <RadioButton
+                    android:id="@+id/radioButtonEatYes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorAccent"
+                    android:checked="true"
+                    android:text="Yes"
+                    android:textColor="@color/colorEditText" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonEatNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorAccent"
                     android:text="No"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:textColor="@color/colorEditText" />
             </RadioGroup>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
                 android:text="Do you plant herbal plants?"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp"
-                android:layout_weight="1"/>
+                android:textSize="12sp" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:orientation="vertical">
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Yes"
-                    android:buttonTint="@color/colorAccent"/>
 
                 <RadioButton
+                    android:id="@+id/radioButtonHerbalYes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorAccent"
+                    android:checked="true"
+                    android:text="Yes"
+                    android:textColor="@color/colorEditText" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonHerbalNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorAccent"
                     android:text="No"
-                    android:buttonTint="@color/colorAccent"/>
+                    android:textColor="@color/colorEditText" />
             </RadioGroup>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
                 android:text="Do you have vegetable garden?"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp"
-                android:layout_weight="1"/>
+                android:textSize="12sp" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:orientation="vertical">
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Yes"
-                    android:buttonTint="@color/colorAccent"/>
 
                 <RadioButton
+                    android:id="@+id/radioButtonVegYes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="No"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:checked="true"
+                    android:text="Yes"
+                    android:textColor="@color/colorEditText" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonVegNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="No"
+                    android:textColor="@color/colorEditText" />
             </RadioGroup>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
                 android:text="Do you use iodized salt?"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp"
-                android:layout_weight="1"/>
+                android:textSize="12sp" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:orientation="vertical">
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Yes"/>
 
                 <RadioButton
+                    android:id="@+id/radioButtonIodizeYes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="No"/>
+                    android:buttonTint="@color/colorAccent"
+                    android:checked="true"
+                    android:text="Yes"
+                    android:textColor="@color/colorEditText" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonIodizeNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="No"
+                    android:textColor="@color/colorEditText" />
             </RadioGroup>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:text="Do you practice family planning?"
+                android:textColor="@color/colorTextView"
+                android:textSize="12sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radioButtonFamilyYes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorAccent"
+                    android:checked="true"
+                    android:text="Yes"
+                    android:textColor="@color/colorEditText" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonFamilyNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="No"
+                    android:textColor="@color/colorEditText" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonFamilyNa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Not applicable"
+                    android:textColor="@color/colorEditText" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="If yes, what methods of family planning:"
+                android:textColor="@color/colorTextView" />
+
+            <CheckBox
+                android:id="@+id/checkboxBasal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:buttonTint="@color/colorAccent"
+                android:text="Basal body temperature"
+                android:textColor="@color/colorEditText" />
+
+            <CheckBox
+                android:id="@+id/checkboxCervical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:buttonTint="@color/colorAccent"
+                android:text="Cervical mucus"
+                android:textColor="@color/colorEditText" />
+
+            <CheckBox
+                android:id="@+id/checkboxLactation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:buttonTint="@color/colorAccent"
+                android:text="Lactation amenorrhea method"
+                android:textColor="@color/colorEditText" />
+
+            <CheckBox
+                android:id="@+id/checkboxRhythm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:buttonTint="@color/colorAccent"
+                android:text="Rhythm"
+                android:textColor="@color/colorEditText" />
+
+            <CheckBox
+                android:id="@+id/checkboxStandard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:buttonTint="@color/colorAccent"
+                android:text="Standard Days Method"
+                android:textColor="@color/colorEditText" />
+
+            <CheckBox
+                android:id="@+id/checkboxSympho"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:buttonTint="@color/colorAccent"
+                android:text="Sympho"
+                android:textColor="@color/colorEditText" />
+
+            <CheckBox
+                android:id="@+id/checkboxWithdrawal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:buttonTint="@color/colorAccent"
+                android:text="Withdrawal"
+                android:textColor="@color/colorEditText" />
+
+            <CheckBox
+                android:id="@+id/checkboxCondom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:buttonTint="@color/colorAccent"
+                android:text="Condom"
+                android:textColor="@color/colorEditText" />
+
+            <CheckBox
+                android:id="@+id/checkboxDepo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:buttonTint="@color/colorAccent"
+                android:text="Depo injection"
+                android:textColor="@color/colorEditText" />
+
+            <CheckBox
+                android:id="@+id/checkboxIud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:buttonTint="@color/colorAccent"
+                android:text="IUD"
+                android:textColor="@color/colorEditText" />
+
+            <CheckBox
+                android:id="@+id/checkboxTubal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:buttonTint="@color/colorAccent"
+                android:text="Tubal ligation"
+                android:textColor="@color/colorEditText" />
+
+            <CheckBox
+                android:id="@+id/checkboxPill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:buttonTint="@color/colorAccent"
+                android:text="Pills"
+                android:textColor="@color/colorEditText" />
+
+            <CheckBox
+                android:id="@+id/checkboxVasectomy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:buttonTint="@color/colorAccent"
+                android:text="Vasectomy"
+                android:textColor="@color/colorEditText" />
+
+            <CheckBox
+                android:id="@+id/checkboxOthers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:buttonTint="@color/colorAccent"
+                android:text="Others"
+                android:textColor="@color/colorEditText" />
 
         </LinearLayout>
 
