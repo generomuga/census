@@ -1,6 +1,8 @@
 package census.com.census.fragment;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -56,12 +58,18 @@ public class FamilyFragment extends Fragment {
     public static EditText mPlaceOrigin;
     public static EditText mNoVoters;
 
+    //shared pref
+    SharedPreferences mSharedPreference;
+
     private View view;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(layout.fragment_family,container,false);
+
+        //shared pref
+        mSharedPreference = getActivity().getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
 
         mBicycleNo =  (EditText) view.findViewById(id.editTextBicycleNo);
         mBoatNo = (EditText) view.findViewById(id.editTextBoatNo);
@@ -104,6 +112,34 @@ public class FamilyFragment extends Fragment {
         mNoVoters = (EditText) view.findViewById(id.editTextNoVoters);
 
         return  view;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        savePreference();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadPreference();
+    }
+
+    private void savePreference(){
+        mSharedPreference.edit().putString("noMale", mMaleMember.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("noFemale", mFemaleMember.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("yearResided", mYearOrigin.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("placeOrigin", mPlaceOrigin.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("noVoters", mNoVoters.getText().toString().trim()).apply();
+    }
+
+    private void loadPreference(){
+        mMaleMember.setText(mSharedPreference.getString("noMale",""));
+        mFemaleMember.setText(mSharedPreference.getString("noFemale",""));
+        mYearOrigin.setText(mSharedPreference.getString("yearResided",""));
+        mPlaceOrigin.setText(mSharedPreference.getString("placeOrigin",""));
+        mNoVoters.setText(mSharedPreference.getString("noVoters", ""));
     }
 
 }
