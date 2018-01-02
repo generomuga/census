@@ -123,6 +123,26 @@ public class FamilyIdentificationFragment extends Fragment {
     }
 
     private void sendData(){
+
+        int residency;
+        int ownership;
+        int familyStatus;
+
+        if (mResident.isChecked())
+            residency = 0;
+        else
+            residency = 1;
+
+        if (mOwner.isChecked())
+            ownership = 0;
+        else
+            ownership = 1;
+
+        if (mActive.isChecked())
+            familyStatus = 0;
+        else
+            familyStatus = 1;
+
         FamilyIdentification familyIdentification = new FamilyIdentification();
         familyIdentification.setfName(mFname.getText().toString().trim());
         familyIdentification.setmName(mMname.getText().toString().trim());
@@ -133,6 +153,9 @@ public class FamilyIdentificationFragment extends Fragment {
         familyIdentification.setBarangay(mBarangay.getText().toString().trim());
         familyIdentification.setHouseNo(mHouseNo.getText().toString().trim());
         familyIdentification.setStreetNo(mStreetNo.getText().toString().trim());
+        familyIdentification.setResidency(residency);
+        familyIdentification.setOwnership(ownership);
+        familyIdentification.setFamilyStatus(familyStatus);
 
         String uid = mAuth.getCurrentUser().getUid();
         DatabaseReference refFamilyIdentification = mDatabase.child("familyIdentification").child(uid);
