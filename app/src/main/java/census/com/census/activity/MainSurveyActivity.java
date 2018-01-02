@@ -28,7 +28,7 @@ public class MainSurveyActivity extends AppCompatActivity {
         mToolBarSurvey = (Toolbar) findViewById(R.id.toolBarSurvey);
 
         setSupportActionBar(mToolBarSurvey);
-        getSupportActionBar().setTitle("Identification");
+        getSupportActionBar().setTitle("Family Identification");
 
         //fragment
         if (savedInstanceState != null){
@@ -49,6 +49,7 @@ public class MainSurveyActivity extends AppCompatActivity {
         switch (view.getId()){
 
             case R.id.imageButtonFamilyId:
+                getSupportActionBar().setTitle("Family Identification");
                 FamilyIdentificationFragment familyIdentificationFragment = new FamilyIdentificationFragment();
                 mTransaction.replace(R.id.fragmentMain, familyIdentificationFragment);
                 mTransaction.addToBackStack(null);
@@ -63,6 +64,7 @@ public class MainSurveyActivity extends AppCompatActivity {
                     return;
                 }
                 else {
+                    getSupportActionBar().setTitle("Family");
                     FamilyFragment familyFragment = new FamilyFragment();
                     mTransaction.replace(R.id.fragmentMain, familyFragment);
                     mTransaction.addToBackStack(null);
