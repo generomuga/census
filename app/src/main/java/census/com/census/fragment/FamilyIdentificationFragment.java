@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,6 +28,10 @@ public class FamilyIdentificationFragment extends Fragment {
     public static EditText mFname;
     public static EditText mMname;
     public static EditText mLname;
+    public static EditText mRegion;
+    public static EditText mProvince;
+    public static EditText mMunicipality;
+    public static EditText mBarangay;
     public static EditText mHouseNo;
     public static EditText mStreetNo;
     public static RadioButton mResident;
@@ -60,6 +63,10 @@ public class FamilyIdentificationFragment extends Fragment {
         mFname = (EditText) view.findViewById(R.id.editTextFname);
         mMname = (EditText) view.findViewById(R.id.editTextMname);
         mLname = (EditText) view.findViewById(R.id.editTextLname);
+        mRegion = (EditText) view.findViewById(R.id.editTextRegion);
+        mProvince = (EditText) view.findViewById(R.id.editTextProvince);
+        mMunicipality = (EditText) view.findViewById(R.id.editTextMunicipality);
+        mBarangay = (EditText) view.findViewById(R.id.editTextBarangay);
         mHouseNo = (EditText) view.findViewById(R.id.editTextHouseNo);
         mStreetNo = (EditText) view.findViewById(R.id.editTextStreetNo);
 
@@ -92,7 +99,6 @@ public class FamilyIdentificationFragment extends Fragment {
         mSharedPreference.edit().putString("lname", mLname.getText().toString().trim()).apply();
         mSharedPreference.edit().putString("house", mHouseNo.getText().toString().trim()).apply();
         mSharedPreference.edit().putString("street", mStreetNo.getText().toString().trim()).apply();
-
         mSharedPreference.edit().putBoolean("resident", mResident.isChecked()).apply();
         mSharedPreference.edit().putBoolean("nonResident", mNonResident.isChecked()).apply();
         mSharedPreference.edit().putBoolean("owner", mOwner.isChecked()).apply();
@@ -121,6 +127,10 @@ public class FamilyIdentificationFragment extends Fragment {
         familyIdentification.setfName(mFname.getText().toString().trim());
         familyIdentification.setmName(mMname.getText().toString().trim());
         familyIdentification.setlName(mLname.getText().toString().trim());
+        familyIdentification.setRegion(mRegion.getText().toString().trim());
+        familyIdentification.setProvince(mProvince.getText().toString().trim());
+        familyIdentification.setMunicipality(mMunicipality.getText().toString().trim());
+        familyIdentification.setBarangay(mBarangay.getText().toString().trim());
         familyIdentification.setHouseNo(mHouseNo.getText().toString().trim());
         familyIdentification.setStreetNo(mStreetNo.getText().toString().trim());
 
