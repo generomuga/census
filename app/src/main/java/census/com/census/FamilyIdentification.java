@@ -24,8 +24,6 @@ public class FamilyIdentification {
     private String user;
     private String timestamp;
 
-
-
     public FamilyIdentification() {
     }
 
@@ -61,11 +59,11 @@ public class FamilyIdentification {
         this.lName = lName;
     }
 
-    public String getHouseNp() {
+    public String getHouseNot () {
         return houseNo;
     }
 
-    public void setHouseNp(String houseNp) {
+    public void setHouseNo(String houseNp) {
         this.houseNo = houseNp;
     }
 

@@ -121,7 +121,7 @@ public class FamilyIdentificationFragment extends Fragment {
         familyIdentification.setfName(mFname.getText().toString().trim());
         familyIdentification.setmName(mMname.getText().toString().trim());
         familyIdentification.setlName(mLname.getText().toString().trim());
-        familyIdentification.setHouseNp(mHouseNo.getText().toString().trim());
+        familyIdentification.setHouseNo(mHouseNo.getText().toString().trim());
         familyIdentification.setStreetNo(mStreetNo.getText().toString().trim());
 
         String uid = mAuth.getCurrentUser().getUid();
