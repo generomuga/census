@@ -12,7 +12,7 @@ public class FamilyIdentification {
     private String fName;
     private String mName;
     private String lName;
-    private String houseNp;
+    private String houseNo;
     private String streetNo;
     private String barangay;
     private String municipality;
@@ -62,11 +62,11 @@ public class FamilyIdentification {
     }
 
     public String getHouseNp() {
-        return houseNp;
+        return houseNo;
     }
 
     public void setHouseNp(String houseNp) {
-        this.houseNp = houseNp;
+        this.houseNo = houseNp;
     }
 
     public String getStreetNo() {
