@@ -8,7 +8,8 @@
     <ScrollView
         android:background="#394152"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,46 +19,22 @@
             android:elevation="5dp"
             android:orientation="vertical">
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/editTextFname"
+                android:background="@drawable/edittext_round"
+                android:digits="123456789"
+                android:hint="No of family members"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="8dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:padding="10dp"
+                android:textColor="#fff"
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Number of family members"
-                    android:textColor="@color/colorTextView"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textViewNoFamMembers"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="0"
-                    android:textColor="@color/colorEditText"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-            <SeekBar
-                android:id="@+id/seekBarNoFamilyMembers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:max="20"
-                android:thumbTint="@color/colorAccent" />
-
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -65,26 +42,82 @@
                 android:layout_marginRight="11dp"
                 android:text="Year first resided in the location"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
+                android:textSize="12sp" />-->
 
-            <Spinner
-                android:id="@+id/spinnerYear"
+            <EditText
+                android:id="@+id/editTextYearResided"
+                android:background="@drawable/edittext_round"
+                android:digits="123456789"
+                android:hint="Year resided in the location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="8dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
-                android:popupBackground="@color/colorPrimary" />
+                android:padding="10dp"
+                android:textColor="#fff"
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp" />
 
-            <TextView
+            <EditText
+                android:id="@+id/editTextOrigin"
+                android:background="@drawable/edittext_round"
+                android:digits="123456789"
+                android:hint="Place of orign"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="8dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
-                android:text="Place of origin before living in the barangay"
-                android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
+                android:padding="10dp"
+                android:textColor="#fff"
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editTextMaleVoters"
+                android:background="@drawable/edittext_round"
+                android:digits="123456789"
+                android:hint="Number of male voters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:padding="10dp"
+                android:textColor="#fff"
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editTextFemaleVoters"
+                android:background="@drawable/edittext_round"
+                android:digits="123456789"
+                android:hint="Number of female voters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:padding="10dp"
+                android:textColor="#fff"
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editTextNoVehicle"
+                android:background="@drawable/edittext_round"
+                android:digits="123456789"
+                android:hint="Number of vehicle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:padding="10dp"
+                android:textColor="#fff"
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp" />
 
             <!--<EditText
                 android:id="@+id/editTextOrigin"
@@ -97,85 +130,7 @@
                 android:textColor="@color/colorEditText"
                 android:textColorHint="@color/colorHint" />-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:text="Region"
-                android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
 
-            <Spinner
-                android:id="@+id/spinnerRegions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:popupBackground="@color/colorPrimary" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:text="Province"
-                android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:id="@+id/spinnerProvince"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:popupBackground="@color/colorPrimary" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:text="Municipality"
-                android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:id="@+id/spinnerMunicipal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:popupBackground="@color/colorPrimary"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:text="Barangay"
-                android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:id="@+id/spinnerBarangay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:popupBackground="@color/colorPrimary"/>
 
             <!--<TextView
                 android:layout_width="match_parent"
@@ -217,29 +172,7 @@
 
             </android.support.design.widget.TextInputLayout>-->
 
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginTop="10dp"
-                android:text="Internet Service Provider"
-                android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:id="@+id/spinnerISP"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginTop="10dp"
-                android:popupBackground="@color/colorPrimary" />
-
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -736,7 +669,7 @@
                     android:inputType="number"
                     android:textColor="@color/colorEditText"
                     android:textColorHint="@color/colorTextView" />
-            </LinearLayout>
+            </LinearLayout> -->
 
         </LinearLayout>
 
