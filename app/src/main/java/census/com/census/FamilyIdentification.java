@@ -59,7 +59,7 @@ public class FamilyIdentification {
         this.lName = lName;
     }
 
-    public String getHouseNot () {
+    public String getHouseNo () {
         return houseNo;
     }
 
