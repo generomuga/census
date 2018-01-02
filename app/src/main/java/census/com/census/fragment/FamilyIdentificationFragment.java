@@ -4,17 +4,27 @@ package census.com.census.fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import census.com.census.FamilyIdentification;
 import census.com.census.R;
 
 public class FamilyIdentificationFragment extends Fragment {
 
+    //views
     private View view;
     public static EditText mFname;
     public static EditText mMname;
@@ -28,12 +38,21 @@ public class FamilyIdentificationFragment extends Fragment {
     public static RadioButton mActive;
     public static RadioButton mInActive;
 
+    //shared pref
     SharedPreferences mSharedPreference;
+
+    //firebase
+    DatabaseReference mDatabase;
+    FirebaseAuth mAuth;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_family_identification, container, false);
+
+        //firebase
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
 
         //shared pref
         mSharedPreference = getActivity().getSharedPreferences("census.com.census",Context.MODE_PRIVATE);
@@ -58,6 +77,7 @@ public class FamilyIdentificationFragment extends Fragment {
     public void onPause() {
         super.onPause();
         savePreference();
+        sendData();
     }
 
     @Override
@@ -94,6 +114,26 @@ public class FamilyIdentificationFragment extends Fragment {
         mExtended.setChecked(mSharedPreference.getBoolean("extended",false));
         mActive.setChecked(mSharedPreference.getBoolean("active",true));
         mInActive.setChecked(mSharedPreference.getBoolean("inactive",false));
+    }
+
+    private void sendData(){
+        FamilyIdentification familyIdentification = new FamilyIdentification();
+        familyIdentification.setfName(mFname.getText().toString().trim());
+        familyIdentification.setmName(mMname.getText().toString().trim());
+        familyIdentification.setlName(mLname.getText().toString().trim());
+        familyIdentification.setHouseNp(mHouseNo.getText().toString().trim());
+        familyIdentification.setStreetNo(mStreetNo.getText().toString().trim());
+
+        String uid = mAuth.getCurrentUser().getUid();
+        DatabaseReference refFamilyIdentification = mDatabase.child("familyIdentification").child(uid);
+
+        refFamilyIdentification.setValue(familyIdentification).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+              if (task.isSuccessful()){
+              }
+            }
+        });
     }
 
 }
