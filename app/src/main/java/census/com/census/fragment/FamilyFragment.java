@@ -76,7 +76,7 @@ public class FamilyFragment extends Fragment {
         mBusNo = (EditText) view.findViewById(id.editTextBusNo);
         mCarNo = (EditText) view.findViewById(id.editTextCarNo);
         mJeepNo = (EditText) view.findViewById(id.editTextJeepNo);
-        mMotorBoatNo = (EditText) view.findViewById(id.editTextBoatNo);
+        mMotorBoatNo = (EditText) view.findViewById(id.editTextMotorBoatNo);
         mMotorcycleNo = (EditText) view.findViewById(id.editTextMotorcycleNo);
         mOwnerNo = (EditText) view.findViewById(id.editTextOwnerNo);
         mPedicabNo = (EditText) view.findViewById(id.editTextPedicabNo);
@@ -132,6 +132,23 @@ public class FamilyFragment extends Fragment {
         mSharedPreference.edit().putString("yearResided", mYearOrigin.getText().toString().trim()).apply();
         mSharedPreference.edit().putString("placeOrigin", mPlaceOrigin.getText().toString().trim()).apply();
         mSharedPreference.edit().putString("noVoters", mNoVoters.getText().toString().trim()).apply();
+
+        mSharedPreference.edit().putString("bicycleNo", mBicycleNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("boatNo", mBoatNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("busNo", mBusNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("carNo", mCarNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("jeepNo", mJeepNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("motorBoatNo", mMotorBoatNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("motorCycleNo", mMotorcycleNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("ownerNo", mOwnerNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("pedicabNo", mPedicabNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("pickUpNo", mPickupNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("pumpBoatNo", mPumpboatNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("raftNo", mRaftNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("suvNo", mSuvNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("tricycleNo", mTricycleNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("truckNo", mTruckNo.getText().toString().trim()).apply();
+        mSharedPreference.edit().putString("vanNo", mVanNo.getText().toString().trim()).apply();
     }
 
     private void loadPreference(){
@@ -140,6 +157,23 @@ public class FamilyFragment extends Fragment {
         mYearOrigin.setText(mSharedPreference.getString("yearResided",""));
         mPlaceOrigin.setText(mSharedPreference.getString("placeOrigin",""));
         mNoVoters.setText(mSharedPreference.getString("noVoters", ""));
+
+        mBicycleNo.setText(mSharedPreference.getString("bicycleNo", ""));
+        mBoatNo.setText(mSharedPreference.getString("boatNo", ""));
+        mBusNo.setText(mSharedPreference.getString("busNo", ""));
+        mCarNo.setText(mSharedPreference.getString("carNo", ""));
+        mJeepNo.setText(mSharedPreference.getString("jeepNo", ""));
+        mMotorBoatNo.setText(mSharedPreference.getString("motorBoatNo", ""));
+        mMotorcycleNo.setText(mSharedPreference.getString("motorCycleNo", ""));
+        mOwnerNo.setText(mSharedPreference.getString("ownerNo", ""));
+        mPedicabNo.setText(mSharedPreference.getString("pedicabNo", ""));
+        mPickupNo.setText(mSharedPreference.getString("pickUpNo", ""));
+        mPumpboatNo.setText(mSharedPreference.getString("pumpBoatNo", ""));
+        mRaftNo.setText(mSharedPreference.getString("raftNo", ""));
+        mSuvNo.setText(mSharedPreference.getString("suvNo", ""));
+        mTricycleNo.setText(mSharedPreference.getString("tricycleNo", ""));
+        mTruckNo.setText(mSharedPreference.getString("truckNo", ""));
+        mVanNo.setText(mSharedPreference.getString("vanNo", ""));
     }
 
 }
