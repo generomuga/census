@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="census.com.census.fragment.FamilyFragment"
-    android:background="@color/colorLoginEditText">
+    android:background="#394152">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -528,7 +528,7 @@
                 android:orientation="horizontal"
                 android:weightSum="2">
 
-                <CheckBox
+                <!--<CheckBox
                     android:id="@+id/checkboxPickup"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -549,7 +549,7 @@
                     android:hint="Quantity"
                     android:inputType="number"
                     android:textColor="@color/colorEditText"
-                    android:textColorHint="@color/colorTextView" />
+                    android:textColorHint="@color/colorTextView" />-->
 
             </LinearLayout>
 

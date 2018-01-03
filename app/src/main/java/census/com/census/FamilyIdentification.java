@@ -12,7 +12,7 @@ public class FamilyIdentification {
     private String fName;
     private String mName;
     private String lName;
-    private String houseNp;
+    private String houseNo;
     private String streetNo;
     private String barangay;
     private String municipality;
@@ -23,8 +23,6 @@ public class FamilyIdentification {
     private int familyStatus;
     private String user;
     private String timestamp;
-
-
 
     public FamilyIdentification() {
     }
@@ -61,12 +59,12 @@ public class FamilyIdentification {
         this.lName = lName;
     }
 
-    public String getHouseNp() {
-        return houseNp;
+    public String getHouseNo () {
+        return houseNo;
     }
 
-    public void setHouseNp(String houseNp) {
-        this.houseNp = houseNp;
+    public void setHouseNo(String houseNp) {
+        this.houseNo = houseNp;
     }
 
     public String getStreetNo() {

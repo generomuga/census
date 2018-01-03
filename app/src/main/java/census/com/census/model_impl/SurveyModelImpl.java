@@ -44,7 +44,7 @@ public class SurveyModelImpl implements SurveyModel.OnFamilyIdentification,Surve
         familyIdentification.setProvince(province);
         familyIdentification.setMunicipality(municipality);
         familyIdentification.setBarangay(barangay);
-        familyIdentification.setHouseNp(houseNo);
+        familyIdentification.setHouseNo(houseNo);
         familyIdentification.setStreetNo(streetNo);
         familyIdentification.setResidency(residency);
         familyIdentification.setOwnership(ownership);
