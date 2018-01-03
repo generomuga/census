@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import census.com.census.R;
 
@@ -100,7 +101,7 @@ public class FamilyFragment extends Fragment {
         mPedicab = (CheckBox) view.findViewById(id.checkboxPedicab);
         mPickUp = (CheckBox) view.findViewById(id.checkboxPickUp);
         mPumpboat = (CheckBox) view.findViewById(id.checkboxPumpBoat);
-        mRaft = (CheckBox) view.findViewById(id.checkboxRaft);
+        mRaft = (CheckBox)   view.findViewById(id.checkboxRaft);
         mSuv = (CheckBox) view.findViewById(id.checkboxSuv);
         mTricycle = (CheckBox) view.findViewById(id.checkboxTricycle);
         mTruck = (CheckBox) view.findViewById(id.checkboxTruck);
@@ -111,6 +112,231 @@ public class FamilyFragment extends Fragment {
         mYearOrigin = (EditText) view.findViewById(id.editTextYearResided);
         mPlaceOrigin = (EditText) view.findViewById(id.editTextOrigin);
         mNoVoters = (EditText) view.findViewById(id.editTextNoVoters);
+
+        //checkbox bicycle
+        mBicycle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mBicycle.isChecked()){
+                    mBicycleNo.setEnabled(true);
+                }
+                else{
+                    mBicycleNo.setText(null);
+                    mBicycleNo.setEnabled(false);
+                }
+            }
+        });
+
+        //checkbox boat
+        mBoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mBoat.isChecked()){
+                    mBoatNo.setEnabled(true);
+                }
+                else{
+                    mBoatNo.setText(null);
+                    mBoatNo.setEnabled(false);
+                }
+            }
+        });
+
+        //checkbox bus
+        mBus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mBus.isChecked()){
+                    mBusNo.setEnabled(true);
+                }
+                else{
+                    mBusNo.setText(null);
+                    mBusNo.setEnabled(false);
+                }
+            }
+        });
+
+        //checkbox car
+        mCar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mCar.isChecked()){
+                    mCarNo.setEnabled(true);
+                }
+                else{
+                    mCarNo.setText(null);
+                    mCarNo.setEnabled(false);
+                }
+            }
+        });
+
+        //checkbox jeep
+        mJeep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mJeep.isChecked()){
+                    mJeepNo.setEnabled(true);
+                }
+                else{
+                    mJeepNo.setText(null);
+                    mJeepNo.setEnabled(false);
+                }
+            }
+        });
+
+        //checkbox motorboat
+        mMotorBoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mMotorBoat.isChecked()){
+                    mMotorBoatNo.setEnabled(true);
+                }
+                else{
+                    mMotorBoatNo.setText(null);
+                    mMotorBoatNo.setEnabled(false);
+                }
+            }
+        });
+
+        //checkbox motorcycle
+        mMotorcycle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mMotorcycle.isChecked()){
+                    mMotorcycleNo.setEnabled(true);
+                }
+                else{
+                    mMotorcycleNo.setText(null);
+                    mMotorcycleNo.setEnabled(false);
+                }
+            }
+        });
+
+        //checkbox owner
+        mOwner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mOwner.isChecked()){
+                    mOwnerNo.setEnabled(true);
+                }
+                else{
+                    mOwnerNo.setText(null);
+                    mOwnerNo.setEnabled(false);
+                }
+            }
+        });
+
+        //checkbox pedicab
+        mPedicab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mPedicab.isChecked()){
+                    mPedicabNo.setEnabled(true);
+                }
+                else{
+                    mPedicabNo.setText(null);
+                    mPedicabNo.setEnabled(false);
+                }
+            }
+        });
+
+        //checkbox pedicab
+        mPickUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mPickUp.isChecked()){
+                    mPickUpNo.setEnabled(true);
+                }
+                else{
+                    mPickUpNo.setText(null);
+                    mPickUpNo.setEnabled(false);
+                }
+            }
+        });
+
+        //checkbox pumpboat
+        mPumpboat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mPumpboat.isChecked()){
+                    mPumpboatNo.setEnabled(true);
+                }
+                else{
+                    mPumpboatNo.setText(null);
+                    mPumpboatNo.setEnabled(false);
+                }
+            }
+        });
+
+        //checkbox raft
+        mRaft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mRaft.isChecked()){
+                    mRaftNo.setEnabled(true);
+                }
+                else{
+                    mRaftNo.setText(null);
+                    mRaftNo.setEnabled(false);
+                }
+            }
+        });
+
+        //checkbox suv
+        mSuv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mSuv.isChecked()){
+                    mSuvNo.setEnabled(true);
+                }
+                else{
+                    mSuvNo.setText(null);
+                    mSuvNo.setEnabled(false);
+                }
+            }
+        });
+
+        //checkbox tricycle
+        mTricycle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mTricycle.isChecked()){
+                    mTricycleNo.setEnabled(true);
+                }
+                else{
+                    mTricycleNo.setText(null);
+                    mTricycleNo.setEnabled(false);
+                }
+            }
+        });
+
+        //checkbox truck
+        mTruck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mTruck.isChecked()){
+                    mTruckNo.setEnabled(true);
+                }
+                else{
+                    mTruckNo.setText(null);
+                    mTruckNo.setEnabled(false);
+                }
+            }
+        });
+
+        //checkbox van
+        mVan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mVan.isChecked()){
+                    mVanNo.setEnabled(true);
+                }
+                else{
+                    mVanNo.setText(null);
+                    mVanNo.setEnabled(false);
+                }
+            }
+        });
+
 
         return  view;
     }
