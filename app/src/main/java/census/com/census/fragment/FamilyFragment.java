@@ -496,12 +496,47 @@ public class FamilyFragment extends Fragment {
         private String timeStamp;*/
 
 
+        int selectBicycle = (mBicycle.isChecked()) ? 1 : 0;
+        int selectBoat = (mBoat.isChecked()) ? 1 : 0;
+        int selectBus = (mBus.isChecked()) ? 1 : 0;
+        int selectCar = (mCar.isChecked()) ? 1 : 0;
+        int selectJeep = (mJeep.isChecked()) ? 1 : 0;
+        int selectMotorboat = (mMotorBoat.isChecked()) ? 1 : 0;
+        int selectMotorcycle = (mMotorcycle.isChecked()) ? 1 : 0;
+        int selectOwner = (mOwner.isChecked()) ? 1 : 0;
+        int selectPedicab = (mPedicab.isChecked()) ? 1 : 0;
+        int selectPickup = (mPickUp.isChecked()) ? 1 : 0;
+        int selectPump = (mPumpboat.isChecked()) ? 1 : 0;
+        int selectRaft = (mRaft.isChecked()) ? 1 : 0;
+        int selectSuv = (mSuv.isChecked()) ? 1 : 0;
+        int selectTricycle = (mTricycle.isChecked()) ? 1 : 0;
+        int selectTruck = (mTruck.isChecked()) ? 1 : 0;
+        int selectVan = (mVan.isChecked()) ? 1 : 0;
+
+
         Family family = new Family();
         family.setNoMale(Integer.parseInt(mMaleMember.getText().toString()));
         family.setNoFemale(Integer.parseInt(mFemaleMember.getText().toString()));
         family.setYearResided(Integer.parseInt(mYearOrigin.getText().toString()));
         family.setPlaceOrigin(mPlaceOrigin.getText().toString().trim());
         family.setNoVoters(Integer.parseInt(mNoVoters.getText().toString()));
+        family.setSelectBicycle(selectBicycle);
+        family.setSelectBoat(selectBoat);
+        family.setSelectBus(selectBus);
+        family.setSelectCar(selectCar);
+        family.setSelectJeepney(selectJeep);
+        family.setSelectMotorboat(selectMotorboat);
+        family.setSelectMotorcycle(selectMotorcycle);
+        family.setSelectOwnerJeep(selectOwner);
+        family.setSelectPedicab(selectPedicab);
+        family.setSelectPickup(selectPickup);
+        family.setSelectPumpBoat(selectPump);
+        family.setSelectRaft(selectRaft);
+        family.setSelectSuv(selectSuv);
+        family.setSelectTricycle(selectTricycle);
+        family.setSelectTruck(selectTruck);
+        family.setSelectVan(selectVan);
+
 
         String uid = mAuth.getCurrentUser().getUid();
         DatabaseReference familyFragmentRef = mDatabase.child("family").child(uid);
