@@ -495,6 +495,7 @@ public class FamilyFragment extends Fragment {
         private int noVan;
         private String timeStamp;*/
 
+
         Family family = new Family();
         family.setNoMale(Integer.parseInt(mMaleMember.getText().toString()));
         family.setNoFemale(Integer.parseInt(mFemaleMember.getText().toString()));
