@@ -2,12 +2,11 @@ package census.com.census;
 
 public class Family {
 
-    private String id;
-    private int noFamilyMembers;
+    private int noMale;
+    private int noFemale;
     private int yearResided;
     private String placeOrigin;
-    private String contactNo;
-    private String isp;
+    private int noVoters;
     private int selectBicycle;
     private int noBicycle;
     private int selectBoat;
@@ -42,20 +41,23 @@ public class Family {
     private int noVan;
     private String timeStamp;
 
-    public String getId() {
-        return id;
+    public Family() {
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public int getNoMale() {
+        return noMale;
     }
 
-    public int getNoFamilyMembers() {
-        return noFamilyMembers;
+    public void setNoMale(int noMale) {
+        this.noMale = noMale;
     }
 
-    public void setNoFamilyMembers(int noFamilyMembers) {
-        this.noFamilyMembers = noFamilyMembers;
+    public int getNoFemale() {
+        return noFemale;
+    }
+
+    public void setNoFemale(int noFemale) {
+        this.noFemale = noFemale;
     }
 
     public int getYearResided() {
@@ -74,20 +76,12 @@ public class Family {
         this.placeOrigin = placeOrigin;
     }
 
-    public String getContactNo() {
-        return contactNo;
+    public int getNoVoters() {
+        return noVoters;
     }
 
-    public void setContactNo(String contactNo) {
-        this.contactNo = contactNo;
-    }
-
-    public String getIsp() {
-        return isp;
-    }
-
-    public void setIsp(String isp) {
-        this.isp = isp;
+    public void setNoVoters(int noVoters) {
+        this.noVoters = noVoters;
     }
 
     public int getSelectBicycle() {
@@ -158,7 +152,7 @@ public class Family {
         return selectJeepney;
     }
 
-    public void setSelectJeep(int selectJeepney) {
+    public void setSelectJeepney(int selectJeepney) {
         this.selectJeepney = selectJeepney;
     }
 
