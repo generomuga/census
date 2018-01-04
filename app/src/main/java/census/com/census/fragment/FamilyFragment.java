@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +14,13 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import census.com.census.Family;
 import census.com.census.R;
 
 import static census.com.census.R.*;
@@ -60,6 +68,10 @@ public class FamilyFragment extends Fragment {
     public static EditText mPlaceOrigin;
     public static EditText mNoVoters;
 
+    //firebase
+    DatabaseReference mDatabase;
+    FirebaseAuth mAuth;
+
     //shared pref
     SharedPreferences mSharedPreference;
 
@@ -69,6 +81,10 @@ public class FamilyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(layout.fragment_family,container,false);
+
+        //firebase
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
 
         //shared pref
         mSharedPreference = getActivity().getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
@@ -345,6 +361,7 @@ public class FamilyFragment extends Fragment {
     public void onPause() {
         super.onPause();
         savePreference();
+        sendData();
     }
 
     @Override
@@ -435,6 +452,70 @@ public class FamilyFragment extends Fragment {
         mTricycleNo.setText(mSharedPreference.getString("tricycleNo", ""));
         mTruckNo.setText(mSharedPreference.getString("truckNo", ""));
         mVanNo.setText(mSharedPreference.getString("vanNo", ""));
+    }
+
+    private void sendData(){
+
+        /*private int noMale;
+        private int noFemale;
+        private String yearResided;
+        private String placeOrigin;
+        private String noVoters;
+        private int selectBicycle;
+        private int noBicycle;
+        private int selectBoat;
+        private int noBoat;
+        private int selectBus;
+        private int noBus;
+        private int selectCar;
+        private int noCar;
+        private int selectJeepney;
+        private int noJeep;
+        private int selectMotorboat;
+        private int noMotorboat;
+        private int selectMotorcycle;
+        private int noMotorCycle;
+        private int selectOwnerJeep;
+        private int noOwnerJeep;
+        private int selectPedicab;
+        private int noPedicab;
+        private int selectPickup;
+        private int noPickup;
+        private int selectPumpBoat;
+        private int noPumpBoat;
+        private int selectRaft;
+        private int noRaft;
+        private int selectSuv;
+        private int noSuv;
+        private int selectTricycle;
+        private int noTricycle;
+        private int selectTruck;
+        private int noTruck;
+        private int selectVan;
+        private int noVan;
+        private String timeStamp;*/
+
+        Family family = new Family();
+        family.setNoMale(Integer.parseInt(mMaleMember.getText().toString()));
+        family.setNoFemale(Integer.parseInt(mFemaleMember.getText().toString()));
+        family.setYearResided(Integer.parseInt(mYearOrigin.getText().toString()));
+        family.setPlaceOrigin(mPlaceOrigin.getText().toString().trim());
+        family.setNoVoters(Integer.parseInt(mNoVoters.getText().toString()));
+
+        String uid = mAuth.getCurrentUser().getUid();
+        DatabaseReference familyFragmentRef = mDatabase.child("family").child(uid);
+        familyFragmentRef.setValue(family).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+
+                }
+                else{
+                    Toast.makeText(getContext(), task.getException().toString(), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
     }
 
 }
