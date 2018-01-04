@@ -513,6 +513,22 @@ public class FamilyFragment extends Fragment {
         int selectTruck = (mTruck.isChecked()) ? 1 : 0;
         int selectVan = (mVan.isChecked()) ? 1 : 0;
 
+        int noBicycle = (mBicycleNo.getText().toString().equals("")) ? 0 : Integer.parseInt(mBicycleNo.getText().toString());
+        int noBoat = (mBoatNo.getText().toString().equals("")) ? 0 : Integer.parseInt(mBoatNo.getText().toString());
+        int noBus = (mBusNo.getText().toString().equals("")) ? 0 : Integer.parseInt(mBusNo.getText().toString());
+        int noCar = (mCarNo.getText().toString().equals("")) ? 0 : Integer.parseInt(mCarNo.getText().toString());
+        int noJeep = (mJeepNo.getText().toString().equals("")) ? 0 : Integer.parseInt(mJeepNo.getText().toString());
+        int noMotorboat = (mMotorBoatNo.getText().toString().equals("")) ? 0 : Integer.parseInt(mMotorBoatNo.getText().toString());
+        int noMotorCycle = (mMotorcycleNo.getText().toString().equals("")) ? 0 : Integer.parseInt(mMotorcycleNo.getText().toString());
+        int noOwner = (mOwnerNo.getText().toString().equals("")) ? 0 : Integer.parseInt(mOwnerNo.getText().toString());
+        int noPedicab = (mPedicabNo.getText().toString().equals("")) ? 0 : Integer.parseInt(mPedicabNo.getText().toString());
+        int noPickup = (mPickUpNo.getText().toString().equals("")) ? 0 : Integer.parseInt(mPickUpNo.getText().toString());
+        int noPump = (mPumpboatNo.getText().toString().equals("")) ? 0 : Integer.parseInt(mPumpboatNo.getText().toString());
+        int noRaft = (mRaftNo.getText().toString().equals("")) ? 0 : Integer.parseInt(mRaftNo.getText().toString());
+        int noSuv = (mSuvNo.getText().toString().equals("")) ? 0 : Integer.parseInt(mSuvNo.getText().toString());
+        int noTricycle = (mTricycleNo.getText().toString().equals("")) ? 0 : Integer.parseInt(mTricycleNo.getText().toString());
+        int noTruck = (mTruckNo.getText().toString().equals("")) ? 0 : Integer.parseInt(mTruckNo.getText().toString());
+        int noVan = (mVanNo.getText().toString().equals("")) ? 0 : Integer.parseInt(mVanNo.getText().toString());
 
         Family family = new Family();
         family.setNoMale(Integer.parseInt(mMaleMember.getText().toString()));
@@ -537,6 +553,22 @@ public class FamilyFragment extends Fragment {
         family.setSelectTruck(selectTruck);
         family.setSelectVan(selectVan);
 
+        family.setNoBicycle(noBicycle);
+        family.setNoBoat(noBoat);
+        family.setNoBus(noBus);
+        family.setNoCar(noCar);
+        family.setNoJeep(noJeep);
+        family.setNoMotorboat(noMotorboat);
+        family.setNoMotorCycle(noMotorCycle);
+        family.setNoOwnerJeep(noOwner);
+        family.setNoPedicab(noPedicab);
+        family.setNoPickup(noPickup);
+        family.setNoPumpBoat(noPump);
+        family.setNoRaft(noRaft);
+        family.setNoSuv(noSuv);
+        family.setNoTricycle(noTricycle);
+        family.setNoTruck(noTruck);
+        family.setNoVan(noVan);
 
         String uid = mAuth.getCurrentUser().getUid();
         DatabaseReference familyFragmentRef = mDatabase.child("family").child(uid);
