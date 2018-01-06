@@ -157,83 +157,105 @@
 
             </LinearLayout>
 
-            <TextView
+            <LinearLayout
+                android:background="@drawable/edittext_round"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_weight="1"
-                android:text="Do you use iodized salt?"
-                android:textColor="#fff"
-                android:textSize="12sp" />
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-            <RadioGroup
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:text="Do you use iodized salt?"
+                    android:textColor="#fff"
+                    android:textSize="12sp" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonIodizeYes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorAccent"
+                        android:checked="true"
+                        android:text="Yes"
+                        android:textColor="#fff" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonIodizeNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorAccent"
+                        android:text="No"
+                        android:textColor="#fff" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/edittext_round"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-                <RadioButton
-                    android:id="@+id/radioButtonIodizeYes"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorAccent"
-                    android:checked="true"
-                    android:text="Yes"
-                    android:textColor="#fff" />
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:text="Do you practice family planning?"
+                    android:textColor="#fff"
+                    android:textSize="12sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButtonIodizeNo"
+                <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorAccent"
-                    android:text="No"
-                    android:textColor="#fff" />
-            </RadioGroup>
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_weight="1"
-                android:text="Do you practice family planning?"
-                android:textColor="#fff"
-                android:textSize="12sp" />
+                    <RadioButton
+                        android:id="@+id/radioButtonFamilyYes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorAccent"
+                        android:checked="true"
+                        android:text="Yes"
+                        android:textColor="#fff" />
 
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:orientation="vertical">
+                    <RadioButton
+                        android:id="@+id/radioButtonFamilyNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorAccent"
+                        android:text="No"
+                        android:textColor="#fff" />
 
-                <RadioButton
-                    android:id="@+id/radioButtonFamilyYes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorAccent"
-                    android:checked="true"
-                    android:text="Yes"
-                    android:textColor="#fff" />
+                    <RadioButton
+                        android:id="@+id/radioButtonFamilyNa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorAccent"
+                        android:text="Not applicable"
+                        android:textColor="#fff" />
+                </RadioGroup>
 
-                <RadioButton
-                    android:id="@+id/radioButtonFamilyNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorAccent"
-                    android:text="No"
-                    android:textColor="#fff" />
-
-                <RadioButton
-                    android:id="@+id/radioButtonFamilyNa"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorAccent"
-                    android:text="Not applicable"
-                    android:textColor="#fff" />
-            </RadioGroup>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
