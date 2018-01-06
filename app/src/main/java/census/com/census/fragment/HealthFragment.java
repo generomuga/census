@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
 import census.com.census.R;
@@ -42,6 +43,8 @@ public class HealthFragment extends Fragment {
     public static CheckBox mPills;
     public static CheckBox mVasectomy;
     public static CheckBox mOthers;
+
+    public static LinearLayout mContra;
 
     private SharedPreferences sharedPreferences;
 
@@ -79,6 +82,30 @@ public class HealthFragment extends Fragment {
         mPills = (CheckBox) view.findViewById(R.id.checkboxPill);
         mVasectomy = (CheckBox) view.findViewById(R.id.checkboxVasectomy);
         mOthers = (CheckBox) view.findViewById(R.id.checkboxOthers);
+
+        mContra = (LinearLayout) view.findViewById(R.id.linearLayoutContra);
+        setEnable(false);
+
+        mFamilyYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    setEnable(true);
+            }
+        });
+
+        mFamilyNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setEnable(false);
+            }
+        });
+
+        mFamilyNa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setEnable(false);
+            }
+        });
 
         return view;
     }
@@ -150,6 +177,13 @@ public class HealthFragment extends Fragment {
         sharedPreferences.edit().putBoolean("pills",mPills.isChecked()).apply();
         sharedPreferences.edit().putBoolean("vasectomy",mVasectomy.isChecked()).apply();
         sharedPreferences.edit().putBoolean("others",mOthers.isChecked()).apply();
+    }
+
+    private void setEnable(boolean enable){
+        for (int i = 0; i < mContra.getChildCount(); i++){
+            View viewContra = mContra.getChildAt(i);
+            viewContra.setEnabled(enable);
+        }
     }
 
 }
