@@ -62,7 +62,7 @@
             <EditText
                 android:id="@+id/editTextYearResided"
                 android:background="@drawable/edittext_round"
-                android:digits="123456789"
+                android:digits="1234567890"
                 android:hint="Year resided in the location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
