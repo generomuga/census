@@ -8,8 +8,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
+import census.com.census.Environment;
 import census.com.census.Family;
 import census.com.census.R;
+import census.com.census.fragment.EnvironmentFragment;
 import census.com.census.fragment.FamilyFragment;
 import census.com.census.fragment.FamilyIdentificationFragment;
 import census.com.census.fragment.HealthFragment;
@@ -95,6 +97,15 @@ public class MainSurveyActivity extends AppCompatActivity {
                     //mTransaction.addToBackStack(null);
                     mTransaction.commit();
                 }
+                break;
+
+            case R.id.imageButtonEnvironment:
+                getSupportActionBar().setTitle("Environment");
+                EnvironmentFragment environmentFragment = new EnvironmentFragment();
+                mTransaction.replace(R.id.fragmentMain, environmentFragment);
+                //mTransaction.addToBackStack(null);
+                mTransaction.commit();
+                break;
         }
     }
 
