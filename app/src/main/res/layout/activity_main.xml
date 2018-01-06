@@ -14,12 +14,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ListView
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.github.mikephil.charting.charts.BarChart>
+
+
+        <!--<ListView
             android:id="@+id/listViewData"
             android:background="#ffff"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        </ListView>
+        </ListView>-->
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fabSurvey"
