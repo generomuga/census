@@ -3,6 +3,7 @@ package census.com.census.fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,11 +12,21 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import census.com.census.Health;
 import census.com.census.R;
 
 public class HealthFragment extends Fragment {
 
     View view;
+
+    private DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
 
     public static RadioButton mEatYes;
     public static RadioButton mEatNo;
@@ -55,6 +66,10 @@ public class HealthFragment extends Fragment {
 
         //shared pref
         sharedPreferences = getActivity().getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
+
+        //firebase
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
 
         mEatYes = (RadioButton) view.findViewById(R.id.radioButtonEatYes);
         mEatNo = (RadioButton) view.findViewById(R.id.radioButtonEatNo);
@@ -114,6 +129,7 @@ public class HealthFragment extends Fragment {
     public void onPause() {
         super.onPause();
         onSaveReference();
+        sendData();
     }
 
     @Override
@@ -184,6 +200,39 @@ public class HealthFragment extends Fragment {
             View viewContra = mContra.getChildAt(i);
             viewContra.setEnabled(enable);
         }
+    }
+
+    private void sendData(){
+        String uid = mAuth.getCurrentUser().getUid();
+        DatabaseReference healthRef = mDatabase.child("health").child(uid);
+
+        int eat = (mEatYes.isChecked()) ? 1 : 0;
+        int herbal = (mHerbalYes.isChecked()) ? 1 : 0;
+        int vegetable = (mVegYes.isChecked()) ? 1 : 0;
+        int salt = (mIodizeYes.isChecked()) ? 1 : 0;
+
+        int familyPlanning = 0;
+        if (mFamilyYes.isChecked())
+            familyPlanning = 1;
+        if (mFamilyYes.isChecked())
+            familyPlanning = 0;
+        if (mFamilyNa.isChecked())
+            familyPlanning = 2;
+
+        Health health = new Health();
+
+        health.setEatComplete(eat);
+        health.setPlantHerbal(herbal);
+        health.setVegGarden(vegetable);
+        health.setFamilyPlan(familyPlanning);
+
+        healthRef.setValue(health).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+            }
+        });
+
     }
 
 }
