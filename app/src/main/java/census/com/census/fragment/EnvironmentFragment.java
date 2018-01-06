@@ -60,6 +60,8 @@ public class EnvironmentFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_environment, container, false);
 
+        sharedPreferences = getActivity().getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
+
         initViews();
 
         getToilet();
@@ -124,7 +126,7 @@ public class EnvironmentFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        //onLoadReference();
+        onLoadReference();
     }
 
     @Override
@@ -134,13 +136,29 @@ public class EnvironmentFragment extends Fragment {
     }
 
     private void onLoadReference(){
-        spinnerToilet.setSelection(sharedPreferences.getInt("toilet",0));
+        int toilet = sharedPreferences.getInt("toilet", 0);
+
+
+
+        spinnerToilet.setSelection(toilet);
+        //spinnerToilet.setSelection(1);
     }
 
     private void onSaveReference(){
-        sharedPreferences = getActivity().getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
-
-        sharedPreferences.edit().putInt("toilet",spinnerToilet.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("toilet", spinnerToilet.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("water", spinnerWater.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("electricity", spinnerElectricity.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("house", spinnerHouse.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("lot", spinnerLot.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("structure", spinnerStructure.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("external", spinnerExternal.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("roof", spinnerRoof.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("floor", spinnerFloor.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("lightning", spinnerLightning.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("cooking", spinnerCooking.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("garbage", spinnerGarbage.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("location", spinnerLocation.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("ecological", spinnerEcological.getSelectedItemPosition()).apply();
     }
 
     private void initViews(){
