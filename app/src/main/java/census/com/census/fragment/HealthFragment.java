@@ -99,7 +99,10 @@ public class HealthFragment extends Fragment {
         mOthers = (CheckBox) view.findViewById(R.id.checkboxOthers);
 
         mContra = (LinearLayout) view.findViewById(R.id.linearLayoutContra);
-        setEnable(false);
+        if (mFamilyYes.isChecked())
+            setEnable(true);
+        else
+            setEnable(false);
 
         mFamilyYes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +115,7 @@ public class HealthFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 setEnable(false);
+                unCheck();
             }
         });
 
@@ -119,6 +123,7 @@ public class HealthFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 setEnable(false);
+                unCheck();
             }
         });
 
@@ -212,19 +217,53 @@ public class HealthFragment extends Fragment {
         int salt = (mIodizeYes.isChecked()) ? 1 : 0;
 
         int familyPlanning = 0;
-        if (mFamilyYes.isChecked())
+        if (mFamilyYes.isChecked()){
             familyPlanning = 1;
-        if (mFamilyYes.isChecked())
+            unCheck();
+        }
+        if (mFamilyNo.isChecked()) {
             familyPlanning = 0;
-        if (mFamilyNa.isChecked())
+        }
+        if (mFamilyNa.isChecked()) {
             familyPlanning = 2;
+        }
+
+        int basal = (mBasal.isChecked()) ? 1 : 0;
+        int cervical = (mCervical.isChecked()) ? 1 : 0;
+        int lactation = (mLactation.isChecked()) ? 1 : 0;
+        int rhythm = (mRhythm.isChecked()) ? 1 : 0;
+        int standard = (mStandard.isChecked()) ? 1 : 0;
+        int sympho = (mSympho.isChecked()) ? 1 : 0;
+        int withdrawal = (mWithdrawal.isChecked()) ? 1 : 0;
+        int condom = (mCondom.isChecked()) ? 1 : 0;
+        int depo = (mDepo.isChecked()) ? 1 : 0;
+        int iud = (mIud.isChecked()) ? 1 : 0;
+        int tubal = (mTubal.isChecked()) ? 1 : 0;
+        int pills = (mPills.isChecked()) ? 1 : 0;
+        int vasectomy = (mVasectomy.isChecked()) ? 1 : 0;
+        int others = (mOthers.isChecked()) ? 1 : 0;
 
         Health health = new Health();
 
         health.setEatComplete(eat);
         health.setPlantHerbal(herbal);
         health.setVegGarden(vegetable);
+        health.setUseIodize(salt);
         health.setFamilyPlan(familyPlanning);
+        health.setBasal(basal);
+        health.setCervical(cervical);
+        health.setLactation(lactation);
+        health.setRhtythm(rhythm);
+        health.setStandard(standard);
+        health.setSympho(sympho);
+        health.setWithdrawal(withdrawal);
+        health.setCondom(condom);
+        health.setDepo(depo);
+        health.setIud(iud);
+        health.setTubal(tubal);
+        health.setPills(pills);
+        health.setVasectomy(vasectomy);
+        health.setOthers(others);
 
         healthRef.setValue(health).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -233,6 +272,23 @@ public class HealthFragment extends Fragment {
             }
         });
 
+    }
+
+    private void unCheck(){
+        mBasal.setChecked(false);
+        mCervical.setChecked(false);
+        mLactation.setChecked(false);
+        mRhythm.setChecked(false);
+        mStandard.setChecked(false);
+        mSympho.setChecked(false);
+        mWithdrawal.setChecked(false);
+        mCondom.setChecked(false);
+        mDepo.setChecked(false);
+        mIud.setChecked(false);
+        mTubal.setChecked(false);
+        mPills.setChecked(false);
+        mVasectomy.setChecked(false);
+        mOthers.setChecked(false);
     }
 
 }
