@@ -12,6 +12,7 @@ import census.com.census.Family;
 import census.com.census.R;
 import census.com.census.fragment.FamilyFragment;
 import census.com.census.fragment.FamilyIdentificationFragment;
+import census.com.census.fragment.HealthFragment;
 
 public class MainSurveyActivity extends AppCompatActivity {
 
@@ -88,7 +89,11 @@ public class MainSurveyActivity extends AppCompatActivity {
                     return;
                 }
                 else{
-                    Toast.makeText(this, "Complete", Toast.LENGTH_LONG).show();
+                    getSupportActionBar().setTitle("Health");
+                    HealthFragment healthFragment = new HealthFragment();
+                    mTransaction.replace(R.id.fragmentMain, healthFragment);
+                    //mTransaction.addToBackStack(null);
+                    mTransaction.commit();
                 }
         }
     }
