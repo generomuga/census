@@ -7,8 +7,9 @@ public class Environment {
     private int toilet;
     private int water;
     private int electricity;
+    private int acquisition;
     private int lot;
-    private int house;
+    private int structure;
     private int walls;
     private int roof;
     private int floor;
@@ -18,6 +19,9 @@ public class Environment {
     private int location;
     private int ecological;
     private String timeStamp;
+
+    public Environment() {
+    }
 
     public String getId() {
         return id;
@@ -51,6 +55,14 @@ public class Environment {
         this.electricity = electricity;
     }
 
+    public int getAcquisition() {
+        return acquisition;
+    }
+
+    public void setAcquisition(int acquisition) {
+        this.acquisition = acquisition;
+    }
+
     public int getLot() {
         return lot;
     }
@@ -59,12 +71,12 @@ public class Environment {
         this.lot = lot;
     }
 
-    public int getHouse() {
-        return house;
+    public int getStructure() {
+        return structure;
     }
 
-    public void setHouse(int house) {
-        this.house = house;
+    public void setStructure(int structure) {
+        this.structure = structure;
     }
 
     public int getWalls() {
