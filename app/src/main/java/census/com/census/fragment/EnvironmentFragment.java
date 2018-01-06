@@ -137,10 +137,34 @@ public class EnvironmentFragment extends Fragment {
 
     private void onLoadReference(){
         int toilet = sharedPreferences.getInt("toilet", 0);
-
-
+        int water = sharedPreferences.getInt("water", 0);
+        int electricity = sharedPreferences.getInt("electricity", 0);
+        int house = sharedPreferences.getInt("houses", 0);
+        int lot = sharedPreferences.getInt("lot", 0);
+        int structure = sharedPreferences.getInt("structure", 0);
+        int external = sharedPreferences.getInt("external", 0);
+        int roof = sharedPreferences.getInt("roof", 0);
+        int floor = sharedPreferences.getInt("floor", 0);
+        int lightning = sharedPreferences.getInt("lightning", 0);
+        int cooking = sharedPreferences.getInt("cooking", 0);
+        int garbage = sharedPreferences.getInt("garbage", 0);
+        int location = sharedPreferences.getInt("location", 0);
+        int ecological = sharedPreferences.getInt("ecological", 0);
 
         spinnerToilet.setSelection(toilet);
+        spinnerWater.setSelection(water);
+        spinnerElectricity.setSelection(electricity);
+        spinnerHouse.setSelection(house);
+        spinnerLot.setSelection(lot);
+        spinnerStructure.setSelection(structure);
+        spinnerExternal.setSelection(external);
+        spinnerRoof.setSelection(roof);
+        spinnerFloor.setSelection(floor);
+        spinnerLightning.setSelection(lightning);
+        spinnerCooking.setSelection(cooking);
+        spinnerGarbage.setSelection(garbage);
+        spinnerLocation.setSelection(location);
+        spinnerEcological.setSelection(ecological);
         //spinnerToilet.setSelection(1);
     }
 
@@ -148,7 +172,7 @@ public class EnvironmentFragment extends Fragment {
         sharedPreferences.edit().putInt("toilet", spinnerToilet.getSelectedItemPosition()).apply();
         sharedPreferences.edit().putInt("water", spinnerWater.getSelectedItemPosition()).apply();
         sharedPreferences.edit().putInt("electricity", spinnerElectricity.getSelectedItemPosition()).apply();
-        sharedPreferences.edit().putInt("house", spinnerHouse.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("houses", spinnerHouse.getSelectedItemPosition()).apply();
         sharedPreferences.edit().putInt("lot", spinnerLot.getSelectedItemPosition()).apply();
         sharedPreferences.edit().putInt("structure", spinnerStructure.getSelectedItemPosition()).apply();
         sharedPreferences.edit().putInt("external", spinnerExternal.getSelectedItemPosition()).apply();
