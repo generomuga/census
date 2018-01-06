@@ -1,5 +1,6 @@
 package census.com.census.activity;
 
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -53,7 +54,7 @@ public class MainSurveyActivity extends AppCompatActivity {
                 getSupportActionBar().setTitle("Family Identification");
                 FamilyIdentificationFragment familyIdentificationFragment = new FamilyIdentificationFragment();
                 mTransaction.replace(R.id.fragmentMain, familyIdentificationFragment);
-                mTransaction.addToBackStack(null);
+                //mTransaction.addToBackStack(null);
                 mTransaction.commit();
                 break;
 
@@ -69,7 +70,7 @@ public class MainSurveyActivity extends AppCompatActivity {
                     getSupportActionBar().setTitle("Family");
                     FamilyFragment familyFragment = new FamilyFragment();
                     mTransaction.replace(R.id.fragmentMain, familyFragment);
-                    mTransaction.addToBackStack(null);
+                    //mTransaction.addToBackStack(null);
                     mTransaction.commit();
                 }
                 break;
