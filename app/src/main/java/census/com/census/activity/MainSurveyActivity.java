@@ -47,6 +47,8 @@ public class MainSurveyActivity extends AppCompatActivity {
 
     public static MenuItem mSave;
 
+    private boolean isLastFragment = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,8 +73,6 @@ public class MainSurveyActivity extends AppCompatActivity {
 
         //set default fragment
         FamilyIdentificationFragment familyIdentificationFragment = new FamilyIdentificationFragment();
-        FamilyFragment familyFragment = new FamilyFragment();
-
         familyIdentificationFragment.setArguments(getIntent().getExtras());
         mTransaction = getSupportFragmentManager().beginTransaction();
         mTransaction.add(R.id.fragmentMain, familyIdentificationFragment).commit();
@@ -85,6 +85,7 @@ public class MainSurveyActivity extends AppCompatActivity {
         switch (view.getId()){
 
             case R.id.imageButtonFamilyId:
+                isLastFragment = false;
                 getSupportActionBar().setTitle("Family Identification");
                 FamilyIdentificationFragment familyIdentificationFragment = new FamilyIdentificationFragment();
                 mTransaction.replace(R.id.fragmentMain, familyIdentificationFragment);
@@ -93,6 +94,7 @@ public class MainSurveyActivity extends AppCompatActivity {
                 break;
 
             case R.id.imageButtonFamily:
+                isLastFragment = false;
                 getSupportActionBar().setTitle("Family");
                 FamilyFragment familyFragment = new FamilyFragment();
                 mTransaction.replace(R.id.fragmentMain, familyFragment);
@@ -101,6 +103,7 @@ public class MainSurveyActivity extends AppCompatActivity {
                 break;
 
             case R.id.imageButtonHealth:
+                isLastFragment = false;
                 getSupportActionBar().setTitle("Health");
                 HealthFragment healthFragment = new HealthFragment();
                 mTransaction.replace(R.id.fragmentMain, healthFragment);
@@ -109,6 +112,7 @@ public class MainSurveyActivity extends AppCompatActivity {
                 break;
 
             case R.id.imageButtonEnvironment:
+                isLastFragment = true;
                 getSupportActionBar().setTitle("Environment");
                 EnvironmentFragment environmentFragment = new EnvironmentFragment();
                 mTransaction.replace(R.id.fragmentMain, environmentFragment);
@@ -138,142 +142,144 @@ public class MainSurveyActivity extends AppCompatActivity {
     }
 
     private boolean checkFamilyFieldsComplete(){
-        if (FamilyFragment.mMaleMember.getText().toString().equals("")){
+
+        if (FamilyFragment.mMaleMember.getText().toString().equals("")) {
             FamilyFragment.mMaleMember.setError("Required field");
             return false;
         }
 
-        if (FamilyFragment.mFemaleMember.getText().toString().equals("")){
+        if (FamilyFragment.mFemaleMember.getText().toString().equals("")) {
             FamilyFragment.mFemaleMember.setError("Required field");
             return false;
         }
 
-        if (FamilyFragment.mYearOrigin.getText().toString().equals("")){
+        if (FamilyFragment.mYearOrigin.getText().toString().equals("")) {
             FamilyFragment.mYearOrigin.setError("Required field");
             return false;
         }
 
-        if (FamilyFragment.mPlaceOrigin.getText().toString().equals("")){
+        if (FamilyFragment.mPlaceOrigin.getText().toString().equals("")) {
             FamilyFragment.mPlaceOrigin.setError("Required field");
             return false;
         }
 
-        if (FamilyFragment.mNoVoters.getText().toString().equals("")){
+        if (FamilyFragment.mNoVoters.getText().toString().equals("")) {
             FamilyFragment.mNoVoters.setError("Required field");
             return false;
         }
 
-        if (FamilyFragment.mBicycle.isChecked()){
-            if (FamilyFragment.mBicycleNo.getText().toString().equals("")){
+        if (FamilyFragment.mBicycle.isChecked()) {
+            if (FamilyFragment.mBicycleNo.getText().toString().equals("")) {
                 FamilyFragment.mBicycleNo.setError("Required field");
                 return false;
             }
         }
 
-        if (FamilyFragment.mBoat.isChecked()){
-            if (FamilyFragment.mBoatNo.getText().toString().equals("")){
+        if (FamilyFragment.mBoat.isChecked()) {
+            if (FamilyFragment.mBoatNo.getText().toString().equals("")) {
                 FamilyFragment.mBoatNo.setError("Required field");
                 return false;
             }
         }
 
-        if (FamilyFragment.mBus.isChecked()){
-            if (FamilyFragment.mBusNo.getText().toString().equals("")){
+        if (FamilyFragment.mBus.isChecked()) {
+            if (FamilyFragment.mBusNo.getText().toString().equals("")) {
                 FamilyFragment.mBusNo.setError("Required field");
                 return false;
             }
         }
 
-        if (FamilyFragment.mCar.isChecked()){
-            if (FamilyFragment.mCarNo.getText().toString().equals("")){
+        if (FamilyFragment.mCar.isChecked()) {
+            if (FamilyFragment.mCarNo.getText().toString().equals("")) {
                 FamilyFragment.mCarNo.setError("Required field");
                 return false;
             }
         }
 
-        if (FamilyFragment.mJeep.isChecked()){
-            if (FamilyFragment.mJeepNo.getText().toString().equals("")){
+        if (FamilyFragment.mJeep.isChecked()) {
+            if (FamilyFragment.mJeepNo.getText().toString().equals("")) {
                 FamilyFragment.mJeepNo.setError("Required field");
                 return false;
             }
         }
 
-        if (FamilyFragment.mMotorBoat.isChecked()){
-            if (FamilyFragment.mMotorBoatNo.getText().toString().equals("")){
+        if (FamilyFragment.mMotorBoat.isChecked()) {
+            if (FamilyFragment.mMotorBoatNo.getText().toString().equals("")) {
                 FamilyFragment.mMotorBoatNo.setError("Required field");
                 return false;
             }
         }
 
-        if (FamilyFragment.mMotorcycle.isChecked()){
-            if (FamilyFragment.mMotorcycleNo.getText().toString().equals("")){
+        if (FamilyFragment.mMotorcycle.isChecked()) {
+            if (FamilyFragment.mMotorcycleNo.getText().toString().equals("")) {
                 FamilyFragment.mMotorcycleNo.setError("Required field");
                 return false;
             }
         }
 
-        if (FamilyFragment.mOwner.isChecked()){
-            if (FamilyFragment.mOwnerNo.getText().toString().equals("")){
+        if (FamilyFragment.mOwner.isChecked()) {
+            if (FamilyFragment.mOwnerNo.getText().toString().equals("")) {
                 FamilyFragment.mOwnerNo.setError("Required field");
                 return false;
             }
         }
 
-        if (FamilyFragment.mPedicab.isChecked()){
-            if (FamilyFragment.mPedicabNo.getText().toString().equals("")){
+        if (FamilyFragment.mPedicab.isChecked()) {
+            if (FamilyFragment.mPedicabNo.getText().toString().equals("")) {
                 FamilyFragment.mPedicabNo.setError("Required field");
                 return false;
             }
         }
 
-        if (FamilyFragment.mPickUp.isChecked()){
-            if (FamilyFragment.mPickUpNo.getText().toString().equals("")){
+        if (FamilyFragment.mPickUp.isChecked()) {
+            if (FamilyFragment.mPickUpNo.getText().toString().equals("")) {
                 FamilyFragment.mPedicabNo.setError("Required field");
                 return false;
             }
         }
 
-        if (FamilyFragment.mPumpboat.isChecked()){
-            if (FamilyFragment.mPumpboatNo.getText().toString().equals("")){
+        if (FamilyFragment.mPumpboat.isChecked()) {
+            if (FamilyFragment.mPumpboatNo.getText().toString().equals("")) {
                 FamilyFragment.mPumpboatNo.setError("Required field");
                 return false;
             }
         }
 
-        if (FamilyFragment.mRaft.isChecked()){
-            if (FamilyFragment.mRaftNo.getText().toString().equals("")){
+        if (FamilyFragment.mRaft.isChecked()) {
+            if (FamilyFragment.mRaftNo.getText().toString().equals("")) {
                 FamilyFragment.mRaftNo.setError("Required field");
                 return false;
             }
         }
 
-        if (FamilyFragment.mSuv.isChecked()){
-            if (FamilyFragment.mSuvNo.getText().toString().equals("")){
+        if (FamilyFragment.mSuv.isChecked()) {
+            if (FamilyFragment.mSuvNo.getText().toString().equals("")) {
                 FamilyFragment.mSuvNo.setError("Required field");
                 return false;
             }
         }
 
-        if (FamilyFragment.mTricycle.isChecked()){
-            if (FamilyFragment.mTricycleNo.getText().toString().equals("")){
+        if (FamilyFragment.mTricycle.isChecked()) {
+            if (FamilyFragment.mTricycleNo.getText().toString().equals("")) {
                 FamilyFragment.mTricycleNo.setError("Required field");
                 return false;
             }
         }
 
-        if (FamilyFragment.mTruck.isChecked()){
-            if (FamilyFragment.mTruckNo.getText().toString().equals("")){
+        if (FamilyFragment.mTruck.isChecked()) {
+            if (FamilyFragment.mTruckNo.getText().toString().equals("")) {
                 FamilyFragment.mTruckNo.setError("Required field");
                 return false;
             }
         }
 
-        if (FamilyFragment.mVan.isChecked()){
-            if (FamilyFragment.mVanNo.getText().toString().equals("")){
+        if (FamilyFragment.mVan.isChecked()) {
+            if (FamilyFragment.mVanNo.getText().toString().equals("")) {
                 FamilyFragment.mVanNo.setError("Required field");
                 return false;
             }
         }
+
 
         return true;
     }
@@ -294,9 +300,9 @@ public class MainSurveyActivity extends AppCompatActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        /*invalidateOptionsMenu();
+        invalidateOptionsMenu();
         mSave = menu.findItem(R.id.action_save);
-        mSave.setVisible(false);*/
+        mSave.setVisible(isLastFragment);
         return super.onPrepareOptionsMenu(menu);
     }
 
