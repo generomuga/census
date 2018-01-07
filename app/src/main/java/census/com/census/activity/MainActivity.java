@@ -1,6 +1,8 @@
 package census.com.census.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -57,10 +59,15 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
     BarChart mChartOwnership;
     BarChart mChartStatus;
 
+    SharedPreferences mSharedPreference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mSharedPreference = getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
+        mSharedPreference.edit().clear().apply();
 
         //init views
         mToolbar = (Toolbar) findViewById(R.id.toolBarMain);

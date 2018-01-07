@@ -73,7 +73,7 @@ public class FamilyFragment extends Fragment {
     FirebaseAuth mAuth;
 
     //shared pref
-    SharedPreferences mSharedPreference;
+    public static SharedPreferences mSharedPreference;
 
     private View view;
 
