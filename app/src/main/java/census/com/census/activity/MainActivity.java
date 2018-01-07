@@ -50,8 +50,12 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
     int countResident = 0;
     int countNonResident = 0;
 
+    int countActive = 0;
+    int countInactive = 0;
+
     BarChart mChartResidency;
     BarChart mChartOwnership;
+    BarChart mChartStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
         mChartOwnership = (BarChart) findViewById(R.id.barChartOwnership);
         mChartResidency = (BarChart) findViewById(R.id.barChartResidency);
+        mChartStatus = (BarChart) findViewById(R.id.barChartStatus);
 
         sample();
 
@@ -127,11 +132,15 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
                     countResident = 0;
                     countNonResident = 0;
 
+                    countActive = 0;
+                    countInactive = 0;
+
                     for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
                         Map<String, Object> object1 = (Map<String, Object>) dataSnapshot1.getValue();
 
                         int residency = Integer.parseInt(object1.get("residency").toString());
                         int ownership = Integer.parseInt(object1.get("ownership").toString());
+                        int familyStatus = Integer.parseInt(object1.get("familyStatus").toString());
 
                         if (residency == 0){
                             countResident++;
@@ -150,6 +159,15 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
                         }
 
                         graphOwnership();
+
+                        if (familyStatus == 0){
+                            countActive++;
+                        }
+                        if (familyStatus == 1){
+                            countInactive++;
+                        }
+
+                        graphStatus();
 
                         //Toast.makeText(getApplicationContext(), Integer.toString(countNonResident), Toast.LENGTH_SHORT).show();
                     }
@@ -252,5 +270,44 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mChartOwnership.notifyDataSetChanged();
         mChartOwnership.invalidate();
     }
+
+    private void graphStatus(){
+        ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
+        ArrayList<BarEntry> yVals2 = new ArrayList<BarEntry>();
+
+        yVals1.add(new BarEntry(0, countActive));
+        yVals2.add(new BarEntry(1, countInactive));
+
+        BarDataSet set1 = new BarDataSet(yVals1, "Dates");
+        set1.setLabel("Active");
+        set1.setColors(-33);
+        set1.setValueTextColor(Color.WHITE);
+
+        BarDataSet set2 = new BarDataSet(yVals2, "Dates");
+        set2.setLabel("Inactive");
+        set2.setColors(Color.GREEN);
+        set2.setValueTextColor(Color.WHITE);
+
+        ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
+        dataSets.add(set1);
+        dataSets.add(set2);
+
+        BarData data = new BarData(dataSets);
+
+        mChartStatus.setTouchEnabled(false);
+        mChartStatus.setData(data);
+        mChartStatus.getAxisLeft().setTextColor(Color.WHITE);
+        mChartStatus.getAxisRight().setTextColor(Color.WHITE);
+        mChartStatus.getXAxis().setTextColor(Color.WHITE);
+        mChartStatus.getLegend().setTextColor(Color.WHITE);
+
+        Description description = new Description();
+        description.setText("");
+
+        mChartStatus.setDescription(description);
+        mChartStatus.notifyDataSetChanged();
+        mChartStatus.invalidate();
+    }
+
 
 }
