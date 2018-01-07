@@ -2,6 +2,7 @@ package census.com.census.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,6 +39,8 @@ public class MainSurveyActivity extends AppCompatActivity {
     //fragments
     FragmentTransaction mTransaction;
 
+    String key = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,9 +48,10 @@ public class MainSurveyActivity extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        key = mDatabase.push().getKey();
+
         //to add toolbar in the activity
         mToolBarSurvey = (Toolbar) findViewById(R.id.toolBarSurvey);
-
         setSupportActionBar(mToolBarSurvey);
         getSupportActionBar().setTitle("Family Identification");
 
@@ -133,117 +138,138 @@ public class MainSurveyActivity extends AppCompatActivity {
 
     private boolean checkFamilyFieldsComplete(){
         if (FamilyFragment.mMaleMember.getText().toString().equals("")){
+            FamilyFragment.mMaleMember.setError("Required field");
             return false;
         }
 
         if (FamilyFragment.mFemaleMember.getText().toString().equals("")){
+            FamilyFragment.mFemaleMember.setError("Required field");
             return false;
         }
 
         if (FamilyFragment.mYearOrigin.getText().toString().equals("")){
+            FamilyFragment.mYearOrigin.setError("Required field");
             return false;
         }
 
         if (FamilyFragment.mPlaceOrigin.getText().toString().equals("")){
+            FamilyFragment.mPlaceOrigin.setError("Required field");
             return false;
         }
 
         if (FamilyFragment.mNoVoters.getText().toString().equals("")){
+            FamilyFragment.mNoVoters.setError("Required field");
             return false;
         }
 
         if (FamilyFragment.mBicycle.isChecked()){
             if (FamilyFragment.mBicycleNo.getText().toString().equals("")){
+                FamilyFragment.mBicycleNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mBoat.isChecked()){
             if (FamilyFragment.mBoatNo.getText().toString().equals("")){
+                FamilyFragment.mBoatNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mBus.isChecked()){
             if (FamilyFragment.mBusNo.getText().toString().equals("")){
+                FamilyFragment.mBusNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mCar.isChecked()){
             if (FamilyFragment.mCarNo.getText().toString().equals("")){
+                FamilyFragment.mCarNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mJeep.isChecked()){
             if (FamilyFragment.mJeepNo.getText().toString().equals("")){
+                FamilyFragment.mJeepNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mMotorBoat.isChecked()){
             if (FamilyFragment.mMotorBoatNo.getText().toString().equals("")){
+                FamilyFragment.mMotorBoatNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mMotorcycle.isChecked()){
             if (FamilyFragment.mMotorcycleNo.getText().toString().equals("")){
+                FamilyFragment.mMotorcycleNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mOwner.isChecked()){
             if (FamilyFragment.mOwnerNo.getText().toString().equals("")){
+                FamilyFragment.mOwnerNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mPedicab.isChecked()){
             if (FamilyFragment.mPedicabNo.getText().toString().equals("")){
+                FamilyFragment.mPedicabNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mPickUp.isChecked()){
             if (FamilyFragment.mPickUpNo.getText().toString().equals("")){
+                FamilyFragment.mPedicabNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mPumpboat.isChecked()){
             if (FamilyFragment.mPumpboatNo.getText().toString().equals("")){
+                FamilyFragment.mPumpboatNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mRaft.isChecked()){
             if (FamilyFragment.mRaftNo.getText().toString().equals("")){
+                FamilyFragment.mRaftNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mSuv.isChecked()){
             if (FamilyFragment.mSuvNo.getText().toString().equals("")){
+                FamilyFragment.mSuvNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mTricycle.isChecked()){
             if (FamilyFragment.mTricycleNo.getText().toString().equals("")){
+                FamilyFragment.mTricycleNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mTruck.isChecked()){
             if (FamilyFragment.mTruckNo.getText().toString().equals("")){
+                FamilyFragment.mTruckNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mVan.isChecked()){
             if (FamilyFragment.mVanNo.getText().toString().equals("")){
+                FamilyFragment.mVanNo.setError("Required field");
                 return false;
             }
         }
@@ -269,17 +295,22 @@ public class MainSurveyActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_save:
-                sendDataIndentification();
+                //if (checkIdentificationFieldsComplete() && checkFamilyFieldsComplete()) {
+                sendDataIdentification();
+                sendDataFamily();
+
+                if (checkIdentificationFieldsComplete() && checkFamilyFieldsComplete()){
+                    startActivity(new Intent(MainSurveyActivity.this, MainActivity.class));
+                }
+
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public void sendDataIndentification(){
+    public void sendDataIdentification(){
 
-        boolean complete = checkIdentificationFieldsComplete();
-
-        if (complete) {
+        if (checkIdentificationFieldsComplete()) {
             int residency;
             int ownership;
             int familyStatus;
@@ -315,7 +346,7 @@ public class MainSurveyActivity extends AppCompatActivity {
 
             DatabaseReference refFamilyIdentification = mDatabase.child("familyIdentification");
 
-            refFamilyIdentification.push().setValue(familyIdentification).addOnCompleteListener(new OnCompleteListener<Void>() {
+            refFamilyIdentification.child(key).setValue(familyIdentification).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
@@ -324,8 +355,142 @@ public class MainSurveyActivity extends AppCompatActivity {
             });
         }
         else{
-            Toast.makeText(this, "Please go back to family identification", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please complete Family Identification (1)", Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+    private void sendDataFamily(){
+
+        /*private int noMale;
+        private int noFemale;
+        private String yearResided;
+        private String placeOrigin;
+        private String noVoters;
+        private int selectBicycle;
+        private int noBicycle;
+        private int selectBoat;
+        private int noBoat;
+        private int selectBus;
+        private int noBus;
+        private int selectCar;
+        private int noCar;
+        private int selectJeepney;
+        private int noJeep;
+        private int selectMotorboat;
+        private int noMotorboat;
+        private int selectMotorcycle;
+        private int noMotorCycle;
+        private int selectOwnerJeep;
+        private int noOwnerJeep;
+        private int selectPedicab;
+        private int noPedicab;
+        private int selectPickup;
+        private int noPickup;
+        private int selectPumpBoat;
+        private int noPumpBoat;
+        private int selectRaft;
+        private int noRaft;
+        private int selectSuv;
+        private int noSuv;
+        private int selectTricycle;
+        private int noTricycle;
+        private int selectTruck;
+        private int noTruck;
+        private int selectVan;
+        private int noVan;
+        private String timeStamp;*/
+
+        if (checkFamilyFieldsComplete()) {
+
+            int selectBicycle = (FamilyFragment.mBicycle.isChecked()) ? 1 : 0;
+            int selectBoat = (FamilyFragment.mBoat.isChecked()) ? 1 : 0;
+            int selectBus = (FamilyFragment.mBus.isChecked()) ? 1 : 0;
+            int selectCar = (FamilyFragment.mCar.isChecked()) ? 1 : 0;
+            int selectJeep = (FamilyFragment.mJeep.isChecked()) ? 1 : 0;
+            int selectMotorboat = (FamilyFragment.mMotorBoat.isChecked()) ? 1 : 0;
+            int selectMotorcycle = (FamilyFragment.mMotorcycle.isChecked()) ? 1 : 0;
+            int selectOwner = (FamilyFragment.mOwner.isChecked()) ? 1 : 0;
+            int selectPedicab = (FamilyFragment.mPedicab.isChecked()) ? 1 : 0;
+            int selectPickup = (FamilyFragment.mPickUp.isChecked()) ? 1 : 0;
+            int selectPump = (FamilyFragment.mPumpboat.isChecked()) ? 1 : 0;
+            int selectRaft = (FamilyFragment.mRaft.isChecked()) ? 1 : 0;
+            int selectSuv = (FamilyFragment.mSuv.isChecked()) ? 1 : 0;
+            int selectTricycle = (FamilyFragment.mTricycle.isChecked()) ? 1 : 0;
+            int selectTruck = (FamilyFragment.mTruck.isChecked()) ? 1 : 0;
+            int selectVan = (FamilyFragment.mVan.isChecked()) ? 1 : 0;
+
+            int noBicycle = (FamilyFragment.mBicycleNo.getText().toString().equals("")) ? 0 : Integer.parseInt(FamilyFragment.mBicycleNo.getText().toString());
+            int noBoat = (FamilyFragment.mBoatNo.getText().toString().equals("")) ? 0 : Integer.parseInt(FamilyFragment.mBoatNo.getText().toString());
+            int noBus = (FamilyFragment.mBusNo.getText().toString().equals("")) ? 0 : Integer.parseInt(FamilyFragment.mBusNo.getText().toString());
+            int noCar = (FamilyFragment.mCarNo.getText().toString().equals("")) ? 0 : Integer.parseInt(FamilyFragment.mCarNo.getText().toString());
+            int noJeep = (FamilyFragment.mJeepNo.getText().toString().equals("")) ? 0 : Integer.parseInt(FamilyFragment.mJeepNo.getText().toString());
+            int noMotorboat = (FamilyFragment.mMotorBoatNo.getText().toString().equals("")) ? 0 : Integer.parseInt(FamilyFragment.mMotorBoatNo.getText().toString());
+            int noMotorCycle = (FamilyFragment.mMotorcycleNo.getText().toString().equals("")) ? 0 : Integer.parseInt(FamilyFragment.mMotorcycleNo.getText().toString());
+            int noOwner = (FamilyFragment.mOwnerNo.getText().toString().equals("")) ? 0 : Integer.parseInt(FamilyFragment.mOwnerNo.getText().toString());
+            int noPedicab = (FamilyFragment.mPedicabNo.getText().toString().equals("")) ? 0 : Integer.parseInt(FamilyFragment.mPedicabNo.getText().toString());
+            int noPickup = (FamilyFragment.mPickUpNo.getText().toString().equals("")) ? 0 : Integer.parseInt(FamilyFragment.mPickUpNo.getText().toString());
+            int noPump = (FamilyFragment.mPumpboatNo.getText().toString().equals("")) ? 0 : Integer.parseInt(FamilyFragment.mPumpboatNo.getText().toString());
+            int noRaft = (FamilyFragment.mRaftNo.getText().toString().equals("")) ? 0 : Integer.parseInt(FamilyFragment.mRaftNo.getText().toString());
+            int noSuv = (FamilyFragment.mSuvNo.getText().toString().equals("")) ? 0 : Integer.parseInt(FamilyFragment.mSuvNo.getText().toString());
+            int noTricycle = (FamilyFragment.mTricycleNo.getText().toString().equals("")) ? 0 : Integer.parseInt(FamilyFragment.mTricycleNo.getText().toString());
+            int noTruck = (FamilyFragment.mTruckNo.getText().toString().equals("")) ? 0 : Integer.parseInt(FamilyFragment.mTruckNo.getText().toString());
+            int noVan = (FamilyFragment.mVanNo.getText().toString().equals("")) ? 0 : Integer.parseInt(FamilyFragment.mVanNo.getText().toString());
+
+            Family family = new Family();
+            family.setNoMale(Integer.parseInt(FamilyFragment.mMaleMember.getText().toString()));
+            family.setNoFemale(Integer.parseInt(FamilyFragment.mFemaleMember.getText().toString()));
+            family.setYearResided(Integer.parseInt(FamilyFragment.mYearOrigin.getText().toString()));
+            family.setPlaceOrigin(FamilyFragment.mPlaceOrigin.getText().toString().trim());
+            family.setNoVoters(Integer.parseInt(FamilyFragment.mNoVoters.getText().toString()));
+            family.setSelectBicycle(selectBicycle);
+            family.setSelectBoat(selectBoat);
+            family.setSelectBus(selectBus);
+            family.setSelectCar(selectCar);
+            family.setSelectJeepney(selectJeep);
+            family.setSelectMotorboat(selectMotorboat);
+            family.setSelectMotorcycle(selectMotorcycle);
+            family.setSelectOwnerJeep(selectOwner);
+            family.setSelectPedicab(selectPedicab);
+            family.setSelectPickup(selectPickup);
+            family.setSelectPumpBoat(selectPump);
+            family.setSelectRaft(selectRaft);
+            family.setSelectSuv(selectSuv);
+            family.setSelectTricycle(selectTricycle);
+            family.setSelectTruck(selectTruck);
+            family.setSelectVan(selectVan);
+
+            family.setNoBicycle(noBicycle);
+            family.setNoBoat(noBoat);
+            family.setNoBus(noBus);
+            family.setNoCar(noCar);
+            family.setNoJeep(noJeep);
+            family.setNoMotorboat(noMotorboat);
+            family.setNoMotorCycle(noMotorCycle);
+            family.setNoOwnerJeep(noOwner);
+            family.setNoPedicab(noPedicab);
+            family.setNoPickup(noPickup);
+            family.setNoPumpBoat(noPump);
+            family.setNoRaft(noRaft);
+            family.setNoSuv(noSuv);
+            family.setNoTricycle(noTricycle);
+            family.setNoTruck(noTruck);
+            family.setNoVan(noVan);
+
+            DatabaseReference familyFragmentRef = mDatabase.child("family");
+            familyFragmentRef.child(key).setValue(family).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+
+                    }
+                }
+            });
+        }
+        else {
+            Toast.makeText(this, "Please complete Family (2)", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     @Override
