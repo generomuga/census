@@ -71,7 +71,7 @@ public class MainSurveyActivity extends AppCompatActivity {
             case R.id.imageButtonFamilyId:
                 getSupportActionBar().setTitle("Family Identification");
                 FamilyIdentificationFragment familyIdentificationFragment = new FamilyIdentificationFragment();
-                mTransaction.add(R.id.fragmentMain, familyIdentificationFragment);
+                mTransaction.replace(R.id.fragmentMain, familyIdentificationFragment);
                 mTransaction.addToBackStack(null);
                 mTransaction.commit();
                 break;
@@ -79,7 +79,7 @@ public class MainSurveyActivity extends AppCompatActivity {
             case R.id.imageButtonFamily:
                 getSupportActionBar().setTitle("Family");
                 FamilyFragment familyFragment = new FamilyFragment();
-                mTransaction.add(R.id.fragmentMain, familyFragment);
+                mTransaction.replace(R.id.fragmentMain, familyFragment);
                 mTransaction.addToBackStack(null);
                 mTransaction.commit();
                 break;
@@ -87,7 +87,7 @@ public class MainSurveyActivity extends AppCompatActivity {
             case R.id.imageButtonHealth:
                 getSupportActionBar().setTitle("Health");
                 HealthFragment healthFragment = new HealthFragment();
-                mTransaction.add(R.id.fragmentMain, healthFragment);
+                mTransaction.replace(R.id.fragmentMain, healthFragment);
                 mTransaction.addToBackStack(null);
                 mTransaction.commit();
                 break;
@@ -95,7 +95,7 @@ public class MainSurveyActivity extends AppCompatActivity {
             case R.id.imageButtonEnvironment:
                 getSupportActionBar().setTitle("Environment");
                 EnvironmentFragment environmentFragment = new EnvironmentFragment();
-                mTransaction.add(R.id.fragmentMain, environmentFragment);
+                mTransaction.replace(R.id.fragmentMain, environmentFragment);
                 mTransaction.addToBackStack(null);
                 mTransaction.commit();
                 break;
@@ -323,6 +323,9 @@ public class MainSurveyActivity extends AppCompatActivity {
                 }
             });
         }
+        else{
+            Toast.makeText(this, "Please go back to family identification", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
@@ -334,7 +337,7 @@ public class MainSurveyActivity extends AppCompatActivity {
     private void goToIndentification(){
         getSupportActionBar().setTitle("Family Identification");
         FamilyIdentificationFragment familyIdentificationFragment = new FamilyIdentificationFragment();
-        mTransaction.add(R.id.fragmentMain, familyIdentificationFragment);
+        mTransaction.replace(R.id.fragmentMain, familyIdentificationFragment);
         mTransaction.addToBackStack(null);
         mTransaction.commit();
     }

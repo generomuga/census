@@ -361,7 +361,7 @@ public class FamilyFragment extends Fragment {
     public void onPause() {
         super.onPause();
         savePreference();
-        sendData();
+        //sendData();
     }
 
     @Override

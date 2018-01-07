@@ -134,7 +134,7 @@ public class HealthFragment extends Fragment {
     public void onPause() {
         super.onPause();
         onSaveReference();
-        sendData();
+        //sendData();
     }
 
     @Override

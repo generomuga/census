@@ -147,7 +147,7 @@ public class EnvironmentFragment extends Fragment {
     public void onPause() {
         super.onPause();
         onSaveReference();
-        sendData();
+        //sendData();
     }
 
     private void onLoadReference(){
