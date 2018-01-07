@@ -64,18 +64,18 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
         //init views
         mToolbar = (Toolbar) findViewById(R.id.toolBarMain);
-        //mSurvey = (FloatingActionButton) findViewById(R.id.fabSurvey);
+        mSurvey = (FloatingActionButton) findViewById(R.id.fabSurvey);
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Census");
 
         //click fan
-        /*mSurvey.setOnClickListener(new View.OnClickListener() {
+        mSurvey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, MainSurveyActivity.class));
             }
-        });*/
+        });
 
         mChartOwnership = (BarChart) findViewById(R.id.barChartOwnership);
         mChartResidency = (BarChart) findViewById(R.id.barChartResidency);

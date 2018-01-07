@@ -84,7 +84,6 @@ public class FamilyIdentificationFragment extends Fragment {
     public void onPause() {
         super.onPause();
         savePreference();
-        sendData();
     }
 
     @Override
@@ -120,53 +119,6 @@ public class FamilyIdentificationFragment extends Fragment {
         mExtended.setChecked(mSharedPreference.getBoolean("extended",false));
         mActive.setChecked(mSharedPreference.getBoolean("active",true));
         mInActive.setChecked(mSharedPreference.getBoolean("inactive",false));
-    }
-
-    private void sendData(){
-
-        int residency;
-        int ownership;
-        int familyStatus;
-
-        if (mResident.isChecked())
-            residency = 0;
-        else
-            residency = 1;
-
-        if (mOwner.isChecked())
-            ownership = 0;
-        else
-            ownership = 1;
-
-        if (mActive.isChecked())
-            familyStatus = 0;
-        else
-            familyStatus = 1;
-
-        FamilyIdentification familyIdentification = new FamilyIdentification();
-        familyIdentification.setfName(mFname.getText().toString().trim());
-        familyIdentification.setmName(mMname.getText().toString().trim());
-        familyIdentification.setlName(mLname.getText().toString().trim());
-        familyIdentification.setRegion(mRegion.getText().toString().trim());
-        familyIdentification.setProvince(mProvince.getText().toString().trim());
-        familyIdentification.setMunicipality(mMunicipality.getText().toString().trim());
-        familyIdentification.setBarangay(mBarangay.getText().toString().trim());
-        familyIdentification.setHouseNo(mHouseNo.getText().toString().trim());
-        familyIdentification.setStreetNo(mStreetNo.getText().toString().trim());
-        familyIdentification.setResidency(residency);
-        familyIdentification.setOwnership(ownership);
-        familyIdentification.setFamilyStatus(familyStatus);
-
-        String uid = mAuth.getCurrentUser().getUid();
-        DatabaseReference refFamilyIdentification = mDatabase.child("familyIdentification").child(uid);
-
-        refFamilyIdentification.setValue(familyIdentification).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-              if (task.isSuccessful()){
-              }
-            }
-        });
     }
 
 }
