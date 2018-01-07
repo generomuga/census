@@ -1,6 +1,7 @@
 package census.com.census.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,11 +12,17 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,6 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import census.com.census.R;
@@ -48,34 +56,21 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
         //init views
         mToolbar = (Toolbar) findViewById(R.id.toolBarMain);
-        mSurvey = (FloatingActionButton) findViewById(R.id.fabSurvey);
+        //mSurvey = (FloatingActionButton) findViewById(R.id.fabSurvey);
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Census");
 
         //click fan
-        mSurvey.setOnClickListener(new View.OnClickListener() {
+        /*mSurvey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, MainSurveyActivity.class));
             }
-        });
-
-        sample();
-
+        });*/
 
         mChart = (BarChart) findViewById(R.id.barChart);
-        mChart.setOnChartValueSelectedListener(this);
-
-        mChart.setDrawBarShadow(false);
-        mChart.setDrawValueAboveBar(true);
-
-        mChart.getDescription().setEnabled(false);
-
-        mChart.setDrawGridBackground(false);
-        // mChart.setDrawYLabels(false);
-
-
+        sample();
 
     }
 
@@ -119,8 +114,10 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         identificationRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                countOwn = 0;
                 if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0){
+                    countOwn = 0;
+                    countExtended = 0;
+
                     for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
                         Map<String, Object> object1 = (Map<String, Object>) dataSnapshot1.getValue();
 
@@ -131,6 +128,45 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
                         if (ownership == 1){
                             countExtended++;
                         }
+
+
+                        ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
+                        ArrayList<BarEntry> yVals2 = new ArrayList<BarEntry>();
+
+
+                        yVals1.add(new BarEntry(0, countOwn));
+                        yVals2.add(new BarEntry(1, countExtended));
+
+                        BarDataSet set1 = new BarDataSet(yVals1, "Dates");
+                        set1.setLabel("Own");
+                        set1.setColors(Color.RED);
+                        set1.setValueTextColor(Color.WHITE);
+
+                        BarDataSet set2 = new BarDataSet(yVals2, "Dates");
+                        set2.setLabel("Extended");
+                        set2.setColors(Color.GREEN);
+                        set2.setValueTextColor(Color.WHITE);
+
+                        ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
+                        dataSets.add(set1);
+                        dataSets.add(set2);
+
+                        BarData data = new BarData(dataSets);
+
+                        //data.setValueTextSize(10f);
+                        //data.setBarWidth(0.9f);
+
+                        mChart.setTouchEnabled(false);
+                        mChart.setData(data);
+                        mChart.getAxisLeft().setTextColor(Color.WHITE);
+                        mChart.getAxisRight().setTextColor(Color.WHITE);
+                        mChart.getXAxis().setTextColor(Color.WHITE);
+                        mChart.getLegend().setTextColor(Color.WHITE);
+                        Description description = new Description();
+                        description.setText("");
+                        mChart.setDescription(description);
+                        mChart.notifyDataSetChanged();
+                        mChart.invalidate();
 
                         Toast.makeText(getApplicationContext(), Integer.toString(countOwn), Toast.LENGTH_SHORT).show();
                     }

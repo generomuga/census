@@ -4,22 +4,46 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/relativeLayoutMain"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
     <include android:id="@+id/toolBarMain" layout="@layout/app_bar_main" />
 
-    <android.support.constraint.ConstraintLayout
+    <ScrollView
+        android:background="@color/colorPrimary"
         android:layout_below="@id/toolBarMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/barChart"
+        <LinearLayout
+            android:background="@drawable/edittext_round"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-        </com.github.mikephil.charting.charts.BarChart>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Ownership"
+                android:textColor="#fff"
+                android:textStyle="bold"/>
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barChart"
+                android:layout_gravity="center"
+                android:layout_width="300dp"
+                android:layout_height="200dp">
+
+            </com.github.mikephil.charting.charts.BarChart>
+
+        </LinearLayout>
 
 
         <!--<ListView
@@ -29,17 +53,15 @@
             android:layout_height="match_parent">
         </ListView>-->
 
-        <android.support.design.widget.FloatingActionButton
+        <!--<android.support.design.widget.FloatingActionButton
             android:id="@+id/fabSurvey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|left"
             android:layout_margin="16dp"
-            android:src="@mipmap/ic_add_white_24dp"
-            app:layout_anchor="@id/listViewData"
-            app:layout_anchorGravity="bottom|right|end" />
+            android:src="@mipmap/ic_add_white_24dp" />-->
 
-    </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 
 </RelativeLayout>
 
