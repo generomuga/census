@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.Image;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -62,6 +64,8 @@ public class MainSurveyActivity extends AppCompatActivity {
 
         //set default fragment
         FamilyIdentificationFragment familyIdentificationFragment = new FamilyIdentificationFragment();
+        FamilyFragment familyFragment = new FamilyFragment();
+
         familyIdentificationFragment.setArguments(getIntent().getExtras());
         mTransaction = getSupportFragmentManager().beginTransaction();
         mTransaction.add(R.id.fragmentMain, familyIdentificationFragment).commit();
@@ -296,10 +300,10 @@ public class MainSurveyActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_save:
                 //if (checkIdentificationFieldsComplete() && checkFamilyFieldsComplete()) {
-                sendDataIdentification();
-                sendDataFamily();
 
                 if (checkIdentificationFieldsComplete() && checkFamilyFieldsComplete()){
+                    sendDataIdentification();
+                    sendDataFamily();
                     startActivity(new Intent(MainSurveyActivity.this, MainActivity.class));
                 }
 

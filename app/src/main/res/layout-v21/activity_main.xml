@@ -4,34 +4,177 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/relativeLayoutMain"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
     <include android:id="@+id/toolBarMain" layout="@layout/app_bar_main" />
 
-    <android.support.constraint.ConstraintLayout
+    <ScrollView
+        android:background="@color/colorPrimary"
         android:layout_below="@id/toolBarMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ListView
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--<LinearLayout
+                android:id="@+id/linearLayoutTotal"
+                android:background="@drawable/edittext_round"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/textViewTotalCollected"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="4"
+                        android:text="10"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:textSize="50sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="1"
+                        android:text="Total data"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+            </LinearLayout> -->
+
+            <LinearLayout
+                android:id="@+id/linearLayoutResidency"
+                android:background="@drawable/edittext_round"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Household Condition"
+                    android:textColor="#fff"
+                    android:textStyle="bold"/>
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChartResidency"
+                    android:layout_gravity="center"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp">
+
+                </com.github.mikephil.charting.charts.BarChart>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutOwnership"
+                android:background="@drawable/edittext_round"
+                android:layout_below="@id/linearLayoutResidency"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Ownership"
+                    android:textColor="#fff"
+                    android:textStyle="bold"/>
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChartOwnership"
+                    android:layout_gravity="center"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp">
+
+                </com.github.mikephil.charting.charts.BarChart>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/edittext_round"
+                android:layout_below="@id/linearLayoutOwnership"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Family Status"
+                    android:textColor="#fff"
+                    android:textStyle="bold"/>
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChartStatus"
+                    android:layout_gravity="center"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp">
+
+                </com.github.mikephil.charting.charts.BarChart>
+
+            </LinearLayout>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabSurvey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|left"
+                android:layout_margin="16dp"
+                android:src="@mipmap/ic_add_white_24dp" />
+
+        </RelativeLayout>
+
+
+        <!--<ListView
             android:id="@+id/listViewData"
             android:background="#ffff"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        </ListView>
+        </ListView>-->
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabSurvey"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|left"
-            android:layout_margin="16dp"
-            android:src="@mipmap/ic_add_white_24dp"
-            app:layout_anchor="@id/listViewData"
-            app:layout_anchorGravity="bottom|right|end" />
+    </ScrollView>
 
-    </android.support.constraint.ConstraintLayout>
 
 </RelativeLayout>
 
