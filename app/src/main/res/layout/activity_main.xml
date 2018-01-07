@@ -16,34 +16,115 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:background="@drawable/edittext_round"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:layout_height="match_parent">
 
-            <TextView
+            <!--<LinearLayout
+                android:id="@+id/linearLayoutTotal"
+                android:background="@drawable/edittext_round"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginBottom="5dp"
-                android:text="Ownership"
-                android:textColor="#fff"
-                android:textStyle="bold"/>
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-            <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/barChart"
-                android:layout_gravity="center"
-                android:layout_width="300dp"
-                android:layout_height="200dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="1">
 
-            </com.github.mikephil.charting.charts.BarChart>
+                    <TextView
+                        android:id="@+id/textViewTotalCollected"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="4"
+                        android:text="10"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:textSize="50sp" />
 
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="1"
+                        android:text="Total data"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+            </LinearLayout> -->
+
+            <LinearLayout
+                android:id="@+id/linearLayoutResidency"
+                android:background="@drawable/edittext_round"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Household Condition"
+                    android:textColor="#fff"
+                    android:textStyle="bold"/>
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChartResidency"
+                    android:layout_gravity="center"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp">
+
+                </com.github.mikephil.charting.charts.BarChart>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/edittext_round"
+                android:layout_below="@id/linearLayoutResidency"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Ownership"
+                    android:textColor="#fff"
+                    android:textStyle="bold"/>
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChartOwnership"
+                    android:layout_gravity="center"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp">
+
+                </com.github.mikephil.charting.charts.BarChart>
+
+            </LinearLayout>
+
+        </RelativeLayout>
 
 
         <!--<ListView
@@ -62,6 +143,7 @@
             android:src="@mipmap/ic_add_white_24dp" />-->
 
     </ScrollView>
+
 
 </RelativeLayout>
 

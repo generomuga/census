@@ -47,7 +47,11 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
     int countOwn = 0;
     int countExtended = 0;
 
-    BarChart mChart;
+    int countResident = 0;
+    int countNonResident = 0;
+
+    BarChart mChartResidency;
+    BarChart mChartOwnership;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +73,9 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
             }
         });*/
 
-        mChart = (BarChart) findViewById(R.id.barChart);
+        mChartOwnership = (BarChart) findViewById(R.id.barChartOwnership);
+        mChartResidency = (BarChart) findViewById(R.id.barChartResidency);
+
         sample();
 
     }
@@ -118,10 +124,24 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
                     countOwn = 0;
                     countExtended = 0;
 
+                    countResident = 0;
+                    countNonResident = 0;
+
                     for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
                         Map<String, Object> object1 = (Map<String, Object>) dataSnapshot1.getValue();
 
+                        int residency = Integer.parseInt(object1.get("residency").toString());
                         int ownership = Integer.parseInt(object1.get("ownership").toString());
+
+                        if (residency == 0){
+                            countResident++;
+                        }
+                        if (residency == 1){
+                            countNonResident++;
+                        }
+
+                        graphResidency();
+
                         if (ownership == 0){
                             countOwn++;
                         }
@@ -129,46 +149,9 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
                             countExtended++;
                         }
 
+                        graphOwnership();
 
-                        ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
-                        ArrayList<BarEntry> yVals2 = new ArrayList<BarEntry>();
-
-
-                        yVals1.add(new BarEntry(0, countOwn));
-                        yVals2.add(new BarEntry(1, countExtended));
-
-                        BarDataSet set1 = new BarDataSet(yVals1, "Dates");
-                        set1.setLabel("Own");
-                        set1.setColors(Color.RED);
-                        set1.setValueTextColor(Color.WHITE);
-
-                        BarDataSet set2 = new BarDataSet(yVals2, "Dates");
-                        set2.setLabel("Extended");
-                        set2.setColors(Color.GREEN);
-                        set2.setValueTextColor(Color.WHITE);
-
-                        ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
-                        dataSets.add(set1);
-                        dataSets.add(set2);
-
-                        BarData data = new BarData(dataSets);
-
-                        //data.setValueTextSize(10f);
-                        //data.setBarWidth(0.9f);
-
-                        mChart.setTouchEnabled(false);
-                        mChart.setData(data);
-                        mChart.getAxisLeft().setTextColor(Color.WHITE);
-                        mChart.getAxisRight().setTextColor(Color.WHITE);
-                        mChart.getXAxis().setTextColor(Color.WHITE);
-                        mChart.getLegend().setTextColor(Color.WHITE);
-                        Description description = new Description();
-                        description.setText("");
-                        mChart.setDescription(description);
-                        mChart.notifyDataSetChanged();
-                        mChart.invalidate();
-
-                        Toast.makeText(getApplicationContext(), Integer.toString(countOwn), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), Integer.toString(countNonResident), Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -191,4 +174,83 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
     public void onNothingSelected() {
 
     }
+
+
+    private void graphResidency(){
+        ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
+        ArrayList<BarEntry> yVals2 = new ArrayList<BarEntry>();
+
+
+        yVals1.add(new BarEntry(0, countResident));
+        yVals2.add(new BarEntry(1, countNonResident));
+
+        BarDataSet set1 = new BarDataSet(yVals1, "Dates");
+        set1.setLabel("Resident");
+        set1.setColors(-33);
+        set1.setValueTextColor(Color.WHITE);
+
+        BarDataSet set2 = new BarDataSet(yVals2, "Dates");
+        set2.setLabel("Non-resident");
+        set2.setColors(Color.GREEN);
+        set2.setValueTextColor(Color.WHITE);
+
+        ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
+        dataSets.add(set1);
+        dataSets.add(set2);
+
+        BarData data = new BarData(dataSets);
+
+        mChartResidency.setTouchEnabled(false);
+        mChartResidency.setData(data);
+        mChartResidency.getAxisLeft().setTextColor(Color.WHITE);
+        mChartResidency.getAxisRight().setTextColor(Color.WHITE);
+        mChartResidency.getXAxis().setTextColor(Color.WHITE);
+        mChartResidency.getLegend().setTextColor(Color.WHITE);
+
+        Description description = new Description();
+        description.setText("");
+
+        mChartResidency.setDescription(description);
+        mChartResidency.notifyDataSetChanged();
+        mChartResidency.invalidate();
+    }
+
+    private void graphOwnership(){
+        ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
+        ArrayList<BarEntry> yVals2 = new ArrayList<BarEntry>();
+
+        yVals1.add(new BarEntry(0, countOwn));
+        yVals2.add(new BarEntry(1, countExtended));
+
+        BarDataSet set1 = new BarDataSet(yVals1, "Dates");
+        set1.setLabel("Own");
+        set1.setColors(-33);
+        set1.setValueTextColor(Color.WHITE);
+
+        BarDataSet set2 = new BarDataSet(yVals2, "Dates");
+        set2.setLabel("Extended");
+        set2.setColors(Color.GREEN);
+        set2.setValueTextColor(Color.WHITE);
+
+        ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
+        dataSets.add(set1);
+        dataSets.add(set2);
+
+        BarData data = new BarData(dataSets);
+
+        mChartOwnership.setTouchEnabled(false);
+        mChartOwnership.setData(data);
+        mChartOwnership.getAxisLeft().setTextColor(Color.WHITE);
+        mChartOwnership.getAxisRight().setTextColor(Color.WHITE);
+        mChartOwnership.getXAxis().setTextColor(Color.WHITE);
+        mChartOwnership.getLegend().setTextColor(Color.WHITE);
+
+        Description description = new Description();
+        description.setText("");
+
+        mChartOwnership.setDescription(description);
+        mChartOwnership.notifyDataSetChanged();
+        mChartOwnership.invalidate();
+    }
+
 }
