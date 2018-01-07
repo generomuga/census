@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import census.com.census.FamilyIdentification;
 import census.com.census.R;
+import census.com.census.activity.MainSurveyActivity;
 
 public class FamilyIdentificationFragment extends Fragment {
 
@@ -77,6 +78,168 @@ public class FamilyIdentificationFragment extends Fragment {
         mActive = (RadioButton) view.findViewById(R.id.radioButtonActive);
         mInActive = (RadioButton) view.findViewById(R.id.radioButtonInactive);
 
+        mFname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    if (mFname.getText().toString().equals("")) {
+                        mFname.setError("Required field");
+                    }
+                    else{
+                        mFname.setError(null);
+                    }
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mMname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    if (mMname.getText().toString().equals("")) {
+                        mMname.setError("Required field");
+                    }
+                    else{
+                        mMname.setError(null);
+                    }
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mLname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    if (mLname.getText().toString().equals("")) {
+                        mLname.setError("Required field");
+                    }
+                    else{
+                        mLname.setError(null);
+                    }
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mHouseNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    if (mHouseNo.getText().toString().equals("")) {
+                        mHouseNo.setError("Required field");
+                    }
+                    else{
+                        mHouseNo.setError(null);
+                    }
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mStreetNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    if (mStreetNo.getText().toString().equals("")) {
+                        mStreetNo.setError("Required field");
+                    }
+                    else{
+                        mStreetNo.setError(null);
+                    }
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mResident.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mNonResident.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mOwner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mExtended.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mActive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mInActive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
         return view;
     }
 
@@ -119,6 +282,25 @@ public class FamilyIdentificationFragment extends Fragment {
         mExtended.setChecked(mSharedPreference.getBoolean("extended",false));
         mActive.setChecked(mSharedPreference.getBoolean("active",true));
         mInActive.setChecked(mSharedPreference.getBoolean("inactive",false));
+    }
+
+    private boolean checkComplete(){
+        if (mFname.getText().toString().equals("")){
+            return false;
+        }
+        if (mMname.getText().toString().equals("")){
+            return false;
+        }
+        if (mLname.getText().toString().equals("")){
+            return false;
+        }
+        if (mHouseNo.getText().toString().equals("")){
+            return false;
+        }
+        if (mStreetNo.getText().toString().equals("")){
+            return false;
+        }
+        return true;
     }
 
 }

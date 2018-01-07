@@ -43,6 +43,10 @@ public class MainSurveyActivity extends AppCompatActivity {
 
     String key = null;
 
+    public static ImageButton mFamily;
+
+    public static MenuItem mSave;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +55,9 @@ public class MainSurveyActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         key = mDatabase.push().getKey();
+
+        mFamily = (ImageButton) findViewById(R.id.imageButtonFamily);
+        mFamily.setEnabled(false);
 
         //to add toolbar in the activity
         mToolBarSurvey = (Toolbar) findViewById(R.id.toolBarSurvey);
@@ -113,28 +120,18 @@ public class MainSurveyActivity extends AppCompatActivity {
 
     private boolean checkIdentificationFieldsComplete(){
         if (FamilyIdentificationFragment.mFname.getText().toString().equals("")){
-            //goToIndentification();
-            FamilyIdentificationFragment.mFname.setError("Required field");
             return false;
         }
         if (FamilyIdentificationFragment.mMname.getText().toString().equals("")){
-            //goToIndentification();
-            FamilyIdentificationFragment.mMname.setError("Required field");
             return false;
         }
         if (FamilyIdentificationFragment.mLname.getText().toString().equals("")){
-            //goToIndentification();
-            FamilyIdentificationFragment.mLname.setError("Required field");
             return false;
         }
         if (FamilyIdentificationFragment.mHouseNo.getText().toString().equals("")){
-            //goToIndentification();
-            FamilyIdentificationFragment.mHouseNo.setError("Required field");
             return false;
         }
         if (FamilyIdentificationFragment.mStreetNo.getText().toString().equals("")){
-            //goToIndentification();
-            FamilyIdentificationFragment.mStreetNo.setError("Required field");
             return false;
         }
         return true;
@@ -293,6 +290,14 @@ public class MainSurveyActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_survey,menu);
         return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        /*invalidateOptionsMenu();
+        mSave = menu.findItem(R.id.action_save);
+        mSave.setVisible(false);*/
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
