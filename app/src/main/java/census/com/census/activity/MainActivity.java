@@ -230,6 +230,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
         mChartResidency.setDescription(description);
         mChartResidency.notifyDataSetChanged();
+        mChartResidency.animateY(1000);
         mChartResidency.invalidate();
     }
 
@@ -268,6 +269,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
         mChartOwnership.setDescription(description);
         mChartOwnership.notifyDataSetChanged();
+        mChartOwnership.animateY(1000);
         mChartOwnership.invalidate();
     }
 
@@ -306,6 +308,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
         mChartStatus.setDescription(description);
         mChartStatus.notifyDataSetChanged();
+        mChartStatus.animateY(1000);
         mChartStatus.invalidate();
     }
 
