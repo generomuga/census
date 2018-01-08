@@ -111,6 +111,7 @@ public class MainSurveyActivity extends AppCompatActivity {
                 break;
 
             case R.id.imageButtonHealth:
+                mEnvironment.setEnabled(true);
                 isLastFragment = false;
                 getSupportActionBar().setTitle("Health");
                 HealthFragment healthFragment = new HealthFragment();
