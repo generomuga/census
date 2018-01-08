@@ -971,147 +971,125 @@ public class FamilyFragment extends Fragment {
     private boolean checkFamilyFieldsComplete(){
 
         if (mMaleMember.getText().toString().equals("")) {
-            mMaleMember.setError("Required field");
             return false;
         }
 
         if (mFemaleMember.getText().toString().equals("")) {
-            mFemaleMember.setError("Required field");
             return false;
         }
 
         if (mYearOrigin.getText().toString().equals("")) {
-            mYearOrigin.setError("Required field");
             return false;
         }
 
         if (mPlaceOrigin.getText().toString().equals("")) {
-            mPlaceOrigin.setError("Required field");
             return false;
         }
 
         if (mNoVoters.getText().toString().equals("")) {
-            mNoVoters.setError("Required field");
             return false;
         }
 
         if (mBicycle.isChecked()) {
             if (mBicycleNo.getText().toString().equals("")) {
-                mBicycleNo.setError("Required field");
                 return false;
             }
         }
 
         if (mBoat.isChecked()) {
             if (mBoatNo.getText().toString().equals("")) {
-                mBoatNo.setError("Required field");
                 return false;
             }
         }
 
         if (mBus.isChecked()) {
             if (mBusNo.getText().toString().equals("")) {
-                mBusNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mCar.isChecked()) {
             if (FamilyFragment.mCarNo.getText().toString().equals("")) {
-                FamilyFragment.mCarNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mJeep.isChecked()) {
             if (FamilyFragment.mJeepNo.getText().toString().equals("")) {
-                FamilyFragment.mJeepNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mMotorBoat.isChecked()) {
             if (FamilyFragment.mMotorBoatNo.getText().toString().equals("")) {
-                FamilyFragment.mMotorBoatNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mMotorcycle.isChecked()) {
             if (FamilyFragment.mMotorcycleNo.getText().toString().equals("")) {
-                FamilyFragment.mMotorcycleNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mOwner.isChecked()) {
             if (FamilyFragment.mOwnerNo.getText().toString().equals("")) {
-                FamilyFragment.mOwnerNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mPedicab.isChecked()) {
             if (FamilyFragment.mPedicabNo.getText().toString().equals("")) {
-                FamilyFragment.mPedicabNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mPickUp.isChecked()) {
             if (FamilyFragment.mPickUpNo.getText().toString().equals("")) {
-                FamilyFragment.mPedicabNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mPumpboat.isChecked()) {
             if (FamilyFragment.mPumpboatNo.getText().toString().equals("")) {
-                FamilyFragment.mPumpboatNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mRaft.isChecked()) {
             if (FamilyFragment.mRaftNo.getText().toString().equals("")) {
-                FamilyFragment.mRaftNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mSuv.isChecked()) {
             if (FamilyFragment.mSuvNo.getText().toString().equals("")) {
-                FamilyFragment.mSuvNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mTricycle.isChecked()) {
             if (FamilyFragment.mTricycleNo.getText().toString().equals("")) {
-                FamilyFragment.mTricycleNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mTruck.isChecked()) {
             if (FamilyFragment.mTruckNo.getText().toString().equals("")) {
-                FamilyFragment.mTruckNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mVan.isChecked()) {
             if (FamilyFragment.mVanNo.getText().toString().equals("")) {
-                FamilyFragment.mVanNo.setError("Required field");
                 return false;
             }
         }
 
-        if (Integer.parseInt(FamilyFragment.mYearOrigin.getText().toString()) >= 1980 || Integer.parseInt(FamilyFragment.mYearOrigin.getText().toString()) <= 2018){
+        if (Integer.parseInt(FamilyFragment.mYearOrigin.getText().toString()) >= 1980 && Integer.parseInt(FamilyFragment.mYearOrigin.getText().toString()) <= 2018){
         }
         else
         {
-            mYearOrigin.setError("Invalid year");
             return false;
         }
 
