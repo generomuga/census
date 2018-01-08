@@ -4,6 +4,7 @@ package census.com.census.fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.AsyncLayoutInflater;
 import android.view.LayoutInflater;
@@ -12,15 +13,25 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import census.com.census.Environment;
 import census.com.census.R;
 
 public class EnvironmentFragment extends Fragment {
 
     private View view;
     private ArrayAdapter spinnerArrayAdapter;
+
+    private DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
 
     private Spinner spinnerToilet;
     private Spinner spinnerWater;
@@ -59,6 +70,11 @@ public class EnvironmentFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_environment, container, false);
+
+        sharedPreferences = getActivity().getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
 
         initViews();
 
@@ -124,23 +140,64 @@ public class EnvironmentFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        //onLoadReference();
+        onLoadReference();
     }
 
     @Override
     public void onPause() {
         super.onPause();
         onSaveReference();
+        //sendData();
     }
 
     private void onLoadReference(){
-        spinnerToilet.setSelection(sharedPreferences.getInt("toilet",0));
+        int toilet = sharedPreferences.getInt("toilet", 0);
+        int water = sharedPreferences.getInt("water", 0);
+        int electricity = sharedPreferences.getInt("electricity", 0);
+        int house = sharedPreferences.getInt("houses", 0);
+        int lot = sharedPreferences.getInt("lot", 0);
+        int structure = sharedPreferences.getInt("structure", 0);
+        int external = sharedPreferences.getInt("external", 0);
+        int roof = sharedPreferences.getInt("roof", 0);
+        int floor = sharedPreferences.getInt("floor", 0);
+        int lightning = sharedPreferences.getInt("lightning", 0);
+        int cooking = sharedPreferences.getInt("cooking", 0);
+        int garbage = sharedPreferences.getInt("garbage", 0);
+        int location = sharedPreferences.getInt("location", 0);
+        int ecological = sharedPreferences.getInt("ecological", 0);
+
+        spinnerToilet.setSelection(toilet);
+        spinnerWater.setSelection(water);
+        spinnerElectricity.setSelection(electricity);
+        spinnerHouse.setSelection(house);
+        spinnerLot.setSelection(lot);
+        spinnerStructure.setSelection(structure);
+        spinnerExternal.setSelection(external);
+        spinnerRoof.setSelection(roof);
+        spinnerFloor.setSelection(floor);
+        spinnerLightning.setSelection(lightning);
+        spinnerCooking.setSelection(cooking);
+        spinnerGarbage.setSelection(garbage);
+        spinnerLocation.setSelection(location);
+        spinnerEcological.setSelection(ecological);
+        //spinnerToilet.setSelection(1);
     }
 
     private void onSaveReference(){
-        sharedPreferences = getActivity().getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
-
-        sharedPreferences.edit().putInt("toilet",spinnerToilet.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("toilet", spinnerToilet.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("water", spinnerWater.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("electricity", spinnerElectricity.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("houses", spinnerHouse.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("lot", spinnerLot.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("structure", spinnerStructure.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("external", spinnerExternal.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("roof", spinnerRoof.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("floor", spinnerFloor.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("lightning", spinnerLightning.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("cooking", spinnerCooking.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("garbage", spinnerGarbage.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("location", spinnerLocation.getSelectedItemPosition()).apply();
+        sharedPreferences.edit().putInt("ecological", spinnerEcological.getSelectedItemPosition()).apply();
     }
 
     private void initViews(){
@@ -317,6 +374,35 @@ public class EnvironmentFragment extends Fragment {
                 "Lowland",
                 "Upland"
         ));
+    }
+
+    private void sendData(){
+        String uid = mAuth.getCurrentUser().getUid();
+
+        DatabaseReference environmentRef = mDatabase.child("environment").child(uid);
+
+        Environment environment = new Environment();
+        environment.setToilet(spinnerToilet.getSelectedItemPosition());
+        environment.setWater(spinnerWater.getSelectedItemPosition());
+        environment.setElectricity(spinnerElectricity.getSelectedItemPosition());
+        environment.setAcquisition(spinnerHouse.getSelectedItemPosition());
+        environment.setLot(spinnerLot.getSelectedItemPosition());
+        environment.setStructure(spinnerStructure.getSelectedItemPosition());
+        environment.setWalls(spinnerExternal.getSelectedItemPosition());
+        environment.setRoof(spinnerRoof.getSelectedItemPosition());
+        environment.setFloor(spinnerFloor.getSelectedItemPosition());
+        environment.setLight(spinnerLightning.getSelectedItemPosition());
+        environment.setCook(spinnerCooking.getSelectedItemPosition());
+        environment.setGarbage(spinnerGarbage.getSelectedItemPosition());
+        environment.setLocation(spinnerLocation.getSelectedItemPosition());
+        environment.setEcological(spinnerEcological.getSelectedItemPosition());
+
+        environmentRef.setValue(environment).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+            }
+        });
     }
 
 }

@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import census.com.census.FamilyIdentification;
 import census.com.census.R;
+import census.com.census.activity.MainSurveyActivity;
 
 public class FamilyIdentificationFragment extends Fragment {
 
@@ -77,6 +78,168 @@ public class FamilyIdentificationFragment extends Fragment {
         mActive = (RadioButton) view.findViewById(R.id.radioButtonActive);
         mInActive = (RadioButton) view.findViewById(R.id.radioButtonInactive);
 
+        mFname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    if (mFname.getText().toString().equals("")) {
+                        mFname.setError("Required field");
+                    }
+                    else{
+                        mFname.setError(null);
+                    }
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mMname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    if (mMname.getText().toString().equals("")) {
+                        mMname.setError("Required field");
+                    }
+                    else{
+                        mMname.setError(null);
+                    }
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mLname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    if (mLname.getText().toString().equals("")) {
+                        mLname.setError("Required field");
+                    }
+                    else{
+                        mLname.setError(null);
+                    }
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mHouseNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    if (mHouseNo.getText().toString().equals("")) {
+                        mHouseNo.setError("Required field");
+                    }
+                    else{
+                        mHouseNo.setError(null);
+                    }
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mStreetNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    if (mStreetNo.getText().toString().equals("")) {
+                        mStreetNo.setError("Required field");
+                    }
+                    else{
+                        mStreetNo.setError(null);
+                    }
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mResident.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mNonResident.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mOwner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mExtended.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mActive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
+        mInActive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkComplete()){
+                    MainSurveyActivity.mFamily.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mFamily.setEnabled(false);
+                }
+            }
+        });
+
         return view;
     }
 
@@ -84,7 +247,6 @@ public class FamilyIdentificationFragment extends Fragment {
     public void onPause() {
         super.onPause();
         savePreference();
-        sendData();
     }
 
     @Override
@@ -122,51 +284,23 @@ public class FamilyIdentificationFragment extends Fragment {
         mInActive.setChecked(mSharedPreference.getBoolean("inactive",false));
     }
 
-    private void sendData(){
-
-        int residency;
-        int ownership;
-        int familyStatus;
-
-        if (mResident.isChecked())
-            residency = 0;
-        else
-            residency = 1;
-
-        if (mOwner.isChecked())
-            ownership = 0;
-        else
-            ownership = 1;
-
-        if (mActive.isChecked())
-            familyStatus = 0;
-        else
-            familyStatus = 1;
-
-        FamilyIdentification familyIdentification = new FamilyIdentification();
-        familyIdentification.setfName(mFname.getText().toString().trim());
-        familyIdentification.setmName(mMname.getText().toString().trim());
-        familyIdentification.setlName(mLname.getText().toString().trim());
-        familyIdentification.setRegion(mRegion.getText().toString().trim());
-        familyIdentification.setProvince(mProvince.getText().toString().trim());
-        familyIdentification.setMunicipality(mMunicipality.getText().toString().trim());
-        familyIdentification.setBarangay(mBarangay.getText().toString().trim());
-        familyIdentification.setHouseNo(mHouseNo.getText().toString().trim());
-        familyIdentification.setStreetNo(mStreetNo.getText().toString().trim());
-        familyIdentification.setResidency(residency);
-        familyIdentification.setOwnership(ownership);
-        familyIdentification.setFamilyStatus(familyStatus);
-
-        String uid = mAuth.getCurrentUser().getUid();
-        DatabaseReference refFamilyIdentification = mDatabase.child("familyIdentification").child(uid);
-
-        refFamilyIdentification.setValue(familyIdentification).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-              if (task.isSuccessful()){
-              }
-            }
-        });
+    private boolean checkComplete(){
+        if (mFname.getText().toString().equals("")){
+            return false;
+        }
+        if (mMname.getText().toString().equals("")){
+            return false;
+        }
+        if (mLname.getText().toString().equals("")){
+            return false;
+        }
+        if (mHouseNo.getText().toString().equals("")){
+            return false;
+        }
+        if (mStreetNo.getText().toString().equals("")){
+            return false;
+        }
+        return true;
     }
 
 }

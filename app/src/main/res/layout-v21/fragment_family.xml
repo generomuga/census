@@ -6,57 +6,50 @@
     android:background="#394152">
 
     <ScrollView
+        android:background="#394152"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/elevated_rectangle"
+            android:background="#394152"
             android:elevation="5dp"
             android:orientation="vertical">
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/editTextNoMaleMember"
+                android:background="@drawable/edittext_round"
+                android:digits="123456789"
+                android:hint="No of male family member"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="8dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:padding="10dp"
+                android:textColor="#fff"
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Number of family members"
-                    android:textColor="@color/colorTextView"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textViewNoFamMembers"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="0"
-                    android:textColor="@color/colorEditText"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-            <SeekBar
-                android:id="@+id/seekBarNoFamilyMembers"
+            <EditText
+                android:id="@+id/editTextNoFemaleMember"
+                android:background="@drawable/edittext_round"
+                android:digits="123456789"
+                android:hint="No of female family member"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="8dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
-                android:max="20"
-                android:thumbTint="@color/colorAccent" />
+                android:padding="10dp"
+                android:textColor="#fff"
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp" />
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -64,429 +57,341 @@
                 android:layout_marginRight="11dp"
                 android:text="Year first resided in the location"
                 android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:id="@+id/spinnerYear"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:popupBackground="@color/colorPrimary" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:text="Place of origin before living in the barangay"
-                android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
-
-            <!--<EditText
-                android:id="@+id/editTextOrigin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:hint="Municipal,Province"
-                android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />-->
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:text="Region"
-                android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:id="@+id/spinnerRegions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:popupBackground="@color/colorPrimary" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:text="Province"
-                android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:id="@+id/spinnerProvince"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:popupBackground="@color/colorPrimary" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:text="Municipality"
-                android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:id="@+id/spinnerMunicipal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:popupBackground="@color/colorPrimary"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:text="Barangay"
-                android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:id="@+id/spinnerBarangay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:popupBackground="@color/colorPrimary"/>
-
-            <!--<TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:text="Contact number (Landline/Mobile)"
-                android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
+                android:textSize="12sp" />-->
 
             <EditText
-                android:id="@+id/editTextContactNo"
+                android:id="@+id/editTextYearResided"
+                android:background="@drawable/edittext_round"
+                android:digits="1234567890"
+                android:hint="Year resided in the location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:hint="+63"
-                android:textColor="@color/colorEditText"
-                android:textColorHint="@color/colorHint" />-->
-
-            <!--<android.support.design.widget.TextInputLayout
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="8dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
-                android:theme="@style/TextLabel">
+                android:padding="10dp"
+                android:textColor="#fff"
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp" />
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/editTextContactNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Contact no"
-                    android:textColor="@color/colorEditText"/>
+            <EditText
+                android:id="@+id/editTextOrigin"
+                android:background="@drawable/edittext_round"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:hint="Place of orign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:padding="10dp"
+                android:textColor="#fff"
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp" />
 
-            </android.support.design.widget.TextInputLayout>-->
 
+            <EditText
+                android:id="@+id/editTextNoVoters"
+                android:background="@drawable/edittext_round"
+                android:digits="123456789"
+                android:hint="Number of voters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:padding="10dp"
+                android:textColor="#fff"
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginTop="10dp"
-                android:text="Internet Service Provider"
-                android:textColor="@color/colorTextView"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:id="@+id/spinnerISP"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginTop="10dp"
-                android:popupBackground="@color/colorPrimary" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="8dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
                 android:layout_marginTop="10dp"
                 android:text="Type and number of vehicle owned"
-                android:textColor="@color/colorTextView"
+                android:textColor="#fff"
                 android:textSize="12sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <CheckBox
                     android:id="@+id/checkboxBicycle"
+                    android:buttonTint="@color/colorAccent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
-                    android:buttonTint="@color/colorAccent"
                     android:text="Bicycle"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="#fff"
+                    android:textSize="16sp"/>
 
                 <EditText
                     android:id="@+id/editTextBicycleNo"
+                    android:background="@drawable/edittext_round"
+                    android:hint="Quantity"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"
-                    android:layout_marginLeft="11dp"
                     android:layout_weight="1"
-                    android:hint="Quantity"
-                    android:inputType="number"
-                    android:textColor="@color/colorEditText"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textColorHint="@color/colorTextView" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <CheckBox
                     android:id="@+id/checkboxBoat"
+                    android:buttonTint="@color/colorAccent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
-                    android:buttonTint="@color/colorAccent"
                     android:text="Boat"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="#fff"
+                    android:textSize="16sp"/>
 
                 <EditText
                     android:id="@+id/editTextBoatNo"
+                    android:background="@drawable/edittext_round"
+                    android:hint="Quantity"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"
-                    android:layout_marginLeft="11dp"
                     android:layout_weight="1"
-                    android:hint="Quantity"
-                    android:inputType="number"
-                    android:textColor="@color/colorEditText"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textColorHint="@color/colorTextView" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <CheckBox
                     android:id="@+id/checkboxBus"
+                    android:buttonTint="@color/colorAccent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
-                    android:buttonTint="@color/colorAccent"
                     android:text="Bus"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="#fff"
+                    android:textSize="16sp"/>
 
                 <EditText
                     android:id="@+id/editTextBusNo"
+                    android:background="@drawable/edittext_round"
+                    android:hint="Quantity"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"
-                    android:layout_marginLeft="11dp"
                     android:layout_weight="1"
-                    android:hint="Quantity"
-                    android:inputType="number"
-                    android:textColor="@color/colorEditText"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textColorHint="@color/colorTextView" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <CheckBox
                     android:id="@+id/checkboxCar"
+                    android:buttonTint="@color/colorAccent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
-                    android:buttonTint="@color/colorAccent"
                     android:text="Car"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="#fff"
+                    android:textSize="16sp"/>
 
                 <EditText
                     android:id="@+id/editTextCarNo"
+                    android:background="@drawable/edittext_round"
+                    android:hint="Quantity"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"
-                    android:layout_marginLeft="11dp"
                     android:layout_weight="1"
-                    android:hint="Quantity"
-                    android:inputType="number"
-                    android:textColor="@color/colorEditText"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textColorHint="@color/colorTextView" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <CheckBox
                     android:id="@+id/checkboxJeep"
+                    android:buttonTint="@color/colorAccent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
-                    android:buttonTint="@color/colorAccent"
-                    android:text="Jeepney"
-                    android:textColor="@color/colorEditText" />
+                    android:text="Jeep"
+                    android:textColor="#fff"
+                    android:textSize="16sp"/>
 
                 <EditText
                     android:id="@+id/editTextJeepNo"
+                    android:background="@drawable/edittext_round"
+                    android:hint="Quantity"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"
-                    android:layout_marginLeft="11dp"
                     android:layout_weight="1"
-                    android:hint="Quantity"
-                    android:inputType="number"
-                    android:textColorHint="@color/colorTextView"
-                    android:textColor="@color/colorEditText"/>
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <CheckBox
                     android:id="@+id/checkboxMotorBoat"
+                    android:buttonTint="@color/colorAccent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
-                    android:buttonTint="@color/colorAccent"
                     android:text="Motorboat"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="#fff"
+                    android:textSize="16sp"/>
 
                 <EditText
                     android:id="@+id/editTextMotorBoatNo"
+                    android:background="@drawable/edittext_round"
+                    android:hint="Quantity"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"
-                    android:layout_marginLeft="11dp"
                     android:layout_weight="1"
-                    android:hint="Quantity"
-                    android:inputType="number"
-                    android:textColor="@color/colorEditText"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textColorHint="@color/colorTextView" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <CheckBox
                     android:id="@+id/checkboxMotorcycle"
+                    android:buttonTint="@color/colorAccent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
-                    android:buttonTint="@color/colorAccent"
                     android:text="Motorcycle"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="#fff"
+                    android:textSize="16sp"/>
 
                 <EditText
                     android:id="@+id/editTextMotorcycleNo"
+                    android:background="@drawable/edittext_round"
+                    android:hint="Quantity"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"
-                    android:layout_marginLeft="11dp"
                     android:layout_weight="1"
-                    android:hint="Quantity"
-                    android:inputType="number"
-                    android:textColor="@color/colorEditText"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textColorHint="@color/colorTextView" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <CheckBox
                     android:id="@+id/checkboxOwner"
+                    android:buttonTint="@color/colorAccent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
-                    android:buttonTint="@color/colorAccent"
-                    android:text="Owner jeep"
-                    android:textColor="@color/colorEditText" />
+                    android:text="Owner"
+                    android:textColor="#fff"
+                    android:textSize="16sp"/>
 
                 <EditText
                     android:id="@+id/editTextOwnerNo"
+                    android:background="@drawable/edittext_round"
+                    android:hint="Quantity"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"
-                    android:layout_marginLeft="11dp"
                     android:layout_weight="1"
-                    android:hint="Quantity"
-                    android:inputType="number"
-                    android:textColor="@color/colorEditText"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -494,30 +399,34 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <CheckBox
                     android:id="@+id/checkboxPedicab"
+                    android:buttonTint="@color/colorAccent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
-                    android:buttonTint="@color/colorAccent"
                     android:text="Pedicab"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="#fff"
+                    android:textSize="16sp"/>
 
                 <EditText
                     android:id="@+id/editTextPedicabNo"
+                    android:background="@drawable/edittext_round"
+                    android:hint="Quantity"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"
-                    android:layout_marginLeft="11dp"
                     android:layout_weight="1"
-                    android:hint="Quantity"
-                    android:inputType="number"
-                    android:textColor="@color/colorEditText"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -525,91 +434,104 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
-                <!--<CheckBox
-                    android:id="@+id/checkboxPickup"
+                <CheckBox
+                    android:id="@+id/checkboxPickUp"
+                    android:buttonTint="@color/colorAccent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
-                    android:buttonTint="@color/colorAccent"
                     android:text="Pickup"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="#fff"
+                    android:textSize="16sp"/>
 
                 <EditText
-                    android:id="@+id/editTextPickupNo"
+                    android:id="@+id/editTextPickUpNo"
+                    android:background="@drawable/edittext_round"
+                    android:hint="Quantity"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"
-                    android:layout_marginLeft="11dp"
                     android:layout_weight="1"
-                    android:hint="Quantity"
-                    android:inputType="number"
-                    android:textColor="@color/colorEditText"
-                    android:textColorHint="@color/colorTextView" />-->
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <CheckBox
                     android:id="@+id/checkboxPumpBoat"
+                    android:buttonTint="@color/colorAccent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
-                    android:buttonTint="@color/colorAccent"
                     android:text="Pump boat"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="#fff"
+                    android:textSize="16sp"/>
 
                 <EditText
                     android:id="@+id/editTextPumpBoatNo"
+                    android:background="@drawable/edittext_round"
+                    android:hint="Quantity"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"
-                    android:layout_marginLeft="11dp"
                     android:layout_weight="1"
-                    android:hint="Quantity"
-                    android:inputType="number"
-                    android:textColor="@color/colorEditText"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textColorHint="@color/colorTextView" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <CheckBox
                     android:id="@+id/checkboxRaft"
+                    android:buttonTint="@color/colorAccent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
-                    android:buttonTint="@color/colorAccent"
                     android:text="Raft"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="#fff"
+                    android:textSize="16sp"/>
 
                 <EditText
                     android:id="@+id/editTextRaftNo"
+                    android:background="@drawable/edittext_round"
+                    android:hint="Quantity"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"
-                    android:layout_marginLeft="11dp"
                     android:layout_weight="1"
-                    android:hint="Quantity"
-                    android:inputType="number"
-                    android:textColor="@color/colorEditText"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -617,30 +539,34 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <CheckBox
                     android:id="@+id/checkboxSuv"
+                    android:buttonTint="@color/colorAccent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
-                    android:buttonTint="@color/colorAccent"
                     android:text="SUV"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="#fff"
+                    android:textSize="16sp"/>
 
                 <EditText
                     android:id="@+id/editTextSuvNo"
+                    android:background="@drawable/edittext_round"
+                    android:hint="Quantity"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"
-                    android:layout_marginLeft="11dp"
                     android:layout_weight="1"
-                    android:hint="Quantity"
-                    android:inputType="number"
-                    android:textColor="@color/colorEditText"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -648,30 +574,34 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <CheckBox
                     android:id="@+id/checkboxTricycle"
+                    android:buttonTint="@color/colorAccent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
-                    android:buttonTint="@color/colorAccent"
                     android:text="Tricycle"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="#fff"
+                    android:textSize="16sp"/>
 
                 <EditText
                     android:id="@+id/editTextTricycleNo"
+                    android:background="@drawable/edittext_round"
+                    android:hint="Quantity"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"
-                    android:layout_marginLeft="11dp"
                     android:layout_weight="1"
-                    android:hint="Quantity"
-                    android:inputType="number"
-                    android:textColor="@color/colorEditText"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -679,30 +609,34 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <CheckBox
                     android:id="@+id/checkboxTruck"
+                    android:buttonTint="@color/colorAccent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
-                    android:buttonTint="@color/colorAccent"
                     android:text="Truck"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="#fff"
+                    android:textSize="16sp"/>
 
                 <EditText
                     android:id="@+id/editTextTruckNo"
+                    android:background="@drawable/edittext_round"
+                    android:hint="Quantity"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"
-                    android:layout_marginLeft="11dp"
                     android:layout_weight="1"
-                    android:hint="Quantity"
-                    android:inputType="number"
-                    android:textColor="@color/colorEditText"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -710,31 +644,36 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <CheckBox
                     android:id="@+id/checkboxVan"
+                    android:buttonTint="@color/colorAccent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
-                    android:buttonTint="@color/colorAccent"
                     android:text="Van"
-                    android:textColor="@color/colorEditText" />
+                    android:textColor="#fff"
+                    android:textSize="16sp"/>
 
                 <EditText
                     android:id="@+id/editTextVanNo"
+                    android:background="@drawable/edittext_round"
+                    android:hint="Quantity"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"
-                    android:layout_marginLeft="11dp"
                     android:layout_weight="1"
-                    android:hint="Quantity"
-                    android:inputType="number"
-                    android:textColor="@color/colorEditText"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textColorHint="@color/colorTextView" />
+
             </LinearLayout>
 
         </LinearLayout>

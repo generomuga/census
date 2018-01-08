@@ -3,30 +3,42 @@ package census.com.census.fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import census.com.census.Health;
 import census.com.census.R;
 
 public class HealthFragment extends Fragment {
 
     View view;
 
-    public static RadioButton radioButtonEatYes;
-    public static RadioButton radioButtonEatNo;
-    public static RadioButton radioButtonHerbalYes;
-    public static RadioButton radioButtonHerbalNo;
-    public static RadioButton radioButtonVegYes;
-    public static RadioButton radioButtonVegNo;
-    public static RadioButton radioButtonIodizeYes;
-    public static RadioButton radioButtonIodizeNo;
-    public static RadioButton radioButtonFamilyYes;
-    public static RadioButton radioButtonFamilyNo;
-    public static RadioButton radioButtonFamilyNa;
+    private DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
+
+    public static RadioButton mEatYes;
+    public static RadioButton mEatNo;
+    public static RadioButton mHerbalYes;
+    public static RadioButton mHerbalNo;
+    public static RadioButton mVegYes;
+    public static RadioButton mVegNo;
+    public static RadioButton mIodizeYes;
+    public static RadioButton mIodizeNo;
+    public static RadioButton mFamilyYes;
+    public static RadioButton mFamilyNo;
+    public static RadioButton mFamilyNa;
 
     public static CheckBox mBasal;
     public static CheckBox mCervical;
@@ -43,6 +55,8 @@ public class HealthFragment extends Fragment {
     public static CheckBox mVasectomy;
     public static CheckBox mOthers;
 
+    public static LinearLayout mContra;
+
     private SharedPreferences sharedPreferences;
 
     @Override
@@ -50,8 +64,68 @@ public class HealthFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_health, container, false);
 
-        //init views
-        initViews();
+        //shared pref
+        sharedPreferences = getActivity().getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
+
+        //firebase
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+
+        mEatYes = (RadioButton) view.findViewById(R.id.radioButtonEatYes);
+        mEatNo = (RadioButton) view.findViewById(R.id.radioButtonEatNo);
+        mHerbalYes = (RadioButton) view.findViewById(R.id.radioButtonHerbalYes);
+        mHerbalNo = (RadioButton) view.findViewById(R.id.radioButtonHerbalNo);
+        mVegYes = (RadioButton) view.findViewById(R.id.radioButtonVegYes);
+        mVegNo = (RadioButton) view.findViewById(R.id.radioButtonVegNo);
+        mIodizeYes = (RadioButton) view.findViewById(R.id.radioButtonIodizeYes);
+        mIodizeNo = (RadioButton) view.findViewById(R.id.radioButtonIodizeNo);
+        mFamilyYes = (RadioButton) view.findViewById(R.id.radioButtonFamilyYes);
+        mFamilyNo = (RadioButton) view.findViewById(R.id.radioButtonFamilyNo);
+        mFamilyNa = (RadioButton) view.findViewById(R.id.radioButtonFamilyNa);
+
+        mBasal = (CheckBox) view.findViewById(R.id.checkboxBasal);
+        mCervical = (CheckBox) view.findViewById(R.id.checkboxCervical);
+        mLactation = (CheckBox) view.findViewById(R.id.checkboxLactation);
+        mRhythm = (CheckBox) view.findViewById(R.id.checkboxRhythm);
+        mStandard = (CheckBox) view.findViewById(R.id.checkboxStandard);
+        mSympho = (CheckBox) view.findViewById(R.id.checkboxSympho);
+        mWithdrawal = (CheckBox) view.findViewById(R.id.checkboxWithdrawal);
+        mCondom = (CheckBox) view.findViewById(R.id.checkboxCondom);
+        mDepo = (CheckBox) view.findViewById(R.id.checkboxDepo);
+        mIud = (CheckBox) view.findViewById(R.id.checkboxIud);
+        mTubal = (CheckBox) view.findViewById(R.id.checkboxTubal);
+        mPills = (CheckBox) view.findViewById(R.id.checkboxPill);
+        mVasectomy = (CheckBox) view.findViewById(R.id.checkboxVasectomy);
+        mOthers = (CheckBox) view.findViewById(R.id.checkboxOthers);
+
+        mContra = (LinearLayout) view.findViewById(R.id.linearLayoutContra);
+        if (mFamilyYes.isChecked())
+            setEnable(true);
+        else
+            setEnable(false);
+
+        mFamilyYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    setEnable(true);
+            }
+        });
+
+        mFamilyNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setEnable(false);
+                unCheck();
+            }
+        });
+
+        mFamilyNa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setEnable(false);
+                unCheck();
+            }
+        });
 
         return view;
     }
@@ -60,6 +134,7 @@ public class HealthFragment extends Fragment {
     public void onPause() {
         super.onPause();
         onSaveReference();
+        //sendData();
     }
 
     @Override
@@ -69,19 +144,17 @@ public class HealthFragment extends Fragment {
     }
 
     private void onLoadData(){
-        sharedPreferences = getActivity().getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
-
-        radioButtonEatYes.setChecked(sharedPreferences.getBoolean("eatYes",true));
-        radioButtonEatNo.setChecked(sharedPreferences.getBoolean("eatNo",false));
-        radioButtonHerbalYes.setChecked(sharedPreferences.getBoolean("herbalYes",true));
-        radioButtonHerbalNo.setChecked(sharedPreferences.getBoolean("herbalNo",false));
-        radioButtonVegYes.setChecked(sharedPreferences.getBoolean("vegYes",true));
-        radioButtonVegNo.setChecked(sharedPreferences.getBoolean("vegNo",false));
-        radioButtonIodizeYes.setChecked(sharedPreferences.getBoolean("iodizeYes",true));
-        radioButtonIodizeNo.setChecked(sharedPreferences.getBoolean("iodizeNo",false));
-        radioButtonFamilyYes.setChecked(sharedPreferences.getBoolean("familyYes",true));
-        radioButtonFamilyNo.setChecked(sharedPreferences.getBoolean("familyNo",false));
-        radioButtonFamilyNa.setChecked(sharedPreferences.getBoolean("familyNa",false));
+        mEatYes.setChecked(sharedPreferences.getBoolean("eatYes",true));
+        mEatNo.setChecked(sharedPreferences.getBoolean("eatNo",false));
+        mHerbalYes.setChecked(sharedPreferences.getBoolean("herbalYes",true));
+        mHerbalNo.setChecked(sharedPreferences.getBoolean("herbalNo",false));
+        mVegYes.setChecked(sharedPreferences.getBoolean("vegYes",true));
+        mVegNo.setChecked(sharedPreferences.getBoolean("vegNo",false));
+        mIodizeYes.setChecked(sharedPreferences.getBoolean("iodizeYes",true));
+        mIodizeNo.setChecked(sharedPreferences.getBoolean("iodizeNo",false));
+        mFamilyYes.setChecked(sharedPreferences.getBoolean("familyYes",true));
+        mFamilyNo.setChecked(sharedPreferences.getBoolean("familyNo",false));
+        mFamilyNa.setChecked(sharedPreferences.getBoolean("familyNa",false));
 
         mBasal.setChecked(sharedPreferences.getBoolean("basal",false));
         mCervical.setChecked(sharedPreferences.getBoolean("cervical",false));
@@ -97,41 +170,20 @@ public class HealthFragment extends Fragment {
         mPills.setChecked(sharedPreferences.getBoolean("pills",false));
         mVasectomy.setChecked(sharedPreferences.getBoolean("vasectomy",false));
         mOthers.setChecked(sharedPreferences.getBoolean("others",false));
-
     }
 
     private void onSaveReference(){
-        /*eatComplete;
-        private int plantHerbal;
-        private int vegGarden;
-        private int useIodize;
-        private int familyPlan;
-        private int basal;
-        private int cervical;
-        private int lactation;
-        private int rhtythm;
-        private int standard;
-        private int sympho;
-        private int withdrawal;
-        private int condom;
-        private int depo;
-        private int iud;
-        private int tubal;
-        private int pills;
-        private int vasectomy;
-        private int others;*/
-
-        sharedPreferences.edit().putBoolean("eatYes",radioButtonEatYes.isChecked()).apply();
-        sharedPreferences.edit().putBoolean("eatNo",radioButtonEatNo.isChecked()).apply();
-        sharedPreferences.edit().putBoolean("herbalYes",radioButtonHerbalYes.isChecked()).apply();
-        sharedPreferences.edit().putBoolean("herbalNo",radioButtonHerbalNo.isChecked()).apply();
-        sharedPreferences.edit().putBoolean("vegYes",radioButtonVegYes.isChecked()).apply();
-        sharedPreferences.edit().putBoolean("vegNo",radioButtonVegNo.isChecked()).apply();
-        sharedPreferences.edit().putBoolean("iodizeYes",radioButtonIodizeYes.isChecked()).apply();
-        sharedPreferences.edit().putBoolean("iodizeNo",radioButtonIodizeNo.isChecked()).apply();
-        sharedPreferences.edit().putBoolean("familyYes",radioButtonFamilyYes.isChecked()).apply();
-        sharedPreferences.edit().putBoolean("familyNo",radioButtonFamilyNo.isChecked()).apply();
-        sharedPreferences.edit().putBoolean("familyNa",radioButtonFamilyNa.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("eatYes",mEatYes.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("eatNo",mEatNo.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("herbalYes",mHerbalYes.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("herbalNo",mHerbalNo.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("vegYes",mVegYes.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("vegNo",mVegNo.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("iodizeYes",mIodizeYes.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("iodizeNo",mIodizeNo.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("familyYes",mFamilyYes.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("familyNo",mFamilyNo.isChecked()).apply();
+        sharedPreferences.edit().putBoolean("familyNa",mFamilyNa.isChecked()).apply();
         sharedPreferences.edit().putBoolean("basal",mBasal.isChecked()).apply();
         sharedPreferences.edit().putBoolean("cervical",mCervical.isChecked()).apply();
         sharedPreferences.edit().putBoolean("lactation",mLactation.isChecked()).apply();
@@ -148,33 +200,95 @@ public class HealthFragment extends Fragment {
         sharedPreferences.edit().putBoolean("others",mOthers.isChecked()).apply();
     }
 
-    private void initViews(){
-        radioButtonEatYes = (RadioButton) view.findViewById(R.id.radioButtonEatYes);
-        radioButtonEatNo = (RadioButton) view.findViewById(R.id.radioButtonEatNo);
-        radioButtonHerbalYes = (RadioButton) view.findViewById(R.id.radioButtonHerbalYes);
-        radioButtonHerbalNo = (RadioButton) view.findViewById(R.id.radioButtonHerbalNo);
-        radioButtonVegYes = (RadioButton) view.findViewById(R.id.radioButtonVegYes);
-        radioButtonVegNo = (RadioButton) view.findViewById(R.id.radioButtonVegNo);
-        radioButtonIodizeYes = (RadioButton) view.findViewById(R.id.radioButtonIodizeYes);
-        radioButtonIodizeNo = (RadioButton) view.findViewById(R.id.radioButtonIodizeNo);
-        radioButtonFamilyYes = (RadioButton) view.findViewById(R.id.radioButtonFamilyYes);
-        radioButtonFamilyNo = (RadioButton) view.findViewById(R.id.radioButtonFamilyNo);
-        radioButtonFamilyNa = (RadioButton) view.findViewById(R.id.radioButtonFamilyNa);
+    private void setEnable(boolean enable){
+        for (int i = 0; i < mContra.getChildCount(); i++){
+            View viewContra = mContra.getChildAt(i);
+            viewContra.setEnabled(enable);
+        }
+    }
 
-        mBasal = (CheckBox) view.findViewById(R.id.checkboxBasal);
-        mCervical = (CheckBox) view.findViewById(R.id.checkboxCervical);
-        mLactation = (CheckBox) view.findViewById(R.id.checkboxLactation);
-        mRhythm = (CheckBox) view.findViewById(R.id.checkboxRhythm);
-        mStandard = (CheckBox) view.findViewById(R.id.checkboxStandard);
-        mSympho = (CheckBox) view.findViewById(R.id.checkboxSympho);
-        mWithdrawal = (CheckBox) view.findViewById(R.id.checkboxWithdrawal);
-        mCondom = (CheckBox) view.findViewById(R.id.checkboxCondom);
-        mDepo = (CheckBox) view.findViewById(R.id.checkboxDepo);
-        mIud = (CheckBox) view.findViewById(R.id.checkboxIud);
-        mTubal = (CheckBox) view.findViewById(R.id.checkboxTubal);
-        mPills = (CheckBox) view.findViewById(R.id.checkboxPill);
-        mVasectomy = (CheckBox) view.findViewById(R.id.checkboxVasectomy);
-        mOthers = (CheckBox) view.findViewById(R.id.checkboxOthers);
+    private void sendData(){
+        String uid = mAuth.getCurrentUser().getUid();
+        DatabaseReference healthRef = mDatabase.child("health").child(uid);
+
+        int eat = (mEatYes.isChecked()) ? 1 : 0;
+        int herbal = (mHerbalYes.isChecked()) ? 1 : 0;
+        int vegetable = (mVegYes.isChecked()) ? 1 : 0;
+        int salt = (mIodizeYes.isChecked()) ? 1 : 0;
+
+        int familyPlanning = 0;
+        if (mFamilyYes.isChecked()){
+            familyPlanning = 1;
+            unCheck();
+        }
+        if (mFamilyNo.isChecked()) {
+            familyPlanning = 0;
+        }
+        if (mFamilyNa.isChecked()) {
+            familyPlanning = 2;
+        }
+
+        int basal = (mBasal.isChecked()) ? 1 : 0;
+        int cervical = (mCervical.isChecked()) ? 1 : 0;
+        int lactation = (mLactation.isChecked()) ? 1 : 0;
+        int rhythm = (mRhythm.isChecked()) ? 1 : 0;
+        int standard = (mStandard.isChecked()) ? 1 : 0;
+        int sympho = (mSympho.isChecked()) ? 1 : 0;
+        int withdrawal = (mWithdrawal.isChecked()) ? 1 : 0;
+        int condom = (mCondom.isChecked()) ? 1 : 0;
+        int depo = (mDepo.isChecked()) ? 1 : 0;
+        int iud = (mIud.isChecked()) ? 1 : 0;
+        int tubal = (mTubal.isChecked()) ? 1 : 0;
+        int pills = (mPills.isChecked()) ? 1 : 0;
+        int vasectomy = (mVasectomy.isChecked()) ? 1 : 0;
+        int others = (mOthers.isChecked()) ? 1 : 0;
+
+        Health health = new Health();
+
+        health.setEatComplete(eat);
+        health.setPlantHerbal(herbal);
+        health.setVegGarden(vegetable);
+        health.setUseIodize(salt);
+        health.setFamilyPlan(familyPlanning);
+        health.setBasal(basal);
+        health.setCervical(cervical);
+        health.setLactation(lactation);
+        health.setRhtythm(rhythm);
+        health.setStandard(standard);
+        health.setSympho(sympho);
+        health.setWithdrawal(withdrawal);
+        health.setCondom(condom);
+        health.setDepo(depo);
+        health.setIud(iud);
+        health.setTubal(tubal);
+        health.setPills(pills);
+        health.setVasectomy(vasectomy);
+        health.setOthers(others);
+
+        healthRef.setValue(health).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+            }
+        });
+
+    }
+
+    private void unCheck(){
+        mBasal.setChecked(false);
+        mCervical.setChecked(false);
+        mLactation.setChecked(false);
+        mRhythm.setChecked(false);
+        mStandard.setChecked(false);
+        mSympho.setChecked(false);
+        mWithdrawal.setChecked(false);
+        mCondom.setChecked(false);
+        mDepo.setChecked(false);
+        mIud.setChecked(false);
+        mTubal.setChecked(false);
+        mPills.setChecked(false);
+        mVasectomy.setChecked(false);
+        mOthers.setChecked(false);
     }
 
 }

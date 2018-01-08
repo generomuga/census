@@ -73,7 +73,7 @@ public class FamilyFragment extends Fragment {
     FirebaseAuth mAuth;
 
     //shared pref
-    SharedPreferences mSharedPreference;
+    public static SharedPreferences mSharedPreference;
 
     private View view;
 
@@ -361,7 +361,7 @@ public class FamilyFragment extends Fragment {
     public void onPause() {
         super.onPause();
         savePreference();
-        sendData();
+        //sendData();
     }
 
     @Override
@@ -452,71 +452,6 @@ public class FamilyFragment extends Fragment {
         mTricycleNo.setText(mSharedPreference.getString("tricycleNo", ""));
         mTruckNo.setText(mSharedPreference.getString("truckNo", ""));
         mVanNo.setText(mSharedPreference.getString("vanNo", ""));
-    }
-
-    private void sendData(){
-
-        /*private int noMale;
-        private int noFemale;
-        private String yearResided;
-        private String placeOrigin;
-        private String noVoters;
-        private int selectBicycle;
-        private int noBicycle;
-        private int selectBoat;
-        private int noBoat;
-        private int selectBus;
-        private int noBus;
-        private int selectCar;
-        private int noCar;
-        private int selectJeepney;
-        private int noJeep;
-        private int selectMotorboat;
-        private int noMotorboat;
-        private int selectMotorcycle;
-        private int noMotorCycle;
-        private int selectOwnerJeep;
-        private int noOwnerJeep;
-        private int selectPedicab;
-        private int noPedicab;
-        private int selectPickup;
-        private int noPickup;
-        private int selectPumpBoat;
-        private int noPumpBoat;
-        private int selectRaft;
-        private int noRaft;
-        private int selectSuv;
-        private int noSuv;
-        private int selectTricycle;
-        private int noTricycle;
-        private int selectTruck;
-        private int noTruck;
-        private int selectVan;
-        private int noVan;
-        private String timeStamp;*/
-
-
-        Family family = new Family();
-        family.setNoMale(Integer.parseInt(mMaleMember.getText().toString()));
-        family.setNoFemale(Integer.parseInt(mFemaleMember.getText().toString()));
-        family.setYearResided(Integer.parseInt(mYearOrigin.getText().toString()));
-        family.setPlaceOrigin(mPlaceOrigin.getText().toString().trim());
-        family.setNoVoters(Integer.parseInt(mNoVoters.getText().toString()));
-
-        String uid = mAuth.getCurrentUser().getUid();
-        DatabaseReference familyFragmentRef = mDatabase.child("family").child(uid);
-        familyFragmentRef.setValue(family).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
-
-                }
-                else{
-                    Toast.makeText(getContext(), task.getException().toString(), Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
     }
 
 }

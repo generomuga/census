@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#394152"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -25,6 +26,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -71,6 +73,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -117,6 +120,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -157,231 +161,268 @@
 
             </LinearLayout>
 
-            <TextView
+            <LinearLayout
+                android:background="@drawable/edittext_round"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_weight="1"
-                android:text="Do you use iodized salt?"
-                android:textColor="#fff"
-                android:textSize="12sp" />
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:orientation="vertical">
-
-                <RadioButton
-                    android:id="@+id/radioButtonIodizeYes"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorAccent"
-                    android:checked="true"
-                    android:text="Yes"
-                    android:textColor="#fff" />
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:text="Do you use iodized salt?"
+                    android:textColor="#fff"
+                    android:textSize="12sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButtonIodizeNo"
+                <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorAccent"
-                    android:text="No"
-                    android:textColor="#fff" />
-            </RadioGroup>
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
 
-            <TextView
+                    <RadioButton
+                        android:id="@+id/radioButtonIodizeYes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorAccent"
+                        android:checked="true"
+                        android:text="Yes"
+                        android:textColor="#fff" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonIodizeNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorAccent"
+                        android:text="No"
+                        android:textColor="#fff" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/edittext_round"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_weight="1"
-                android:text="Do you practice family planning?"
-                android:textColor="#fff"
-                android:textSize="12sp" />
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:orientation="vertical">
-
-                <RadioButton
-                    android:id="@+id/radioButtonFamilyYes"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorAccent"
-                    android:checked="true"
-                    android:text="Yes"
-                    android:textColor="#fff" />
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:text="Do you practice family planning?"
+                    android:textColor="#fff"
+                    android:textSize="12sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButtonFamilyNo"
+                <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorAccent"
-                    android:text="No"
-                    android:textColor="#fff" />
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
 
-                <RadioButton
-                    android:id="@+id/radioButtonFamilyNa"
+                    <RadioButton
+                        android:id="@+id/radioButtonFamilyYes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorAccent"
+                        android:checked="true"
+                        android:text="Yes"
+                        android:textColor="#fff" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonFamilyNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorAccent"
+                        android:text="No"
+                        android:textColor="#fff" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonFamilyNa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorAccent"
+                        android:text="Not applicable"
+                        android:textColor="#fff" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutContra"
+                android:background="@drawable/edittext_round"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorAccent"
-                    android:text="Not applicable"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:text="If yes, what methods of family planning:"
                     android:textColor="#fff" />
-            </RadioGroup>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:text="If yes, what methods of family planning:"
-                android:textColor="#fff" />
+                <CheckBox
+                    android:id="@+id/checkboxBasal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Basal body temperature"
+                    android:textColor="#fff" />
 
-            <CheckBox
-                android:id="@+id/checkboxBasal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:buttonTint="@color/colorAccent"
-                android:text="Basal body temperature"
-                android:textColor="#fff" />
+                <CheckBox
+                    android:id="@+id/checkboxCervical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Cervical mucus"
+                    android:textColor="#fff" />
 
-            <CheckBox
-                android:id="@+id/checkboxCervical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:buttonTint="@color/colorAccent"
-                android:text="Cervical mucus"
-                android:textColor="#fff" />
+                <CheckBox
+                    android:id="@+id/checkboxLactation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Lactation amenorrhea method"
+                    android:textColor="#fff" />
 
-            <CheckBox
-                android:id="@+id/checkboxLactation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:buttonTint="@color/colorAccent"
-                android:text="Lactation amenorrhea method"
-                android:textColor="#fff" />
+                <CheckBox
+                    android:id="@+id/checkboxRhythm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Rhythm"
+                    android:textColor="#fff" />
 
-            <CheckBox
-                android:id="@+id/checkboxRhythm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:buttonTint="@color/colorAccent"
-                android:text="Rhythm"
-                android:textColor="#fff" />
+                <CheckBox
+                    android:id="@+id/checkboxStandard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Standard Days Method"
+                    android:textColor="#fff" />
 
-            <CheckBox
-                android:id="@+id/checkboxStandard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:buttonTint="@color/colorAccent"
-                android:text="Standard Days Method"
-                android:textColor="#fff" />
+                <CheckBox
+                    android:id="@+id/checkboxSympho"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Sympho"
+                    android:textColor="#fff" />
 
-            <CheckBox
-                android:id="@+id/checkboxSympho"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:buttonTint="@color/colorAccent"
-                android:text="Sympho"
-                android:textColor="#fff" />
+                <CheckBox
+                    android:id="@+id/checkboxWithdrawal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Withdrawal"
+                    android:textColor="#fff" />
 
-            <CheckBox
-                android:id="@+id/checkboxWithdrawal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:buttonTint="@color/colorAccent"
-                android:text="Withdrawal"
-                android:textColor="#fff" />
+                <CheckBox
+                    android:id="@+id/checkboxCondom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Condom"
+                    android:textColor="#fff" />
 
-            <CheckBox
-                android:id="@+id/checkboxCondom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:buttonTint="@color/colorAccent"
-                android:text="Condom"
-                android:textColor="#fff" />
+                <CheckBox
+                    android:id="@+id/checkboxDepo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Depo injection"
+                    android:textColor="#fff" />
 
-            <CheckBox
-                android:id="@+id/checkboxDepo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:buttonTint="@color/colorAccent"
-                android:text="Depo injection"
-                android:textColor="#fff" />
+                <CheckBox
+                    android:id="@+id/checkboxIud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="IUD"
+                    android:textColor="#fff" />
 
-            <CheckBox
-                android:id="@+id/checkboxIud"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:buttonTint="@color/colorAccent"
-                android:text="IUD"
-                android:textColor="#fff" />
+                <CheckBox
+                    android:id="@+id/checkboxTubal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Tubal ligation"
+                    android:textColor="#fff" />
 
-            <CheckBox
-                android:id="@+id/checkboxTubal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:buttonTint="@color/colorAccent"
-                android:text="Tubal ligation"
-                android:textColor="#fff" />
+                <CheckBox
+                    android:id="@+id/checkboxPill"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Pills"
+                    android:textColor="#fff" />
 
-            <CheckBox
-                android:id="@+id/checkboxPill"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:buttonTint="@color/colorAccent"
-                android:text="Pills"
-                android:textColor="#fff" />
+                <CheckBox
+                    android:id="@+id/checkboxVasectomy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Vasectomy"
+                    android:textColor="#fff" />
 
-            <CheckBox
-                android:id="@+id/checkboxVasectomy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:buttonTint="@color/colorAccent"
-                android:text="Vasectomy"
-                android:textColor="#fff" />
+                <CheckBox
+                    android:id="@+id/checkboxOthers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Others"
+                    android:textColor="#fff" />
 
-            <CheckBox
-                android:id="@+id/checkboxOthers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:buttonTint="@color/colorAccent"
-                android:text="Others"
-                android:textColor="#fff" />
+            </LinearLayout>
 
         </LinearLayout>
 
