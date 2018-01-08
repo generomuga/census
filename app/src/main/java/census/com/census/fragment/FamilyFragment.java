@@ -247,6 +247,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mBicycleNo.setText(null);
+                    mBicycleNo.setError(null);
                     mBicycleNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -285,6 +286,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mBoatNo.setText(null);
+                    mBoatNo.setError(null);
                     mBoatNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -323,6 +325,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mBusNo.setText(null);
+                    mBusNo.setError(null);
                     mBusNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -361,6 +364,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mCarNo.setText(null);
+                    mCarNo.setError(null);
                     mCarNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -399,6 +403,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mJeepNo.setText(null);
+                    mJeepNo.setError(null);
                     mJeepNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -437,6 +442,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mMotorBoatNo.setText(null);
+                    mMotorBoatNo.setError(null);
                     mMotorBoatNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -475,6 +481,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mMotorcycleNo.setText(null);
+                    mMotorcycleNo.setError(null);
                     mMotorcycleNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -513,6 +520,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mOwnerNo.setText(null);
+                    mOwnerNo.setError(null);
                     mOwnerNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -551,6 +559,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mPedicabNo.setText(null);
+                    mPedicabNo.setError(null);
                     mPedicabNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -589,6 +598,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mPickUpNo.setText(null);
+                    mPickUpNo.setError(null);
                     mPickUpNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -627,6 +637,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mPumpboatNo.setText(null);
+                    mPumpboatNo.setError(null);
                     mPumpboatNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -665,6 +676,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mRaftNo.setText(null);
+                    mRaftNo.setError(null);
                     mRaftNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -703,6 +715,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mSuvNo.setText(null);
+                    mSuvNo.setError(null);
                     mSuvNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -741,6 +754,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mTricycleNo.setText(null);
+                    mTricycleNo.setError(null);
                     mTricycleNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -779,6 +793,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mTruckNo.setText(null);
+                    mTruckNo.setError(null);
                     mTruckNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -817,6 +832,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mVanNo.setText(null);
+                    mVanNo.setError(null);
                     mVanNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
