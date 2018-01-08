@@ -107,6 +107,23 @@ public class FamilyFragment extends Fragment {
         mTruckNo = (EditText) view.findViewById(id.editTextTruckNo);
         mVanNo = (EditText) view.findViewById(id.editTextVanNo);
 
+        mBicycleNo.setEnabled(false);
+        mBoatNo.setEnabled(false);
+        mBusNo.setEnabled(false);
+        mCarNo.setEnabled(false);
+        mJeepNo.setEnabled(false);
+        mMotorBoatNo.setEnabled(false);
+        mMotorcycleNo.setEnabled(false);
+        mOwnerNo.setEnabled(false);
+        mPedicabNo.setEnabled(false);
+        mPickUpNo.setEnabled(false);
+        mPumpboatNo.setEnabled(false);
+        mRaftNo.setEnabled(false);
+        mSuvNo.setEnabled(false);
+        mTricycleNo.setEnabled(false);
+        mTruckNo.setEnabled(false);
+        mVanNo.setEnabled(false);
+
         mBicycle =  (CheckBox) view.findViewById(id.checkboxBicycle);
         mBoat = (CheckBox) view.findViewById(id.checkboxBoat);
         mBus = (CheckBox) view.findViewById(id.checkboxBus);
