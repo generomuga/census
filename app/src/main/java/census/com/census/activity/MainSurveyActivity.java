@@ -325,6 +325,7 @@ public class MainSurveyActivity extends AppCompatActivity {
                     sendDataIdentification();
                     sendDataFamily();
                     sendDataHealth();
+                    sendDataEnvironment();
                     startActivity(new Intent(MainSurveyActivity.this, MainActivity.class));
                 }
 
@@ -581,6 +582,33 @@ public class MainSurveyActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void sendDataEnvironment(){
+        DatabaseReference environmentRef = mDatabase.child("environment");
+
+        Environment environment = new Environment();
+        environment.setToilet(EnvironmentFragment.spinnerToilet.getSelectedItemPosition());
+        environment.setWater(EnvironmentFragment.spinnerWater.getSelectedItemPosition());
+        environment.setElectricity(EnvironmentFragment.spinnerElectricity.getSelectedItemPosition());
+        environment.setAcquisition(EnvironmentFragment.spinnerHouse.getSelectedItemPosition());
+        environment.setLot(EnvironmentFragment.spinnerLot.getSelectedItemPosition());
+        environment.setStructure(EnvironmentFragment.spinnerStructure.getSelectedItemPosition());
+        environment.setWalls(EnvironmentFragment.spinnerExternal.getSelectedItemPosition());
+        environment.setRoof(EnvironmentFragment.spinnerRoof.getSelectedItemPosition());
+        environment.setFloor(EnvironmentFragment.spinnerFloor.getSelectedItemPosition());
+        environment.setLight(EnvironmentFragment.spinnerLightning.getSelectedItemPosition());
+        environment.setCook(EnvironmentFragment.spinnerCooking.getSelectedItemPosition());
+        environment.setGarbage(EnvironmentFragment.spinnerGarbage.getSelectedItemPosition());
+        environment.setLocation(EnvironmentFragment.spinnerLocation.getSelectedItemPosition());
+        environment.setEcological(EnvironmentFragment.spinnerEcological.getSelectedItemPosition());
+
+        environmentRef.child(key).setValue(environment).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+            }
+        });
     }
 
     @Override
