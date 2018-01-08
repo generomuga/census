@@ -195,7 +195,13 @@ public class FamilyFragment extends Fragment {
                         mYearOrigin.setError("Required field");
                     }
                     else{
-                        mYearOrigin.setError(null);
+                        if (Integer.parseInt(mYearOrigin.getText().toString()) >= 1980 && Integer.parseInt(mYearOrigin.getText().toString()) <= 2018){
+                            mYearOrigin.setError(null);
+                        }
+                        else
+                        {
+                            mYearOrigin.setError("Invalid year");
+                        }
                     }
                     MainSurveyActivity.mHealth.setEnabled(false);
                 }
@@ -1099,6 +1105,14 @@ public class FamilyFragment extends Fragment {
                 FamilyFragment.mVanNo.setError("Required field");
                 return false;
             }
+        }
+
+        if (Integer.parseInt(FamilyFragment.mYearOrigin.getText().toString()) >= 1980 || Integer.parseInt(FamilyFragment.mYearOrigin.getText().toString()) <= 2018){
+        }
+        else
+        {
+            mYearOrigin.setError("Invalid year");
+            return false;
         }
 
 
