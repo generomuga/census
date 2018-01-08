@@ -44,6 +44,7 @@ public class MainSurveyActivity extends AppCompatActivity {
     String key = null;
 
     public static ImageButton mFamily;
+    public static ImageButton mHealth;
 
     public static MenuItem mSave;
 
@@ -60,6 +61,9 @@ public class MainSurveyActivity extends AppCompatActivity {
 
         mFamily = (ImageButton) findViewById(R.id.imageButtonFamily);
         mFamily.setEnabled(false);
+
+        mHealth = (ImageButton) findViewById(R.id.imageButtonHealth);
+        mHealth.setEnabled(false);
 
         //to add toolbar in the activity
         mToolBarSurvey = (Toolbar) findViewById(R.id.toolBarSurvey);
