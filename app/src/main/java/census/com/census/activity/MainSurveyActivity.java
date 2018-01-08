@@ -324,6 +324,7 @@ public class MainSurveyActivity extends AppCompatActivity {
                 if (checkIdentificationFieldsComplete() && checkFamilyFieldsComplete()){
                     sendDataIdentification();
                     sendDataFamily();
+                    sendDataHealth();
                     startActivity(new Intent(MainSurveyActivity.this, MainActivity.class));
                 }
 
@@ -514,6 +515,71 @@ public class MainSurveyActivity extends AppCompatActivity {
         else {
             Toast.makeText(this, "Please complete Family (2)", Toast.LENGTH_SHORT).show();
         }
+
+    }
+
+    private void sendDataHealth(){
+        DatabaseReference healthRef = mDatabase.child("health");
+
+        int eat = (HealthFragment.mEatYes.isChecked()) ? 1 : 0;
+        int herbal = (HealthFragment.mHerbalYes.isChecked()) ? 1 : 0;
+        int vegetable = (HealthFragment.mVegYes.isChecked()) ? 1 : 0;
+        int salt = (HealthFragment.mIodizeYes.isChecked()) ? 1 : 0;
+
+        int familyPlanning = 0;
+        if (HealthFragment.mFamilyYes.isChecked()){
+            familyPlanning = 1;
+        }
+        if (HealthFragment.mFamilyNo.isChecked()) {
+            familyPlanning = 0;
+        }
+        if (HealthFragment.mFamilyNa.isChecked()) {
+            familyPlanning = 2;
+        }
+
+        int basal = (HealthFragment.mBasal.isChecked()) ? 1 : 0;
+        int cervical = (HealthFragment.mCervical.isChecked()) ? 1 : 0;
+        int lactation = (HealthFragment.mLactation.isChecked()) ? 1 : 0;
+        int rhythm = (HealthFragment.mRhythm.isChecked()) ? 1 : 0;
+        int standard = (HealthFragment.mStandard.isChecked()) ? 1 : 0;
+        int sympho = (HealthFragment.mSympho.isChecked()) ? 1 : 0;
+        int withdrawal = (HealthFragment.mWithdrawal.isChecked()) ? 1 : 0;
+        int condom = (HealthFragment.mCondom.isChecked()) ? 1 : 0;
+        int depo = (HealthFragment.mDepo.isChecked()) ? 1 : 0;
+        int iud = (HealthFragment.mIud.isChecked()) ? 1 : 0;
+        int tubal = (HealthFragment.mTubal.isChecked()) ? 1 : 0;
+        int pills = (HealthFragment.mPills.isChecked()) ? 1 : 0;
+        int vasectomy = (HealthFragment.mVasectomy.isChecked()) ? 1 : 0;
+        int others = (HealthFragment.mOthers.isChecked()) ? 1 : 0;
+
+        Health health = new Health();
+
+        health.setEatComplete(eat);
+        health.setPlantHerbal(herbal);
+        health.setVegGarden(vegetable);
+        health.setUseIodize(salt);
+        health.setFamilyPlan(familyPlanning);
+        health.setBasal(basal);
+        health.setCervical(cervical);
+        health.setLactation(lactation);
+        health.setRhtythm(rhythm);
+        health.setStandard(standard);
+        health.setSympho(sympho);
+        health.setWithdrawal(withdrawal);
+        health.setCondom(condom);
+        health.setDepo(depo);
+        health.setIud(iud);
+        health.setTubal(tubal);
+        health.setPills(pills);
+        health.setVasectomy(vasectomy);
+        health.setOthers(others);
+
+        healthRef.child(key).setValue(health).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+            }
+        });
 
     }
 
