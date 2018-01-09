@@ -44,6 +44,8 @@ public class MainSurveyActivity extends AppCompatActivity {
     String key = null;
 
     public static ImageButton mFamily;
+    public static ImageButton mHealth;
+    public static ImageButton mEnvironment;
 
     public static MenuItem mSave;
 
@@ -60,6 +62,12 @@ public class MainSurveyActivity extends AppCompatActivity {
 
         mFamily = (ImageButton) findViewById(R.id.imageButtonFamily);
         mFamily.setEnabled(false);
+
+        mHealth = (ImageButton) findViewById(R.id.imageButtonHealth);
+        mHealth.setEnabled(false);
+
+        mEnvironment = (ImageButton) findViewById(R.id.imageButtonEnvironment);
+        mEnvironment.setEnabled(false);
 
         //to add toolbar in the activity
         mToolBarSurvey = (Toolbar) findViewById(R.id.toolBarSurvey);
@@ -103,6 +111,7 @@ public class MainSurveyActivity extends AppCompatActivity {
                 break;
 
             case R.id.imageButtonHealth:
+                mEnvironment.setEnabled(true);
                 isLastFragment = false;
                 getSupportActionBar().setTitle("Health");
                 HealthFragment healthFragment = new HealthFragment();
@@ -315,6 +324,8 @@ public class MainSurveyActivity extends AppCompatActivity {
                 if (checkIdentificationFieldsComplete() && checkFamilyFieldsComplete()){
                     sendDataIdentification();
                     sendDataFamily();
+                    sendDataHealth();
+                    sendDataEnvironment();
                     startActivity(new Intent(MainSurveyActivity.this, MainActivity.class));
                 }
 
@@ -376,46 +387,6 @@ public class MainSurveyActivity extends AppCompatActivity {
 
 
     private void sendDataFamily(){
-
-        /*private int noMale;
-        private int noFemale;
-        private String yearResided;
-        private String placeOrigin;
-        private String noVoters;
-        private int selectBicycle;
-        private int noBicycle;
-        private int selectBoat;
-        private int noBoat;
-        private int selectBus;
-        private int noBus;
-        private int selectCar;
-        private int noCar;
-        private int selectJeepney;
-        private int noJeep;
-        private int selectMotorboat;
-        private int noMotorboat;
-        private int selectMotorcycle;
-        private int noMotorCycle;
-        private int selectOwnerJeep;
-        private int noOwnerJeep;
-        private int selectPedicab;
-        private int noPedicab;
-        private int selectPickup;
-        private int noPickup;
-        private int selectPumpBoat;
-        private int noPumpBoat;
-        private int selectRaft;
-        private int noRaft;
-        private int selectSuv;
-        private int noSuv;
-        private int selectTricycle;
-        private int noTricycle;
-        private int selectTruck;
-        private int noTruck;
-        private int selectVan;
-        private int noVan;
-        private String timeStamp;*/
-
         if (checkFamilyFieldsComplete()) {
 
             int selectBicycle = (FamilyFragment.mBicycle.isChecked()) ? 1 : 0;
@@ -506,6 +477,98 @@ public class MainSurveyActivity extends AppCompatActivity {
             Toast.makeText(this, "Please complete Family (2)", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    private void sendDataHealth(){
+        DatabaseReference healthRef = mDatabase.child("health");
+
+        int eat = (HealthFragment.mEatYes.isChecked()) ? 1 : 0;
+        int herbal = (HealthFragment.mHerbalYes.isChecked()) ? 1 : 0;
+        int vegetable = (HealthFragment.mVegYes.isChecked()) ? 1 : 0;
+        int salt = (HealthFragment.mIodizeYes.isChecked()) ? 1 : 0;
+
+        int familyPlanning = 0;
+        if (HealthFragment.mFamilyYes.isChecked()){
+            familyPlanning = 1;
+        }
+        if (HealthFragment.mFamilyNo.isChecked()) {
+            familyPlanning = 0;
+        }
+        if (HealthFragment.mFamilyNa.isChecked()) {
+            familyPlanning = 2;
+        }
+
+        int basal = (HealthFragment.mBasal.isChecked()) ? 1 : 0;
+        int cervical = (HealthFragment.mCervical.isChecked()) ? 1 : 0;
+        int lactation = (HealthFragment.mLactation.isChecked()) ? 1 : 0;
+        int rhythm = (HealthFragment.mRhythm.isChecked()) ? 1 : 0;
+        int standard = (HealthFragment.mStandard.isChecked()) ? 1 : 0;
+        int sympho = (HealthFragment.mSympho.isChecked()) ? 1 : 0;
+        int withdrawal = (HealthFragment.mWithdrawal.isChecked()) ? 1 : 0;
+        int condom = (HealthFragment.mCondom.isChecked()) ? 1 : 0;
+        int depo = (HealthFragment.mDepo.isChecked()) ? 1 : 0;
+        int iud = (HealthFragment.mIud.isChecked()) ? 1 : 0;
+        int tubal = (HealthFragment.mTubal.isChecked()) ? 1 : 0;
+        int pills = (HealthFragment.mPills.isChecked()) ? 1 : 0;
+        int vasectomy = (HealthFragment.mVasectomy.isChecked()) ? 1 : 0;
+        int others = (HealthFragment.mOthers.isChecked()) ? 1 : 0;
+
+        Health health = new Health();
+
+        health.setEatComplete(eat);
+        health.setPlantHerbal(herbal);
+        health.setVegGarden(vegetable);
+        health.setUseIodize(salt);
+        health.setFamilyPlan(familyPlanning);
+        health.setBasal(basal);
+        health.setCervical(cervical);
+        health.setLactation(lactation);
+        health.setRhtythm(rhythm);
+        health.setStandard(standard);
+        health.setSympho(sympho);
+        health.setWithdrawal(withdrawal);
+        health.setCondom(condom);
+        health.setDepo(depo);
+        health.setIud(iud);
+        health.setTubal(tubal);
+        health.setPills(pills);
+        health.setVasectomy(vasectomy);
+        health.setOthers(others);
+
+        healthRef.child(key).setValue(health).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+            }
+        });
+
+    }
+
+    private void sendDataEnvironment(){
+        DatabaseReference environmentRef = mDatabase.child("environment");
+
+        Environment environment = new Environment();
+        environment.setToilet(EnvironmentFragment.spinnerToilet.getSelectedItemPosition());
+        environment.setWater(EnvironmentFragment.spinnerWater.getSelectedItemPosition());
+        environment.setElectricity(EnvironmentFragment.spinnerElectricity.getSelectedItemPosition());
+        environment.setAcquisition(EnvironmentFragment.spinnerHouse.getSelectedItemPosition());
+        environment.setLot(EnvironmentFragment.spinnerLot.getSelectedItemPosition());
+        environment.setStructure(EnvironmentFragment.spinnerStructure.getSelectedItemPosition());
+        environment.setWalls(EnvironmentFragment.spinnerExternal.getSelectedItemPosition());
+        environment.setRoof(EnvironmentFragment.spinnerRoof.getSelectedItemPosition());
+        environment.setFloor(EnvironmentFragment.spinnerFloor.getSelectedItemPosition());
+        environment.setLight(EnvironmentFragment.spinnerLightning.getSelectedItemPosition());
+        environment.setCook(EnvironmentFragment.spinnerCooking.getSelectedItemPosition());
+        environment.setGarbage(EnvironmentFragment.spinnerGarbage.getSelectedItemPosition());
+        environment.setLocation(EnvironmentFragment.spinnerLocation.getSelectedItemPosition());
+        environment.setEcological(EnvironmentFragment.spinnerEcological.getSelectedItemPosition());
+
+        environmentRef.child(key).setValue(environment).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+            }
+        });
     }
 
     @Override

@@ -240,7 +240,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/colorAccent"
-                        android:checked="true"
                         android:text="Yes"
                         android:textColor="#fff" />
 
@@ -249,6 +248,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/colorAccent"
+                        android:checked="true"
                         android:text="No"
                         android:textColor="#fff" />
 

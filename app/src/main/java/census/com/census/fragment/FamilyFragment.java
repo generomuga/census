@@ -22,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import census.com.census.Family;
 import census.com.census.R;
+import census.com.census.activity.MainSurveyActivity;
 
 import static census.com.census.R.*;
 
@@ -106,6 +107,23 @@ public class FamilyFragment extends Fragment {
         mTruckNo = (EditText) view.findViewById(id.editTextTruckNo);
         mVanNo = (EditText) view.findViewById(id.editTextVanNo);
 
+        mBicycleNo.setEnabled(false);
+        mBoatNo.setEnabled(false);
+        mBusNo.setEnabled(false);
+        mCarNo.setEnabled(false);
+        mJeepNo.setEnabled(false);
+        mMotorBoatNo.setEnabled(false);
+        mMotorcycleNo.setEnabled(false);
+        mOwnerNo.setEnabled(false);
+        mPedicabNo.setEnabled(false);
+        mPickUpNo.setEnabled(false);
+        mPumpboatNo.setEnabled(false);
+        mRaftNo.setEnabled(false);
+        mSuvNo.setEnabled(false);
+        mTricycleNo.setEnabled(false);
+        mTruckNo.setEnabled(false);
+        mVanNo.setEnabled(false);
+
         mBicycle =  (CheckBox) view.findViewById(id.checkboxBicycle);
         mBoat = (CheckBox) view.findViewById(id.checkboxBoat);
         mBus = (CheckBox) view.findViewById(id.checkboxBus);
@@ -129,6 +147,103 @@ public class FamilyFragment extends Fragment {
         mPlaceOrigin = (EditText) view.findViewById(id.editTextOrigin);
         mNoVoters = (EditText) view.findViewById(id.editTextNoVoters);
 
+
+        mMaleMember.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mMaleMember.getText().toString().equals("")) {
+                        mMaleMember.setError("Required field");
+                    }
+                    else{
+                        mMaleMember.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mFemaleMember.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mFemaleMember.getText().toString().equals("")) {
+                        mFemaleMember.setError("Required field");
+                    }
+                    else{
+                        mFemaleMember.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mYearOrigin.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mYearOrigin.getText().toString().equals("")) {
+                        mYearOrigin.setError("Required field");
+                    }
+                    else{
+                        if (Integer.parseInt(mYearOrigin.getText().toString()) >= 1980 && Integer.parseInt(mYearOrigin.getText().toString()) <= 2018){
+                            mYearOrigin.setError(null);
+                        }
+                        else
+                        {
+                            mYearOrigin.setError("Invalid year");
+                        }
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mPlaceOrigin.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mPlaceOrigin.getText().toString().equals("")) {
+                        mPlaceOrigin.setError("Required field");
+                    }
+                    else{
+                        mPlaceOrigin.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mNoVoters.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mNoVoters.getText().toString().equals("")) {
+                        mNoVoters.setError("Required field");
+                    }
+                    else{
+                        mNoVoters.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
         //checkbox bicycle
         mBicycle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,7 +253,32 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mBicycleNo.setText(null);
+                    mBicycleNo.setError(null);
                     mBicycleNo.setEnabled(false);
+                }
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mBicycleNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mBicycleNo.getText().toString().equals("")) {
+                        mBicycleNo.setError("Required field");
+                    }
+                    else{
+                        mBicycleNo.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
                 }
             }
         });
@@ -152,7 +292,32 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mBoatNo.setText(null);
+                    mBoatNo.setError(null);
                     mBoatNo.setEnabled(false);
+                }
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mBoatNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mBoatNo.getText().toString().equals("")) {
+                        mBoatNo.setError("Required field");
+                    }
+                    else{
+                        mBoatNo.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
                 }
             }
         });
@@ -166,7 +331,32 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mBusNo.setText(null);
+                    mBusNo.setError(null);
                     mBusNo.setEnabled(false);
+                }
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mBusNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mBusNo.getText().toString().equals("")) {
+                        mBusNo.setError("Required field");
+                    }
+                    else{
+                        mBusNo.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
                 }
             }
         });
@@ -180,7 +370,32 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mCarNo.setText(null);
+                    mCarNo.setError(null);
                     mCarNo.setEnabled(false);
+                }
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mCarNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mCarNo.getText().toString().equals("")) {
+                        mCarNo.setError("Required field");
+                    }
+                    else{
+                        mCarNo.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
                 }
             }
         });
@@ -194,7 +409,32 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mJeepNo.setText(null);
+                    mJeepNo.setError(null);
                     mJeepNo.setEnabled(false);
+                }
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mJeepNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mJeepNo.getText().toString().equals("")) {
+                        mJeepNo.setError("Required field");
+                    }
+                    else{
+                        mJeepNo.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
                 }
             }
         });
@@ -208,7 +448,32 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mMotorBoatNo.setText(null);
+                    mMotorBoatNo.setError(null);
                     mMotorBoatNo.setEnabled(false);
+                }
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mMotorBoatNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mMotorBoatNo.getText().toString().equals("")) {
+                        mMotorBoatNo.setError("Required field");
+                    }
+                    else{
+                        mMotorBoatNo.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
                 }
             }
         });
@@ -222,7 +487,32 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mMotorcycleNo.setText(null);
+                    mMotorcycleNo.setError(null);
                     mMotorcycleNo.setEnabled(false);
+                }
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mMotorcycleNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mMotorcycleNo.getText().toString().equals("")) {
+                        mMotorcycleNo.setError("Required field");
+                    }
+                    else{
+                        mMotorcycleNo.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
                 }
             }
         });
@@ -236,7 +526,32 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mOwnerNo.setText(null);
+                    mOwnerNo.setError(null);
                     mOwnerNo.setEnabled(false);
+                }
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mOwnerNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mOwnerNo.getText().toString().equals("")) {
+                        mOwnerNo.setError("Required field");
+                    }
+                    else{
+                        mOwnerNo.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
                 }
             }
         });
@@ -250,7 +565,32 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mPedicabNo.setText(null);
+                    mPedicabNo.setError(null);
                     mPedicabNo.setEnabled(false);
+                }
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mPedicabNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mPedicabNo.getText().toString().equals("")) {
+                        mPedicabNo.setError("Required field");
+                    }
+                    else{
+                        mPedicabNo.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
                 }
             }
         });
@@ -264,7 +604,32 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mPickUpNo.setText(null);
+                    mPickUpNo.setError(null);
                     mPickUpNo.setEnabled(false);
+                }
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mPickUpNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mPickUpNo.getText().toString().equals("")) {
+                        mPickUpNo.setError("Required field");
+                    }
+                    else{
+                        mPickUpNo.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
                 }
             }
         });
@@ -278,7 +643,32 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mPumpboatNo.setText(null);
+                    mPumpboatNo.setError(null);
                     mPumpboatNo.setEnabled(false);
+                }
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mPumpboatNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mPumpboatNo.getText().toString().equals("")) {
+                        mPumpboatNo.setError("Required field");
+                    }
+                    else{
+                        mPumpboatNo.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
                 }
             }
         });
@@ -292,7 +682,32 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mRaftNo.setText(null);
+                    mRaftNo.setError(null);
                     mRaftNo.setEnabled(false);
+                }
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mRaftNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mRaftNo.getText().toString().equals("")) {
+                        mRaftNo.setError("Required field");
+                    }
+                    else{
+                        mRaftNo.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
                 }
             }
         });
@@ -306,7 +721,32 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mSuvNo.setText(null);
+                    mSuvNo.setError(null);
                     mSuvNo.setEnabled(false);
+                }
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mSuvNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mSuvNo.getText().toString().equals("")) {
+                        mSuvNo.setError("Required field");
+                    }
+                    else{
+                        mSuvNo.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
                 }
             }
         });
@@ -320,7 +760,32 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mTricycleNo.setText(null);
+                    mTricycleNo.setError(null);
                     mTricycleNo.setEnabled(false);
+                }
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mTricycleNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mTricycleNo.getText().toString().equals("")) {
+                        mTricycleNo.setError("Required field");
+                    }
+                    else{
+                        mTricycleNo.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
                 }
             }
         });
@@ -334,7 +799,32 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mTruckNo.setText(null);
+                    mTruckNo.setError(null);
                     mTruckNo.setEnabled(false);
+                }
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
+
+        mTruckNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mTruckNo.getText().toString().equals("")) {
+                        mTruckNo.setError("Required field");
+                    }
+                    else{
+                        mTruckNo.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
                 }
             }
         });
@@ -348,11 +838,35 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mVanNo.setText(null);
+                    mVanNo.setError(null);
                     mVanNo.setEnabled(false);
+                }
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    MainSurveyActivity.mHealth.setEnabled(false);
                 }
             }
         });
 
+        mVanNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (checkFamilyFieldsComplete()){
+                    MainSurveyActivity.mHealth.setEnabled(true);
+                }
+                else{
+                    if (mVanNo.getText().toString().equals("")) {
+                        mVanNo.setError("Required field");
+                    }
+                    else{
+                        mVanNo.setError(null);
+                    }
+                    MainSurveyActivity.mHealth.setEnabled(false);
+                }
+            }
+        });
 
         return  view;
     }
@@ -452,6 +966,135 @@ public class FamilyFragment extends Fragment {
         mTricycleNo.setText(mSharedPreference.getString("tricycleNo", ""));
         mTruckNo.setText(mSharedPreference.getString("truckNo", ""));
         mVanNo.setText(mSharedPreference.getString("vanNo", ""));
+    }
+
+    private boolean checkFamilyFieldsComplete(){
+
+        if (mMaleMember.getText().toString().equals("")) {
+            return false;
+        }
+
+        if (mFemaleMember.getText().toString().equals("")) {
+            return false;
+        }
+
+        if (mYearOrigin.getText().toString().equals("")) {
+            return false;
+        }
+
+        if (mPlaceOrigin.getText().toString().equals("")) {
+            return false;
+        }
+
+        if (mNoVoters.getText().toString().equals("")) {
+            return false;
+        }
+
+        if (mBicycle.isChecked()) {
+            if (mBicycleNo.getText().toString().equals("")) {
+                return false;
+            }
+        }
+
+        if (mBoat.isChecked()) {
+            if (mBoatNo.getText().toString().equals("")) {
+                return false;
+            }
+        }
+
+        if (mBus.isChecked()) {
+            if (mBusNo.getText().toString().equals("")) {
+                return false;
+            }
+        }
+
+        if (FamilyFragment.mCar.isChecked()) {
+            if (FamilyFragment.mCarNo.getText().toString().equals("")) {
+                return false;
+            }
+        }
+
+        if (FamilyFragment.mJeep.isChecked()) {
+            if (FamilyFragment.mJeepNo.getText().toString().equals("")) {
+                return false;
+            }
+        }
+
+        if (FamilyFragment.mMotorBoat.isChecked()) {
+            if (FamilyFragment.mMotorBoatNo.getText().toString().equals("")) {
+                return false;
+            }
+        }
+
+        if (FamilyFragment.mMotorcycle.isChecked()) {
+            if (FamilyFragment.mMotorcycleNo.getText().toString().equals("")) {
+                return false;
+            }
+        }
+
+        if (FamilyFragment.mOwner.isChecked()) {
+            if (FamilyFragment.mOwnerNo.getText().toString().equals("")) {
+                return false;
+            }
+        }
+
+        if (FamilyFragment.mPedicab.isChecked()) {
+            if (FamilyFragment.mPedicabNo.getText().toString().equals("")) {
+                return false;
+            }
+        }
+
+        if (FamilyFragment.mPickUp.isChecked()) {
+            if (FamilyFragment.mPickUpNo.getText().toString().equals("")) {
+                return false;
+            }
+        }
+
+        if (FamilyFragment.mPumpboat.isChecked()) {
+            if (FamilyFragment.mPumpboatNo.getText().toString().equals("")) {
+                return false;
+            }
+        }
+
+        if (FamilyFragment.mRaft.isChecked()) {
+            if (FamilyFragment.mRaftNo.getText().toString().equals("")) {
+                return false;
+            }
+        }
+
+        if (FamilyFragment.mSuv.isChecked()) {
+            if (FamilyFragment.mSuvNo.getText().toString().equals("")) {
+                return false;
+            }
+        }
+
+        if (FamilyFragment.mTricycle.isChecked()) {
+            if (FamilyFragment.mTricycleNo.getText().toString().equals("")) {
+                return false;
+            }
+        }
+
+        if (FamilyFragment.mTruck.isChecked()) {
+            if (FamilyFragment.mTruckNo.getText().toString().equals("")) {
+                return false;
+            }
+        }
+
+        if (FamilyFragment.mVan.isChecked()) {
+            if (FamilyFragment.mVanNo.getText().toString().equals("")) {
+                return false;
+            }
+        }
+
+        if (Integer.parseInt(FamilyFragment.mYearOrigin.getText().toString()) >= 1980 && Integer.parseInt(FamilyFragment.mYearOrigin.getText().toString()) <= 2018){
+        }
+        else
+        {
+            return false;
+        }
+
+
+        return true;
     }
 
 }

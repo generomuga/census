@@ -33,20 +33,20 @@ public class EnvironmentFragment extends Fragment {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
 
-    private Spinner spinnerToilet;
-    private Spinner spinnerWater;
-    private Spinner spinnerElectricity;
-    private Spinner spinnerHouse;
-    private Spinner spinnerLot;
-    private Spinner spinnerStructure;
-    private Spinner spinnerExternal;
-    private Spinner spinnerRoof;
-    private Spinner spinnerFloor;
-    private Spinner spinnerLightning;
-    private Spinner spinnerCooking;
-    private Spinner spinnerGarbage;
-    private Spinner spinnerLocation;
-    private Spinner spinnerEcological;
+    public static Spinner spinnerToilet;
+    public static Spinner spinnerWater;
+    public static Spinner spinnerElectricity;
+    public static Spinner spinnerHouse;
+    public static Spinner spinnerLot;
+    public static Spinner spinnerStructure;
+    public static Spinner spinnerExternal;
+    public static Spinner spinnerRoof;
+    public static Spinner spinnerFloor;
+    public static Spinner spinnerLightning;
+    public static Spinner spinnerCooking;
+    public static Spinner spinnerGarbage;
+    public static Spinner spinnerLocation;
+    public static Spinner spinnerEcological;
 
     private ArrayList listToilet;
     private ArrayList listWater;
@@ -374,35 +374,6 @@ public class EnvironmentFragment extends Fragment {
                 "Lowland",
                 "Upland"
         ));
-    }
-
-    private void sendData(){
-        String uid = mAuth.getCurrentUser().getUid();
-
-        DatabaseReference environmentRef = mDatabase.child("environment").child(uid);
-
-        Environment environment = new Environment();
-        environment.setToilet(spinnerToilet.getSelectedItemPosition());
-        environment.setWater(spinnerWater.getSelectedItemPosition());
-        environment.setElectricity(spinnerElectricity.getSelectedItemPosition());
-        environment.setAcquisition(spinnerHouse.getSelectedItemPosition());
-        environment.setLot(spinnerLot.getSelectedItemPosition());
-        environment.setStructure(spinnerStructure.getSelectedItemPosition());
-        environment.setWalls(spinnerExternal.getSelectedItemPosition());
-        environment.setRoof(spinnerRoof.getSelectedItemPosition());
-        environment.setFloor(spinnerFloor.getSelectedItemPosition());
-        environment.setLight(spinnerLightning.getSelectedItemPosition());
-        environment.setCook(spinnerCooking.getSelectedItemPosition());
-        environment.setGarbage(spinnerGarbage.getSelectedItemPosition());
-        environment.setLocation(spinnerLocation.getSelectedItemPosition());
-        environment.setEcological(spinnerEcological.getSelectedItemPosition());
-
-        environmentRef.setValue(environment).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-
-            }
-        });
     }
 
 }
