@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mChartStatus = (BarChart) findViewById(R.id.barChartStatus);
 
         graphIdentification();
+        graphFamiy();
 
     }
 
@@ -191,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
     }
 
     private void graphFamiy(){
-        DatabaseReference familyRef = mDatabase.child("familyIdentification");
+        DatabaseReference familyRef = mDatabase.child("family");
 
         familyRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -199,6 +200,9 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
                 if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0){
                     for (DataSnapshot dataSnapshotFamily: dataSnapshot.getChildren()){
                         Map<String, Object> objectFamily = (Map<String, Object>) dataSnapshotFamily.getValue();
+
+                        int noMale = Integer.parseInt(objectFamily.get("noMale").toString());
+                        Toast.makeText(getApplicationContext(), Integer.toString(noMale), Toast.LENGTH_LONG).show();
                     }
                 }
             }
