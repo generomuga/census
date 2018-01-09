@@ -152,8 +152,8 @@ public class HealthFragment extends Fragment {
         mVegNo.setChecked(sharedPreferences.getBoolean("vegNo",false));
         mIodizeYes.setChecked(sharedPreferences.getBoolean("iodizeYes",true));
         mIodizeNo.setChecked(sharedPreferences.getBoolean("iodizeNo",false));
-        mFamilyYes.setChecked(sharedPreferences.getBoolean("familyYes",true));
-        mFamilyNo.setChecked(sharedPreferences.getBoolean("familyNo",false));
+        mFamilyYes.setChecked(sharedPreferences.getBoolean("familyYes",false));
+        mFamilyNo.setChecked(sharedPreferences.getBoolean("familyNo",true));
         mFamilyNa.setChecked(sharedPreferences.getBoolean("familyNa",false));
 
         mBasal.setChecked(sharedPreferences.getBoolean("basal",false));
