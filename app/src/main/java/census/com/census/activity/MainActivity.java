@@ -119,6 +119,9 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
                 mAuth.signOut();
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 break;
+            case R.id.menu_add:
+                startActivity(new Intent(MainActivity.this, MainSurveyActivity.class));
+                break;
         }
 
         return super.onOptionsItemSelected(item);
