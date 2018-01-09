@@ -14,12 +14,16 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
@@ -33,6 +37,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import census.com.census.R;
@@ -55,9 +60,13 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
     int countActive = 0;
     int countInactive = 0;
 
+    int countMale = 0;
+    int countFemale = 0;
+
     BarChart mChartResidency;
     BarChart mChartOwnership;
     BarChart mChartStatus;
+    PieChart mChartPopulation;
 
     SharedPreferences mSharedPreference;
 
@@ -91,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mChartOwnership = (BarChart) findViewById(R.id.barChartOwnership);
         mChartResidency = (BarChart) findViewById(R.id.barChartResidency);
         mChartStatus = (BarChart) findViewById(R.id.barChartStatus);
+        mChartPopulation = (PieChart) findViewById(R.id.pieChartPopulation);
 
         graphIdentification();
         graphFamiy();
@@ -198,11 +208,21 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0){
+
+                    countMale = 0;
+                    countFemale = 0;
+
                     for (DataSnapshot dataSnapshotFamily: dataSnapshot.getChildren()){
                         Map<String, Object> objectFamily = (Map<String, Object>) dataSnapshotFamily.getValue();
 
                         int noMale = Integer.parseInt(objectFamily.get("noMale").toString());
-                        Toast.makeText(getApplicationContext(), Integer.toString(noMale), Toast.LENGTH_LONG).show();
+                        int noFemale = Integer.parseInt(objectFamily.get("noFemale").toString());
+
+                        countMale = countMale + noMale;
+                        countFemale = countFemale + noFemale;
+
+                        Toast.makeText(getApplicationContext(), Integer.toString(countMale)+" "+Integer.toString(countFemale), Toast.LENGTH_LONG).show();
+                        graphPopulation();
                     }
                 }
             }
@@ -344,6 +364,24 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mChartStatus.notifyDataSetChanged();
         mChartStatus.animateY(1000);
         mChartStatus.invalidate();
+    }
+
+    private void graphPopulation(){
+        List<PieEntry> pieEntries = new ArrayList<>();
+        pieEntries.add(new PieEntry(countMale, "Male"));
+        pieEntries.add(new PieEntry(countFemale, "Female"));
+
+        PieDataSet dataSet = new PieDataSet(pieEntries, "Population");
+        dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        PieData data = new PieData(dataSet);
+
+        mChartPopulation.setData(data);
+        mChartPopulation.invalidate();
+        mChartPopulation.animateY(1000);
+        mChartPopulation.getLegend().setTextColor(Color.WHITE);
+        Description description = new Description();
+        description.setText("");
+        mChartPopulation.setDescription(description);
     }
 
 
