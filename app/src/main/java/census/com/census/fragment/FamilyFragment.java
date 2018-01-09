@@ -195,7 +195,13 @@ public class FamilyFragment extends Fragment {
                         mYearOrigin.setError("Required field");
                     }
                     else{
-                        mYearOrigin.setError(null);
+                        if (Integer.parseInt(mYearOrigin.getText().toString()) >= 1980 && Integer.parseInt(mYearOrigin.getText().toString()) <= 2018){
+                            mYearOrigin.setError(null);
+                        }
+                        else
+                        {
+                            mYearOrigin.setError("Invalid year");
+                        }
                     }
                     MainSurveyActivity.mHealth.setEnabled(false);
                 }
@@ -247,6 +253,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mBicycleNo.setText(null);
+                    mBicycleNo.setError(null);
                     mBicycleNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -285,6 +292,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mBoatNo.setText(null);
+                    mBoatNo.setError(null);
                     mBoatNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -323,6 +331,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mBusNo.setText(null);
+                    mBusNo.setError(null);
                     mBusNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -361,6 +370,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mCarNo.setText(null);
+                    mCarNo.setError(null);
                     mCarNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -399,6 +409,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mJeepNo.setText(null);
+                    mJeepNo.setError(null);
                     mJeepNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -437,6 +448,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mMotorBoatNo.setText(null);
+                    mMotorBoatNo.setError(null);
                     mMotorBoatNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -475,6 +487,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mMotorcycleNo.setText(null);
+                    mMotorcycleNo.setError(null);
                     mMotorcycleNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -513,6 +526,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mOwnerNo.setText(null);
+                    mOwnerNo.setError(null);
                     mOwnerNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -551,6 +565,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mPedicabNo.setText(null);
+                    mPedicabNo.setError(null);
                     mPedicabNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -589,6 +604,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mPickUpNo.setText(null);
+                    mPickUpNo.setError(null);
                     mPickUpNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -627,6 +643,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mPumpboatNo.setText(null);
+                    mPumpboatNo.setError(null);
                     mPumpboatNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -665,6 +682,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mRaftNo.setText(null);
+                    mRaftNo.setError(null);
                     mRaftNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -703,6 +721,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mSuvNo.setText(null);
+                    mSuvNo.setError(null);
                     mSuvNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -741,6 +760,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mTricycleNo.setText(null);
+                    mTricycleNo.setError(null);
                     mTricycleNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -779,6 +799,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mTruckNo.setText(null);
+                    mTruckNo.setError(null);
                     mTruckNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -817,6 +838,7 @@ public class FamilyFragment extends Fragment {
                 }
                 else{
                     mVanNo.setText(null);
+                    mVanNo.setError(null);
                     mVanNo.setEnabled(false);
                 }
                 if (checkFamilyFieldsComplete()){
@@ -949,140 +971,126 @@ public class FamilyFragment extends Fragment {
     private boolean checkFamilyFieldsComplete(){
 
         if (mMaleMember.getText().toString().equals("")) {
-            mMaleMember.setError("Required field");
             return false;
         }
 
         if (mFemaleMember.getText().toString().equals("")) {
-            mFemaleMember.setError("Required field");
             return false;
         }
 
         if (mYearOrigin.getText().toString().equals("")) {
-            mYearOrigin.setError("Required field");
             return false;
         }
 
         if (mPlaceOrigin.getText().toString().equals("")) {
-            mPlaceOrigin.setError("Required field");
             return false;
         }
 
         if (mNoVoters.getText().toString().equals("")) {
-            mNoVoters.setError("Required field");
             return false;
         }
 
         if (mBicycle.isChecked()) {
             if (mBicycleNo.getText().toString().equals("")) {
-                mBicycleNo.setError("Required field");
                 return false;
             }
         }
 
         if (mBoat.isChecked()) {
             if (mBoatNo.getText().toString().equals("")) {
-                mBoatNo.setError("Required field");
                 return false;
             }
         }
 
         if (mBus.isChecked()) {
             if (mBusNo.getText().toString().equals("")) {
-                mBusNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mCar.isChecked()) {
             if (FamilyFragment.mCarNo.getText().toString().equals("")) {
-                FamilyFragment.mCarNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mJeep.isChecked()) {
             if (FamilyFragment.mJeepNo.getText().toString().equals("")) {
-                FamilyFragment.mJeepNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mMotorBoat.isChecked()) {
             if (FamilyFragment.mMotorBoatNo.getText().toString().equals("")) {
-                FamilyFragment.mMotorBoatNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mMotorcycle.isChecked()) {
             if (FamilyFragment.mMotorcycleNo.getText().toString().equals("")) {
-                FamilyFragment.mMotorcycleNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mOwner.isChecked()) {
             if (FamilyFragment.mOwnerNo.getText().toString().equals("")) {
-                FamilyFragment.mOwnerNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mPedicab.isChecked()) {
             if (FamilyFragment.mPedicabNo.getText().toString().equals("")) {
-                FamilyFragment.mPedicabNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mPickUp.isChecked()) {
             if (FamilyFragment.mPickUpNo.getText().toString().equals("")) {
-                FamilyFragment.mPedicabNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mPumpboat.isChecked()) {
             if (FamilyFragment.mPumpboatNo.getText().toString().equals("")) {
-                FamilyFragment.mPumpboatNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mRaft.isChecked()) {
             if (FamilyFragment.mRaftNo.getText().toString().equals("")) {
-                FamilyFragment.mRaftNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mSuv.isChecked()) {
             if (FamilyFragment.mSuvNo.getText().toString().equals("")) {
-                FamilyFragment.mSuvNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mTricycle.isChecked()) {
             if (FamilyFragment.mTricycleNo.getText().toString().equals("")) {
-                FamilyFragment.mTricycleNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mTruck.isChecked()) {
             if (FamilyFragment.mTruckNo.getText().toString().equals("")) {
-                FamilyFragment.mTruckNo.setError("Required field");
                 return false;
             }
         }
 
         if (FamilyFragment.mVan.isChecked()) {
             if (FamilyFragment.mVanNo.getText().toString().equals("")) {
-                FamilyFragment.mVanNo.setError("Required field");
                 return false;
             }
+        }
+
+        if (Integer.parseInt(FamilyFragment.mYearOrigin.getText().toString()) >= 1980 && Integer.parseInt(FamilyFragment.mYearOrigin.getText().toString()) <= 2018){
+        }
+        else
+        {
+            return false;
         }
 
 
