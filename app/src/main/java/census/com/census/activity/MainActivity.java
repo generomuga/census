@@ -123,10 +123,6 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
     private void graphIdentification(){
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-
-        String uid = mAuth.getCurrentUser().getUid();
-
         DatabaseReference identificationRef = mDatabase.child("familyIdentification");
 
         identificationRef.addValueEventListener(new ValueEventListener() {
