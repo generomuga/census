@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mChartResidency = (BarChart) findViewById(R.id.barChartResidency);
         mChartStatus = (BarChart) findViewById(R.id.barChartStatus);
 
-        sample();
+        graphIdentification();
 
     }
 
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
     }
 
 
-    private void sample(){
+    private void graphIdentification(){
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
