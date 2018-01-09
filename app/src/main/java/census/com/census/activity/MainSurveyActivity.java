@@ -387,46 +387,6 @@ public class MainSurveyActivity extends AppCompatActivity {
 
 
     private void sendDataFamily(){
-
-        /*private int noMale;
-        private int noFemale;
-        private String yearResided;
-        private String placeOrigin;
-        private String noVoters;
-        private int selectBicycle;
-        private int noBicycle;
-        private int selectBoat;
-        private int noBoat;
-        private int selectBus;
-        private int noBus;
-        private int selectCar;
-        private int noCar;
-        private int selectJeepney;
-        private int noJeep;
-        private int selectMotorboat;
-        private int noMotorboat;
-        private int selectMotorcycle;
-        private int noMotorCycle;
-        private int selectOwnerJeep;
-        private int noOwnerJeep;
-        private int selectPedicab;
-        private int noPedicab;
-        private int selectPickup;
-        private int noPickup;
-        private int selectPumpBoat;
-        private int noPumpBoat;
-        private int selectRaft;
-        private int noRaft;
-        private int selectSuv;
-        private int noSuv;
-        private int selectTricycle;
-        private int noTricycle;
-        private int selectTruck;
-        private int noTruck;
-        private int selectVan;
-        private int noVan;
-        private String timeStamp;*/
-
         if (checkFamilyFieldsComplete()) {
 
             int selectBicycle = (FamilyFragment.mBicycle.isChecked()) ? 1 : 0;
