@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
     SharedPreferences mSharedPreference;
 
+    DatabaseReference mDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +70,8 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
         mSharedPreference = getSharedPreferences("census.com.census", Context.MODE_PRIVATE);
         mSharedPreference.edit().clear().apply();
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         //init views
         mToolbar = (Toolbar) findViewById(R.id.toolBarMain);
@@ -122,7 +126,68 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
 
     private void graphIdentification(){
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference identificationRef = mDatabase.child("familyIdentification");
+
+        identificationRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0){
+                    countOwn = 0;
+                    countExtended = 0;
+
+                    countResident = 0;
+                    countNonResident = 0;
+
+                    countActive = 0;
+                    countInactive = 0;
+
+                    for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
+                        Map<String, Object> object1 = (Map<String, Object>) dataSnapshot1.getValue();
+
+                        int residency = Integer.parseInt(object1.get("residency").toString());
+                        int ownership = Integer.parseInt(object1.get("ownership").toString());
+                        int familyStatus = Integer.parseInt(object1.get("familyStatus").toString());
+
+                        if (residency == 0){
+                            countResident++;
+                        }
+                        if (residency == 1){
+                            countNonResident++;
+                        }
+
+                        graphResidency();
+
+                        if (ownership == 0){
+                            countOwn++;
+                        }
+                        if (ownership == 1){
+                            countExtended++;
+                        }
+
+                        graphOwnership();
+
+                        if (familyStatus == 0){
+                            countActive++;
+                        }
+                        if (familyStatus == 1){
+                            countInactive++;
+                        }
+
+                        graphStatus();
+
+                        //Toast.makeText(getApplicationContext(), Integer.toString(countNonResident), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void graphFamiy(){
         DatabaseReference identificationRef = mDatabase.child("familyIdentification");
 
         identificationRef.addValueEventListener(new ValueEventListener() {
@@ -185,6 +250,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
 
     }
+
 
     @Override
     public void onValueSelected(Entry e, Highlight h) {
