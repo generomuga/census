@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
     //views
     private Toolbar mToolbar;
+    private TextView mTotalVoters;
     FloatingActionButton mSurvey;
 
     //firebase components
@@ -62,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
     int countMale = 0;
     int countFemale = 0;
+
+    int countVoters = 0;
 
     BarChart mChartResidency;
     BarChart mChartOwnership;
@@ -83,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         //init views
+        mTotalVoters = (TextView) findViewById(R.id.textViewTotalVoters);
         mToolbar = (Toolbar) findViewById(R.id.toolBarMain);
         //mSurvey = (FloatingActionButton) findViewById(R.id.fabSurvey);
 
@@ -211,18 +216,22 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
                     countMale = 0;
                     countFemale = 0;
+                    countVoters = 0;
 
                     for (DataSnapshot dataSnapshotFamily: dataSnapshot.getChildren()){
                         Map<String, Object> objectFamily = (Map<String, Object>) dataSnapshotFamily.getValue();
 
                         int noMale = Integer.parseInt(objectFamily.get("noMale").toString());
                         int noFemale = Integer.parseInt(objectFamily.get("noFemale").toString());
+                        int noVoters = Integer.parseInt(objectFamily.get("noVoters").toString());
 
                         countMale = countMale + noMale;
                         countFemale = countFemale + noFemale;
+                        countVoters = countVoters + noVoters;
 
-                        Toast.makeText(getApplicationContext(), Integer.toString(countMale)+" "+Integer.toString(countFemale), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), Integer.toString(countVoters), Toast.LENGTH_LONG).show();
                         graphPopulation();
+                        graphVoters();
                     }
                 }
             }
@@ -382,6 +391,10 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         Description description = new Description();
         description.setText("");
         mChartPopulation.setDescription(description);
+    }
+
+    private void graphVoters(){
+        mTotalVoters.setText(Integer.toString(countVoters));
     }
 
 

@@ -166,6 +166,7 @@
 
 
             <LinearLayout
+                android:id="@+id/linearLayoutPopulation"
                 android:background="@drawable/edittext_round"
                 android:layout_below="@id/linearLayoutFamily"
                 android:layout_width="match_parent"
@@ -192,6 +193,52 @@
                     android:layout_height="200dp">
 
                 </com.github.mikephil.charting.charts.PieChart>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/edittext_round"
+                android:layout_below="@id/linearLayoutPopulation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/textViewTotalVoters"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="4"
+                        android:text="10"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:textSize="50sp"
+                        android:textAlignment="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="1"
+                        android:text="Total number of voters"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:textAlignment="center"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
