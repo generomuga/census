@@ -35,7 +35,7 @@
             <EditText
                 android:id="@+id/editTextFname"
                 android:background="@drawable/edittext_round"
-                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz "
                 android:hint="First Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
             <EditText
                 android:id="@+id/editTextMname"
                 android:background="@drawable/edittext_round"
-                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz "
                 android:hint="Middle Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
             <EditText
                 android:id="@+id/editTextLname"
                 android:background="@drawable/edittext_round"
-                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz "
                 android:hint="Last Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -122,7 +122,7 @@
             <EditText
                 android:id="@+id/editTextRegion"
                 android:background="@drawable/edittext_round"
-                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz "
                 android:enabled="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -159,7 +159,7 @@
             <EditText
                 android:id="@+id/editTextProvince"
                 android:background="@drawable/edittext_round"
-                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz "
                 android:enabled="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -195,7 +195,7 @@
             <EditText
                 android:id="@+id/editTextMunicipality"
                 android:background="@drawable/edittext_round"
-                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz "
                 android:enabled="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -231,7 +231,7 @@
             <EditText
                 android:id="@+id/editTextBarangay"
                 android:background="@drawable/edittext_round"
-                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz "
                 android:enabled="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -77,7 +77,7 @@
             <EditText
                 android:id="@+id/editTextOrigin"
                 android:background="@drawable/edittext_round"
-                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz"
+                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmMnOoPpQqRrSsTtUuVvWwXxYyZz "
                 android:hint="Place of orign"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

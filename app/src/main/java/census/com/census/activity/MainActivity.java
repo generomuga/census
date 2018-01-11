@@ -397,5 +397,4 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mTotalVoters.setText(Integer.toString(countVoters));
     }
 
-
 }
