@@ -197,6 +197,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linearLayoutVoters"
                 android:background="@drawable/edittext_round"
                 android:layout_below="@id/linearLayoutPopulation"
                 android:layout_width="match_parent"
@@ -241,6 +242,39 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutFamilyPlan"
+                android:background="@drawable/edittext_round"
+                android:layout_below="@id/linearLayoutVoters"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="No of family who applies family planning"
+                    android:textColor="#fff"
+                    android:textStyle="bold"/>
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/pieChartFamilyPlan"
+                    android:layout_gravity="center"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp">
+
+                </com.github.mikephil.charting.charts.PieChart>
+
+            </LinearLayout>
+
+
 
         </RelativeLayout>
 

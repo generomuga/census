@@ -67,10 +67,15 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
     int countVoters = 0;
 
+    int countPlanYes = 0;
+    int countPlanNo = 0;
+    int countPlanNa = 0;
+
     BarChart mChartResidency;
     BarChart mChartOwnership;
     BarChart mChartStatus;
     PieChart mChartPopulation;
+    PieChart mChartFamilyPlan;
 
     SharedPreferences mSharedPreference;
 
@@ -106,9 +111,11 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mChartResidency = (BarChart) findViewById(R.id.barChartResidency);
         mChartStatus = (BarChart) findViewById(R.id.barChartStatus);
         mChartPopulation = (PieChart) findViewById(R.id.pieChartPopulation);
+        mChartFamilyPlan = (PieChart) findViewById(R.id.pieChartFamilyPlan);
 
         graphIdentification();
         graphFamiy();
+        graphHealth();
 
     }
 
@@ -232,6 +239,51 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
                         //Toast.makeText(getApplicationContext(), Integer.toString(countVoters), Toast.LENGTH_LONG).show();
                         graphPopulation();
                         graphVoters();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+    }
+
+    private void graphHealth(){
+        DatabaseReference familyRef = mDatabase.child("health");
+
+        familyRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0){
+
+                    countPlanYes = 0;
+                    countPlanNo = 0;
+                    countPlanNa = 0;
+
+                    for (DataSnapshot dataSnapshotHealth: dataSnapshot.getChildren()){
+                        Map<String, Object> objectHealth = (Map<String, Object>) dataSnapshotHealth.getValue();
+
+                        int noPlan = Integer.parseInt(objectHealth.get("familyPlan").toString());
+
+                        if (noPlan == 1){
+                            countPlanYes = countPlanYes + 1;
+                        }
+
+                        if (noPlan == 2){
+                            countPlanNa = countPlanNa + 1;
+                        }
+
+                        if (noPlan == 0){
+                            countPlanNo = countPlanNo + 1;
+                        }
+
+                        graphFamilyPlan();
+                        //Toast.makeText(getApplicationContext(), Integer.toString(countPlanNo), Toast.LENGTH_LONG).show();
+
                     }
                 }
             }
@@ -391,6 +443,25 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         Description description = new Description();
         description.setText("");
         mChartPopulation.setDescription(description);
+    }
+
+    private void graphFamilyPlan(){
+        List<PieEntry> pieEntries = new ArrayList<>();
+        pieEntries.add(new PieEntry(countPlanYes, "Yes"));
+        pieEntries.add(new PieEntry(countPlanNo, "No"));
+        pieEntries.add(new PieEntry(countPlanNa, "NA"));
+
+        PieDataSet dataSet = new PieDataSet(pieEntries, "Family plan usage");
+        dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        PieData data = new PieData(dataSet);
+
+        mChartFamilyPlan.setData(data);
+        mChartFamilyPlan.invalidate();
+        mChartFamilyPlan.animateY(1000);
+        mChartFamilyPlan.getLegend().setTextColor(Color.WHITE);
+        Description description = new Description();
+        description.setText("");
+        mChartFamilyPlan.setDescription(description);
     }
 
     private void graphVoters(){
