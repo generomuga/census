@@ -8,12 +8,12 @@
         android:orderInCategory="1"
         app:showAsAction="ifRoom"/>
 
-    <item
+    <!--<item
         android:id="@+id/menu_settings"
         android:icon="@mipmap/ic_launcher"
         android:orderInCategory="1"
         app:showAsAction="never"
-        android:title="Settings"/>
+        android:title="Settings"/>-->
 
     <item
         android:id="@+id/menu_logout"
