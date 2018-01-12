@@ -22,7 +22,7 @@
             <EditText
                 android:id="@+id/editTextNoMaleMember"
                 android:background="@drawable/edittext_round"
-                android:digits="123456789"
+                android:digits="1234567890"
                 android:hint="No of male family member"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             <EditText
                 android:id="@+id/editTextNoFemaleMember"
                 android:background="@drawable/edittext_round"
-                android:digits="123456789"
+                android:digits="1234567890"
                 android:hint="No of female family member"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
             <EditText
                 android:id="@+id/editTextNoVoters"
                 android:background="@drawable/edittext_round"
-                android:digits="123456789"
+                android:digits="1234567890"
                 android:hint="Number of voters"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
