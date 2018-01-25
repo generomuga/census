@@ -195,7 +195,7 @@ public class FamilyFragment extends Fragment {
                         mYearOrigin.setError("Required field");
                     }
                     else{
-                        if (Integer.parseInt(mYearOrigin.getText().toString()) >= 1980 && Integer.parseInt(mYearOrigin.getText().toString()) <= 2018){
+                        if (Integer.parseInt(mYearOrigin.getText().toString()) >= 1900 && Integer.parseInt(mYearOrigin.getText().toString()) <= 2018){
                             mYearOrigin.setError(null);
                         }
                         else
@@ -1086,7 +1086,7 @@ public class FamilyFragment extends Fragment {
             }
         }
 
-        if (Integer.parseInt(FamilyFragment.mYearOrigin.getText().toString()) >= 1980 && Integer.parseInt(FamilyFragment.mYearOrigin.getText().toString()) <= 2018){
+        if (Integer.parseInt(FamilyFragment.mYearOrigin.getText().toString()) >= 1900 && Integer.parseInt(FamilyFragment.mYearOrigin.getText().toString()) <= 2018){
         }
         else
         {
