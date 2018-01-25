@@ -295,7 +295,7 @@ public class MainSurveyActivity extends AppCompatActivity {
 
     private boolean checkYear(){
         int year = Integer.parseInt(FamilyFragment.mYearOrigin.getText().toString());
-        if (year >= 1980 && year <= 2018){
+        if (year >= 1900 && year <= 2018){
             return true;
         }
         return false;
