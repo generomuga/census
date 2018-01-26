@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Census.iml" filepath="$PROJECT_DIR$/Census.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/census.iml" filepath="$PROJECT_DIR$/census.iml" />
+      <module fileurl="file://E:\Projects\Android\Census\app\app.iml" filepath="E:\Projects\Android\Census\app\app.iml" />
+      <module fileurl="file://E:\Projects\Android\Census\census.iml" filepath="E:\Projects\Android\Census\census.iml" />
     </modules>
   </component>
 </project>
