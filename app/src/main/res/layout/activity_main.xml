@@ -221,7 +221,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="5dp"
                         android:layout_weight="4"
-                        android:text="10"
+                        android:text="0"
                         android:textColor="#fff"
                         android:textStyle="bold"
                         android:textSize="50sp"
@@ -274,6 +274,68 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/linearLayoutTopFamilyPlan"
+                android:background="@drawable/edittext_round"
+                android:layout_below="@id/linearLayoutFamilyPlan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Top family planning methods"
+                    android:textColor="#fff"
+                    android:textStyle="bold"/>
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChartTopFamilyPlan"
+                    android:layout_gravity="center"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp">
+
+                </com.github.mikephil.charting.charts.BarChart>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linearLayoutNoEatMeals"
+                android:layout_below="@id/linearLayoutTopFamilyPlan"
+                android:background="@drawable/edittext_round"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="No of family who eat complete meals everyday"
+                    android:textColor="#fff"
+                    android:textStyle="bold"/>
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/pieChartEatFamilyComplete"
+                    android:layout_gravity="center"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp">
+
+                </com.github.mikephil.charting.charts.PieChart>
+
+            </LinearLayout>
 
 
         </RelativeLayout>

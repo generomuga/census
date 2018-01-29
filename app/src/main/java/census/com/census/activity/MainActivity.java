@@ -71,11 +71,32 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
     int countPlanNo = 0;
     int countPlanNa = 0;
 
+    int countBasal = 0;
+    int countCervical = 0;
+    int countCondom = 0;
+    int countDepo = 0;
+    int countIud = 0;
+    int countLactation = 0;
+    int countPills = 0;
+    int countRhtym = 0;
+    int countStandard = 0;
+    int countSympho = 0;
+    int countTubal = 0;
+    int countVasectomy = 0;
+    int countWithdrawal = 0;
+
+
+    int countEatCompleteYes = 0;
+    int countEatCompleteNo = 0;
+
+
     BarChart mChartResidency;
     BarChart mChartOwnership;
     BarChart mChartStatus;
+    BarChart mChartTopFamilyPlan;
     PieChart mChartPopulation;
     PieChart mChartFamilyPlan;
+    PieChart mChartEatComplete;
 
     SharedPreferences mSharedPreference;
 
@@ -110,8 +131,10 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mChartOwnership = (BarChart) findViewById(R.id.barChartOwnership);
         mChartResidency = (BarChart) findViewById(R.id.barChartResidency);
         mChartStatus = (BarChart) findViewById(R.id.barChartStatus);
+        mChartTopFamilyPlan = (BarChart) findViewById(R.id.barChartTopFamilyPlan);
         mChartPopulation = (PieChart) findViewById(R.id.pieChartPopulation);
         mChartFamilyPlan = (PieChart) findViewById(R.id.pieChartFamilyPlan);
+        mChartEatComplete = (PieChart) findViewById(R.id.pieChartEatFamilyComplete);
 
         graphIdentification();
         graphFamiy();
@@ -268,7 +291,6 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
                         Map<String, Object> objectHealth = (Map<String, Object>) dataSnapshotHealth.getValue();
 
                         int noPlan = Integer.parseInt(objectHealth.get("familyPlan").toString());
-
                         if (noPlan == 1){
                             countPlanYes = countPlanYes + 1;
                         }
@@ -281,7 +303,82 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
                             countPlanNo = countPlanNo + 1;
                         }
 
+                        int noEatComplete = Integer.parseInt(objectHealth.get("eatComplete").toString());
+                        if (noEatComplete == 0){
+                            countEatCompleteNo = countEatCompleteNo + 1;
+                        }
+
+                        if (noEatComplete == 1){
+                            countEatCompleteYes = countEatCompleteYes + 1;
+                        }
+
+                        int noBasal = Integer.parseInt(objectHealth.get("basal").toString());
+                        if (noBasal == 1){
+                            countBasal = countBasal + 1;
+                        }
+
+                        int noCervical = Integer.parseInt(objectHealth.get("cervical").toString());
+                        if (noCervical == 1){
+                            countCervical = countCervical + 1;
+                        }
+
+                        int noCondom = Integer.parseInt(objectHealth.get("condom").toString());
+                        if (noCondom == 1){
+                            countCondom = countCondom + 1;
+                        }
+
+                        int noDepo = Integer.parseInt(objectHealth.get("depo").toString());
+                        if (noDepo == 1){
+                            countDepo = countDepo + 1;
+                        }
+
+                        int noIud = Integer.parseInt(objectHealth.get("iud").toString());
+                        if (noIud == 1){
+                            countIud = countIud + 1;
+                        }
+
+                        int noLactation = Integer.parseInt(objectHealth.get("lactation").toString());
+                        if (noLactation == 1){
+                            countLactation = countLactation + 1;
+                        }
+
+                        int noPills = Integer.parseInt(objectHealth.get("pills").toString());
+                        if (noPills == 1){
+                            countPills = countPills + 1;
+                        }
+
+                        int noRhytm = Integer.parseInt(objectHealth.get("rhtythm").toString());
+                        if (noRhytm == 1){
+                            countRhtym = countRhtym + 1;
+                        }
+
+                        int noStandard = Integer.parseInt(objectHealth.get("standard").toString());
+                        if (noStandard == 1){
+                            countStandard = countStandard + 1;
+                        }
+
+                        int noSympho = Integer.parseInt(objectHealth.get("sympho").toString());
+                        if (noSympho == 1){
+                            countSympho = countSympho + 1;
+                        }
+
+                        int noTubal = Integer.parseInt(objectHealth.get("tubal").toString());
+                        if (noTubal == 1){
+                            countTubal = countTubal + 1;
+                        }
+
+                        int noVasectomy = Integer.parseInt(objectHealth.get("vasectomy").toString());
+                        if (noVasectomy == 1){
+                            countVasectomy = countVasectomy + 1;
+                        }
+
+                        int noWithdrawal = Integer.parseInt(objectHealth.get("withdrawal").toString());
+                        if (noWithdrawal == 1){
+                            countWithdrawal = countWithdrawal + 1;
+                        }
+
                         graphFamilyPlan();
+                        graphEatComplete();
                         //Toast.makeText(getApplicationContext(), Integer.toString(countPlanNo), Toast.LENGTH_LONG).show();
 
                     }
@@ -307,7 +404,6 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
     public void onNothingSelected() {
 
     }
-
 
     private void graphResidency(){
         ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
@@ -467,5 +563,24 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
     private void graphVoters(){
         mTotalVoters.setText(Integer.toString(countVoters));
     }
+
+    private void graphEatComplete(){
+        List<PieEntry> pieEntries = new ArrayList<>();
+        pieEntries.add(new PieEntry(countEatCompleteYes, "Complete"));
+        pieEntries.add(new PieEntry(countEatCompleteNo, "Incomplete"));
+
+        PieDataSet dataSet = new PieDataSet(pieEntries, "Population");
+        dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        PieData data = new PieData(dataSet);
+
+        mChartEatComplete.setData(data);
+        mChartEatComplete.invalidate();
+        mChartEatComplete.animateY(1000);
+        mChartEatComplete.getLegend().setTextColor(Color.WHITE);
+        Description description = new Description();
+        description.setText("");
+        mChartEatComplete.setDescription(description);
+    }
+
 
 }
