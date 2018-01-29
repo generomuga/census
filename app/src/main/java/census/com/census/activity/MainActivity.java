@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,8 +39,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import census.com.census.R;
 
@@ -85,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
     int countVasectomy = 0;
     int countWithdrawal = 0;
 
+    String top, mid, bottom = null;
+    int topVal, midVal, bottomVal = 0;
 
     int countEatCompleteYes = 0;
     int countEatCompleteNo = 0;
@@ -377,8 +383,39 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
                             countWithdrawal = countWithdrawal + 1;
                         }
 
+
+                        int countTubal = 0;
+                        int countVasectomy = 0;
+                        int countWithdrawal = 0;
+                        HashMap<String, Integer> map = new HashMap<>();
+                        map.put("Basal", countBasal);
+                        map.put("Cervical", countCervical);
+                        map.put("Condom", countCondom);
+                        map.put("Depo", countDepo);
+                        map.put("Iud", countIud);
+                        map.put("Lactation", countLactation);
+                        map.put("Pills", countPills);
+                        map.put("Rhythm", countRhtym);
+                        map.put("Standard", countStandard);
+                        map.put("Sympho", countSympho);
+                        map.put("Tubal", countTubal);
+                        map.put("Vasectomy", countVasectomy);
+                        map.put("Withdrawal", countWithdrawal);
+
+                        TreeMap<String, Integer> sortedMap = sortMapByValue(map);
+                        //Log.i("sorted", sortedMap.values().toArray()[7].toString());
+                        top = sortedMap.firstEntry().getKey();
+                        topVal = sortedMap.firstEntry().getValue();
+
+                        mid =  sortedMap.keySet().toArray()[7].toString();
+                        midVal = Integer.parseInt(sortedMap.values().toArray()[7].toString());
+
+                        bottom = sortedMap.lastEntry().getKey();
+                        bottomVal = sortedMap.lastEntry().getValue();
+
                         graphFamilyPlan();
                         graphEatComplete();
+                        graphTopFamilyPlan();
                         //Toast.makeText(getApplicationContext(), Integer.toString(countPlanNo), Toast.LENGTH_LONG).show();
 
                     }
@@ -560,6 +597,53 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mChartFamilyPlan.setDescription(description);
     }
 
+    private void graphTopFamilyPlan(){
+        ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
+        ArrayList<BarEntry> yVals2 = new ArrayList<BarEntry>();
+        ArrayList<BarEntry> yVals3 = new ArrayList<BarEntry>();
+
+        yVals1.add(new BarEntry(0, topVal));
+        yVals2.add(new BarEntry(1, midVal));
+        yVals3.add(new BarEntry(2, bottomVal));
+
+        BarDataSet set1 = new BarDataSet(yVals1, "Dates");
+        set1.setLabel(top+" (Top)");
+        set1.setColors(-33);
+        set1.setValueTextColor(Color.WHITE);
+
+        BarDataSet set2 = new BarDataSet(yVals2, "Dates");
+        set2.setLabel(mid+" (Mid)");
+        set2.setColors(Color.GREEN);
+        set2.setValueTextColor(Color.WHITE);
+
+        BarDataSet set3 = new BarDataSet(yVals3, "Dates");
+        set3.setLabel(bottom+" (Bottom)");
+        set3.setColors(Color.RED);
+        set3.setValueTextColor(Color.WHITE);
+
+        ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
+        dataSets.add(set1);
+        dataSets.add(set2);
+        dataSets.add(set3);
+
+        BarData data = new BarData(dataSets);
+
+        mChartTopFamilyPlan.setTouchEnabled(false);
+        mChartTopFamilyPlan.setData(data);
+        mChartTopFamilyPlan.getAxisLeft().setTextColor(Color.WHITE);
+        mChartTopFamilyPlan.getAxisRight().setTextColor(Color.WHITE);
+        mChartTopFamilyPlan.getXAxis().setTextColor(Color.WHITE);
+        mChartTopFamilyPlan.getLegend().setTextColor(Color.WHITE);
+
+        Description description = new Description();
+        description.setText("");
+
+        mChartTopFamilyPlan.setDescription(description);
+        mChartTopFamilyPlan.notifyDataSetChanged();
+        mChartTopFamilyPlan.animateY(1000);
+        mChartTopFamilyPlan.invalidate();
+    }
+
     private void graphVoters(){
         mTotalVoters.setText(Integer.toString(countVoters));
     }
@@ -583,4 +667,31 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
     }
 
 
+    public static TreeMap<String, Integer> sortMapByValue(HashMap<String, Integer> map){
+        Comparator<String> comparator = new ValueComparator(map);
+        //TreeMap is a map sorted by its keys.
+        //The comparator is used to sort the TreeMap by keys.
+        TreeMap<String, Integer> result = new TreeMap<String, Integer>(comparator);
+        result.putAll(map);
+        return result;
+    }
+
+}
+
+class ValueComparator implements Comparator<String>{
+
+    HashMap<String, Integer> map = new HashMap<String, Integer>();
+
+    public ValueComparator(HashMap<String, Integer> map){
+        this.map.putAll(map);
+    }
+
+    @Override
+    public int compare(String s1, String s2) {
+        if(map.get(s1) >= map.get(s2)){
+            return -1;
+        }else{
+            return 1;
+        }
+    }
 }
