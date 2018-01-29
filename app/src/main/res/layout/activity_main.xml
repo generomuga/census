@@ -291,7 +291,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Top family planning methods"
+                    android:text="Family planning methods"
                     android:textColor="#fff"
                     android:textStyle="bold"/>
 
@@ -329,6 +329,37 @@
 
                 <com.github.mikephil.charting.charts.PieChart
                     android:id="@+id/pieChartEatFamilyComplete"
+                    android:layout_gravity="center"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp">
+
+                </com.github.mikephil.charting.charts.PieChart>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutSourceWater"
+                android:layout_below="@id/linearLayoutNoEatMeals"
+                android:background="@drawable/edittext_round"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Source of water"
+                    android:textColor="#fff"
+                    android:textStyle="bold"/>
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/pieChartEatSourceWater"
                     android:layout_gravity="center"
                     android:layout_width="300dp"
                     android:layout_height="200dp">

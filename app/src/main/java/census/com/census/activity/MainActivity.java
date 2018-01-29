@@ -95,6 +95,12 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
     int countEatCompleteYes = 0;
     int countEatCompleteNo = 0;
 
+    int countDugWell = 0;
+    int countCommunity = 0;
+    int countTubed = 0;
+    int countSpring = 0;
+    int countPeddler = 0;
+    int countMineral = 0;
 
     BarChart mChartResidency;
     BarChart mChartOwnership;
@@ -103,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
     PieChart mChartPopulation;
     PieChart mChartFamilyPlan;
     PieChart mChartEatComplete;
+    PieChart mChartSourceWater;
 
     SharedPreferences mSharedPreference;
 
@@ -141,10 +148,12 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mChartPopulation = (PieChart) findViewById(R.id.pieChartPopulation);
         mChartFamilyPlan = (PieChart) findViewById(R.id.pieChartFamilyPlan);
         mChartEatComplete = (PieChart) findViewById(R.id.pieChartEatFamilyComplete);
+        mChartSourceWater = (PieChart) findViewById(R.id.pieChartEatSourceWater);
 
         graphIdentification();
         graphFamiy();
         graphHealth();
+        graphEnvironment();
 
     }
 
@@ -293,6 +302,23 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
                     countPlanNo = 0;
                     countPlanNa = 0;
 
+                    countBasal = 0;
+                    countCervical = 0;
+                    countCondom = 0;
+                    countDepo = 0;
+                    countIud = 0;
+                    countLactation = 0;
+                    countPills = 0;
+                    countRhtym = 0;
+                    countStandard = 0;
+                    countSympho = 0;
+                    countTubal = 0;
+                    countVasectomy = 0;
+                    countWithdrawal = 0;
+
+                    countEatCompleteYes = 0;
+                    countEatCompleteNo = 0;
+
                     for (DataSnapshot dataSnapshotHealth: dataSnapshot.getChildren()){
                         Map<String, Object> objectHealth = (Map<String, Object>) dataSnapshotHealth.getValue();
 
@@ -427,10 +453,58 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
             }
         });
-
-
     }
 
+
+    private void graphEnvironment(){
+        DatabaseReference ennvironmentRef = mDatabase.child("environment");
+        ennvironmentRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0 ){
+
+                    countDugWell = 0;
+                    countCommunity = 0;
+                    countTubed = 0;
+                    countSpring = 0;
+                    countPeddler = 0;
+                    countMineral = 0;
+
+                    for (DataSnapshot dataSnapshotEnvironment: dataSnapshot.getChildren()) {
+                        Map<String, Object> objectEnvironment = (Map<String, Object>) dataSnapshotEnvironment.getValue();
+
+                        int noWater = Integer.parseInt(objectEnvironment.get("water").toString());
+
+                        if (noWater == 0){
+                            countDugWell = countDugWell + 1;
+                        }
+                        if (noWater == 1){
+                            countCommunity = countCommunity + 1;
+                        }
+                        if (noWater == 2){
+                            countTubed = countTubed + 1;
+                        }
+                        if (noWater == 3){
+                            countSpring = countSpring + 1;
+                        }
+                        if (noWater == 4){
+                            countPeddler = countPeddler + 1;
+                        }
+                        if (noWater == 5){
+                            countMineral = countMineral + 1;
+                        }
+
+                        graphWaterSource();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
 
     @Override
     public void onValueSelected(Entry e, Highlight h) {
@@ -666,6 +740,27 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mChartEatComplete.setDescription(description);
     }
 
+    private void graphWaterSource(){
+        List<PieEntry> pieEntries = new ArrayList<>();
+        pieEntries.add(new PieEntry(countDugWell, "Dug well"));
+        pieEntries.add(new PieEntry(countCommunity, "Community"));
+        pieEntries.add(new PieEntry(countTubed, "Tube"));
+        pieEntries.add(new PieEntry(countSpring, "Spring"));
+        pieEntries.add(new PieEntry(countPeddler, "Peddler"));
+        pieEntries.add(new PieEntry(countMineral, "Mineral"));
+
+        PieDataSet dataSet = new PieDataSet(pieEntries, "Water system");
+        dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        PieData data = new PieData(dataSet);
+
+        mChartSourceWater.setData(data);
+        mChartSourceWater.invalidate();
+        mChartSourceWater.animateY(1000);
+        mChartSourceWater.getLegend().setTextColor(Color.WHITE);
+        Description description = new Description();
+        description.setText("");
+        mChartSourceWater.setDescription(description);
+    }
 
     public static TreeMap<String, Integer> sortMapByValue(HashMap<String, Integer> map){
         Comparator<String> comparator = new ValueComparator(map);
