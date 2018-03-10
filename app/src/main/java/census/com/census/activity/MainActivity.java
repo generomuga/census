@@ -544,7 +544,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mChartResidency.setData(data);
         mChartResidency.getAxisLeft().setTextColor(Color.WHITE);
         mChartResidency.getAxisRight().setTextColor(Color.WHITE);
-        mChartResidency.getXAxis().setTextColor(Color.WHITE);
+        mChartResidency.getXAxis().setTextColor(0);
         mChartResidency.getLegend().setTextColor(Color.WHITE);
 
         Description description = new Description();
