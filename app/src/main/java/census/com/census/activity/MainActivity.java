@@ -583,7 +583,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mChartOwnership.setData(data);
         mChartOwnership.getAxisLeft().setTextColor(Color.WHITE);
         mChartOwnership.getAxisRight().setTextColor(Color.WHITE);
-        mChartOwnership.getXAxis().setTextColor(Color.WHITE);
+        mChartOwnership.getXAxis().setTextColor(0);
         mChartOwnership.getLegend().setTextColor(Color.WHITE);
 
         Description description = new Description();
@@ -622,7 +622,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mChartStatus.setData(data);
         mChartStatus.getAxisLeft().setTextColor(Color.WHITE);
         mChartStatus.getAxisRight().setTextColor(Color.WHITE);
-        mChartStatus.getXAxis().setTextColor(Color.WHITE);
+        mChartStatus.getXAxis().setTextColor(0);
         mChartStatus.getLegend().setTextColor(Color.WHITE);
 
         Description description = new Description();
@@ -641,7 +641,10 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
         PieDataSet dataSet = new PieDataSet(pieEntries, "Population");
         dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        dataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
         PieData data = new PieData(dataSet);
+
+        //dataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
 
         mChartPopulation.setData(data);
         mChartPopulation.invalidate();
@@ -660,6 +663,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
         PieDataSet dataSet = new PieDataSet(pieEntries, "Family plan usage");
         dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        dataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
         PieData data = new PieData(dataSet);
 
         mChartFamilyPlan.setData(data);
@@ -729,6 +733,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
         PieDataSet dataSet = new PieDataSet(pieEntries, "Population");
         dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        dataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
         PieData data = new PieData(dataSet);
 
         mChartEatComplete.setData(data);
@@ -746,11 +751,12 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         pieEntries.add(new PieEntry(countCommunity, "Community"));
         pieEntries.add(new PieEntry(countTubed, "Tube"));
         pieEntries.add(new PieEntry(countSpring, "Spring"));
-        pieEntries.add(new PieEntry(countPeddler, "Peddler"));
-        pieEntries.add(new PieEntry(countMineral, "Mineral"));
+        //pieEntries.add(new PieEntry(countPeddler, "Peddler"));
+        //pieEntries.add(new PieEntry(countMineral, "Mineral"));
 
         PieDataSet dataSet = new PieDataSet(pieEntries, "Water system");
         dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        dataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
         PieData data = new PieData(dataSet);
 
         mChartSourceWater.setData(data);
