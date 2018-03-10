@@ -247,7 +247,7 @@
             <EditText
                 android:id="@+id/editTextHouseNo"
                 android:background="@drawable/edittext_round"
-                android:hint="House no"
+                android:hint="House number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -261,7 +261,7 @@
             <EditText
                 android:background="@drawable/edittext_round"
                 android:id="@+id/editTextStreetNo"
-                android:hint="Street No"
+                android:hint="Street Address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
