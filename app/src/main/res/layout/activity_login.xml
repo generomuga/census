@@ -9,13 +9,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#394152"
+        android:background="#ECEFF1"
         android:gravity="center"
         android:orientation="vertical"
         android:weightSum="1">
 
         <ImageView
             android:id="@+id/imageView2"
+            android:background="#33C19B"
             android:adjustViewBounds="true"
             android:layout_width="184dp"
             android:layout_height="156dp"
@@ -33,10 +34,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:padding="10dp"
             android:textAlignment="center"
-            android:textColor="#fff"
+            android:textColor="#33C19B"
             android:textColorHint="@color/colorHint" />
 
         <EditText
@@ -52,7 +53,7 @@
             android:layout_marginTop="15dp"
             android:padding="10dp"
             android:textAlignment="center"
-            android:textColor="#fff"
+            android:textColor="#33C19B"
             android:textColorHint="@color/colorHint" />
 
         <Button
@@ -75,7 +76,7 @@
             android:layout_marginTop="10dp"
             android:text="Forgot password"
             android:textAlignment="center"
-            android:textColor="@color/colorLoginEditText"
+            android:textColor="#33C19B"
             android:textStyle="bold" />
 
 
