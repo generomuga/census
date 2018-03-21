@@ -7,7 +7,7 @@
 
 
     <ScrollView
-        android:background="#394152"
+        android:background="#ECEFF1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp">
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#394152"
+            android:background="#ECEFF1"
             android:elevation="5dp"
             android:orientation="vertical">
 
@@ -36,7 +36,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="Toilet facilities"
-                    android:textColor="#fff" />
+                    android:textColor="#33C19B" />
 
                 <Spinner
                     android:id="@+id/spinnerToilet"
@@ -64,7 +64,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="Source of water"
-                    android:textColor="#fff" />
+                    android:textColor="#33C19B" />
 
                 <Spinner
                     android:id="@+id/spinnerWater"
@@ -92,7 +92,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="Source of electricity"
-                    android:textColor="#fff" />
+                    android:textColor="#33C19B" />
 
                 <Spinner
                     android:id="@+id/spinnerElectricity"
@@ -120,7 +120,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="House acquisition"
-                    android:textColor="#fff" />
+                    android:textColor="#33C19B" />
 
                 <Spinner
                     android:id="@+id/spinnerHouse"
@@ -149,7 +149,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="Lot ownership"
-                    android:textColor="#fff" />
+                    android:textColor="#33C19B" />
 
                 <Spinner
                     android:id="@+id/spinnerLot"
@@ -177,7 +177,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="Structure of the house"
-                    android:textColor="#fff" />
+                    android:textColor="#33C19B" />
 
                 <Spinner
                     android:id="@+id/spinnerStructure"
@@ -205,7 +205,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="External house walls"
-                    android:textColor="#fff" />
+                    android:textColor="#33C19B" />
 
                 <Spinner
                     android:id="@+id/spinnerExternal"
@@ -232,7 +232,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="Roof construction"
-                    android:textColor="#fff" />
+                    android:textColor="#33C19B" />
 
                 <Spinner
                     android:id="@+id/spinnerRoof"
@@ -260,7 +260,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="Floor material"
-                    android:textColor="#fff" />
+                    android:textColor="#33C19B" />
 
                 <Spinner
                     android:id="@+id/spinnerFloor"
@@ -288,7 +288,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="Lighting used"
-                    android:textColor="#fff" />
+                    android:textColor="#33C19B" />
 
                 <Spinner
                     android:id="@+id/spinnerLightning"
@@ -316,7 +316,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="Cooking facilities"
-                    android:textColor="#fff" />
+                    android:textColor="#33C19B" />
 
                 <Spinner
                     android:id="@+id/spinnerCooking"
@@ -344,7 +344,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="Garbage disposal"
-                    android:textColor="#fff" />
+                    android:textColor="#33C19B" />
 
                 <Spinner
                     android:id="@+id/spinnerGarbage"
@@ -371,7 +371,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="Location of the house"
-                    android:textColor="#fff" />
+                    android:textColor="#33C19B" />
 
                 <Spinner
                     android:id="@+id/spinnerLocation"
@@ -399,7 +399,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="Location of the house (ecological)"
-                    android:textColor="#fff" />
+                    android:textColor="#33C19B" />
 
                 <Spinner
                     android:id="@+id/spinnerEcological"
