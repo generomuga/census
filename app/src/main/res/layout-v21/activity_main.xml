@@ -11,7 +11,7 @@
     <include android:id="@+id/toolBarMain" layout="@layout/app_bar_main" />
 
     <ScrollView
-        android:background="@color/colorPrimary"
+        android:background="#ECEFF1"
         android:layout_below="@id/toolBarMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -81,7 +81,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="5dp"
                     android:text="Household Condition"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textStyle="bold"/>
 
                 <com.github.mikephil.charting.charts.BarChart
@@ -112,7 +112,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="5dp"
                     android:text="Ownership"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textStyle="bold"/>
 
                 <com.github.mikephil.charting.charts.BarChart
@@ -143,7 +143,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="5dp"
                     android:text="Family Status"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textStyle="bold"/>
 
                 <com.github.mikephil.charting.charts.BarChart
@@ -183,7 +183,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="5dp"
                     android:text="Population"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textStyle="bold"/>
 
                 <com.github.mikephil.charting.charts.PieChart

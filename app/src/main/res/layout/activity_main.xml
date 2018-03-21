@@ -11,7 +11,7 @@
     <include android:id="@+id/toolBarMain" layout="@layout/app_bar_main" />
 
     <ScrollView
-        android:background="@color/colorPrimary"
+        android:background="#ECEFF1"
         android:layout_below="@id/toolBarMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
