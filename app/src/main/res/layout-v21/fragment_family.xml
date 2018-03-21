@@ -6,7 +6,7 @@
     android:background="#394152">
 
     <ScrollView
-        android:background="#394152"
+        android:background="#ECEFF1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp">
@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#394152"
+            android:background="#ECEFF1"
             android:elevation="5dp"
             android:orientation="vertical">
 
@@ -30,7 +30,7 @@
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
                 android:padding="10dp"
-                android:textColor="#fff"
+                android:textColor="#33C19B"
                 android:textColorHint="@color/colorHint"
                 android:textSize="16sp" />
 
@@ -45,7 +45,7 @@
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
                 android:padding="10dp"
-                android:textColor="#fff"
+                android:textColor="#33C19B"
                 android:textColorHint="@color/colorHint"
                 android:textSize="16sp" />
 
@@ -70,7 +70,7 @@
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
                 android:padding="10dp"
-                android:textColor="#fff"
+                android:textColor="#33C19B"
                 android:textColorHint="@color/colorHint"
                 android:textSize="16sp" />
 
@@ -85,7 +85,7 @@
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
                 android:padding="10dp"
-                android:textColor="#fff"
+                android:textColor="#33C19B"
                 android:textColorHint="@color/colorHint"
                 android:textSize="16sp" />
 
@@ -101,7 +101,7 @@
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="11dp"
                 android:padding="10dp"
-                android:textColor="#fff"
+                android:textColor="#33C19B"
                 android:textColorHint="@color/colorHint"
                 android:textSize="16sp" />
 
@@ -113,7 +113,7 @@
                 android:layout_marginRight="11dp"
                 android:layout_marginTop="10dp"
                 android:text="Type and number of vehicle owned"
-                android:textColor="#fff"
+                android:textColor="#33C19B"
                 android:textSize="12sp" />
 
             <LinearLayout
@@ -132,7 +132,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
                     android:text="Bicycle"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -146,7 +146,7 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -167,7 +167,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
                     android:text="Boat"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -181,7 +181,7 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -202,7 +202,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
                     android:text="Bus"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -216,7 +216,7 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -237,7 +237,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
                     android:text="Car"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -251,7 +251,7 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -272,7 +272,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
                     android:text="Jeep"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -286,7 +286,7 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -307,7 +307,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
                     android:text="Motorboat"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -321,7 +321,7 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -342,7 +342,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
                     android:text="Motorcycle"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -356,7 +356,7 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -377,7 +377,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
                     android:text="Owner"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -391,7 +391,7 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -412,7 +412,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
                     android:text="Pedicab"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -426,7 +426,7 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -447,7 +447,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
                     android:text="Pickup"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -461,7 +461,7 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -482,7 +482,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
                     android:text="Pump boat"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -496,7 +496,7 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -517,7 +517,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
                     android:text="Raft"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -531,7 +531,7 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -552,7 +552,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
                     android:text="SUV"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -566,7 +566,7 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -587,7 +587,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
                     android:text="Tricycle"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -601,7 +601,7 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -622,7 +622,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
                     android:text="Truck"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -636,7 +636,7 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
@@ -657,7 +657,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_weight="1"
                     android:text="Van"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -671,7 +671,7 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textColorHint="@color/colorTextView" />
 
             </LinearLayout>
