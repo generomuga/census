@@ -222,7 +222,7 @@
                         android:layout_marginBottom="5dp"
                         android:layout_weight="4"
                         android:text="0"
-                        android:textColor="#fff"
+                        android:textColor="#33C19B"
                         android:textStyle="bold"
                         android:textSize="50sp"
                         android:textAlignment="center"/>
@@ -234,7 +234,7 @@
                         android:layout_marginBottom="5dp"
                         android:layout_weight="1"
                         android:text="Total number of voters"
-                        android:textColor="#fff"
+                        android:textColor="#33C19B"
                         android:textStyle="bold"
                         android:textSize="13sp"
                         android:textAlignment="center"/>
@@ -261,7 +261,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="5dp"
                     android:text="No of family who applies family planning"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textStyle="bold"/>
 
                 <com.github.mikephil.charting.charts.PieChart
@@ -292,7 +292,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="5dp"
                     android:text="Family planning methods"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textStyle="bold"/>
 
                 <com.github.mikephil.charting.charts.BarChart
@@ -324,7 +324,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="5dp"
                     android:text="No of family who eat complete meals everyday"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textStyle="bold"/>
 
                 <com.github.mikephil.charting.charts.PieChart
@@ -355,7 +355,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="5dp"
                     android:text="Source of water"
-                    android:textColor="#fff"
+                    android:textColor="#33C19B"
                     android:textStyle="bold"/>
 
                 <com.github.mikephil.charting.charts.PieChart

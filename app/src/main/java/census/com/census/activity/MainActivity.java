@@ -687,18 +687,18 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
         BarDataSet set1 = new BarDataSet(yVals1, "Dates");
         set1.setLabel(top+" (Top)");
-        set1.setColors(-33);
-        set1.setValueTextColor(Color.WHITE);
+        set1.setColors(Color.MAGENTA);
+        set1.setValueTextColor(Color.BLACK);
 
         BarDataSet set2 = new BarDataSet(yVals2, "Dates");
         set2.setLabel(mid+" (Mid)");
         set2.setColors(Color.GREEN);
-        set2.setValueTextColor(Color.WHITE);
+        set2.setValueTextColor(Color.BLACK);
 
         BarDataSet set3 = new BarDataSet(yVals3, "Dates");
         set3.setLabel(bottom+" (Bottom)");
         set3.setColors(Color.RED);
-        set3.setValueTextColor(Color.WHITE);
+        set3.setValueTextColor(Color.BLACK);
 
         ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
         dataSets.add(set1);
@@ -709,10 +709,10 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
         mChartTopFamilyPlan.setTouchEnabled(false);
         mChartTopFamilyPlan.setData(data);
-        mChartTopFamilyPlan.getAxisLeft().setTextColor(Color.WHITE);
-        mChartTopFamilyPlan.getAxisRight().setTextColor(Color.WHITE);
-        mChartTopFamilyPlan.getXAxis().setTextColor(Color.WHITE);
-        mChartTopFamilyPlan.getLegend().setTextColor(Color.WHITE);
+        mChartTopFamilyPlan.getAxisLeft().setTextColor(Color.BLACK);
+        mChartTopFamilyPlan.getAxisRight().setTextColor(Color.BLACK);
+        mChartTopFamilyPlan.getXAxis().setTextColor(Color.BLACK);
+        mChartTopFamilyPlan.getLegend().setTextColor(Color.BLACK);
 
         Description description = new Description();
         description.setText("");
@@ -740,7 +740,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mChartEatComplete.setData(data);
         mChartEatComplete.invalidate();
         mChartEatComplete.animateY(1000);
-        mChartEatComplete.getLegend().setTextColor(Color.WHITE);
+        mChartEatComplete.getLegend().setTextColor(Color.BLACK);
         Description description = new Description();
         description.setText("");
         mChartEatComplete.setDescription(description);
@@ -763,7 +763,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         mChartSourceWater.setData(data);
         mChartSourceWater.invalidate();
         mChartSourceWater.animateY(1000);
-        mChartSourceWater.getLegend().setTextColor(Color.WHITE);
+        mChartSourceWater.getLegend().setTextColor(Color.BLACK);
         Description description = new Description();
         description.setText("");
         mChartSourceWater.setDescription(description);
